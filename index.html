@@ -7,24 +7,29 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 :root {
-  --gold:       #c9a84c;
-  --gold2:      #e8c97a;
-  --gold3:      #f5e4b0;
-  --gold-dark:  #8a6a1e;
-  --gold-glow:  rgba(201,168,76,0.35);
-  --black:      #050505;
-  --deep:       #0a090b;
-  --panel:      #0f0d12;
-  --panel2:     #13111a;
-  --border:     rgba(201,168,76,0.18);
-  --border2:    rgba(201,168,76,0.08);
-  --text:       rgba(255,255,255,0.82);
-  --text-dim:   rgba(255,255,255,0.38);
-  --text-muted: rgba(255,255,255,0.18);
-  --crimson:    #8b1a2e;
-  --rose:       #c0375a;
-  --emerald:    #1a6b4a;
-  --teal:       #2dd4bf;
+  --pink:        #ff6eb4;
+  --pink2:       #ff9dd4;
+  --pink3:       #ffd6ec;
+  --pink-dark:   #c4327a;
+  --pink-glow:   rgba(255,110,180,0.35);
+  --violet:      #9b59f5;
+  --violet2:     #b87fff;
+  --violet3:     #dcc6ff;
+  --purple:      #6b21d6;
+  --purple-dark: #3d0f8a;
+  --blue-neon:   #5ee7ff;
+  --blue-glow:   rgba(94,231,255,0.25);
+  --black:       #0a040f;
+  --deep:        #0d0618;
+  --panel:       #120820;
+  --panel2:      #180b2a;
+  --border:      rgba(155,89,245,0.25);
+  --border2:     rgba(155,89,245,0.10);
+  --text:        rgba(255,255,255,0.88);
+  --text-dim:    rgba(255,255,255,0.45);
+  --text-muted:  rgba(255,255,255,0.20);
+  --crimson:     #ff3c7a;
+  --teal:        #5ee7ff;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -35,10 +40,9 @@ body {
   color: var(--text);
   overflow-x: hidden;
   min-height: 100vh;
-  cursor: default;
 }
 
-/* ── LUXURY BACKGROUND ── */
+/* ── BACKGROUND ── */
 .bg-scene {
   position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
 }
@@ -46,158 +50,115 @@ body {
   content: '';
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 15% 0%, rgba(201,168,76,0.07) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 85% 100%, rgba(139,26,46,0.06) 0%, transparent 55%),
-    radial-gradient(ellipse 100% 100% at 50% 50%, #0a0810 0%, #050505 100%);
+    radial-gradient(ellipse 70% 55% at 10% 0%, rgba(155,89,245,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 90% 100%, rgba(255,110,180,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 80% at 50% 40%, rgba(107,33,214,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 100% 100% at 50% 50%, #0d0618 0%, #0a040f 100%);
 }
 .bg-scene::after {
   content: '';
   position: absolute; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.022'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239b59f5' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
-.marble-vein {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(135deg, transparent 30%, rgba(201,168,76,0.015) 50%, transparent 70%);
-  animation: marbleShift 20s ease-in-out infinite;
+.aurora {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(135deg, transparent 25%, rgba(155,89,245,0.04) 50%, transparent 75%);
+  animation: auroraShift 18s ease-in-out infinite;
 }
-@keyframes marbleShift { 0%,100%{opacity:0.5} 50%{opacity:1} }
+@keyframes auroraShift { 0%,100%{opacity:0.4;transform:skewX(0deg)} 50%{opacity:1;transform:skewX(2deg)} }
 
-/* ── GOLD PARTICLES ── */
+/* ── PARTICLES ── */
 .particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
 .particle {
-  position: absolute;
-  border-radius: 50%;
-  background: var(--gold2);
-  opacity: 0;
+  position: absolute; border-radius: 50%; opacity: 0;
   animation: particleDrift linear infinite;
 }
 @keyframes particleDrift {
   0% { transform: translateY(100vh) scale(0); opacity: 0; }
-  10% { opacity: 0.6; }
+  10% { opacity: 0.7; }
   90% { opacity: 0.15; }
   100% { transform: translateY(-20px) scale(1); opacity: 0; }
 }
 
 /* ── PAGES ── */
 .page { display: none; position: relative; z-index: 1; max-width: 480px; margin: 0 auto; padding-bottom: 80px; min-height: 100vh; }
-.page.active { display: block; animation: royalEnter 0.6s cubic-bezier(0.16,1,0.3,1) both; }
-@keyframes royalEnter { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.page.active { display: block; animation: royalEnter 0.55s cubic-bezier(0.16,1,0.3,1) both; }
+@keyframes royalEnter { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
 
 /* ── HEADER ── */
 .header {
   position: sticky; top: 0; z-index: 100;
   display: flex; align-items: center; gap: 15px;
-  padding: 16px 20px;
-  background: rgba(5,5,5,0.92);
+  padding: 14px 18px;
+  background: rgba(10,4,15,0.90);
   backdrop-filter: blur(40px) saturate(180%);
   -webkit-backdrop-filter: blur(40px) saturate(180%);
   border-bottom: 1px solid var(--border);
 }
 .header::after {
   content: '';
-  position: absolute; bottom: 0; left: 20%; right: 20%; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  opacity: 0.6;
+  position: absolute; bottom: 0; left: 15%; right: 15%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--pink), var(--violet), transparent);
+  opacity: 0.7;
 }
 .logo-mark {
   width: 46px; height: 46px; border-radius: 12px;
-  background: linear-gradient(135deg, #1a1208, #0d0a04);
-  border: 1px solid rgba(201,168,76,0.4);
-  box-shadow: 0 0 24px rgba(201,168,76,0.2), inset 0 1px 0 rgba(201,168,76,0.15);
+  background: linear-gradient(135deg, #1a0830, #0d0420);
+  border: 1px solid rgba(155,89,245,0.5);
+  box-shadow: 0 0 20px rgba(155,89,245,0.25), 0 0 40px rgba(255,110,180,0.1), inset 0 1px 0 rgba(255,110,180,0.2);
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900;
-  color: var(--gold2); flex-shrink: 0; overflow: hidden;
-  letter-spacing: -1px;
+  flex-shrink: 0; overflow: hidden;
 }
-.logo-mark img { width: 100%; height: 100%; object-fit: cover; }
-.brand-block {}
+.logo-mark img { width: 100%; height: 100%; object-fit: cover; border-radius: 11px; }
 .brand-name {
   font-family: 'Playfair Display', serif;
   font-weight: 700; font-size: 18px; letter-spacing: 3px;
-  background: linear-gradient(90deg, var(--gold3), var(--gold2), var(--gold), var(--gold2));
+  background: linear-gradient(90deg, var(--pink3), var(--pink2), var(--pink), var(--violet2));
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   text-transform: uppercase;
 }
-.brand-sub {
-  font-size: 8.5px; letter-spacing: 3.5px; color: var(--text-muted);
-  text-transform: uppercase; font-weight: 600; margin-top: 1px;
-}
-.header-ornament {
-  margin-left: auto;
-  display: flex; align-items: center; gap: 6px;
-}
+.brand-sub { font-size: 8.5px; letter-spacing: 3.5px; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-top: 1px; }
+.header-ornament { margin-left: auto; display: flex; align-items: center; gap: 6px; }
 .live-dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: #ff3c5a;
-  box-shadow: 0 0 8px #ff3c5a;
-  animation: livePulse 1.5s ease-in-out infinite;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--pink);
+  box-shadow: 0 0 8px var(--pink); animation: livePulse 1.5s ease-in-out infinite;
 }
 @keyframes livePulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.7)} }
-.live-label { font-size: 8px; letter-spacing: 2px; color: rgba(255,60,90,0.7); font-weight: 700; }
+.live-label { font-size: 8px; letter-spacing: 2px; color: rgba(255,110,180,0.75); font-weight: 700; }
 
 /* ── BACK BTN ── */
 .back-btn {
   display: inline-flex; align-items: center; gap: 8px;
-  margin: 20px 20px 0;
-  color: var(--text-dim); font-size: 11px; font-weight: 600;
-  letter-spacing: 1.5px; text-transform: uppercase;
-  cursor: pointer; transition: all 0.3s; padding: 8px 0;
-  border-bottom: 1px solid transparent;
+  margin: 20px 20px 0; color: var(--text-dim); font-size: 11px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.3s;
+  padding: 8px 0; border-bottom: 1px solid transparent;
 }
-.back-btn:hover { color: var(--gold2); border-bottom-color: rgba(201,168,76,0.3); }
+.back-btn:hover { color: var(--pink2); border-bottom-color: rgba(255,110,180,0.3); }
 .back-btn::before { content: '←'; font-size: 14px; }
 
 /* ── HOME HERO ── */
-.hero {
-  padding: 52px 24px 36px;
-  text-align: center;
-  position: relative;
-}
-.hero-ornament {
-  display: flex; align-items: center; justify-content: center; gap: 14px;
-  margin-bottom: 22px;
-}
-.ornament-line {
-  height: 1px; width: 50px;
-  background: linear-gradient(90deg, transparent, var(--gold));
-}
-.ornament-line.rev { background: linear-gradient(90deg, var(--gold), transparent); }
-.ornament-diamond {
-  width: 6px; height: 6px;
-  background: var(--gold);
-  transform: rotate(45deg);
-  box-shadow: 0 0 10px var(--gold-glow);
-}
-.hero-eyebrow {
-  font-size: 9px; letter-spacing: 5px; color: var(--gold);
-  text-transform: uppercase; font-weight: 700;
-  margin-bottom: 16px; display: block;
-}
+.hero { padding: 52px 24px 36px; text-align: center; position: relative; }
+.hero-ornament { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 22px; }
+.ornament-line { height: 1px; width: 50px; background: linear-gradient(90deg, transparent, var(--violet)); }
+.ornament-line.rev { background: linear-gradient(90deg, var(--violet), transparent); }
+.ornament-diamond { width: 6px; height: 6px; background: var(--pink); transform: rotate(45deg); box-shadow: 0 0 12px var(--pink-glow); }
+.hero-eyebrow { font-size: 9px; letter-spacing: 5px; color: var(--violet2); text-transform: uppercase; font-weight: 700; margin-bottom: 16px; display: block; }
 .hero-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 42px; font-weight: 900; line-height: 1.05;
-  color: #fff;
-  margin-bottom: 6px;
-  text-shadow: 0 0 60px rgba(201,168,76,0.15);
+  font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 900; line-height: 1.05;
+  color: #fff; margin-bottom: 6px; text-shadow: 0 0 60px rgba(255,110,180,0.15);
 }
 .hero-title em {
   font-style: italic;
-  background: linear-gradient(135deg, var(--gold3), var(--gold2), var(--gold));
+  background: linear-gradient(135deg, var(--pink3), var(--pink2), var(--pink), var(--violet2));
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
-.hero-sub {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 15px; font-weight: 400; font-style: italic;
-  color: var(--text-dim); margin-top: 10px; letter-spacing: 0.5px;
-}
+.hero-sub { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-style: italic; color: var(--text-dim); margin-top: 10px; }
 
 /* ── NAV CARDS ── */
 .nav-grid { padding: 4px 16px 0; display: flex; flex-direction: column; gap: 10px; }
 .nav-card {
   display: flex; align-items: center; gap: 16px;
-  background: var(--panel);
-  border: 1px solid var(--border2);
+  background: var(--panel); border: 1px solid var(--border2);
   border-radius: 16px; padding: 16px 18px;
   cursor: pointer; position: relative; overflow: hidden;
   transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
@@ -205,129 +166,87 @@ body {
 }
 .nav-card::before {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(201,168,76,0.06), transparent);
+  background: linear-gradient(135deg, rgba(155,89,245,0.07), rgba(255,110,180,0.04));
   opacity: 0; transition: opacity 0.3s;
 }
 .nav-card::after {
-  content: ''; position: absolute;
-  top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent 10%, var(--gold) 50%, transparent 90%);
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent 10%, var(--pink) 40%, var(--violet) 60%, transparent 90%);
   opacity: 0; transition: opacity 0.4s;
 }
-.nav-card:hover { border-color: rgba(201,168,76,0.35); transform: translateY(-3px); box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.08); }
+.nav-card:hover { border-color: rgba(155,89,245,0.4); transform: translateY(-3px); box-shadow: 0 16px 48px rgba(107,33,214,0.3), 0 0 0 1px rgba(255,110,180,0.07); }
 .nav-card:hover::before { opacity: 1; }
 .nav-card:hover::after { opacity: 1; }
 .nav-card:active { transform: scale(0.98) translateY(-1px); }
+@keyframes cardReveal { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+.nav-card:nth-child(1){animation-delay:.05s}.nav-card:nth-child(2){animation-delay:.12s}
+.nav-card:nth-child(3){animation-delay:.19s}.nav-card:nth-child(4){animation-delay:.26s}
+.nav-card:nth-child(5){animation-delay:.33s}.nav-card:nth-child(6){animation-delay:.40s}
 
-@keyframes cardReveal {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-.nav-card:nth-child(1){animation-delay:.05s}
-.nav-card:nth-child(2){animation-delay:.12s}
-.nav-card:nth-child(3){animation-delay:.19s}
-.nav-card:nth-child(4){animation-delay:.26s}
-.nav-card:nth-child(5){animation-delay:.33s}
-.nav-card:nth-child(6){animation-delay:.40s}
-
-.nav-icon-wrap {
-  width: 50px; height: 50px; border-radius: 14px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 22px; flex-shrink: 0; position: relative;
-  overflow: hidden;
-}
-.icon-gold    { background: linear-gradient(135deg, #2a1f06, #1a1208); border: 1px solid rgba(201,168,76,0.3); box-shadow: 0 4px 20px rgba(201,168,76,0.2); }
-.icon-crimson { background: linear-gradient(135deg, #1e0810, #120509); border: 1px solid rgba(192,55,90,0.3); box-shadow: 0 4px 20px rgba(192,55,90,0.2); }
-.icon-slate   { background: linear-gradient(135deg, #111219, #0a0b10); border: 1px solid rgba(100,110,160,0.25); box-shadow: 0 4px 20px rgba(60,70,120,0.2); }
-.icon-emerald { background: linear-gradient(135deg, #071511, #040d09); border: 1px solid rgba(26,107,74,0.3); box-shadow: 0 4px 20px rgba(26,107,74,0.2); }
-.icon-green   { background: linear-gradient(135deg, #061410, #030d08); border: 1px solid rgba(45,212,191,0.25); box-shadow: 0 4px 20px rgba(45,212,191,0.15); }
+.nav-icon-wrap { width: 50px; height: 50px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+.icon-pink    { background: linear-gradient(135deg, #2a0820, #1a0515); border: 1px solid rgba(255,110,180,0.35); box-shadow: 0 4px 20px rgba(255,110,180,0.2); }
+.icon-violet  { background: linear-gradient(135deg, #1a0840, #100528); border: 1px solid rgba(155,89,245,0.35); box-shadow: 0 4px 20px rgba(155,89,245,0.2); }
+.icon-blue    { background: linear-gradient(135deg, #041828, #021018); border: 1px solid rgba(94,231,255,0.3); box-shadow: 0 4px 20px rgba(94,231,255,0.15); }
+.icon-rose    { background: linear-gradient(135deg, #240418, #160210); border: 1px solid rgba(255,60,122,0.3); box-shadow: 0 4px 20px rgba(255,60,122,0.15); }
+.icon-green   { background: linear-gradient(135deg, #041410, #020d08); border: 1px solid rgba(45,212,140,0.25); box-shadow: 0 4px 20px rgba(45,212,140,0.15); }
 
 .nav-text { flex: 1; }
-.nav-title {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800; font-size: 13px; letter-spacing: 1.2px;
-  color: #fff; text-transform: uppercase; line-height: 1.2;
-}
-.nav-desc { font-size: 10.5px; color: var(--text-dim); margin-top: 4px; font-weight: 400; letter-spacing: 0.3px; }
-.nav-arrow { color: var(--gold); opacity: 0.35; font-size: 20px; transition: all 0.3s; }
+.nav-title { font-weight: 800; font-size: 13px; letter-spacing: 1.2px; color: #fff; text-transform: uppercase; line-height: 1.2; }
+.nav-desc { font-size: 10.5px; color: var(--text-dim); margin-top: 4px; font-weight: 400; }
+.nav-arrow { color: var(--violet2); opacity: 0.4; font-size: 20px; transition: all 0.3s; }
 .nav-card:hover .nav-arrow { opacity: 1; transform: translateX(4px); }
 
 /* ── COIN SVG ── */
-.coin-svg { width: 26px; height: 26px; filter: drop-shadow(0 2px 8px rgba(201,168,76,0.6)); }
+.coin-svg { width: 26px; height: 26px; filter: drop-shadow(0 2px 8px rgba(255,110,180,0.6)); }
 
 /* ── INNER PAGE ── */
-.inner-hero {
-  padding: 32px 20px 24px; text-align: center;
-}
+.inner-hero { padding: 32px 20px 24px; text-align: center; }
 .inner-eyebrow {
-  font-size: 9px; letter-spacing: 5px; color: var(--gold);
-  text-transform: uppercase; font-weight: 700; margin-bottom: 14px;
-  display: flex; align-items: center; justify-content: center; gap: 12px;
+  font-size: 9px; letter-spacing: 5px; color: var(--violet2); text-transform: uppercase;
+  font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; gap: 12px;
 }
-.inner-eyebrow::before, .inner-eyebrow::after {
-  content: ''; flex: 1; max-width: 40px; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold));
-}
-.inner-eyebrow::after { background: linear-gradient(90deg, var(--gold), transparent); }
-.inner-title {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700; font-size: 30px; color: #fff; line-height: 1.1; margin-bottom: 8px;
-  text-shadow: 0 0 40px rgba(201,168,76,0.1);
-}
-.inner-rule {
-  display: flex; align-items: center; justify-content: center; gap: 10px;
-  margin-top: 12px;
-}
-.rule-gem { font-size: 8px; color: var(--gold); }
-.rule-line { flex: 1; max-width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
-.rule-line.rev { background: linear-gradient(90deg, var(--gold), transparent); }
+.inner-eyebrow::before, .inner-eyebrow::after { content: ''; flex: 1; max-width: 40px; height: 1px; background: linear-gradient(90deg, transparent, var(--violet)); }
+.inner-eyebrow::after { background: linear-gradient(90deg, var(--violet), transparent); }
+.inner-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 30px; color: #fff; line-height: 1.1; margin-bottom: 8px; }
+.inner-rule { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 12px; }
+.rule-gem { font-size: 8px; color: var(--pink); }
+.rule-line { flex: 1; max-width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--pink)); }
+.rule-line.rev { background: linear-gradient(90deg, var(--pink), transparent); }
 
 /* ── SECTION CARDS ── */
 .sec-card {
-  margin: 12px 14px 0;
-  background: var(--panel);
-  border: 1px solid var(--border2);
+  margin: 12px 14px 0; background: var(--panel); border: 1px solid var(--border2);
   border-radius: 18px; overflow: hidden;
-  box-shadow: 0 4px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.03);
+  box-shadow: 0 4px 32px rgba(107,33,214,0.2), inset 0 1px 0 rgba(255,110,180,0.04);
   animation: secReveal 0.6s cubic-bezier(0.16,1,0.3,1) both;
 }
 @keyframes secReveal { from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)} }
-.sec-card:nth-child(2){animation-delay:.08s}
-.sec-card:nth-child(3){animation-delay:.16s}
-.sec-card:nth-child(4){animation-delay:.24s}
-.sec-card:nth-child(5){animation-delay:.32s}
+.sec-card:nth-child(2){animation-delay:.08s}.sec-card:nth-child(3){animation-delay:.16s}
+.sec-card:nth-child(4){animation-delay:.24s}.sec-card:nth-child(5){animation-delay:.32s}
 
 .sec-hdr {
-  display: flex; align-items: center; gap: 14px;
-  padding: 14px 18px;
-  background: linear-gradient(135deg, rgba(201,168,76,0.05), rgba(201,168,76,0.01));
-  border-bottom: 1px solid var(--border2);
-  cursor: pointer; user-select: none;
-  transition: background 0.3s;
-  position: relative;
+  display: flex; align-items: center; gap: 14px; padding: 14px 18px;
+  background: linear-gradient(135deg, rgba(155,89,245,0.06), rgba(255,110,180,0.02));
+  border-bottom: 1px solid var(--border2); cursor: pointer; user-select: none; transition: background 0.3s; position: relative;
 }
 .sec-hdr::before {
-  content: ''; position: absolute;
-  left: 0; top: 10%; bottom: 10%; width: 2px;
-  background: linear-gradient(180deg, transparent, var(--gold), transparent);
-  opacity: 0; transition: opacity 0.3s;
-  border-radius: 0 2px 2px 0;
+  content: ''; position: absolute; left: 0; top: 10%; bottom: 10%; width: 2px;
+  background: linear-gradient(180deg, transparent, var(--pink), var(--violet), transparent);
+  opacity: 0; transition: opacity 0.3s; border-radius: 0 2px 2px 0;
 }
 .sec-hdr:hover::before, .sec-hdr.open::before { opacity: 1; }
-.sec-hdr:hover { background: linear-gradient(135deg, rgba(201,168,76,0.09), rgba(201,168,76,0.03)); }
+.sec-hdr:hover { background: linear-gradient(135deg, rgba(155,89,245,0.10), rgba(255,110,180,0.05)); }
 
 .sec-num {
-  width: 32px; height: 32px; border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Playfair Display', serif;
-  font-weight: 700; font-size: 15px; flex-shrink: 0;
-  color: var(--gold2);
-  background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.05));
-  border: 1px solid rgba(201,168,76,0.25);
-  box-shadow: inset 0 1px 0 rgba(201,168,76,0.1);
+  width: 32px; height: 32px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif; font-weight: 700; font-size: 15px; flex-shrink: 0;
+  color: var(--pink2);
+  background: linear-gradient(135deg, rgba(255,110,180,0.15), rgba(155,89,245,0.08));
+  border: 1px solid rgba(255,110,180,0.3);
+  box-shadow: inset 0 1px 0 rgba(255,110,180,0.15);
 }
-.sec-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; flex: 1; color: #fff; letter-spacing: 0.5px; }
-.sec-chev { color: var(--gold); opacity: 0.4; font-size: 18px; transition: all 0.35s cubic-bezier(0.16,1,0.3,1); }
+.sec-title { font-weight: 700; font-size: 13px; flex: 1; color: #fff; letter-spacing: 0.5px; }
+.sec-chev { color: var(--violet2); opacity: 0.4; font-size: 18px; transition: all 0.35s cubic-bezier(0.16,1,0.3,1); }
 .sec-hdr.open .sec-chev { transform: rotate(90deg); opacity: 1; }
 
 .sec-body { padding: 0 18px; max-height: 0; overflow: hidden; transition: max-height 0.5s ease, padding 0.3s ease; }
@@ -335,186 +254,126 @@ body {
 
 /* ── CONTENT ELEMENTS ── */
 .sub-label {
-  font-size: 9px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase;
-  font-weight: 700; margin: 16px 0 10px;
-  display: flex; align-items: center; gap: 8px;
+  font-size: 9px; letter-spacing: 3px; color: var(--violet2); text-transform: uppercase;
+  font-weight: 700; margin: 16px 0 10px; display: flex; align-items: center; gap: 8px;
 }
 .sub-label:first-child { margin-top: 0; }
-.sub-label::before { content: ''; width: 12px; height: 1px; background: var(--gold); display: inline-block; }
+.sub-label::before { content: ''; width: 12px; height: 1px; background: var(--violet2); display: inline-block; }
 
 .lux-table { width: 100%; border-collapse: collapse; margin: 8px 0; }
-.lux-table thead tr {
-  border-bottom: 1px solid rgba(201,168,76,0.2);
-}
-.lux-table th {
-  padding: 9px 12px; font-size: 9px; font-weight: 700;
-  letter-spacing: 2px; color: var(--gold); text-transform: uppercase; text-align: left;
-}
-.lux-table td {
-  padding: 10px 12px; font-size: 12px; font-weight: 500;
-  color: rgba(255,255,255,0.75); border-bottom: 1px solid rgba(255,255,255,0.04);
-}
+.lux-table thead tr { border-bottom: 1px solid rgba(155,89,245,0.25); }
+.lux-table th { padding: 9px 12px; font-size: 9px; font-weight: 700; letter-spacing: 2px; color: var(--violet2); text-transform: uppercase; text-align: left; }
+.lux-table td { padding: 10px 12px; font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.75); border-bottom: 1px solid rgba(255,255,255,0.04); }
 .lux-table tr:last-child td { border-bottom: none; }
-.lux-table tr:nth-child(even) td { background: rgba(201,168,76,0.025); }
-.lux-table tr:hover td { background: rgba(201,168,76,0.04); }
-.c-gold { color: var(--gold2) !important; font-weight: 700 !important; }
-.c-rose { color: #e07090 !important; font-weight: 700 !important; }
-.c-green { color: #4dd4a0 !important; font-weight: 700 !important; }
-.c-teal { color: var(--teal) !important; font-weight: 700 !important; }
+.lux-table tr:nth-child(even) td { background: rgba(155,89,245,0.03); }
+.lux-table tr:hover td { background: rgba(255,110,180,0.04); }
+.c-pink  { color: var(--pink2) !important; font-weight: 700 !important; }
+.c-rose  { color: #ff7aaa !important; font-weight: 700 !important; }
+.c-green { color: #6eefc0 !important; font-weight: 700 !important; }
+.c-teal  { color: var(--teal) !important; font-weight: 700 !important; }
+.c-violet{ color: var(--violet2) !important; font-weight: 700 !important; }
 
 .example-box {
-  background: linear-gradient(135deg, rgba(201,168,76,0.06), rgba(201,168,76,0.02));
-  border: 1px solid rgba(201,168,76,0.18);
-  border-left: 2px solid var(--gold);
+  background: linear-gradient(135deg, rgba(155,89,245,0.08), rgba(255,110,180,0.03));
+  border: 1px solid rgba(155,89,245,0.22);
+  border-left: 2px solid var(--violet2);
   border-radius: 0 12px 12px 0;
   padding: 14px 16px; margin: 10px 0;
-  font-size: 12.5px; line-height: 1.75;
-  color: rgba(255,255,255,0.72);
+  font-size: 12.5px; line-height: 1.75; color: rgba(255,255,255,0.72);
 }
-.example-box strong { color: var(--gold2); }
-.ex-label {
-  font-size: 8px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase;
-  font-weight: 700; margin-bottom: 7px; display: block;
-}
+.example-box strong { color: var(--pink2); }
+.ex-label { font-size: 8px; letter-spacing: 3px; color: var(--violet2); text-transform: uppercase; font-weight: 700; margin-bottom: 7px; display: block; }
 
 .rule-list { list-style: none; margin: 6px 0; }
 .rule-list li {
   display: flex; align-items: flex-start; gap: 10px;
-  padding: 7px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.03);
+  padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.03);
   font-size: 12.5px; line-height: 1.65; color: rgba(255,255,255,0.72);
 }
 .rule-list li:last-child { border-bottom: none; }
-.r-gem {
-  width: 6px; height: 6px; border-radius: 1px;
-  flex-shrink: 0; margin-top: 8px; transform: rotate(45deg);
-}
-.gem-gold { background: var(--gold); box-shadow: 0 0 6px var(--gold-glow); }
-.gem-rose { background: #c0375a; box-shadow: 0 0 6px rgba(192,55,90,0.5); }
-.gem-teal { background: var(--teal); box-shadow: 0 0 6px rgba(45,212,191,0.5); }
-.gem-green { background: #4dd4a0; box-shadow: 0 0 6px rgba(77,212,160,0.5); }
-.gem-dim { background: rgba(255,255,255,0.3); }
+.r-gem { width: 6px; height: 6px; border-radius: 1px; flex-shrink: 0; margin-top: 8px; transform: rotate(45deg); }
+.gem-pink   { background: var(--pink); box-shadow: 0 0 6px var(--pink-glow); }
+.gem-violet { background: var(--violet2); box-shadow: 0 0 6px rgba(184,127,255,0.5); }
+.gem-teal   { background: var(--teal); box-shadow: 0 0 6px rgba(94,231,255,0.5); }
+.gem-green  { background: #6eefc0; box-shadow: 0 0 6px rgba(110,239,192,0.5); }
+.gem-rose   { background: #ff6090; box-shadow: 0 0 6px rgba(255,96,144,0.5); }
+.gem-dim    { background: rgba(255,255,255,0.25); }
 .rule-list li strong { color: #fff; font-weight: 600; }
 
 .alert-box {
-  background: linear-gradient(135deg, rgba(192,55,90,0.08), rgba(139,26,46,0.05));
-  border: 1px solid rgba(192,55,90,0.25);
-  border-left: 2px solid #c0375a;
+  background: linear-gradient(135deg, rgba(255,60,122,0.08), rgba(200,30,80,0.04));
+  border: 1px solid rgba(255,110,180,0.25);
+  border-left: 2px solid var(--pink);
   border-radius: 0 12px 12px 0;
   padding: 14px 16px; margin: 12px 0;
   font-size: 12.5px; color: rgba(255,255,255,0.72); line-height: 1.65;
 }
-.alert-box strong { color: #e07090; }
-.al-label {
-  font-size: 8px; letter-spacing: 3px; color: #e07090; text-transform: uppercase;
-  font-weight: 700; margin-bottom: 6px; display: block;
-}
+.alert-box strong { color: var(--pink2); }
+.al-label { font-size: 8px; letter-spacing: 3px; color: var(--pink2); text-transform: uppercase; font-weight: 700; margin-bottom: 6px; display: block; }
 
-.divider {
-  height: 1px; margin: 16px 0;
-  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.2), transparent);
-}
+.divider { height: 1px; margin: 16px 0; background: linear-gradient(90deg, transparent, rgba(155,89,245,0.25), rgba(255,110,180,0.15), transparent); }
 
 /* ── HOME FOOTER ── */
-.footer {
-  text-align: center; padding: 40px 20px 16px;
-  font-size: 9px; letter-spacing: 3px; color: var(--text-muted);
-  text-transform: uppercase; font-weight: 600;
-}
-.footer span { color: var(--gold); }
+.footer { text-align: center; padding: 40px 20px 16px; font-size: 9px; letter-spacing: 3px; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
+.footer span { background: linear-gradient(90deg, var(--pink), var(--violet2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
 /* ── CONTACT CARD ── */
 .contact-link {
   display: flex; align-items: center; gap: 16px;
-  background: linear-gradient(135deg, rgba(37,211,102,0.07), rgba(18,140,126,0.04));
+  background: linear-gradient(135deg, rgba(37,211,102,0.07), rgba(18,140,80,0.04));
   border: 1px solid rgba(37,211,102,0.2);
   border-radius: 16px; padding: 18px 20px;
-  text-decoration: none; color: #fff;
-  transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+  text-decoration: none; color: #fff; transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
 }
 .contact-link:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(37,211,102,0.15); border-color: rgba(37,211,102,0.4); }
 
 /* ── REGISTRATION ── */
 .reg-card {
-  margin: 24px 14px 0;
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 22px; padding: 36px 24px;
-  text-align: center;
-  box-shadow: 0 0 60px rgba(201,168,76,0.06), inset 0 1px 0 rgba(201,168,76,0.07);
+  margin: 24px 14px 0; background: var(--panel); border: 1px solid var(--border);
+  border-radius: 22px; padding: 36px 24px; text-align: center;
+  box-shadow: 0 0 60px rgba(155,89,245,0.08), inset 0 1px 0 rgba(255,110,180,0.08);
   animation: secReveal 0.6s ease both;
 }
-.reg-icon { font-size: 52px; margin-bottom: 18px; display: block; filter: drop-shadow(0 4px 16px rgba(201,168,76,0.3)); }
-.reg-title {
-  font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700;
-  color: var(--gold2); margin-bottom: 10px;
-}
+.reg-icon { font-size: 52px; margin-bottom: 18px; display: block; filter: drop-shadow(0 4px 16px rgba(255,110,180,0.35)); }
+.reg-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--pink2); margin-bottom: 10px; }
 .reg-desc { font-size: 12.5px; color: var(--text-dim); line-height: 1.75; margin-bottom: 26px; }
 .reg-btn {
   display: inline-flex; align-items: center; gap: 10px;
-  background: linear-gradient(135deg, #1a1208, #2a1f08);
-  border: 1px solid rgba(201,168,76,0.5);
+  background: linear-gradient(135deg, #1a0830, #250a3e);
+  border: 1px solid rgba(155,89,245,0.5);
   border-radius: 14px; padding: 14px 30px;
-  font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px;
-  letter-spacing: 1.5px; text-transform: uppercase;
-  color: var(--gold2); text-decoration: none;
-  box-shadow: 0 6px 24px rgba(201,168,76,0.2), inset 0 1px 0 rgba(201,168,76,0.15);
+  font-weight: 700; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--violet3); text-decoration: none;
+  box-shadow: 0 6px 24px rgba(155,89,245,0.25), inset 0 1px 0 rgba(255,110,180,0.15);
   transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
 }
-.reg-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(201,168,76,0.3), inset 0 1px 0 rgba(201,168,76,0.2); border-color: var(--gold2); }
+.reg-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(155,89,245,0.4); border-color: var(--violet2); }
 
-.info-row {
-  display: flex; flex-direction: column; gap: 10px;
-  margin: 12px 14px 0;
-}
-.info-item {
-  display: flex; align-items: center; gap: 14px;
-  background: var(--panel2); border: 1px solid var(--border2);
-  border-radius: 14px; padding: 14px 16px;
-}
+.info-row { display: flex; flex-direction: column; gap: 10px; margin: 12px 14px 0; }
+.info-item { display: flex; align-items: center; gap: 14px; background: var(--panel2); border: 1px solid var(--border2); border-radius: 14px; padding: 14px 16px; }
 .info-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
-.ii-gold { background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.2); }
-.ii-purple { background: rgba(120,80,200,0.1); border: 1px solid rgba(120,80,200,0.2); }
-.ii-green { background: rgba(77,212,160,0.1); border: 1px solid rgba(77,212,160,0.2); }
+.ii-violet { background: rgba(155,89,245,0.12); border: 1px solid rgba(155,89,245,0.25); }
+.ii-pink   { background: rgba(255,110,180,0.10); border: 1px solid rgba(255,110,180,0.22); }
+.ii-green  { background: rgba(110,239,192,0.10); border: 1px solid rgba(110,239,192,0.2); }
 .info-item-title { font-weight: 700; font-size: 12.5px; color: #fff; }
 .info-item-sub { font-size: 10.5px; color: var(--text-dim); margin-top: 2px; }
-
-/* ── WHATSAPP ── */
-.wa-card {
-  margin: 24px 14px 0;
-  background: linear-gradient(135deg, rgba(37,211,102,0.06), rgba(18,140,126,0.03));
-  border: 1px solid rgba(37,211,102,0.2);
-  border-radius: 22px; padding: 36px 24px;
-  text-align: center;
-}
-.wa-btn {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: linear-gradient(135deg, #0a2018, #061510);
-  border: 1px solid rgba(37,211,102,0.4);
-  border-radius: 14px; padding: 14px 30px;
-  font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px;
-  letter-spacing: 1px; color: #25d366; text-decoration: none;
-  box-shadow: 0 6px 24px rgba(37,211,102,0.15);
-  transition: all 0.3s;
-}
-.wa-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(37,211,102,0.25); }
 
 /* ── SCROLLBAR ── */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 10px; }
+::-webkit-scrollbar-thumb { background: rgba(155,89,245,0.35); border-radius: 10px; }
 </style>
 </head>
 <body>
 
-<div class="bg-scene"><div class="marble-vein"></div></div>
+<div class="bg-scene"><div class="aurora"></div></div>
 <div class="particles" id="particles"></div>
 
 <!-- ══════════════════════════ HOME ══════════════════════════ -->
 <div class="page active" id="page-home">
   <header class="header">
     <div class="logo-mark">
-      <img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.textContent='R'"/>
+      <img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-family:Playfair Display,serif;font-weight:900;font-size:20px;background:linear-gradient(135deg,#ff9dd4,#b87fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent\'>R</span>'"/>
     </div>
     <div class="brand-block">
       <div class="brand-name">Rizz Live</div>
@@ -539,7 +398,7 @@ body {
 
   <div class="nav-grid">
     <div class="nav-card" onclick="goTo('page-host')">
-      <div class="nav-icon-wrap icon-crimson">🎤</div>
+      <div class="nav-icon-wrap icon-pink">🎤</div>
       <div class="nav-text">
         <div class="nav-title">Host Policy</div>
         <div class="nav-desc">Salary, bonuses & streaming guidelines</div>
@@ -548,7 +407,7 @@ body {
     </div>
 
     <div class="nav-card" onclick="goTo('page-agency')">
-      <div class="nav-icon-wrap icon-slate">🏢</div>
+      <div class="nav-icon-wrap icon-violet">🏢</div>
       <div class="nav-text">
         <div class="nav-title">Agency Policy</div>
         <div class="nav-desc">Commission tiers & partnership terms</div>
@@ -557,26 +416,26 @@ body {
     </div>
 
     <div class="nav-card" onclick="goTo('page-seller')">
-      <div class="nav-icon-wrap icon-gold">
+      <div class="nav-icon-wrap icon-rose">
         <svg class="coin-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <radialGradient id="cFace" cx="35%" cy="30%" r="68%">
-              <stop offset="0%" stop-color="#fff8dc"/>
-              <stop offset="22%" stop-color="#ffe566"/>
-              <stop offset="52%" stop-color="#c9a84c"/>
-              <stop offset="78%" stop-color="#8a6a1e"/>
-              <stop offset="100%" stop-color="#4a3200"/>
+              <stop offset="0%" stop-color="#ffeeff"/>
+              <stop offset="22%" stop-color="#ff99dd"/>
+              <stop offset="52%" stop-color="#cc44aa"/>
+              <stop offset="78%" stop-color="#7722aa"/>
+              <stop offset="100%" stop-color="#330055"/>
             </radialGradient>
           </defs>
-          <ellipse cx="20" cy="21.5" rx="17.5" ry="16.5" fill="#4a3200"/>
+          <ellipse cx="20" cy="21.5" rx="17.5" ry="16.5" fill="#330055"/>
           <ellipse cx="20" cy="19.5" rx="17.5" ry="16.5" fill="url(#cFace)"/>
-          <ellipse cx="20" cy="19.5" rx="17.5" ry="16.5" fill="none" stroke="rgba(255,245,160,0.4)" stroke-width="1"/>
-          <ellipse cx="20" cy="19.5" rx="13.5" ry="12.5" fill="none" stroke="rgba(140,100,20,0.4)" stroke-width="0.7"/>
-          <path d="M9.5 12.5 Q15 7.5 22 8.5" fill="none" stroke="rgba(255,255,210,0.65)" stroke-width="1.8" stroke-linecap="round"/>
-          <text x="20" y="24" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="13" fill="rgba(80,45,0,0.3)">R</text>
-          <text x="20" y="23" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="12.5" fill="#5a3500">R</text>
-          <text x="9" y="19" font-size="5" fill="rgba(140,95,10,0.5)">★</text>
-          <text x="27" y="19" font-size="5" fill="rgba(140,95,10,0.5)">★</text>
+          <ellipse cx="20" cy="19.5" rx="17.5" ry="16.5" fill="none" stroke="rgba(255,180,255,0.4)" stroke-width="1"/>
+          <ellipse cx="20" cy="19.5" rx="13.5" ry="12.5" fill="none" stroke="rgba(150,50,180,0.4)" stroke-width="0.7"/>
+          <path d="M9.5 12.5 Q15 7.5 22 8.5" fill="none" stroke="rgba(255,220,255,0.65)" stroke-width="1.8" stroke-linecap="round"/>
+          <text x="20" y="24" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="13" fill="rgba(80,0,80,0.35)">R</text>
+          <text x="20" y="23" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="12.5" fill="#4a0060">R</text>
+          <text x="9" y="19" font-size="5" fill="rgba(180,80,200,0.5)">★</text>
+          <text x="27" y="19" font-size="5" fill="rgba(180,80,200,0.5)">★</text>
         </svg>
       </div>
       <div class="nav-text">
@@ -587,7 +446,7 @@ body {
     </div>
 
     <div class="nav-card" onclick="goTo('page-registration')">
-      <div class="nav-icon-wrap icon-gold">📝</div>
+      <div class="nav-icon-wrap icon-violet">📝</div>
       <div class="nav-text">
         <div class="nav-title">Agency Registration</div>
         <div class="nav-desc">Apply to become a partner agency</div>
@@ -596,7 +455,7 @@ body {
     </div>
 
     <div class="nav-card" onclick="goTo('page-contact')">
-      <div class="nav-icon-wrap icon-emerald">📞</div>
+      <div class="nav-icon-wrap icon-green">📞</div>
       <div class="nav-text">
         <div class="nav-title">Contact Country Manager</div>
         <div class="nav-desc">India manager direct contact</div>
@@ -621,31 +480,25 @@ body {
 <!-- ══════════════════════════ HOST POLICY ══════════════════════════ -->
 <div class="page" id="page-host">
   <header class="header">
-    <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.textContent='R'"/></div>
+    <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-family:Playfair Display,serif;font-weight:900;font-size:20px;background:linear-gradient(135deg,#ff9dd4,#b87fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent\'>R</span>'"/></div>
     <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
   </header>
   <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
   <div class="inner-hero">
     <div class="inner-eyebrow">Host Guidelines</div>
     <h1 class="inner-title">Host Policy</h1>
-    <div class="inner-rule">
-      <div class="rule-line rev"></div>
-      <div class="rule-gem">◆</div>
-      <div class="rule-line"></div>
-    </div>
+    <div class="inner-rule"><div class="rule-line rev"></div><div class="rule-gem">◆</div><div class="rule-line"></div></div>
   </div>
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">I</div>
-      <div class="sec-title">Host Salary Structure</div>
-      <div class="sec-chev">›</div>
+      <div class="sec-num">I</div><div class="sec-title">Host Salary Structure</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <div class="sub-label">1.1 Personal Gift Share</div>
       <table class="lux-table">
         <thead><tr><th>Category</th><th>Share</th></tr></thead>
-        <tbody><tr><td>Personal Gifts Received</td><td class="c-gold">100%</td></tr></tbody>
+        <tbody><tr><td>Personal Gifts Received</td><td class="c-pink">100%</td></tr></tbody>
       </table>
       <div class="example-box">
         <span class="ex-label">📌 Example</span>
@@ -655,7 +508,7 @@ body {
       <div class="sub-label">1.2 Weekly Bonus</div>
       <table class="lux-table">
         <thead><tr><th>Valid Hours</th><th>Valid Days</th><th>Weekly Bonus</th></tr></thead>
-        <tbody><tr><td class="c-gold">10 hrs</td><td class="c-gold">4 days</td><td class="c-green">+30%</td></tr></tbody>
+        <tbody><tr><td class="c-pink">10 hrs</td><td class="c-pink">4 days</td><td class="c-green">+30%</td></tr></tbody>
       </table>
       <div class="example-box">
         <span class="ex-label">📌 Example</span>
@@ -664,14 +517,14 @@ body {
       <div class="divider"></div>
       <div class="sub-label">1.3 Platform Rules</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-gold"></span><span><strong>Withdrawal Rate:</strong> <span class="c-gold">20,000 Ruby = $1 USD</span></span></li>
-        <li><span class="r-gem gem-gold"></span><span><strong>Day Reset:</strong> Daily at <span class="c-gold">10:30 PM IST</span></span></li>
-        <li><span class="r-gem gem-gold"></span><span><strong>Weekly Period:</strong> Sunday 10:30 PM → Sunday 10:30 PM IST</span></li>
-        <li><span class="r-gem gem-gold"></span><span><strong>Valid Day:</strong> Minimum <span class="c-gold">120 minutes</span> live per day</span></li>
-        <li><span class="r-gem gem-gold"></span><span><strong>Valid Hour:</strong> 60+ minutes = 1 valid hour</span></li>
-        <li><span class="r-gem gem-gold"></span><span><strong>Minimum Session:</strong> Sessions below <strong>30 minutes</strong> do not count</span></li>
-        <li><span class="r-gem gem-gold"></span><span><strong>Bonus Payment:</strong> Every <span class="c-gold">Monday</span> in Rubies</span></li>
-        <li><span class="r-gem gem-gold"></span><span><strong>Withdrawal:</strong> Once per day · Minimum <span class="c-rose">$10 USD</span></span></li>
+        <li><span class="r-gem gem-pink"></span><span><strong>Withdrawal Rate:</strong> <span class="c-pink">20,000 Ruby = $1 USD</span></span></li>
+        <li><span class="r-gem gem-pink"></span><span><strong>Day Reset:</strong> Daily at <span class="c-pink">10:30 PM IST</span></span></li>
+        <li><span class="r-gem gem-pink"></span><span><strong>Weekly Period:</strong> Sunday 10:30 PM → Sunday 10:30 PM IST</span></li>
+        <li><span class="r-gem gem-pink"></span><span><strong>Valid Day:</strong> Minimum <span class="c-pink">120 minutes</span> live per day</span></li>
+        <li><span class="r-gem gem-pink"></span><span><strong>Valid Hour:</strong> 60+ minutes = 1 valid hour</span></li>
+        <li><span class="r-gem gem-pink"></span><span><strong>Minimum Session:</strong> Sessions below <strong>30 minutes</strong> do not count</span></li>
+        <li><span class="r-gem gem-pink"></span><span><strong>Bonus Payment:</strong> Every <span class="c-pink">Monday</span> in Rubies</span></li>
+        <li><span class="r-gem gem-pink"></span><span><strong>Withdrawal:</strong> Once per day · Minimum <span class="c-rose">$10 USD</span></span></li>
       </ul>
       <div class="divider"></div>
       <div class="sub-label" style="color:var(--teal)">Agency Change Rules</div>
@@ -689,9 +542,7 @@ body {
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">II</div>
-      <div class="sec-title">Game Commissions</div>
-      <div class="sec-chev">›</div>
+      <div class="sec-num">II</div><div class="sec-title">Game Commissions</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <table class="lux-table">
@@ -701,31 +552,29 @@ body {
       <ul class="rule-list" style="margin-top:12px">
         <li><span class="r-gem gem-green"></span><span>Host earns <strong>1 Ruby</strong> for every <strong>1,000 coins</strong> used in games</span></li>
         <li><span class="r-gem gem-dim"></span><span>This income <strong>does NOT count</strong> toward weekly targets</span></li>
-        <li><span class="r-gem gem-gold"></span><span>Earnings credited <strong>instantly</strong> after each stream ends</span></li>
+        <li><span class="r-gem gem-pink"></span><span>Earnings credited <strong>instantly</strong> after each stream ends</span></li>
       </ul>
     </div>
   </div>
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">III</div>
-      <div class="sec-title">New Host Guarantee</div>
-      <div class="sec-chev">›</div>
+      <div class="sec-num">III</div><div class="sec-title">New Host Guarantee</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <table class="lux-table">
         <thead><tr><th>Cycle</th><th>Weekly Ruby Target</th><th>Valid Days</th><th>Valid Hrs</th><th>Guarantee</th></tr></thead>
         <tbody>
-          <tr><td>Week 1</td><td>—</td><td class="c-gold" rowspan="4" style="vertical-align:middle;text-align:center">4</td><td class="c-gold" rowspan="4" style="vertical-align:middle;text-align:center">10</td><td class="c-green">$5</td></tr>
-          <tr><td>Week 2</td><td class="c-gold">50,000</td><td class="c-green">$5</td></tr>
-          <tr><td>Week 3</td><td class="c-gold">100,000</td><td class="c-green">$5</td></tr>
-          <tr><td>Week 4</td><td class="c-gold">150,000</td><td class="c-green">$5</td></tr>
+          <tr><td>Week 1</td><td>—</td><td class="c-pink" rowspan="4" style="vertical-align:middle;text-align:center">4</td><td class="c-pink" rowspan="4" style="vertical-align:middle;text-align:center">10</td><td class="c-green">$5</td></tr>
+          <tr><td>Week 2</td><td class="c-pink">50,000</td><td class="c-green">$5</td></tr>
+          <tr><td>Week 3</td><td class="c-pink">100,000</td><td class="c-green">$5</td></tr>
+          <tr><td>Week 4</td><td class="c-pink">150,000</td><td class="c-green">$5</td></tr>
         </tbody>
       </table>
       <ul class="rule-list" style="margin-top:12px">
         <li><span class="r-gem gem-green"></span><span>Must be <strong>approved</strong> by platform to receive guarantee</span></li>
         <li><span class="r-gem gem-dim"></span><span>Missing one week's target <strong>does not cancel</strong> the next week's guarantee</span></li>
-        <li><span class="r-gem gem-gold"></span><span>If Valid Days & Hours not met → salary falls under <strong>basic policy</strong></span></li>
+        <li><span class="r-gem gem-pink"></span><span>If Valid Days & Hours not met → salary falls under <strong>basic policy</strong></span></li>
         <li><span class="r-gem gem-rose"></span><span>From <strong>Week 5 onward</strong>, only <strong>basic policy applies</strong></span></li>
       </ul>
     </div>
@@ -733,19 +582,17 @@ body {
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">IV</div>
-      <div class="sec-title">Sensual Category Host Policy</div>
-      <div class="sec-chev">›</div>
+      <div class="sec-num">IV</div><div class="sec-title">Sensual Category Host Policy</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <table class="lux-table">
         <thead><tr><th>Cycle</th><th>Weekly Ruby Target</th><th>Valid Days</th><th>Valid Hrs</th><th>Guarantee</th></tr></thead>
         <tbody>
-          <tr><td>Week 1</td><td>—</td><td class="c-gold" rowspan="5" style="vertical-align:middle;text-align:center">4</td><td class="c-gold" rowspan="5" style="vertical-align:middle;text-align:center">10</td><td class="c-green">$15</td></tr>
-          <tr><td>Week 2</td><td class="c-gold">100,000</td><td class="c-green">$15</td></tr>
-          <tr><td>Week 3</td><td class="c-gold">150,000</td><td class="c-green">$15</td></tr>
-          <tr><td>Week 4</td><td class="c-gold">200,000</td><td class="c-green">$15</td></tr>
-          <tr><td>Week 5+</td><td class="c-gold">300,000</td><td class="c-green">$15</td></tr>
+          <tr><td>Week 1</td><td>—</td><td class="c-pink" rowspan="5" style="vertical-align:middle;text-align:center">4</td><td class="c-pink" rowspan="5" style="vertical-align:middle;text-align:center">10</td><td class="c-green">$15</td></tr>
+          <tr><td>Week 2</td><td class="c-pink">100,000</td><td class="c-green">$15</td></tr>
+          <tr><td>Week 3</td><td class="c-pink">150,000</td><td class="c-green">$15</td></tr>
+          <tr><td>Week 4</td><td class="c-pink">200,000</td><td class="c-green">$15</td></tr>
+          <tr><td>Week 5+</td><td class="c-pink">300,000</td><td class="c-green">$15</td></tr>
         </tbody>
       </table>
       <div class="divider"></div>
@@ -759,7 +606,7 @@ body {
         <li><span class="r-gem gem-green"></span><span>Follow team instructions and participate in events</span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-label" style="color:#e07090">Grounds for Removal</div>
+      <div class="sub-label" style="color:var(--pink2)">Grounds for Removal</div>
       <ul class="rule-list">
         <li><span class="r-gem gem-rose"></span><span>Irregular streaming or unprofessional conduct</span></li>
         <li><span class="r-gem gem-rose"></span><span>Disrespecting or ignoring viewers</span></li>
@@ -775,40 +622,34 @@ body {
 <!-- ══════════════════════════ AGENCY POLICY ══════════════════════════ -->
 <div class="page" id="page-agency">
   <header class="header">
-    <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.textContent='R'"/></div>
+    <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-family:Playfair Display,serif;font-weight:900;font-size:20px;background:linear-gradient(135deg,#ff9dd4,#b87fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent\'>R</span>'"/></div>
     <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
   </header>
   <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
   <div class="inner-hero">
     <div class="inner-eyebrow">Agency Guidelines</div>
     <h1 class="inner-title">Agency Policy</h1>
-    <div class="inner-rule">
-      <div class="rule-line rev"></div>
-      <div class="rule-gem">◆</div>
-      <div class="rule-line"></div>
-    </div>
+    <div class="inner-rule"><div class="rule-line rev"></div><div class="rule-gem">◆</div><div class="rule-line"></div></div>
   </div>
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">I</div>
-      <div class="sec-title">Agency Commission Tiers</div>
-      <div class="sec-chev">›</div>
+      <div class="sec-num">I</div><div class="sec-title">Agency Commission Tiers</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <table class="lux-table">
         <thead><tr><th>Level</th><th>Weekly Revenue (Ruby)</th><th>Commission</th></tr></thead>
         <tbody>
-          <tr><td class="c-gold">Level 1</td><td>Below 10M</td><td class="c-green">16.00%</td></tr>
-          <tr><td class="c-gold">Level 2</td><td>10M – 30M</td><td class="c-green">18.00%</td></tr>
-          <tr><td class="c-gold">Level 3</td><td>Above 30M</td><td class="c-green">20.00%</td></tr>
+          <tr><td class="c-violet">Level 1</td><td>Below 10M</td><td class="c-green">16.00%</td></tr>
+          <tr><td class="c-violet">Level 2</td><td>10M – 30M</td><td class="c-green">18.00%</td></tr>
+          <tr><td class="c-violet">Level 3</td><td>Above 30M</td><td class="c-green">20.00%</td></tr>
         </tbody>
       </table>
       <div class="divider"></div>
       <div class="sub-label">Requirements</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-gold"></span><span>Agency must maintain at least <strong>5 active hosts</strong> every week</span></li>
-        <li><span class="r-gem gem-gold"></span><span>Agency must encourage hosts to go live & actively join platform events</span></li>
+        <li><span class="r-gem gem-pink"></span><span>Agency must maintain at least <strong>5 active hosts</strong> every week</span></li>
+        <li><span class="r-gem gem-pink"></span><span>Agency must encourage hosts to go live & actively join platform events</span></li>
       </ul>
       <div class="divider"></div>
       <div class="sub-label">Weekly Task Period</div>
@@ -821,19 +662,17 @@ body {
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">II</div>
-      <div class="sec-title">Host Activation Salary</div>
-      <div class="sec-chev">›</div>
+      <div class="sec-num">II</div><div class="sec-title">Host Activation Salary</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <table class="lux-table">
         <thead><tr><th>Level</th><th>Monthly Target</th><th>Active Hosts</th><th>Basic Pay</th></tr></thead>
         <tbody>
-          <tr><td class="c-gold">L1</td><td>Below 10M</td><td>—</td><td>—</td></tr>
-          <tr><td class="c-gold">L2</td><td>Above 10M</td><td class="c-gold">20</td><td class="c-green">$25</td></tr>
-          <tr><td class="c-gold">L3</td><td>Above 50M</td><td class="c-gold">30</td><td class="c-green">$225</td></tr>
-          <tr><td class="c-gold">L4</td><td>Above 100M</td><td class="c-gold">50</td><td class="c-green">$500</td></tr>
-          <tr><td class="c-gold">L5</td><td>Above 200M</td><td class="c-gold">50</td><td class="c-green">$1,000</td></tr>
+          <tr><td class="c-violet">L1</td><td>Below 10M</td><td>—</td><td>—</td></tr>
+          <tr><td class="c-violet">L2</td><td>Above 10M</td><td class="c-pink">20</td><td class="c-green">$25</td></tr>
+          <tr><td class="c-violet">L3</td><td>Above 50M</td><td class="c-pink">30</td><td class="c-green">$225</td></tr>
+          <tr><td class="c-violet">L4</td><td>Above 100M</td><td class="c-pink">50</td><td class="c-green">$500</td></tr>
+          <tr><td class="c-violet">L5</td><td>Above 200M</td><td class="c-pink">50</td><td class="c-green">$1,000</td></tr>
         </tbody>
       </table>
       <div class="divider"></div>
@@ -852,9 +691,7 @@ body {
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">III</div>
-      <div class="sec-title">Commission Payout</div>
-      <div class="sec-chev">›</div>
+      <div class="sec-num">III</div><div class="sec-title">Commission Payout</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <div class="example-box">
@@ -866,14 +703,12 @@ body {
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">IV</div>
-      <div class="sec-title">Withdrawal Rules</div>
-      <div class="sec-chev">›</div>
+      <div class="sec-num">IV</div><div class="sec-title">Withdrawal Rules</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <ul class="rule-list">
-        <li><span class="r-gem gem-gold"></span><span>Withdrawal requests may be submitted <strong>once per day</strong></span></li>
-        <li><span class="r-gem gem-gold"></span><span>Minimum withdrawal amount: <span class="c-rose">$10 USD</span></span></li>
+        <li><span class="r-gem gem-pink"></span><span>Withdrawal requests may be submitted <strong>once per day</strong></span></li>
+        <li><span class="r-gem gem-pink"></span><span>Minimum withdrawal amount: <span class="c-rose">$10 USD</span></span></li>
       </ul>
       <div class="divider"></div>
       <div class="sub-label">Fee Structure</div>
@@ -889,9 +724,7 @@ body {
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">V</div>
-      <div class="sec-title">Agency Change Rules</div>
-      <div class="sec-chev">›</div>
+      <div class="sec-num">V</div><div class="sec-title">Agency Change Rules</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <ul class="rule-list">
@@ -911,38 +744,30 @@ body {
 <!-- ══════════════════════════ COIN SELLER ══════════════════════════ -->
 <div class="page" id="page-seller">
   <header class="header">
-    <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.textContent='R'"/></div>
+    <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-family:Playfair Display,serif;font-weight:900;font-size:20px;background:linear-gradient(135deg,#ff9dd4,#b87fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent\'>R</span>'"/></div>
     <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
   </header>
   <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
   <div class="inner-hero">
     <div class="inner-eyebrow">Coin Seller Guidelines</div>
     <h1 class="inner-title">Coin Seller Policy</h1>
-    <div class="inner-rule">
-      <div class="rule-line rev"></div>
-      <div class="rule-gem">◆</div>
-      <div class="rule-line"></div>
-    </div>
+    <div class="inner-rule"><div class="rule-line rev"></div><div class="rule-gem">◆</div><div class="rule-line"></div></div>
   </div>
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num" style="font-size:16px">◆</div>
-      <div class="sec-title">Purpose</div>
-      <div class="sec-chev">›</div>
+      <div class="sec-num" style="font-size:16px">◆</div><div class="sec-title">Purpose</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
-      <p style="font-size:13px;color:rgba(255,255,255,0.68);line-height:1.8;font-family:'Cormorant Garamond',serif;font-size:15px;">
-        This policy outlines the eligibility requirements, operational standards, and performance expectations for agencies applying to become <strong style="color:var(--gold2);">Official Coin Sellers</strong> on the RIZZ LIVE platform.
+      <p style="font-family:'Cormorant Garamond',serif;font-size:15px;color:rgba(255,255,255,0.68);line-height:1.8;">
+        This policy outlines the eligibility requirements, operational standards, and performance expectations for agencies applying to become <strong style="color:var(--pink2);">Official Coin Sellers</strong> on the RIZZ LIVE platform.
       </p>
     </div>
   </div>
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">I</div>
-      <div class="sec-title">Eligibility Criteria</div>
-      <div class="sec-chev">›</div>
+      <div class="sec-num">I</div><div class="sec-title">Eligibility Criteria</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <div class="sub-label">Minimum Requirement</div>
@@ -953,13 +778,13 @@ body {
       <div class="divider"></div>
       <div class="sub-label">Security Deposit Option</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-gold"></span><span>Agencies below the 50M target may apply with a <strong>$1,000 security deposit</strong></span></li>
+        <li><span class="r-gem gem-pink"></span><span>Agencies below the 50M target may apply with a <strong>$1,000 security deposit</strong></span></li>
         <li><span class="r-gem gem-green"></span><span>Deposit is <strong>fully refunded</strong> once the monthly target is achieved</span></li>
       </ul>
       <div class="divider"></div>
       <div class="sub-label">Maintenance Requirement</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-gold"></span><span>Approved sellers must sustain <strong>50M monthly revenue</strong></span></li>
+        <li><span class="r-gem gem-pink"></span><span>Approved sellers must sustain <strong>50M monthly revenue</strong></span></li>
         <li><span class="r-gem gem-rose"></span><span>Failure for <strong>two consecutive months</strong> may result in seller status revocation</span></li>
       </ul>
     </div>
@@ -967,17 +792,15 @@ body {
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">II</div>
-      <div class="sec-title">Buying Price Structure</div>
-      <div class="sec-chev">›</div>
+      <div class="sec-num">II</div><div class="sec-title">Buying Price Structure</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <p style="font-size:12px;color:var(--text-dim);margin-bottom:12px;">Top-up must be made via <strong style="color:#fff;">USDT</strong>.</p>
       <table class="lux-table">
         <thead><tr><th>Top-Up (USD)</th><th>Buy Ratio</th><th>Total Coins</th></tr></thead>
         <tbody>
-          <tr><td class="c-gold">$2,000</td><td class="c-teal">9,000 / $</td><td class="c-green">18,000,000</td></tr>
-          <tr><td class="c-gold">$5,000</td><td class="c-teal">9,200 / $</td><td class="c-green">46,000,000</td></tr>
+          <tr><td class="c-pink">$2,000</td><td class="c-teal">9,000 / $</td><td class="c-green">18,000,000</td></tr>
+          <tr><td class="c-pink">$5,000</td><td class="c-teal">9,200 / $</td><td class="c-green">46,000,000</td></tr>
         </tbody>
       </table>
     </div>
@@ -985,20 +808,18 @@ body {
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">III</div>
-      <div class="sec-title">Selling Price Structure</div>
-      <div class="sec-chev">›</div>
+      <div class="sec-num">III</div><div class="sec-title">Selling Price Structure</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <table class="lux-table">
         <thead><tr><th>Channel</th><th>Sell Ratio / $</th></tr></thead>
         <tbody>
-          <tr><td>Offline Sales</td><td class="c-gold">8,300</td></tr>
+          <tr><td>Offline Sales</td><td class="c-pink">8,300</td></tr>
           <tr><td>Online Sales</td><td class="c-teal">5,000</td></tr>
         </tbody>
       </table>
       <div class="divider"></div>
-      <div class="sub-label" style="color:#e07090">Selling Policy</div>
+      <div class="sub-label" style="color:var(--pink2)">Selling Policy</div>
       <ul class="rule-list">
         <li><span class="r-gem gem-rose"></span><span>Coin Sellers must <strong>NOT sell above</strong> the approved offline ratio of <strong>8,300</strong></span></li>
       </ul>
@@ -1015,18 +836,14 @@ body {
 <!-- ══════════════════════════ REGISTRATION ══════════════════════════ -->
 <div class="page" id="page-registration">
   <header class="header">
-    <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.textContent='R'"/></div>
+    <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-family:Playfair Display,serif;font-weight:900;font-size:20px;background:linear-gradient(135deg,#ff9dd4,#b87fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent\'>R</span>'"/></div>
     <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
   </header>
   <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
   <div class="inner-hero">
     <div class="inner-eyebrow">Partnership</div>
     <h1 class="inner-title">Agency Registration</h1>
-    <div class="inner-rule">
-      <div class="rule-line rev"></div>
-      <div class="rule-gem">◆</div>
-      <div class="rule-line"></div>
-    </div>
+    <div class="inner-rule"><div class="rule-line rev"></div><div class="rule-gem">◆</div><div class="rule-line"></div></div>
   </div>
 
   <div class="reg-card">
@@ -1040,25 +857,16 @@ body {
 
   <div class="info-row">
     <div class="info-item">
-      <div class="info-icon ii-gold">✅</div>
-      <div>
-        <div class="info-item-title">Quick & Easy</div>
-        <div class="info-item-sub">Complete the form in under 5 minutes</div>
-      </div>
+      <div class="info-icon ii-violet">✅</div>
+      <div><div class="info-item-title">Quick & Easy</div><div class="info-item-sub">Complete the form in under 5 minutes</div></div>
     </div>
     <div class="info-item">
-      <div class="info-icon ii-purple">⚡</div>
-      <div>
-        <div class="info-item-title">Fast Review</div>
-        <div class="info-item-sub">Our team reviews applications promptly</div>
-      </div>
+      <div class="info-icon ii-pink">⚡</div>
+      <div><div class="info-item-title">Fast Review</div><div class="info-item-sub">Our team reviews applications promptly</div></div>
     </div>
     <div class="info-item">
       <div class="info-icon ii-green">🏆</div>
-      <div>
-        <div class="info-item-title">Grow Together</div>
-        <div class="info-item-sub">Join our elite agency partner network</div>
-      </div>
+      <div><div class="info-item-title">Grow Together</div><div class="info-item-sub">Join our elite agency partner network</div></div>
     </div>
   </div>
   <div class="footer">© 2026 <span>RIZZ LIVE</span> · All Rights Reserved</div>
@@ -1067,18 +875,14 @@ body {
 <!-- ══════════════════════════ CONTACT ══════════════════════════ -->
 <div class="page" id="page-contact">
   <header class="header">
-    <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.textContent='R'"/></div>
+    <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-family:Playfair Display,serif;font-weight:900;font-size:20px;background:linear-gradient(135deg,#ff9dd4,#b87fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent\'>R</span>'"/></div>
     <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
   </header>
   <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
   <div class="inner-hero">
     <div class="inner-eyebrow">Direct Contact</div>
-    <h1 class="inner-title">Country Manager<br/><span style="font-style:italic;font-size:0.75em;color:var(--gold2)">Ray-IN · India</span></h1>
-    <div class="inner-rule">
-      <div class="rule-line rev"></div>
-      <div class="rule-gem">◆</div>
-      <div class="rule-line"></div>
-    </div>
+    <h1 class="inner-title">Country Manager<br/><span style="font-style:italic;font-size:0.75em;color:var(--pink2)">Ray-IN · India</span></h1>
+    <div class="inner-rule"><div class="rule-line rev"></div><div class="rule-gem">◆</div><div class="rule-line"></div></div>
   </div>
 
   <div class="sec-card" style="margin-top:20px">
@@ -1093,7 +897,7 @@ body {
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </div>
         <div style="flex:1">
-          <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;color:#25d366;letter-spacing:0.5px">+91 92867 66608</div>
+          <div style="font-weight:800;font-size:15px;color:#25d366;letter-spacing:0.5px">+91 92867 66608</div>
           <div style="font-size:11px;color:var(--text-dim);margin-top:3px">Tap to open WhatsApp</div>
         </div>
         <div style="color:rgba(37,211,102,0.5);font-size:20px">›</div>
@@ -1104,15 +908,18 @@ body {
 </div>
 
 <script>
-// Gold particles
+// Colored particles matching logo palette
 const pc = document.getElementById('particles');
-for(let i=0;i<28;i++){
+const colors = ['#ff6eb4','#9b59f5','#b87fff','#ff9dd4','#5ee7ff','#c084fc'];
+for(let i=0;i<32;i++){
   const p = document.createElement('div');
   p.className = 'particle';
   const size = 1 + Math.random()*2.5;
+  const color = colors[Math.floor(Math.random()*colors.length)];
   p.style.cssText = `
     left:${Math.random()*100}%;
     width:${size}px; height:${size}px;
+    background:${color};
     animation-duration:${10+Math.random()*20}s;
     animation-delay:${Math.random()*20}s;
     opacity:0;
