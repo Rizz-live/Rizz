@@ -1,928 +1,1102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-<title>Rizz Live</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>Rizz Live — Official Policy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
-  :root {
-    --rose:#d4698a;
-    --rose-light:#f2b8cc;
-    --rose-pale:#fde8f0;
-    --blush:#f8e8ef;
-    --lavender:#c9a8d4;
-    --lav-light:#ede0f5;
-    --gold:#c9a84c;
-    --gold-light:#e8d49e;
-    --gold-pale:#faf5e8;
-    --cream:#fdfaf7;
-    --white:#ffffff;
-    --ink:#2c1a25;
-    --ink-mid:#5c4057;
-    --ink-light:#8c6a80;
-    --ink-faint:#b8a0b0;
+:root {
+  --gold:       #c9a84c;
+  --gold2:      #e8c97a;
+  --gold3:      #f5e4b0;
+  --gold-dark:  #8a6a1e;
+  --gold-glow:  rgba(201,168,76,0.35);
+  --black:      #050505;
+  --deep:       #0a090b;
+  --panel:      #0f0d12;
+  --panel2:     #13111a;
+  --border:     rgba(201,168,76,0.18);
+  --border2:    rgba(201,168,76,0.08);
+  --text:       rgba(255,255,255,0.82);
+  --text-dim:   rgba(255,255,255,0.38);
+  --text-muted: rgba(255,255,255,0.18);
+  --crimson:    #8b1a2e;
+  --rose:       #c0375a;
+  --emerald:    #1a6b4a;
+  --teal:       #2dd4bf;
+}
 
-    --glass-bg:rgba(255,255,255,0.62);
-    --glass-bg2:rgba(255,255,255,0.45);
-    --glass-border:rgba(212,105,138,0.18);
-    --glass-border2:rgba(201,168,212,0.22);
-    --shadow-sm:0 2px 12px rgba(180,100,130,0.09);
-    --shadow-md:0 8px 32px rgba(180,100,130,0.13);
-    --shadow-lg:0 20px 60px rgba(180,100,130,0.18);
-  }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-  *{margin:0;padding:0;box-sizing:border-box;}
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--black);
+  color: var(--text);
+  overflow-x: hidden;
+  min-height: 100vh;
+  cursor: default;
+}
 
-  body{
-    min-height:100vh;
-    background:
-      radial-gradient(ellipse at 10% 0%, #fce8f2 0%, transparent 50%),
-      radial-gradient(ellipse at 90% 100%, #ece0f8 0%, transparent 55%),
-      radial-gradient(ellipse at 60% 40%, #fdf6e8 0%, transparent 50%),
-      linear-gradient(160deg, #fdf2f7 0%, #f7f0fc 40%, #fdf8f0 100%);
-    font-family:'DM Sans',sans-serif;
-    color:var(--ink);
-    overflow-x:hidden;
-  }
+/* ── LUXURY BACKGROUND ── */
+.bg-scene {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+}
+.bg-scene::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 0%, rgba(201,168,76,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 85% 100%, rgba(139,26,46,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 100% 100% at 50% 50%, #0a0810 0%, #050505 100%);
+}
+.bg-scene::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.022'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.marble-vein {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(135deg, transparent 30%, rgba(201,168,76,0.015) 50%, transparent 70%);
+  animation: marbleShift 20s ease-in-out infinite;
+}
+@keyframes marbleShift { 0%,100%{opacity:0.5} 50%{opacity:1} }
 
-  /* ── DECORATIVE BACKGROUND ── */
-  .bg-deco{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
-  .bg-circle{position:absolute;border-radius:50%;opacity:0.06;}
-  .bg-circle:nth-child(1){width:600px;height:600px;background:radial-gradient(circle,var(--rose),transparent);top:-200px;left:-150px;}
-  .bg-circle:nth-child(2){width:500px;height:500px;background:radial-gradient(circle,var(--lavender),transparent);bottom:-150px;right:-100px;}
-  .bg-circle:nth-child(3){width:300px;height:300px;background:radial-gradient(circle,var(--gold),transparent);top:50%;left:60%;opacity:0.05;}
+/* ── GOLD PARTICLES ── */
+.particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--gold2);
+  opacity: 0;
+  animation: particleDrift linear infinite;
+}
+@keyframes particleDrift {
+  0% { transform: translateY(100vh) scale(0); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.15; }
+  100% { transform: translateY(-20px) scale(1); opacity: 0; }
+}
 
-  .bg-lines{position:fixed;inset:0;pointer-events:none;z-index:0;
-    background-image:
-      linear-gradient(rgba(212,105,138,0.025) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(201,168,212,0.025) 1px,transparent 1px);
-    background-size:52px 52px;
-  }
+/* ── PAGES ── */
+.page { display: none; position: relative; z-index: 1; max-width: 480px; margin: 0 auto; padding-bottom: 80px; min-height: 100vh; }
+.page.active { display: block; animation: royalEnter 0.6s cubic-bezier(0.16,1,0.3,1) both; }
+@keyframes royalEnter { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
-  /* Floating petals */
-  .petal{position:fixed;pointer-events:none;z-index:0;opacity:0;animation:petalFloat 12s ease-in-out infinite;}
-  .petal::before{content:'✦';font-size:10px;color:var(--rose-light);}
-  @keyframes petalFloat{
-    0%{opacity:0;transform:translateY(100vh) rotate(0deg);}
-    10%{opacity:0.4;}
-    90%{opacity:0.2;}
-    100%{opacity:0;transform:translateY(-10vh) rotate(360deg);}
-  }
+/* ── HEADER ── */
+.header {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; gap: 15px;
+  padding: 16px 20px;
+  background: rgba(5,5,5,0.92);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+}
+.header::after {
+  content: '';
+  position: absolute; bottom: 0; left: 20%; right: 20%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.6;
+}
+.logo-mark {
+  width: 46px; height: 46px; border-radius: 12px;
+  background: linear-gradient(135deg, #1a1208, #0d0a04);
+  border: 1px solid rgba(201,168,76,0.4);
+  box-shadow: 0 0 24px rgba(201,168,76,0.2), inset 0 1px 0 rgba(201,168,76,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900;
+  color: var(--gold2); flex-shrink: 0; overflow: hidden;
+  letter-spacing: -1px;
+}
+.logo-mark img { width: 100%; height: 100%; object-fit: cover; }
+.brand-block {}
+.brand-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700; font-size: 18px; letter-spacing: 3px;
+  background: linear-gradient(90deg, var(--gold3), var(--gold2), var(--gold), var(--gold2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  text-transform: uppercase;
+}
+.brand-sub {
+  font-size: 8.5px; letter-spacing: 3.5px; color: var(--text-muted);
+  text-transform: uppercase; font-weight: 600; margin-top: 1px;
+}
+.header-ornament {
+  margin-left: auto;
+  display: flex; align-items: center; gap: 6px;
+}
+.live-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #ff3c5a;
+  box-shadow: 0 0 8px #ff3c5a;
+  animation: livePulse 1.5s ease-in-out infinite;
+}
+@keyframes livePulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.7)} }
+.live-label { font-size: 8px; letter-spacing: 2px; color: rgba(255,60,90,0.7); font-weight: 700; }
 
-  /* ── PAGE SYSTEM ── */
-  .page{display:none;position:relative;z-index:1;max-width:480px;margin:0 auto;padding-bottom:60px;min-height:100vh;}
-  .page.active{display:block;animation:pageIn 0.5s cubic-bezier(0.22,1,0.36,1);}
-  @keyframes pageIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+/* ── BACK BTN ── */
+.back-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin: 20px 20px 0;
+  color: var(--text-dim); font-size: 11px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  cursor: pointer; transition: all 0.3s; padding: 8px 0;
+  border-bottom: 1px solid transparent;
+}
+.back-btn:hover { color: var(--gold2); border-bottom-color: rgba(201,168,76,0.3); }
+.back-btn::before { content: '←'; font-size: 14px; }
 
-  /* ── HEADER ── */
-  .header{
-    display:flex;align-items:center;gap:13px;
-    padding:16px 18px 14px;
-    background:rgba(255,255,255,0.72);
-    backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);
-    border-bottom:1px solid rgba(212,105,138,0.15);
-    box-shadow:0 1px 20px rgba(180,100,130,0.08);
-    position:sticky;top:0;z-index:10;
-  }
-  .logo-wrap{
-    width:46px;height:46px;border-radius:14px;overflow:hidden;
-    border:1.5px solid rgba(212,105,138,0.3);
-    box-shadow:0 4px 16px rgba(212,105,138,0.2),inset 0 1px 0 rgba(255,255,255,0.8);
-    flex-shrink:0;
-    background:linear-gradient(135deg,var(--rose-pale),var(--lav-light));
-    display:flex;align-items:center;justify-content:center;
-  }
-  .logo-wrap img{width:100%;height:100%;object-fit:cover;}
-  .brand-name{
-    font-family:'Cormorant Garamond',serif;font-weight:700;font-size:22px;letter-spacing:2px;
-    background:linear-gradient(135deg,var(--rose),var(--lavender));
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  }
-  .brand-sub{font-size:9px;color:var(--ink-faint);letter-spacing:3.5px;font-weight:500;margin-top:1px;text-transform:uppercase;}
+/* ── HOME HERO ── */
+.hero {
+  padding: 52px 24px 36px;
+  text-align: center;
+  position: relative;
+}
+.hero-ornament {
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  margin-bottom: 22px;
+}
+.ornament-line {
+  height: 1px; width: 50px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+.ornament-line.rev { background: linear-gradient(90deg, var(--gold), transparent); }
+.ornament-diamond {
+  width: 6px; height: 6px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  box-shadow: 0 0 10px var(--gold-glow);
+}
+.hero-eyebrow {
+  font-size: 9px; letter-spacing: 5px; color: var(--gold);
+  text-transform: uppercase; font-weight: 700;
+  margin-bottom: 16px; display: block;
+}
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px; font-weight: 900; line-height: 1.05;
+  color: #fff;
+  margin-bottom: 6px;
+  text-shadow: 0 0 60px rgba(201,168,76,0.15);
+}
+.hero-title em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--gold3), var(--gold2), var(--gold));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px; font-weight: 400; font-style: italic;
+  color: var(--text-dim); margin-top: 10px; letter-spacing: 0.5px;
+}
 
-  /* ── BACK BTN ── */
-  .back-btn{
-    display:inline-flex;align-items:center;gap:6px;
-    margin:16px 18px 0;
-    background:rgba(255,255,255,0.65);
-    border:1px solid rgba(212,105,138,0.2);
-    border-radius:24px;padding:8px 18px;
-    font-size:12px;color:var(--ink-light);
-    cursor:pointer;font-weight:500;letter-spacing:0.3px;
-    transition:all 0.3s;backdrop-filter:blur(12px);
-    box-shadow:var(--shadow-sm);
-  }
-  .back-btn:hover{background:rgba(255,255,255,0.85);color:var(--rose);border-color:rgba(212,105,138,0.35);transform:translateX(-2px);box-shadow:var(--shadow-md);}
+/* ── NAV CARDS ── */
+.nav-grid { padding: 4px 16px 0; display: flex; flex-direction: column; gap: 10px; }
+.nav-card {
+  display: flex; align-items: center; gap: 16px;
+  background: var(--panel);
+  border: 1px solid var(--border2);
+  border-radius: 16px; padding: 16px 18px;
+  cursor: pointer; position: relative; overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+  animation: cardReveal 0.7s cubic-bezier(0.16,1,0.3,1) both;
+}
+.nav-card::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(201,168,76,0.06), transparent);
+  opacity: 0; transition: opacity 0.3s;
+}
+.nav-card::after {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent 10%, var(--gold) 50%, transparent 90%);
+  opacity: 0; transition: opacity 0.4s;
+}
+.nav-card:hover { border-color: rgba(201,168,76,0.35); transform: translateY(-3px); box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.08); }
+.nav-card:hover::before { opacity: 1; }
+.nav-card:hover::after { opacity: 1; }
+.nav-card:active { transform: scale(0.98) translateY(-1px); }
 
-  /* ── HERO HEADING ── */
-  .page-heading-wrap{padding:40px 22px 24px;text-align:center;}
-  .page-badge{
-    display:inline-block;
-    background:rgba(212,105,138,0.1);
-    border:1px solid rgba(212,105,138,0.22);
-    font-size:10px;font-weight:600;letter-spacing:3px;
-    padding:6px 18px;border-radius:24px;margin-bottom:16px;
-    color:var(--rose);text-transform:uppercase;
-    backdrop-filter:blur(8px);
-  }
-  .page-heading{
-    font-family:'Cormorant Garamond',serif;font-weight:700;font-size:38px;
-    background:linear-gradient(135deg,var(--ink) 0%,var(--rose) 60%,var(--lavender) 100%);
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-    line-height:1.1;margin-bottom:12px;
-    letter-spacing:0.5px;
-  }
-  .heading-line{
-    width:50px;height:2px;
-    background:linear-gradient(90deg,var(--rose),var(--lavender));
-    border-radius:10px;margin:0 auto;
-    box-shadow:0 0 12px rgba(212,105,138,0.3);
-  }
+@keyframes cardReveal {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.nav-card:nth-child(1){animation-delay:.05s}
+.nav-card:nth-child(2){animation-delay:.12s}
+.nav-card:nth-child(3){animation-delay:.19s}
+.nav-card:nth-child(4){animation-delay:.26s}
+.nav-card:nth-child(5){animation-delay:.33s}
+.nav-card:nth-child(6){animation-delay:.40s}
 
-  /* ── HOME BUTTONS ── */
-  .btn-section{padding:10px 14px 0;display:flex;flex-direction:column;gap:10px;}
-  .policy-btn{
-    display:flex;align-items:center;gap:14px;
-    background:rgba(255,255,255,0.68);
-    border:1px solid rgba(212,105,138,0.14);
-    border-radius:20px;padding:15px 17px;
-    cursor:pointer;color:var(--ink);
-    transition:all 0.35s cubic-bezier(0.22,1,0.36,1);
-    position:relative;overflow:hidden;
-    backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-    box-shadow:var(--shadow-sm);
-    animation:slideIn 0.6s cubic-bezier(0.22,1,0.36,1) both;
-  }
-  .policy-btn::before{
-    content:'';position:absolute;inset:0;
-    background:linear-gradient(135deg,rgba(212,105,138,0.07),rgba(201,168,212,0.05));
-    opacity:0;transition:opacity 0.3s;border-radius:20px;
-  }
-  .policy-btn::after{
-    content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;
-    background:linear-gradient(90deg,transparent,rgba(255,255,255,0.5),transparent);
-    transition:left 0.5s ease;
-  }
-  .policy-btn:hover::before{opacity:1;}
-  .policy-btn:hover::after{left:150%;}
-  .policy-btn:hover{transform:translateY(-3px);border-color:rgba(212,105,138,0.3);box-shadow:var(--shadow-md);}
-  .policy-btn:nth-child(1){animation-delay:.08s}
-  .policy-btn:nth-child(2){animation-delay:.16s}
-  .policy-btn:nth-child(3){animation-delay:.24s}
-  .policy-btn:nth-child(4){animation-delay:.32s}
-  .policy-btn:nth-child(5){animation-delay:.40s}
-  .policy-btn:nth-child(6){animation-delay:.48s}
-  @keyframes slideIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+.nav-icon-wrap {
+  width: 50px; height: 50px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; flex-shrink: 0; position: relative;
+  overflow: hidden;
+}
+.icon-gold    { background: linear-gradient(135deg, #2a1f06, #1a1208); border: 1px solid rgba(201,168,76,0.3); box-shadow: 0 4px 20px rgba(201,168,76,0.2); }
+.icon-crimson { background: linear-gradient(135deg, #1e0810, #120509); border: 1px solid rgba(192,55,90,0.3); box-shadow: 0 4px 20px rgba(192,55,90,0.2); }
+.icon-slate   { background: linear-gradient(135deg, #111219, #0a0b10); border: 1px solid rgba(100,110,160,0.25); box-shadow: 0 4px 20px rgba(60,70,120,0.2); }
+.icon-emerald { background: linear-gradient(135deg, #071511, #040d09); border: 1px solid rgba(26,107,74,0.3); box-shadow: 0 4px 20px rgba(26,107,74,0.2); }
+.icon-green   { background: linear-gradient(135deg, #061410, #030d08); border: 1px solid rgba(45,212,191,0.25); box-shadow: 0 4px 20px rgba(45,212,191,0.15); }
 
-  .btn-icon{
-    width:46px;height:46px;border-radius:13px;
-    display:flex;align-items:center;justify-content:center;
-    font-size:20px;flex-shrink:0;position:relative;z-index:1;
-  }
-  .icon-1{background:linear-gradient(135deg,#f5c2d0,#e8849e);box-shadow:0 4px 14px rgba(212,105,138,0.3);}
-  .icon-2{background:linear-gradient(135deg,#dcc8ee,#b89ad0);box-shadow:0 4px 14px rgba(184,154,208,0.3);}
-  .icon-3{background:linear-gradient(135deg,#f5e8b8,#d4a84c);box-shadow:0 4px 14px rgba(201,168,76,0.3);}
-  .icon-4{background:linear-gradient(135deg,#f5e8b8,#e0c070);box-shadow:0 4px 14px rgba(201,168,76,0.3);}
-  .icon-5{background:linear-gradient(135deg,#b8e8d8,#6abfa8);box-shadow:0 4px 14px rgba(100,180,160,0.3);}
-  .icon-6{background:linear-gradient(135deg,#b8e8c0,#6aba78);box-shadow:0 4px 14px rgba(100,180,120,0.3);}
+.nav-text { flex: 1; }
+.nav-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800; font-size: 13px; letter-spacing: 1.2px;
+  color: #fff; text-transform: uppercase; line-height: 1.2;
+}
+.nav-desc { font-size: 10.5px; color: var(--text-dim); margin-top: 4px; font-weight: 400; letter-spacing: 0.3px; }
+.nav-arrow { color: var(--gold); opacity: 0.35; font-size: 20px; transition: all 0.3s; }
+.nav-card:hover .nav-arrow { opacity: 1; transform: translateX(4px); }
 
-  .btn-text{flex:1;position:relative;z-index:1;}
-  .btn-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:15px;letter-spacing:0.8px;color:var(--ink);line-height:1.2;}
-  .btn-desc{font-size:11px;color:var(--ink-faint);margin-top:3px;font-weight:400;}
-  .btn-arrow{font-size:20px;color:var(--ink-faint);position:relative;z-index:1;transition:transform 0.3s,color 0.3s;}
-  .policy-btn:hover .btn-arrow{color:var(--rose);transform:translateX(4px);}
+/* ── COIN SVG ── */
+.coin-svg { width: 26px; height: 26px; filter: drop-shadow(0 2px 8px rgba(201,168,76,0.6)); }
 
-  .gold-coin-icon{width:26px;height:26px;filter:drop-shadow(0 2px 5px rgba(200,160,50,0.5));}
+/* ── INNER PAGE ── */
+.inner-hero {
+  padding: 32px 20px 24px; text-align: center;
+}
+.inner-eyebrow {
+  font-size: 9px; letter-spacing: 5px; color: var(--gold);
+  text-transform: uppercase; font-weight: 700; margin-bottom: 14px;
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+}
+.inner-eyebrow::before, .inner-eyebrow::after {
+  content: ''; flex: 1; max-width: 40px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+.inner-eyebrow::after { background: linear-gradient(90deg, var(--gold), transparent); }
+.inner-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700; font-size: 30px; color: #fff; line-height: 1.1; margin-bottom: 8px;
+  text-shadow: 0 0 40px rgba(201,168,76,0.1);
+}
+.inner-rule {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  margin-top: 12px;
+}
+.rule-gem { font-size: 8px; color: var(--gold); }
+.rule-line { flex: 1; max-width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+.rule-line.rev { background: linear-gradient(90deg, var(--gold), transparent); }
 
-  /* ── INNER PAGE TITLE ── */
-  .inner-title-wrap{padding:28px 18px 12px;text-align:center;}
-  .inner-badge{display:inline-block;background:rgba(212,105,138,0.09);border:1px solid rgba(212,105,138,0.2);font-size:10px;font-weight:600;letter-spacing:3px;padding:6px 18px;border-radius:24px;margin-bottom:14px;color:var(--rose);text-transform:uppercase;backdrop-filter:blur(8px);}
-  .inner-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:30px;background:linear-gradient(135deg,var(--ink) 0%,var(--rose) 65%,var(--lavender) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.15;margin-bottom:10px;letter-spacing:0.3px;}
-  .inner-line{width:48px;height:2px;background:linear-gradient(90deg,var(--rose),var(--lavender));border-radius:10px;margin:0 auto;}
+/* ── SECTION CARDS ── */
+.sec-card {
+  margin: 12px 14px 0;
+  background: var(--panel);
+  border: 1px solid var(--border2);
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.03);
+  animation: secReveal 0.6s cubic-bezier(0.16,1,0.3,1) both;
+}
+@keyframes secReveal { from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)} }
+.sec-card:nth-child(2){animation-delay:.08s}
+.sec-card:nth-child(3){animation-delay:.16s}
+.sec-card:nth-child(4){animation-delay:.24s}
+.sec-card:nth-child(5){animation-delay:.32s}
 
-  /* ── SECTION CARD ── */
-  .section-card{
-    margin:12px 13px 0;
-    background:rgba(255,255,255,0.65);
-    border:1px solid rgba(212,105,138,0.14);
-    border-radius:22px;overflow:hidden;
-    backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
-    box-shadow:var(--shadow-sm),inset 0 1px 0 rgba(255,255,255,0.9);
-    animation:fadeUp 0.5s cubic-bezier(0.22,1,0.36,1) both;
-  }
-  @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
-  .section-card:nth-child(2){animation-delay:.1s}
-  .section-card:nth-child(3){animation-delay:.18s}
-  .section-card:nth-child(4){animation-delay:.26s}
-  .section-card:nth-child(5){animation-delay:.34s}
+.sec-hdr {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 18px;
+  background: linear-gradient(135deg, rgba(201,168,76,0.05), rgba(201,168,76,0.01));
+  border-bottom: 1px solid var(--border2);
+  cursor: pointer; user-select: none;
+  transition: background 0.3s;
+  position: relative;
+}
+.sec-hdr::before {
+  content: ''; position: absolute;
+  left: 0; top: 10%; bottom: 10%; width: 2px;
+  background: linear-gradient(180deg, transparent, var(--gold), transparent);
+  opacity: 0; transition: opacity 0.3s;
+  border-radius: 0 2px 2px 0;
+}
+.sec-hdr:hover::before, .sec-hdr.open::before { opacity: 1; }
+.sec-hdr:hover { background: linear-gradient(135deg, rgba(201,168,76,0.09), rgba(201,168,76,0.03)); }
 
-  .section-header{
-    display:flex;align-items:center;gap:12px;padding:14px 17px;
-    background:rgba(248,232,239,0.5);
-    border-bottom:1px solid rgba(212,105,138,0.1);
-    cursor:pointer;user-select:none;
-    transition:background 0.3s;
-  }
-  .section-header:hover{background:rgba(248,232,239,0.75);}
-  .section-num{width:32px;height:32px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:14px;color:var(--white);}
-  .num-pink{background:linear-gradient(135deg,#e8849e,#c85878);box-shadow:0 3px 10px rgba(212,105,138,0.35);}
-  .num-purple{background:linear-gradient(135deg,#c8a8e0,#9878c0);box-shadow:0 3px 10px rgba(184,154,208,0.35);}
-  .num-neon{background:linear-gradient(135deg,#d4a8e8,#a878c8);box-shadow:0 3px 10px rgba(201,168,212,0.35);}
-  .num-gold{background:linear-gradient(135deg,#e8c870,#c8943c);box-shadow:0 3px 10px rgba(201,168,76,0.35);}
-  .section-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:15px;flex:1;color:var(--ink);letter-spacing:0.3px;}
-  .chevron{font-size:18px;color:var(--ink-faint);transition:transform 0.35s cubic-bezier(0.22,1,0.36,1);}
-  .section-header.open .chevron{transform:rotate(90deg);color:var(--rose);}
-  .section-body{padding:0 17px;max-height:0;overflow:hidden;transition:max-height 0.45s ease,padding 0.3s ease;}
-  .section-body.open{max-height:3000px;padding:16px 17px 18px;}
+.sec-num {
+  width: 32px; height: 32px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700; font-size: 15px; flex-shrink: 0;
+  color: var(--gold2);
+  background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.05));
+  border: 1px solid rgba(201,168,76,0.25);
+  box-shadow: inset 0 1px 0 rgba(201,168,76,0.1);
+}
+.sec-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; flex: 1; color: #fff; letter-spacing: 0.5px; }
+.sec-chev { color: var(--gold); opacity: 0.4; font-size: 18px; transition: all 0.35s cubic-bezier(0.16,1,0.3,1); }
+.sec-hdr.open .sec-chev { transform: rotate(90deg); opacity: 1; }
 
-  /* ── CONTENT ── */
-  .sub-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:14px;color:var(--gold);margin:14px 0 9px;display:flex;align-items:center;gap:7px;letter-spacing:0.3px;}
-  .sub-title:first-child{margin-top:0;}
-  .sub-title::before{content:'';width:3px;height:13px;background:linear-gradient(180deg,var(--gold),var(--gold-light));border-radius:3px;display:inline-block;}
+.sec-body { padding: 0 18px; max-height: 0; overflow: hidden; transition: max-height 0.5s ease, padding 0.3s ease; }
+.sec-body.open { max-height: 4000px; padding: 18px 18px 22px; }
 
-  .policy-table{width:100%;border-collapse:collapse;margin:8px 0;border-radius:12px;overflow:hidden;}
-  .policy-table th{background:rgba(248,232,239,0.8);padding:9px 11px;font-size:11px;font-weight:600;letter-spacing:0.5px;text-align:left;color:var(--ink-light);border-bottom:1px solid rgba(212,105,138,0.12);}
-  .policy-table td{padding:9px 11px;font-size:12.5px;font-weight:400;border-bottom:1px solid rgba(212,105,138,0.06);color:var(--ink-mid);}
-  .policy-table tr:last-child td{border-bottom:none;}
-  .policy-table tr:nth-child(even) td{background:rgba(248,232,239,0.25);}
-  .hc{color:var(--rose)!important;font-weight:600!important;}
-  .gc{color:var(--gold)!important;font-weight:600!important;}
-  .grc{color:#5aaa78!important;font-weight:600!important;}
+/* ── CONTENT ELEMENTS ── */
+.sub-label {
+  font-size: 9px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase;
+  font-weight: 700; margin: 16px 0 10px;
+  display: flex; align-items: center; gap: 8px;
+}
+.sub-label:first-child { margin-top: 0; }
+.sub-label::before { content: ''; width: 12px; height: 1px; background: var(--gold); display: inline-block; }
 
-  .example-box{background:rgba(255,245,210,0.5);border:1px solid rgba(201,168,76,0.22);border-radius:13px;padding:12px 14px;margin:9px 0;font-size:12.5px;line-height:1.75;color:var(--ink-mid);backdrop-filter:blur(8px);}
-  .example-box strong{color:var(--gold);}
-  .example-label{font-size:10px;font-weight:600;letter-spacing:2.5px;color:var(--gold);margin-bottom:6px;display:block;text-transform:uppercase;}
+.lux-table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+.lux-table thead tr {
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+.lux-table th {
+  padding: 9px 12px; font-size: 9px; font-weight: 700;
+  letter-spacing: 2px; color: var(--gold); text-transform: uppercase; text-align: left;
+}
+.lux-table td {
+  padding: 10px 12px; font-size: 12px; font-weight: 500;
+  color: rgba(255,255,255,0.75); border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.lux-table tr:last-child td { border-bottom: none; }
+.lux-table tr:nth-child(even) td { background: rgba(201,168,76,0.025); }
+.lux-table tr:hover td { background: rgba(201,168,76,0.04); }
+.c-gold { color: var(--gold2) !important; font-weight: 700 !important; }
+.c-rose { color: #e07090 !important; font-weight: 700 !important; }
+.c-green { color: #4dd4a0 !important; font-weight: 700 !important; }
+.c-teal { color: var(--teal) !important; font-weight: 700 !important; }
 
-  .rule-list{list-style:none;margin:5px 0;}
-  .rule-list li{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;line-height:1.7;color:var(--ink-mid);padding:5px 0;border-bottom:1px solid rgba(212,105,138,0.05);}
-  .rule-list li:last-child{border-bottom:none;}
-  .rule-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:8px;}
-  .dot-pink{background:var(--rose);box-shadow:0 0 5px rgba(212,105,138,0.4);}
-  .dot-purple{background:var(--lavender);box-shadow:0 0 5px rgba(201,168,212,0.4);}
-  .dot-gold{background:var(--gold);box-shadow:0 0 5px rgba(201,168,76,0.4);}
-  .dot-green{background:#5aaa78;box-shadow:0 0 5px rgba(90,170,120,0.4);}
-  .dot-red{background:#d07070;box-shadow:0 0 5px rgba(208,112,112,0.4);}
-  .rule-list li strong{color:var(--ink);}
-  .tag-pink{color:var(--rose);font-weight:600;}
-  .tag-gold{color:var(--gold);font-weight:600;}
-  .tag-cyan{color:#5aaa98;font-weight:600;}
+.example-box {
+  background: linear-gradient(135deg, rgba(201,168,76,0.06), rgba(201,168,76,0.02));
+  border: 1px solid rgba(201,168,76,0.18);
+  border-left: 2px solid var(--gold);
+  border-radius: 0 12px 12px 0;
+  padding: 14px 16px; margin: 10px 0;
+  font-size: 12.5px; line-height: 1.75;
+  color: rgba(255,255,255,0.72);
+}
+.example-box strong { color: var(--gold2); }
+.ex-label {
+  font-size: 8px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase;
+  font-weight: 700; margin-bottom: 7px; display: block;
+}
 
-  .alert-box{background:rgba(255,220,220,0.35);border:1px solid rgba(208,112,112,0.2);border-radius:13px;padding:12px 14px;margin:10px 0;font-size:12.5px;color:var(--ink-mid);line-height:1.7;backdrop-filter:blur(8px);}
-  .alert-box strong{color:#c05050;}
-  .alert-label{font-size:10px;font-weight:600;letter-spacing:2.5px;color:#c05050;margin-bottom:5px;display:block;text-transform:uppercase;}
+.rule-list { list-style: none; margin: 6px 0; }
+.rule-list li {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  font-size: 12.5px; line-height: 1.65; color: rgba(255,255,255,0.72);
+}
+.rule-list li:last-child { border-bottom: none; }
+.r-gem {
+  width: 6px; height: 6px; border-radius: 1px;
+  flex-shrink: 0; margin-top: 8px; transform: rotate(45deg);
+}
+.gem-gold { background: var(--gold); box-shadow: 0 0 6px var(--gold-glow); }
+.gem-rose { background: #c0375a; box-shadow: 0 0 6px rgba(192,55,90,0.5); }
+.gem-teal { background: var(--teal); box-shadow: 0 0 6px rgba(45,212,191,0.5); }
+.gem-green { background: #4dd4a0; box-shadow: 0 0 6px rgba(77,212,160,0.5); }
+.gem-dim { background: rgba(255,255,255,0.3); }
+.rule-list li strong { color: #fff; font-weight: 600; }
 
-  .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(212,105,138,0.18),rgba(201,168,212,0.15),transparent);margin:14px 0;}
+.alert-box {
+  background: linear-gradient(135deg, rgba(192,55,90,0.08), rgba(139,26,46,0.05));
+  border: 1px solid rgba(192,55,90,0.25);
+  border-left: 2px solid #c0375a;
+  border-radius: 0 12px 12px 0;
+  padding: 14px 16px; margin: 12px 0;
+  font-size: 12.5px; color: rgba(255,255,255,0.72); line-height: 1.65;
+}
+.alert-box strong { color: #e07090; }
+.al-label {
+  font-size: 8px; letter-spacing: 3px; color: #e07090; text-transform: uppercase;
+  font-weight: 700; margin-bottom: 6px; display: block;
+}
 
-  /* ── FOOTER ── */
-  .footer{text-align:center;padding:38px 18px 12px;font-size:11px;color:var(--ink-faint);letter-spacing:2px;font-weight:400;text-transform:uppercase;}
-  .footer span{background:linear-gradient(90deg,var(--rose),var(--lavender));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:600;}
+.divider {
+  height: 1px; margin: 16px 0;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.2), transparent);
+}
 
-  /* ── REGISTRATION & CONTACT ── */
-  .reg-card{
-    width:100%;background:rgba(255,255,255,0.68);
-    border:1px solid rgba(212,105,138,0.18);
-    border-radius:24px;padding:32px 24px;text-align:center;
-    backdrop-filter:blur(24px);
-    box-shadow:var(--shadow-md),inset 0 1px 0 rgba(255,255,255,0.9);
-    animation:fadeUp 0.5s ease both;
-  }
-  .reg-icon{font-size:52px;margin-bottom:16px;animation:softPulse 3s ease-in-out infinite;}
-  @keyframes softPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
-  .reg-heading{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:22px;background:linear-gradient(90deg,var(--rose),var(--lavender));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;letter-spacing:0.5px;}
-  .reg-desc{font-size:13px;color:var(--ink-light);font-weight:400;line-height:1.75;margin-bottom:24px;}
-  .cta-btn{
-    display:inline-flex;align-items:center;gap:10px;
-    background:linear-gradient(135deg,var(--rose),var(--lavender));
-    border:none;border-radius:16px;padding:13px 28px;
-    font-family:'Cormorant Garamond',serif;font-weight:700;font-size:16px;
-    color:#fff;text-decoration:none;letter-spacing:0.5px;
-    box-shadow:0 6px 22px rgba(212,105,138,0.35);
-    transition:all 0.3s cubic-bezier(0.22,1,0.36,1);
-  }
-  .cta-btn:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(212,105,138,0.45);}
+/* ── HOME FOOTER ── */
+.footer {
+  text-align: center; padding: 40px 20px 16px;
+  font-size: 9px; letter-spacing: 3px; color: var(--text-muted);
+  text-transform: uppercase; font-weight: 600;
+}
+.footer span { color: var(--gold); }
 
-  .info-card{background:rgba(255,255,255,0.55);border:1px solid rgba(201,168,212,0.18);border-radius:16px;padding:14px 16px;display:flex;align-items:center;gap:13px;backdrop-filter:blur(12px);box-shadow:var(--shadow-sm);}
-  .info-icon{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
-  .info-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:14px;color:var(--ink);}
-  .info-sub{font-size:11px;color:var(--ink-faint);margin-top:2px;font-weight:400;}
+/* ── CONTACT CARD ── */
+.contact-link {
+  display: flex; align-items: center; gap: 16px;
+  background: linear-gradient(135deg, rgba(37,211,102,0.07), rgba(18,140,126,0.04));
+  border: 1px solid rgba(37,211,102,0.2);
+  border-radius: 16px; padding: 18px 20px;
+  text-decoration: none; color: #fff;
+  transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.contact-link:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(37,211,102,0.15); border-color: rgba(37,211,102,0.4); }
 
-  .wa-link{
-    display:flex;align-items:center;gap:14px;
-    background:rgba(220,245,232,0.6);
-    border:1px solid rgba(100,180,130,0.25);
-    border-radius:18px;padding:16px 18px;
-    text-decoration:none;color:var(--ink);
-    transition:all 0.35s cubic-bezier(0.22,1,0.36,1);
-    backdrop-filter:blur(10px);
-    box-shadow:var(--shadow-sm);
-  }
-  .wa-link:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(100,180,130,0.2);border-color:rgba(100,180,130,0.4);}
+/* ── REGISTRATION ── */
+.reg-card {
+  margin: 24px 14px 0;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 22px; padding: 36px 24px;
+  text-align: center;
+  box-shadow: 0 0 60px rgba(201,168,76,0.06), inset 0 1px 0 rgba(201,168,76,0.07);
+  animation: secReveal 0.6s ease both;
+}
+.reg-icon { font-size: 52px; margin-bottom: 18px; display: block; filter: drop-shadow(0 4px 16px rgba(201,168,76,0.3)); }
+.reg-title {
+  font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700;
+  color: var(--gold2); margin-bottom: 10px;
+}
+.reg-desc { font-size: 12.5px; color: var(--text-dim); line-height: 1.75; margin-bottom: 26px; }
+.reg-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: linear-gradient(135deg, #1a1208, #2a1f08);
+  border: 1px solid rgba(201,168,76,0.5);
+  border-radius: 14px; padding: 14px 30px;
+  font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--gold2); text-decoration: none;
+  box-shadow: 0 6px 24px rgba(201,168,76,0.2), inset 0 1px 0 rgba(201,168,76,0.15);
+  transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+.reg-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(201,168,76,0.3), inset 0 1px 0 rgba(201,168,76,0.2); border-color: var(--gold2); }
+
+.info-row {
+  display: flex; flex-direction: column; gap: 10px;
+  margin: 12px 14px 0;
+}
+.info-item {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--panel2); border: 1px solid var(--border2);
+  border-radius: 14px; padding: 14px 16px;
+}
+.info-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.ii-gold { background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.2); }
+.ii-purple { background: rgba(120,80,200,0.1); border: 1px solid rgba(120,80,200,0.2); }
+.ii-green { background: rgba(77,212,160,0.1); border: 1px solid rgba(77,212,160,0.2); }
+.info-item-title { font-weight: 700; font-size: 12.5px; color: #fff; }
+.info-item-sub { font-size: 10.5px; color: var(--text-dim); margin-top: 2px; }
+
+/* ── WHATSAPP ── */
+.wa-card {
+  margin: 24px 14px 0;
+  background: linear-gradient(135deg, rgba(37,211,102,0.06), rgba(18,140,126,0.03));
+  border: 1px solid rgba(37,211,102,0.2);
+  border-radius: 22px; padding: 36px 24px;
+  text-align: center;
+}
+.wa-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: linear-gradient(135deg, #0a2018, #061510);
+  border: 1px solid rgba(37,211,102,0.4);
+  border-radius: 14px; padding: 14px 30px;
+  font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px;
+  letter-spacing: 1px; color: #25d366; text-decoration: none;
+  box-shadow: 0 6px 24px rgba(37,211,102,0.15);
+  transition: all 0.3s;
+}
+.wa-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(37,211,102,0.25); }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 10px; }
 </style>
 </head>
 <body>
 
-<!-- Background -->
-<div class="bg-deco">
-  <div class="bg-circle"></div>
-  <div class="bg-circle"></div>
-  <div class="bg-circle"></div>
-</div>
-<div class="bg-lines"></div>
+<div class="bg-scene"><div class="marble-vein"></div></div>
+<div class="particles" id="particles"></div>
 
-<!-- Floating petals -->
-<script>
-  (function(){
-    const positions = [8,18,28,42,56,68,78,88];
-    positions.forEach((left, i) => {
-      const p = document.createElement('div');
-      p.className = 'petal';
-      p.style.cssText = `left:${left}%;animation-delay:${i*1.5}s;animation-duration:${10+i*1.5}s`;
-      document.body.appendChild(p);
-    });
-  })();
-</script>
-
-<!-- ═══════════ HOME ═══════════ -->
+<!-- ══════════════════════════ HOME ══════════════════════════ -->
 <div class="page active" id="page-home">
   <header class="header">
-    <div class="logo-wrap">
-      <img src="logo.png" alt="Rizz Live" onerror="this.style.display='none'" />
+    <div class="logo-mark">
+      <img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.textContent='R'"/>
     </div>
-    <div>
-      <div class="brand-name">RIZZ LIVE</div>
+    <div class="brand-block">
+      <div class="brand-name">Rizz Live</div>
       <div class="brand-sub">Live Streaming Platform</div>
     </div>
+    <div class="header-ornament">
+      <div class="live-dot"></div>
+      <span class="live-label">LIVE</span>
+    </div>
   </header>
 
-  <div class="page-heading-wrap">
-    <div class="page-badge">📋 Official Documents</div>
-    <h1 class="page-heading">Rizz Live Policy</h1>
-    <div class="heading-line"></div>
+  <div class="hero">
+    <div class="hero-ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line rev"></div>
+    </div>
+    <span class="hero-eyebrow">Official Policy Documents</span>
+    <h1 class="hero-title">Rizz Live<br/><em>Policy Center</em></h1>
+    <p class="hero-sub">Select a document to view full terms & guidelines</p>
   </div>
 
-  <div class="btn-section">
-    <div class="policy-btn" onclick="goTo('page-host')">
-      <div class="btn-icon icon-1">🎤</div>
-      <div class="btn-text">
-        <div class="btn-title">HOST POLICY</div>
-        <div class="btn-desc">Rules & guidelines for hosts</div>
+  <div class="nav-grid">
+    <div class="nav-card" onclick="goTo('page-host')">
+      <div class="nav-icon-wrap icon-crimson">🎤</div>
+      <div class="nav-text">
+        <div class="nav-title">Host Policy</div>
+        <div class="nav-desc">Salary, bonuses & streaming guidelines</div>
       </div>
-      <div class="btn-arrow">›</div>
+      <div class="nav-arrow">›</div>
     </div>
 
-    <div class="policy-btn" onclick="goTo('page-agency')">
-      <div class="btn-icon icon-2">🏢</div>
-      <div class="btn-text">
-        <div class="btn-title">AGENCY POLICY</div>
-        <div class="btn-desc">Agency terms & conditions</div>
+    <div class="nav-card" onclick="goTo('page-agency')">
+      <div class="nav-icon-wrap icon-slate">🏢</div>
+      <div class="nav-text">
+        <div class="nav-title">Agency Policy</div>
+        <div class="nav-desc">Commission tiers & partnership terms</div>
       </div>
-      <div class="btn-arrow">›</div>
+      <div class="nav-arrow">›</div>
     </div>
 
-    <div class="policy-btn" onclick="goTo('page-seller')">
-      <div class="btn-icon icon-3">
-        <svg class="gold-coin-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+    <div class="nav-card" onclick="goTo('page-seller')">
+      <div class="nav-icon-wrap icon-gold">
+        <svg class="coin-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <radialGradient id="coinFace" cx="38%" cy="32%" r="65%">
+            <radialGradient id="cFace" cx="35%" cy="30%" r="68%">
               <stop offset="0%" stop-color="#fff8dc"/>
-              <stop offset="25%" stop-color="#ffe566"/>
-              <stop offset="55%" stop-color="#f5c200"/>
-              <stop offset="80%" stop-color="#c8860a"/>
-              <stop offset="100%" stop-color="#7a4e00"/>
+              <stop offset="22%" stop-color="#ffe566"/>
+              <stop offset="52%" stop-color="#c9a84c"/>
+              <stop offset="78%" stop-color="#8a6a1e"/>
+              <stop offset="100%" stop-color="#4a3200"/>
             </radialGradient>
           </defs>
-          <ellipse cx="20" cy="21" rx="17" ry="16" fill="#c8880a" opacity="0.5"/>
-          <ellipse cx="20" cy="19" rx="17" ry="16" fill="url(#coinFace)"/>
-          <ellipse cx="20" cy="19" rx="17" ry="16" fill="none" stroke="rgba(255,240,160,0.5)" stroke-width="1"/>
-          <path d="M9 12 Q14 7 22 8" fill="none" stroke="rgba(255,255,200,0.7)" stroke-width="1.8" stroke-linecap="round"/>
-          <text x="20" y="23.5" text-anchor="middle" font-family="serif" font-weight="900" font-size="13" fill="#7a4500">R</text>
+          <ellipse cx="20" cy="21.5" rx="17.5" ry="16.5" fill="#4a3200"/>
+          <ellipse cx="20" cy="19.5" rx="17.5" ry="16.5" fill="url(#cFace)"/>
+          <ellipse cx="20" cy="19.5" rx="17.5" ry="16.5" fill="none" stroke="rgba(255,245,160,0.4)" stroke-width="1"/>
+          <ellipse cx="20" cy="19.5" rx="13.5" ry="12.5" fill="none" stroke="rgba(140,100,20,0.4)" stroke-width="0.7"/>
+          <path d="M9.5 12.5 Q15 7.5 22 8.5" fill="none" stroke="rgba(255,255,210,0.65)" stroke-width="1.8" stroke-linecap="round"/>
+          <text x="20" y="24" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="13" fill="rgba(80,45,0,0.3)">R</text>
+          <text x="20" y="23" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="12.5" fill="#5a3500">R</text>
+          <text x="9" y="19" font-size="5" fill="rgba(140,95,10,0.5)">★</text>
+          <text x="27" y="19" font-size="5" fill="rgba(140,95,10,0.5)">★</text>
         </svg>
       </div>
-      <div class="btn-text">
-        <div class="btn-title">COIN SELLER POLICY</div>
-        <div class="btn-desc">Official coin seller guidelines</div>
+      <div class="nav-text">
+        <div class="nav-title">Coin Seller Policy</div>
+        <div class="nav-desc">Official coin seller guidelines & rates</div>
       </div>
-      <div class="btn-arrow">›</div>
+      <div class="nav-arrow">›</div>
     </div>
 
-    <div class="policy-btn" onclick="goTo('page-registration')">
-      <div class="btn-icon icon-4">📝</div>
-      <div class="btn-text">
-        <div class="btn-title">AGENCY REGISTRATION</div>
-        <div class="btn-desc">Register your agency now</div>
+    <div class="nav-card" onclick="goTo('page-registration')">
+      <div class="nav-icon-wrap icon-gold">📝</div>
+      <div class="nav-text">
+        <div class="nav-title">Agency Registration</div>
+        <div class="nav-desc">Apply to become a partner agency</div>
       </div>
-      <div class="btn-arrow">›</div>
+      <div class="nav-arrow">›</div>
     </div>
 
-    <div class="policy-btn" onclick="goTo('page-contact')">
-      <div class="btn-icon icon-5">📞</div>
-      <div class="btn-text">
-        <div class="btn-title">CONTACT COUNTRY MANAGER</div>
-        <div class="btn-desc">Get in touch with your manager</div>
+    <div class="nav-card" onclick="goTo('page-contact')">
+      <div class="nav-icon-wrap icon-emerald">📞</div>
+      <div class="nav-text">
+        <div class="nav-title">Contact Country Manager</div>
+        <div class="nav-desc">India manager direct contact</div>
       </div>
-      <div class="btn-arrow">›</div>
+      <div class="nav-arrow">›</div>
     </div>
 
-    <div class="policy-btn" onclick="window.open('https://whatsapp.com/channel/0029VbBsWwtGzzKJmjQ8CU0Q','_blank')">
-      <div class="btn-icon icon-6">
-        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <div class="nav-card" onclick="window.open('https://whatsapp.com/channel/0029VbBsWwtGzzKJmjQ8CU0Q','_blank')">
+      <div class="nav-icon-wrap icon-green">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       </div>
-      <div class="btn-text">
-        <div class="btn-title">JOIN FOR DAILY UPDATES</div>
-        <div class="btn-desc">Stay updated every day on WhatsApp</div>
+      <div class="nav-text">
+        <div class="nav-title">Daily Updates</div>
+        <div class="nav-desc">Join our WhatsApp channel</div>
       </div>
-      <div class="btn-arrow">›</div>
+      <div class="nav-arrow">›</div>
     </div>
   </div>
   <div class="footer">© 2026 <span>RIZZ LIVE</span> · All Rights Reserved</div>
 </div>
 
-<!-- ═══════════ HOST POLICY ═══════════ -->
+<!-- ══════════════════════════ HOST POLICY ══════════════════════════ -->
 <div class="page" id="page-host">
   <header class="header">
-    <div class="logo-wrap"><img src="logo.png" alt="Rizz Live" onerror="this.style.display='none'" /></div>
-    <div><div class="brand-name">RIZZ LIVE</div><div class="brand-sub">Live Streaming Platform</div></div>
+    <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.textContent='R'"/></div>
+    <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
   </header>
-  <div class="back-btn" onclick="goTo('page-home')">‹ Back</div>
-  <div class="inner-title-wrap">
-    <div class="inner-badge">🎙️ Host Guidelines</div>
+  <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
+  <div class="inner-hero">
+    <div class="inner-eyebrow">Host Guidelines</div>
     <h1 class="inner-title">Host Policy</h1>
-    <div class="inner-line"></div>
-  </div>
-
-  <div class="section-card">
-    <div class="section-header open" onclick="toggle(this)">
-      <div class="section-num num-pink">1</div>
-      <div class="section-title">Host Salary Structure</div>
-      <div class="chevron">›</div>
-    </div>
-    <div class="section-body open">
-      <div class="sub-title">1.1 Personal Gift Share</div>
-      <table class="policy-table">
-        <thead><tr><th>Basic Share</th></tr></thead>
-        <tbody><tr><td>Host Share &nbsp;<span class="hc">100%</span></td></tr></tbody>
-      </table>
-      <div class="example-box">
-        <span class="example-label">📌 Example</span>
-        If a user sends <strong>10K Coins</strong> during a live broadcast, the host receives <strong>10K Rubies</strong>.
-      </div>
-      <div class="divider"></div>
-      <div class="sub-title">1.2 Host Weekly Bonus</div>
-      <table class="policy-table">
-        <thead><tr><th>Valid Hours Target</th><th>Valid Days Target</th><th>Weekly Bonus</th></tr></thead>
-        <tbody><tr><td class="hc">10</td><td class="hc">4</td><td class="grc">30%</td></tr></tbody>
-      </table>
-      <div class="example-box">
-        <span class="example-label">📌 Example</span>
-        If a host earns <strong>100K Rubies</strong> in one week <strong>(Sunday 10:30 PM – Sunday 10:30 PM IST)</strong>, they receive a <strong>30K Ruby bonus (30%)</strong>, credited on <strong>Monday</strong>.
-        <br/><br/>To get this bonus, the host must:
-      </div>
-      <ul class="rule-list">
-        <li><span class="rule-dot dot-pink"></span><span>Complete at least <strong>4 active days</strong></span></li>
-        <li><span class="rule-dot dot-pink"></span><span>Stream a total of <strong>10 hours</strong> in the week</span></li>
-      </ul>
-      <div class="divider"></div>
-      <div class="sub-title">1.3 Rules</div>
-      <ul class="rule-list">
-        <li><span class="rule-dot dot-gold"></span><span><strong>Withdrawal Rate:</strong> <span class="tag-gold">20,000 Ruby = 1 USD</span></span></li>
-        <li><span class="rule-dot dot-gold"></span><span><strong>Day Change:</strong> Daily at <span class="tag-gold">10:30 PM (IST)</span></span></li>
-        <li><span class="rule-dot dot-gold"></span><span><strong>Weekly Period:</strong> <span class="tag-pink">Sunday 10:30 PM to Sunday 10:30 PM (IST)</span></span></li>
-        <li><span class="rule-dot dot-gold"></span><span><strong>Valid Day:</strong> Minimum <span class="tag-gold">120 minutes (2 hours)</span> Live</span></li>
-        <li><span class="rule-dot dot-gold"></span><span><strong>Valid Hour:</strong> 60+ minutes = <span class="tag-gold">1 valid hour</span></span></li>
-        <li><span class="rule-dot dot-gold"></span><span><strong>Minimum Live Time:</strong> Sessions below <strong>30 minutes</strong> not counted</span></li>
-        <li><span class="rule-dot dot-gold"></span><span><strong>Bonus Payment:</strong> Every <span class="tag-gold">Monday (in Rubies)</span></span></li>
-        <li><span class="rule-dot dot-gold"></span><span><strong>Withdrawal:</strong> Once per day, Minimum = <span class="tag-pink">$10 USD</span></span></li>
-      </ul>
-      <div class="divider"></div>
-      <div class="sub-title" style="color:#5aaa98;">Agency Change Rules</div>
-      <p style="font-size:12px;color:var(--ink-faint);margin-bottom:8px;">A host can change agency if:</p>
-      <ul class="rule-list">
-        <li><span class="rule-dot dot-purple"></span><span>No live for <strong>120 days</strong></span></li>
-        <li><span class="rule-dot dot-purple"></span><span>Cannot contact agency for <strong>2 weeks</strong></span></li>
-        <li><span class="rule-dot dot-purple"></span><span>Both host and agency agree</span></li>
-      </ul>
-      <div class="alert-box" style="margin-top:10px">
-        <span class="alert-label">⚠️ Strict Rule</span>
-        Any misuse or cheating during transfer → <strong>Warning / Suspension / Ban</strong>
-      </div>
+    <div class="inner-rule">
+      <div class="rule-line rev"></div>
+      <div class="rule-gem">◆</div>
+      <div class="rule-line"></div>
     </div>
   </div>
 
-  <div class="section-card">
-    <div class="section-header open" onclick="toggle(this)">
-      <div class="section-num num-purple">2</div>
-      <div class="section-title">Host Game Commissions</div>
-      <div class="chevron">›</div>
+  <div class="sec-card">
+    <div class="sec-hdr open" onclick="toggle(this)">
+      <div class="sec-num">I</div>
+      <div class="sec-title">Host Salary Structure</div>
+      <div class="sec-chev">›</div>
     </div>
-    <div class="section-body open">
-      <table class="policy-table">
-        <thead><tr><th>Bet Amount (Coins)</th><th>Reward (Ruby)</th></tr></thead>
-        <tbody><tr><td class="hc">1000</td><td class="grc">1</td></tr></tbody>
+    <div class="sec-body open">
+      <div class="sub-label">1.1 Personal Gift Share</div>
+      <table class="lux-table">
+        <thead><tr><th>Category</th><th>Share</th></tr></thead>
+        <tbody><tr><td>Personal Gifts Received</td><td class="c-gold">100%</td></tr></tbody>
+      </table>
+      <div class="example-box">
+        <span class="ex-label">📌 Example</span>
+        If a user sends <strong>10,000 Coins</strong> during a live broadcast, the host receives <strong>10,000 Rubies</strong> — the full amount.
+      </div>
+      <div class="divider"></div>
+      <div class="sub-label">1.2 Weekly Bonus</div>
+      <table class="lux-table">
+        <thead><tr><th>Valid Hours</th><th>Valid Days</th><th>Weekly Bonus</th></tr></thead>
+        <tbody><tr><td class="c-gold">10 hrs</td><td class="c-gold">4 days</td><td class="c-green">+30%</td></tr></tbody>
+      </table>
+      <div class="example-box">
+        <span class="ex-label">📌 Example</span>
+        If a host earns <strong>100,000 Rubies</strong> in a week <strong>(Sun 10:30 PM – Sun 10:30 PM IST)</strong>, they receive a bonus of <strong>30,000 Rubies</strong>, credited every <strong>Monday</strong>.
+      </div>
+      <div class="divider"></div>
+      <div class="sub-label">1.3 Platform Rules</div>
+      <ul class="rule-list">
+        <li><span class="r-gem gem-gold"></span><span><strong>Withdrawal Rate:</strong> <span class="c-gold">20,000 Ruby = $1 USD</span></span></li>
+        <li><span class="r-gem gem-gold"></span><span><strong>Day Reset:</strong> Daily at <span class="c-gold">10:30 PM IST</span></span></li>
+        <li><span class="r-gem gem-gold"></span><span><strong>Weekly Period:</strong> Sunday 10:30 PM → Sunday 10:30 PM IST</span></li>
+        <li><span class="r-gem gem-gold"></span><span><strong>Valid Day:</strong> Minimum <span class="c-gold">120 minutes</span> live per day</span></li>
+        <li><span class="r-gem gem-gold"></span><span><strong>Valid Hour:</strong> 60+ minutes = 1 valid hour</span></li>
+        <li><span class="r-gem gem-gold"></span><span><strong>Minimum Session:</strong> Sessions below <strong>30 minutes</strong> do not count</span></li>
+        <li><span class="r-gem gem-gold"></span><span><strong>Bonus Payment:</strong> Every <span class="c-gold">Monday</span> in Rubies</span></li>
+        <li><span class="r-gem gem-gold"></span><span><strong>Withdrawal:</strong> Once per day · Minimum <span class="c-rose">$10 USD</span></span></li>
+      </ul>
+      <div class="divider"></div>
+      <div class="sub-label" style="color:var(--teal)">Agency Change Rules</div>
+      <ul class="rule-list">
+        <li><span class="r-gem gem-teal"></span><span>No live activity for <strong>120 days</strong></span></li>
+        <li><span class="r-gem gem-teal"></span><span>Cannot contact agency for <strong>2 weeks</strong></span></li>
+        <li><span class="r-gem gem-teal"></span><span>Both host and agency mutually agree</span></li>
+      </ul>
+      <div class="alert-box" style="margin-top:12px">
+        <span class="al-label">⚠️ Strict Rule</span>
+        Any misuse or deception during agency transfer will result in <strong>Warning / Suspension / Permanent Ban</strong>.
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-card">
+    <div class="sec-hdr open" onclick="toggle(this)">
+      <div class="sec-num">II</div>
+      <div class="sec-title">Game Commissions</div>
+      <div class="sec-chev">›</div>
+    </div>
+    <div class="sec-body open">
+      <table class="lux-table">
+        <thead><tr><th>Coins Used in Games</th><th>Host Reward</th></tr></thead>
+        <tbody><tr><td class="c-rose">1,000 Coins</td><td class="c-green">1 Ruby</td></tr></tbody>
       </table>
       <ul class="rule-list" style="margin-top:12px">
-        <li><span class="rule-dot dot-green"></span><span>Host earns <strong>1 Ruby for every 1,000 coins</strong> used in games</span></li>
-        <li><span class="rule-dot dot-purple"></span><span>This income <strong>does NOT count</strong> toward weekly targets</span></li>
-        <li><span class="rule-dot dot-pink"></span><span>Earnings <strong>credited instantly</strong> after each Stream ends</span></li>
+        <li><span class="r-gem gem-green"></span><span>Host earns <strong>1 Ruby</strong> for every <strong>1,000 coins</strong> used in games</span></li>
+        <li><span class="r-gem gem-dim"></span><span>This income <strong>does NOT count</strong> toward weekly targets</span></li>
+        <li><span class="r-gem gem-gold"></span><span>Earnings credited <strong>instantly</strong> after each stream ends</span></li>
       </ul>
     </div>
   </div>
 
-  <div class="section-card">
-    <div class="section-header open" onclick="toggle(this)">
-      <div class="section-num num-neon">3</div>
-      <div class="section-title">New Host Guarantee Policy</div>
-      <div class="chevron">›</div>
+  <div class="sec-card">
+    <div class="sec-hdr open" onclick="toggle(this)">
+      <div class="sec-num">III</div>
+      <div class="sec-title">New Host Guarantee</div>
+      <div class="sec-chev">›</div>
     </div>
-    <div class="section-body open">
-      <table class="policy-table">
-        <thead><tr><th>Cycle</th><th>Weekly Ruby Task</th><th>Valid Days</th><th>Valid Hour</th><th>Guarantee</th></tr></thead>
+    <div class="sec-body open">
+      <table class="lux-table">
+        <thead><tr><th>Cycle</th><th>Weekly Ruby Target</th><th>Valid Days</th><th>Valid Hrs</th><th>Guarantee</th></tr></thead>
         <tbody>
-          <tr><td>A – Week 1</td><td>0</td><td rowspan="4" style="vertical-align:middle;text-align:center" class="hc">4</td><td rowspan="4" style="vertical-align:middle;text-align:center" class="hc">10</td><td class="grc">$5</td></tr>
-          <tr><td>B – Week 2</td><td class="gc">50,000</td><td class="grc">$5</td></tr>
-          <tr><td>C – Week 3</td><td class="gc">100,000</td><td class="grc">$5</td></tr>
-          <tr><td>D – Week 4</td><td class="gc">150,000</td><td class="grc">$5</td></tr>
+          <tr><td>Week 1</td><td>—</td><td class="c-gold" rowspan="4" style="vertical-align:middle;text-align:center">4</td><td class="c-gold" rowspan="4" style="vertical-align:middle;text-align:center">10</td><td class="c-green">$5</td></tr>
+          <tr><td>Week 2</td><td class="c-gold">50,000</td><td class="c-green">$5</td></tr>
+          <tr><td>Week 3</td><td class="c-gold">100,000</td><td class="c-green">$5</td></tr>
+          <tr><td>Week 4</td><td class="c-gold">150,000</td><td class="c-green">$5</td></tr>
         </tbody>
       </table>
       <ul class="rule-list" style="margin-top:12px">
-        <li><span class="rule-dot dot-green"></span><span>New hosts must be <strong>approved</strong> to get guarantee for first 4 weeks</span></li>
-        <li><span class="rule-dot dot-pink"></span><span><strong>Week 1:</strong> No target, guarantee is given</span></li>
-        <li><span class="rule-dot dot-pink"></span><span><strong>Week 2:</strong> 50,000 Ruby</span></li>
-        <li><span class="rule-dot dot-pink"></span><span><strong>Week 3:</strong> 100,000 Ruby</span></li>
-        <li><span class="rule-dot dot-pink"></span><span><strong>Week 4:</strong> 150,000 Ruby</span></li>
-        <li><span class="rule-dot dot-purple"></span><span>Missing one week's target <strong>does not cancel next week's guarantee</strong></span></li>
-        <li><span class="rule-dot dot-gold"></span><span>If Valid Days & Hours not met → <strong>salary under basic policy</strong></span></li>
-        <li><span class="rule-dot dot-red"></span><span>From <strong>Week 5 onward</strong>, only <strong>basic policy applies</strong></span></li>
+        <li><span class="r-gem gem-green"></span><span>Must be <strong>approved</strong> by platform to receive guarantee</span></li>
+        <li><span class="r-gem gem-dim"></span><span>Missing one week's target <strong>does not cancel</strong> the next week's guarantee</span></li>
+        <li><span class="r-gem gem-gold"></span><span>If Valid Days & Hours not met → salary falls under <strong>basic policy</strong></span></li>
+        <li><span class="r-gem gem-rose"></span><span>From <strong>Week 5 onward</strong>, only <strong>basic policy applies</strong></span></li>
       </ul>
     </div>
   </div>
 
-  <div class="section-card">
-    <div class="section-header open" onclick="toggle(this)">
-      <div class="section-num num-gold">4</div>
-      <div class="section-title">Sensual Category Host Policy</div>
-      <div class="chevron">›</div>
+  <div class="sec-card">
+    <div class="sec-hdr open" onclick="toggle(this)">
+      <div class="sec-num">IV</div>
+      <div class="sec-title">Sensual Category Host Policy</div>
+      <div class="sec-chev">›</div>
     </div>
-    <div class="section-body open">
-      <table class="policy-table">
-        <thead><tr><th>Cycle</th><th>Weekly Ruby Task</th><th>Valid Days</th><th>Valid Hour</th><th>Guarantee</th></tr></thead>
+    <div class="sec-body open">
+      <table class="lux-table">
+        <thead><tr><th>Cycle</th><th>Weekly Ruby Target</th><th>Valid Days</th><th>Valid Hrs</th><th>Guarantee</th></tr></thead>
         <tbody>
-          <tr><td>A – Week 1</td><td>0</td><td rowspan="5" style="vertical-align:middle;text-align:center" class="hc">4</td><td rowspan="5" style="vertical-align:middle;text-align:center" class="hc">10</td><td class="grc">$15</td></tr>
-          <tr><td>B – Week 2</td><td class="gc">100,000</td><td class="grc">$15</td></tr>
-          <tr><td>C – Week 3</td><td class="gc">150,000</td><td class="grc">$15</td></tr>
-          <tr><td>D – Week 4</td><td class="gc">200,000</td><td class="grc">$15</td></tr>
-          <tr><td>E – Week 5+</td><td class="gc">300,000</td><td class="grc">$15</td></tr>
+          <tr><td>Week 1</td><td>—</td><td class="c-gold" rowspan="5" style="vertical-align:middle;text-align:center">4</td><td class="c-gold" rowspan="5" style="vertical-align:middle;text-align:center">10</td><td class="c-green">$15</td></tr>
+          <tr><td>Week 2</td><td class="c-gold">100,000</td><td class="c-green">$15</td></tr>
+          <tr><td>Week 3</td><td class="c-gold">150,000</td><td class="c-green">$15</td></tr>
+          <tr><td>Week 4</td><td class="c-gold">200,000</td><td class="c-green">$15</td></tr>
+          <tr><td>Week 5+</td><td class="c-gold">300,000</td><td class="c-green">$15</td></tr>
         </tbody>
       </table>
-      <ul class="rule-list" style="margin-top:12px">
-        <li><span class="rule-dot dot-green"></span><span>Only <strong>approved hosts</strong> can join this program</span></li>
-        <li><span class="rule-dot dot-pink"></span><span><strong>Week 1:</strong> No target, guarantee pay given</span></li>
-        <li><span class="rule-dot dot-pink"></span><span><strong>Week 2:</strong> 100,000 Ruby</span></li>
-        <li><span class="rule-dot dot-pink"></span><span><strong>Week 3:</strong> 150,000 Ruby</span></li>
-        <li><span class="rule-dot dot-pink"></span><span><strong>Week 4:</strong> 200,000 Ruby</span></li>
-        <li><span class="rule-dot dot-pink"></span><span><strong>Week 5+:</strong> 300,000 Ruby</span></li>
-        <li><span class="rule-dot dot-purple"></span><span>Missing one week's target <strong>does not cancel next week's guarantee</strong></span></li>
-        <li><span class="rule-dot dot-gold"></span><span>If targets not met → <strong>salary follows basic policy</strong></span></li>
+      <div class="divider"></div>
+      <div class="sub-label">Requirements</div>
+      <ul class="rule-list">
+        <li><span class="r-gem gem-green"></span><span>Maintain clean and presentable appearance</span></li>
+        <li><span class="r-gem gem-green"></span><span>Follow schedule and complete required hours</span></li>
+        <li><span class="r-gem gem-green"></span><span>Keep background neat and professional</span></li>
+        <li><span class="r-gem gem-green"></span><span>Maintain high audio & video quality</span></li>
+        <li><span class="r-gem gem-green"></span><span>Actively engage with and entertain viewers</span></li>
+        <li><span class="r-gem gem-green"></span><span>Follow team instructions and participate in events</span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-title">4.1 Requirements</div>
+      <div class="sub-label" style="color:#e07090">Grounds for Removal</div>
       <ul class="rule-list">
-        <li><span class="rule-dot dot-green"></span><span>Look clean and presentable</span></li>
-        <li><span class="rule-dot dot-green"></span><span>Follow schedule and complete hours</span></li>
-        <li><span class="rule-dot dot-green"></span><span>Keep background neat</span></li>
-        <li><span class="rule-dot dot-green"></span><span>Maintain good audio & video</span></li>
-        <li><span class="rule-dot dot-green"></span><span>Actively engage with viewers</span></li>
-        <li><span class="rule-dot dot-green"></span><span>Follow team instructions and join activities</span></li>
-      </ul>
-      <div class="divider"></div>
-      <div class="sub-title" style="color:#c05050;">4.2 Removal from Sensual Host Policy</div>
-      <ul class="rule-list">
-        <li><span class="rule-dot dot-red"></span><span>Not streaming regularly or showing bad attitude</span></li>
-        <li><span class="rule-dot dot-red"></span><span>Ignoring or disrespecting viewers</span></li>
-        <li><span class="rule-dot dot-red"></span><span>Messy setup with no improvement</span></li>
-        <li><span class="rule-dot dot-red"></span><span>Not following team instructions</span></li>
-        <li><span class="rule-dot dot-red"></span><span>Poor stream quality without fixing</span></li>
-        <li><span class="rule-dot dot-red"></span><span>Breaking platform rules or laws</span></li>
+        <li><span class="r-gem gem-rose"></span><span>Irregular streaming or unprofessional conduct</span></li>
+        <li><span class="r-gem gem-rose"></span><span>Disrespecting or ignoring viewers</span></li>
+        <li><span class="r-gem gem-rose"></span><span>Consistently poor stream quality without improvement</span></li>
+        <li><span class="r-gem gem-rose"></span><span>Refusing team instructions without valid reason</span></li>
+        <li><span class="r-gem gem-rose"></span><span>Violating platform rules or applicable laws</span></li>
       </ul>
     </div>
   </div>
   <div class="footer">© 2026 <span>RIZZ LIVE</span> · All Rights Reserved</div>
 </div>
 
-<!-- ═══════════ AGENCY POLICY ═══════════ -->
+<!-- ══════════════════════════ AGENCY POLICY ══════════════════════════ -->
 <div class="page" id="page-agency">
   <header class="header">
-    <div class="logo-wrap"><img src="logo.png" alt="Rizz Live" onerror="this.style.display='none'" /></div>
-    <div><div class="brand-name">RIZZ LIVE</div><div class="brand-sub">Live Streaming Platform</div></div>
+    <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.textContent='R'"/></div>
+    <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
   </header>
-  <div class="back-btn" onclick="goTo('page-home')">‹ Back</div>
-  <div class="inner-title-wrap">
-    <div class="inner-badge">🏢 Agency Guidelines</div>
+  <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
+  <div class="inner-hero">
+    <div class="inner-eyebrow">Agency Guidelines</div>
     <h1 class="inner-title">Agency Policy</h1>
-    <div class="inner-line"></div>
+    <div class="inner-rule">
+      <div class="rule-line rev"></div>
+      <div class="rule-gem">◆</div>
+      <div class="rule-line"></div>
+    </div>
   </div>
 
-  <div class="section-card">
-    <div class="section-header open" onclick="toggle(this)">
-      <div class="section-num num-pink">1</div>
-      <div class="section-title">Agency Commissions</div>
-      <div class="chevron">›</div>
+  <div class="sec-card">
+    <div class="sec-hdr open" onclick="toggle(this)">
+      <div class="sec-num">I</div>
+      <div class="sec-title">Agency Commission Tiers</div>
+      <div class="sec-chev">›</div>
     </div>
-    <div class="section-body open">
-      <table class="policy-table">
-        <thead><tr><th>Level</th><th>Agency Weekly Revenue (Ruby)</th><th>Agency Commission</th></tr></thead>
+    <div class="sec-body open">
+      <table class="lux-table">
+        <thead><tr><th>Level</th><th>Weekly Revenue (Ruby)</th><th>Commission</th></tr></thead>
         <tbody>
-          <tr><td class="hc">Lv.1</td><td>Below 10M</td><td class="grc">16.00%</td></tr>
-          <tr><td class="hc">Lv.2</td><td>10M – 30M</td><td class="grc">18.00%</td></tr>
-          <tr><td class="hc">Lv.3</td><td>Above 30M</td><td class="grc">20.00%</td></tr>
+          <tr><td class="c-gold">Level 1</td><td>Below 10M</td><td class="c-green">16.00%</td></tr>
+          <tr><td class="c-gold">Level 2</td><td>10M – 30M</td><td class="c-green">18.00%</td></tr>
+          <tr><td class="c-gold">Level 3</td><td>Above 30M</td><td class="c-green">20.00%</td></tr>
         </tbody>
       </table>
       <div class="divider"></div>
-      <div class="sub-title">Agency Requirements</div>
+      <div class="sub-label">Requirements</div>
       <ul class="rule-list">
-        <li><span class="rule-dot dot-pink"></span><span>Agency must have at least <strong>5 active hosts every week</strong></span></li>
-        <li><span class="rule-dot dot-pink"></span><span>Agency must support the platform: Encourage hosts to go live & Join platform events</span></li>
+        <li><span class="r-gem gem-gold"></span><span>Agency must maintain at least <strong>5 active hosts</strong> every week</span></li>
+        <li><span class="r-gem gem-gold"></span><span>Agency must encourage hosts to go live & actively join platform events</span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-title">Weekly Task Period</div>
+      <div class="sub-label">Weekly Task Period</div>
       <div class="example-box">
-        <span class="example-label">⏰ Period</span>
-        Tasks are counted from <strong>Sunday 10:30 PM to Sunday 10:30 PM (IST)</strong>
+        <span class="ex-label">⏰ Period</span>
+        All weekly tasks are counted from <strong>Sunday 10:30 PM to Sunday 10:30 PM (IST)</strong>.
       </div>
     </div>
   </div>
 
-  <div class="section-card">
-    <div class="section-header open" onclick="toggle(this)">
-      <div class="section-num num-purple">2</div>
-      <div class="section-title">Host Activation Salary Policy</div>
-      <div class="chevron">›</div>
+  <div class="sec-card">
+    <div class="sec-hdr open" onclick="toggle(this)">
+      <div class="sec-num">II</div>
+      <div class="sec-title">Host Activation Salary</div>
+      <div class="sec-chev">›</div>
     </div>
-    <div class="section-body open">
-      <table class="policy-table">
-        <thead><tr><th>Agency Level</th><th>Monthly Target (Rubies)</th><th>Active Hosts Required</th><th>Agency Basic Pay</th></tr></thead>
+    <div class="sec-body open">
+      <table class="lux-table">
+        <thead><tr><th>Level</th><th>Monthly Target</th><th>Active Hosts</th><th>Basic Pay</th></tr></thead>
         <tbody>
-          <tr><td class="hc">L1</td><td>Below 10M</td><td>–</td><td>–</td></tr>
-          <tr><td class="hc">L2</td><td>Above 10M</td><td class="hc">20</td><td class="grc">$25</td></tr>
-          <tr><td class="hc">L3</td><td>Above 50M</td><td class="hc">30</td><td class="grc">$225</td></tr>
-          <tr><td class="hc">L4</td><td>Above 100M</td><td class="hc">50</td><td class="grc">$500</td></tr>
-          <tr><td class="hc">L5</td><td>Above 200M</td><td class="hc">50</td><td class="grc">$1,000</td></tr>
+          <tr><td class="c-gold">L1</td><td>Below 10M</td><td>—</td><td>—</td></tr>
+          <tr><td class="c-gold">L2</td><td>Above 10M</td><td class="c-gold">20</td><td class="c-green">$25</td></tr>
+          <tr><td class="c-gold">L3</td><td>Above 50M</td><td class="c-gold">30</td><td class="c-green">$225</td></tr>
+          <tr><td class="c-gold">L4</td><td>Above 100M</td><td class="c-gold">50</td><td class="c-green">$500</td></tr>
+          <tr><td class="c-gold">L5</td><td>Above 200M</td><td class="c-gold">50</td><td class="c-green">$1,000</td></tr>
         </tbody>
       </table>
-      <p style="font-size:12px;color:var(--ink-faint);margin:10px 0 8px;">An agency will receive a <strong style="color:var(--ink);">monthly basic salary</strong> if it:</p>
-      <ul class="rule-list">
-        <li><span class="rule-dot dot-green"></span><span>Meets the <strong>monthly Rubies target</strong></span></li>
-        <li><span class="rule-dot dot-green"></span><span>Maintains the <strong>required number of active hosts</strong></span></li>
-      </ul>
       <div class="divider"></div>
-      <div class="sub-title" style="color:#5aaa98;">Definition: Active Host</div>
-      <p style="font-size:12px;color:var(--ink-faint);margin-bottom:8px;">A host is counted as active if they:</p>
+      <div class="sub-label" style="color:var(--teal)">Active Host Definition</div>
       <ul class="rule-list">
-        <li><span class="rule-dot dot-purple"></span><span>Complete at least <strong>10 valid days</strong> in a month</span></li>
-        <li><span class="rule-dot dot-purple"></span><span>Complete at least <strong>20 valid hours</strong> in a month</span></li>
-        <li><span class="rule-dot dot-purple"></span><span>Earn <strong>100,000 Rubies or more</strong> in gifts in a month</span></li>
+        <li><span class="r-gem gem-teal"></span><span>At least <strong>10 valid days</strong> in a month</span></li>
+        <li><span class="r-gem gem-teal"></span><span>At least <strong>20 valid hours</strong> in a month</span></li>
+        <li><span class="r-gem gem-teal"></span><span>Minimum <strong>100,000 Rubies</strong> earned in gifts per month</span></li>
       </ul>
-      <div class="alert-box" style="margin-top:10px">
-        <span class="alert-label">⚠️ Important</span>
-        Failure to meet either the Monthly Revenue Target or Active Host Requirement will result in <strong>Host Activation Salary Policy disqualification</strong>.
+      <div class="alert-box" style="margin-top:12px">
+        <span class="al-label">⚠️ Important</span>
+        Failure to meet either the monthly revenue target or active host requirement results in <strong>disqualification</strong> from the Host Activation Salary Program.
       </div>
     </div>
   </div>
 
-  <div class="section-card">
-    <div class="section-header open" onclick="toggle(this)">
-      <div class="section-num num-neon">3</div>
-      <div class="section-title">Commission Payout</div>
-      <div class="chevron">›</div>
+  <div class="sec-card">
+    <div class="sec-hdr open" onclick="toggle(this)">
+      <div class="sec-num">III</div>
+      <div class="sec-title">Commission Payout</div>
+      <div class="sec-chev">›</div>
     </div>
-    <div class="section-body open">
+    <div class="sec-body open">
       <div class="example-box">
-        <span class="example-label">💰 Payout</span>
-        Commissions are paid <strong>every Monday in Rubies</strong>.
+        <span class="ex-label">💰 Payout Schedule</span>
+        All commissions are paid <strong>every Monday in Rubies</strong>.
       </div>
     </div>
   </div>
 
-  <div class="section-card">
-    <div class="section-header open" onclick="toggle(this)">
-      <div class="section-num num-gold">4</div>
-      <div class="section-title">Withdrawal Rules</div>
-      <div class="chevron">›</div>
+  <div class="sec-card">
+    <div class="sec-hdr open" onclick="toggle(this)">
+      <div class="sec-num">IV</div>
+      <div class="sec-title">Withdrawal Rules</div>
+      <div class="sec-chev">›</div>
     </div>
-    <div class="section-body open">
+    <div class="sec-body open">
       <ul class="rule-list">
-        <li><span class="rule-dot dot-gold"></span><span>Withdrawal requests can be submitted <strong>once per day</strong></span></li>
-        <li><span class="rule-dot dot-gold"></span><span>Minimum withdrawal amount: <span class="tag-pink">$10 USD</span></span></li>
+        <li><span class="r-gem gem-gold"></span><span>Withdrawal requests may be submitted <strong>once per day</strong></span></li>
+        <li><span class="r-gem gem-gold"></span><span>Minimum withdrawal amount: <span class="c-rose">$10 USD</span></span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-title">Withdrawal Fee Structure</div>
-      <table class="policy-table">
-        <thead><tr><th>Withdrawal Amount</th><th>Fee Applied</th></tr></thead>
+      <div class="sub-label">Fee Structure</div>
+      <table class="lux-table">
+        <thead><tr><th>Withdrawal Amount</th><th>Fee</th></tr></thead>
         <tbody>
-          <tr><td>Less than $100</td><td class="hc">Flat fee of $2 per transaction</td></tr>
-          <tr><td>$100 and above</td><td class="hc">2% of the withdrawal amount</td></tr>
+          <tr><td>Less than $100</td><td class="c-rose">$2 flat per transaction</td></tr>
+          <tr><td>$100 and above</td><td class="c-rose">2% of withdrawal amount</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <div class="section-card">
-    <div class="section-header open" onclick="toggle(this)">
-      <div class="section-num num-pink">5</div>
-      <div class="section-title">Agency Change Rules</div>
-      <div class="chevron">›</div>
+  <div class="sec-card">
+    <div class="sec-hdr open" onclick="toggle(this)">
+      <div class="sec-num">V</div>
+      <div class="sec-title">Agency Change Rules</div>
+      <div class="sec-chev">›</div>
     </div>
-    <div class="section-body open">
-      <p style="font-size:12px;color:var(--ink-faint);margin-bottom:8px;">A host can change agency if:</p>
+    <div class="sec-body open">
       <ul class="rule-list">
-        <li><span class="rule-dot dot-purple"></span><span>No activity for <strong>120 days</strong></span></li>
-        <li><span class="rule-dot dot-purple"></span><span>Cannot contact agency for <strong>2 weeks</strong></span></li>
-        <li><span class="rule-dot dot-purple"></span><span>Both Agency & Host sides agree</span></li>
+        <li><span class="r-gem gem-teal"></span><span>No activity for <strong>120 days</strong></span></li>
+        <li><span class="r-gem gem-teal"></span><span>Agency unreachable for <strong>2 weeks</strong></span></li>
+        <li><span class="r-gem gem-teal"></span><span>Both agency and host mutually agree to the change</span></li>
       </ul>
-      <div class="alert-box" style="margin-top:10px">
-        <span class="alert-label">⚠️ Important</span>
-        Any cheating or misuse → <strong>Warning / Suspension / Ban</strong>
+      <div class="alert-box" style="margin-top:12px">
+        <span class="al-label">⚠️ Important</span>
+        Any fraudulent transfer attempts → <strong>Warning / Suspension / Permanent Ban</strong>
       </div>
     </div>
   </div>
   <div class="footer">© 2026 <span>RIZZ LIVE</span> · All Rights Reserved</div>
 </div>
 
-<!-- ═══════════ COIN SELLER ═══════════ -->
+<!-- ══════════════════════════ COIN SELLER ══════════════════════════ -->
 <div class="page" id="page-seller">
   <header class="header">
-    <div class="logo-wrap"><img src="logo.png" alt="Rizz Live" onerror="this.style.display='none'" /></div>
-    <div><div class="brand-name">RIZZ LIVE</div><div class="brand-sub">Live Streaming Platform</div></div>
+    <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.textContent='R'"/></div>
+    <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
   </header>
-  <div class="back-btn" onclick="goTo('page-home')">‹ Back</div>
-  <div class="inner-title-wrap">
-    <div class="inner-badge">🪙 Coin Seller Guidelines</div>
+  <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
+  <div class="inner-hero">
+    <div class="inner-eyebrow">Coin Seller Guidelines</div>
     <h1 class="inner-title">Coin Seller Policy</h1>
-    <div class="inner-line"></div>
+    <div class="inner-rule">
+      <div class="rule-line rev"></div>
+      <div class="rule-gem">◆</div>
+      <div class="rule-line"></div>
+    </div>
   </div>
 
-  <div class="section-card">
-    <div class="section-header open" onclick="toggle(this)">
-      <div class="section-num num-gold">📋</div>
-      <div class="section-title">Purpose</div>
-      <div class="chevron">›</div>
+  <div class="sec-card">
+    <div class="sec-hdr open" onclick="toggle(this)">
+      <div class="sec-num" style="font-size:16px">◆</div>
+      <div class="sec-title">Purpose</div>
+      <div class="sec-chev">›</div>
     </div>
-    <div class="section-body open">
-      <p style="font-size:13px;color:var(--ink-mid);line-height:1.8;">
-        This policy outlines the eligibility requirements, operational standards, and performance expectations for agencies applying to become <strong style="color:var(--gold);">Official Coin Sellers</strong> on the RIZZ LIVE platform.
+    <div class="sec-body open">
+      <p style="font-size:13px;color:rgba(255,255,255,0.68);line-height:1.8;font-family:'Cormorant Garamond',serif;font-size:15px;">
+        This policy outlines the eligibility requirements, operational standards, and performance expectations for agencies applying to become <strong style="color:var(--gold2);">Official Coin Sellers</strong> on the RIZZ LIVE platform.
       </p>
     </div>
   </div>
 
-  <div class="section-card">
-    <div class="section-header open" onclick="toggle(this)">
-      <div class="section-num num-pink">1</div>
-      <div class="section-title">Eligibility Criteria</div>
-      <div class="chevron">›</div>
+  <div class="sec-card">
+    <div class="sec-hdr open" onclick="toggle(this)">
+      <div class="sec-num">I</div>
+      <div class="sec-title">Eligibility Criteria</div>
+      <div class="sec-chev">›</div>
     </div>
-    <div class="section-body open">
-      <div class="sub-title">Minimum Requirement</div>
+    <div class="sec-body open">
+      <div class="sub-label">Minimum Requirement</div>
       <div class="example-box">
-        <span class="example-label">📌 Requirement</span>
+        <span class="ex-label">📌 Qualification Threshold</span>
         Agencies must generate <strong>50,000,000 Coins (50M)</strong> monthly revenue to qualify as an Official Coin Seller.
       </div>
       <div class="divider"></div>
-      <div class="sub-title">Security Deposit</div>
+      <div class="sub-label">Security Deposit Option</div>
       <ul class="rule-list">
-        <li><span class="rule-dot dot-gold"></span><span>Agencies that have not reached the 50M target may apply by submitting a <strong>$1,000 security deposit</strong></span></li>
-        <li><span class="rule-dot dot-green"></span><span>Deposit will be <strong>refunded</strong> once the target is achieved</span></li>
+        <li><span class="r-gem gem-gold"></span><span>Agencies below the 50M target may apply with a <strong>$1,000 security deposit</strong></span></li>
+        <li><span class="r-gem gem-green"></span><span>Deposit is <strong>fully refunded</strong> once the monthly target is achieved</span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-title">Maintenance Requirement</div>
+      <div class="sub-label">Maintenance Requirement</div>
       <ul class="rule-list">
-        <li><span class="rule-dot dot-purple"></span><span>Approved sellers must maintain <strong>50M monthly revenue</strong></span></li>
-        <li><span class="rule-dot dot-red"></span><span>Failure to meet target for <strong>two consecutive months</strong> may result in seller status cancellation</span></li>
+        <li><span class="r-gem gem-gold"></span><span>Approved sellers must sustain <strong>50M monthly revenue</strong></span></li>
+        <li><span class="r-gem gem-rose"></span><span>Failure for <strong>two consecutive months</strong> may result in seller status revocation</span></li>
       </ul>
     </div>
   </div>
 
-  <div class="section-card">
-    <div class="section-header open" onclick="toggle(this)">
-      <div class="section-num num-purple">2</div>
-      <div class="section-title">Coin Seller Buying Price</div>
-      <div class="chevron">›</div>
+  <div class="sec-card">
+    <div class="sec-hdr open" onclick="toggle(this)">
+      <div class="sec-num">II</div>
+      <div class="sec-title">Buying Price Structure</div>
+      <div class="sec-chev">›</div>
     </div>
-    <div class="section-body open">
-      <p style="font-size:12px;color:var(--ink-faint);margin-bottom:10px;">Official Coin Sellers must top-up using <strong style="color:var(--ink);">USDT</strong> to receive the corresponding coin quantity.</p>
-      <div class="sub-title">Buying Price Structure</div>
-      <table class="policy-table">
-        <thead><tr><th>Single Top-Up (USD)</th><th>Buy Ratio</th><th>Total Coins Received</th></tr></thead>
+    <div class="sec-body open">
+      <p style="font-size:12px;color:var(--text-dim);margin-bottom:12px;">Top-up must be made via <strong style="color:#fff;">USDT</strong>.</p>
+      <table class="lux-table">
+        <thead><tr><th>Top-Up (USD)</th><th>Buy Ratio</th><th>Total Coins</th></tr></thead>
         <tbody>
-          <tr><td class="gc">$2,000</td><td class="hc">9000</td><td class="grc">18,000,000</td></tr>
-          <tr><td class="gc">$5,000</td><td class="hc">9200</td><td class="grc">46,000,000</td></tr>
+          <tr><td class="c-gold">$2,000</td><td class="c-teal">9,000 / $</td><td class="c-green">18,000,000</td></tr>
+          <tr><td class="c-gold">$5,000</td><td class="c-teal">9,200 / $</td><td class="c-green">46,000,000</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <div class="section-card">
-    <div class="section-header open" onclick="toggle(this)">
-      <div class="section-num num-neon">3</div>
-      <div class="section-title">Coin Seller Selling Price</div>
-      <div class="chevron">›</div>
+  <div class="sec-card">
+    <div class="sec-hdr open" onclick="toggle(this)">
+      <div class="sec-num">III</div>
+      <div class="sec-title">Selling Price Structure</div>
+      <div class="sec-chev">›</div>
     </div>
-    <div class="section-body open">
-      <p style="font-size:12px;color:var(--ink-faint);margin-bottom:10px;">Coin Sellers are required to sell coins to users in accordance with the <strong style="color:var(--ink);">approved selling ratio</strong>.</p>
-      <div class="sub-title">Selling Ratio</div>
-      <table class="policy-table">
-        <thead><tr><th>User Top-Up Amount</th><th>Offline Sell Ratio/$</th><th>Online Sell Ratio</th></tr></thead>
+    <div class="sec-body open">
+      <table class="lux-table">
+        <thead><tr><th>Channel</th><th>Sell Ratio / $</th></tr></thead>
         <tbody>
-          <tr><td>Any Amount</td><td class="gc">8300</td><td class="hc">5000</td></tr>
+          <tr><td>Offline Sales</td><td class="c-gold">8,300</td></tr>
+          <tr><td>Online Sales</td><td class="c-teal">5,000</td></tr>
         </tbody>
       </table>
       <div class="divider"></div>
-      <div class="sub-title" style="color:#c05050;">Selling Policy Note</div>
+      <div class="sub-label" style="color:#e07090">Selling Policy</div>
       <ul class="rule-list">
-        <li><span class="rule-dot dot-red"></span><span>Coin Sellers must <strong>NOT sell coins above</strong> the approved Offline Sell Ratio <strong>(8300)</strong></span></li>
+        <li><span class="r-gem gem-rose"></span><span>Coin Sellers must <strong>NOT sell above</strong> the approved offline ratio of <strong>8,300</strong></span></li>
       </ul>
-      <div class="alert-box" style="margin-top:10px">
-        <span class="alert-label">⚠️ Violation Penalty</span>
-        <strong>$100 fine</strong> + Equivalent coin deduction from seller's wallet
-        <br/><br/>
-        <strong>Repeated violations may result in:</strong><br/>
-        • Seller status suspension<br/>
-        • Permanent removal from the Official Coin Seller Program
+      <div class="alert-box" style="margin-top:12px">
+        <span class="al-label">⚠️ Violation Penalty</span>
+        <strong>$100 fine</strong> + equivalent coin deduction from seller's wallet.<br/><br/>
+        <strong>Repeated violations:</strong> Suspension or permanent removal from the Official Coin Seller Program.
       </div>
     </div>
   </div>
   <div class="footer">© 2026 <span>RIZZ LIVE</span> · All Rights Reserved</div>
 </div>
 
-<!-- ═══════════ REGISTRATION ═══════════ -->
+<!-- ══════════════════════════ REGISTRATION ══════════════════════════ -->
 <div class="page" id="page-registration">
   <header class="header">
-    <div class="logo-wrap"><img src="logo.png" alt="Rizz Live" onerror="this.style.display='none'" /></div>
-    <div><div class="brand-name">RIZZ LIVE</div><div class="brand-sub">Live Streaming Platform</div></div>
+    <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.textContent='R'"/></div>
+    <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
   </header>
-  <div class="back-btn" onclick="goTo('page-home')">‹ Back</div>
-  <div class="inner-title-wrap">
-    <div class="inner-badge">📝 Registration</div>
+  <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
+  <div class="inner-hero">
+    <div class="inner-eyebrow">Partnership</div>
     <h1 class="inner-title">Agency Registration</h1>
-    <div class="inner-line"></div>
+    <div class="inner-rule">
+      <div class="rule-line rev"></div>
+      <div class="rule-gem">◆</div>
+      <div class="rule-line"></div>
+    </div>
   </div>
 
-  <div style="padding:24px 14px 10px;display:flex;flex-direction:column;align-items:center;gap:16px;">
-    <div class="reg-card">
-      <div class="reg-icon">🏢</div>
-      <div class="reg-heading">Register Your Agency</div>
-      <p class="reg-desc">Fill out the official form to apply as a Rizz Live partner agency. We'll review your application and get back to you.</p>
-      <a href="https://xjpumno595ok.jp.larksuite.com/share/base/form/shrjpFlhYbFWamZeMgWobW4bMyeAgency" target="_blank" class="cta-btn">
-        📝 Open Registration Form
-      </a>
-    </div>
+  <div class="reg-card">
+    <span class="reg-icon">🏢</span>
+    <div class="reg-title">Apply as a Partner Agency</div>
+    <p class="reg-desc">Fill out the official form to join Rizz Live's elite agency network. Our team reviews every application with care and responds promptly.</p>
+    <a href="https://xjpumno595ok.jp.larksuite.com/share/base/form/shrjpFlhYbFWamZeMgWobW4bMyeAgency" target="_blank" class="reg-btn">
+      📝 &nbsp; Open Registration Form
+    </a>
+  </div>
 
-    <div style="width:100%;display:flex;flex-direction:column;gap:10px;">
-      <div class="info-card">
-        <div class="info-icon" style="background:linear-gradient(135deg,#f5c2d0,#e8849e);box-shadow:0 3px 10px rgba(212,105,138,0.25);">✅</div>
-        <div><div class="info-title">Quick & Easy</div><div class="info-sub">Complete the form in under 5 minutes</div></div>
+  <div class="info-row">
+    <div class="info-item">
+      <div class="info-icon ii-gold">✅</div>
+      <div>
+        <div class="info-item-title">Quick & Easy</div>
+        <div class="info-item-sub">Complete the form in under 5 minutes</div>
       </div>
-      <div class="info-card">
-        <div class="info-icon" style="background:linear-gradient(135deg,#dcc8ee,#b89ad0);box-shadow:0 3px 10px rgba(184,154,208,0.25);">⚡</div>
-        <div><div class="info-title">Fast Review</div><div class="info-sub">Our team reviews applications promptly</div></div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon ii-purple">⚡</div>
+      <div>
+        <div class="info-item-title">Fast Review</div>
+        <div class="info-item-sub">Our team reviews applications promptly</div>
       </div>
-      <div class="info-card">
-        <div class="info-icon" style="background:linear-gradient(135deg,#f5e8b8,#d4a84c);box-shadow:0 3px 10px rgba(201,168,76,0.25);">🏆</div>
-        <div><div class="info-title">Grow Together</div><div class="info-sub">Join our elite agency partner network</div></div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon ii-green">🏆</div>
+      <div>
+        <div class="info-item-title">Grow Together</div>
+        <div class="info-item-sub">Join our elite agency partner network</div>
       </div>
     </div>
   </div>
   <div class="footer">© 2026 <span>RIZZ LIVE</span> · All Rights Reserved</div>
 </div>
 
-<!-- ═══════════ CONTACT ═══════════ -->
+<!-- ══════════════════════════ CONTACT ══════════════════════════ -->
 <div class="page" id="page-contact">
   <header class="header">
-    <div class="logo-wrap"><img src="logo.png" alt="Rizz Live" onerror="this.style.display='none'" /></div>
-    <div><div class="brand-name">RIZZ LIVE</div><div class="brand-sub">Live Streaming Platform</div></div>
+    <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.textContent='R'"/></div>
+    <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
   </header>
-  <div class="back-btn" onclick="goTo('page-home')">‹ Back</div>
-  <div class="inner-title-wrap">
-    <div class="inner-badge">📞 Contact</div>
-    <h1 class="inner-title">Country Manager Ray-IN</h1>
-    <div class="inner-line"></div>
+  <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
+  <div class="inner-hero">
+    <div class="inner-eyebrow">Direct Contact</div>
+    <h1 class="inner-title">Country Manager<br/><span style="font-style:italic;font-size:0.75em;color:var(--gold2)">Ray-IN · India</span></h1>
+    <div class="inner-rule">
+      <div class="rule-line rev"></div>
+      <div class="rule-gem">◆</div>
+      <div class="rule-line"></div>
+    </div>
   </div>
 
-  <div class="section-card" style="margin-top:20px;">
-    <div class="section-header" style="cursor:default;">
-      <div class="section-num num-neon">🇮🇳</div>
-      <div class="section-title">India Country Manager</div>
+  <div class="sec-card" style="margin-top:20px">
+    <div class="sec-hdr" style="cursor:default">
+      <div class="sec-num">🇮🇳</div>
+      <div class="sec-title">India Country Manager</div>
     </div>
-    <div class="section-body open">
-      <p style="font-size:12.5px;color:var(--ink-faint);margin-bottom:16px;">For queries, support and partnership — reach out directly on WhatsApp:</p>
-      <a href="https://wa.me/919286766608" target="_blank" class="wa-link">
-        <div style="width:50px;height:50px;border-radius:15px;background:linear-gradient(135deg,#25d366,#128c7e);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,0.3);flex-shrink:0;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <div class="sec-body open">
+      <p style="font-size:12px;color:var(--text-dim);margin-bottom:16px;">For queries, support, and partnership — reach out directly on WhatsApp:</p>
+      <a href="https://wa.me/919286766608" target="_blank" class="contact-link">
+        <div style="width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,#1a4a2e,#0d2c1a);border:1px solid rgba(37,211,102,0.35);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.2);flex-shrink:0;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </div>
-        <div style="flex:1;">
-          <div style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:17px;color:#25a855;">+91 92867 66608</div>
-          <div style="font-size:11px;color:var(--ink-faint);margin-top:3px;font-weight:400;">Tap to open WhatsApp</div>
+        <div style="flex:1">
+          <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;color:#25d366;letter-spacing:0.5px">+91 92867 66608</div>
+          <div style="font-size:11px;color:var(--text-dim);margin-top:3px">Tap to open WhatsApp</div>
         </div>
-        <div style="font-size:20px;color:rgba(37,211,102,0.4);">›</div>
+        <div style="color:rgba(37,211,102,0.5);font-size:20px">›</div>
       </a>
     </div>
   </div>
@@ -930,15 +1104,32 @@
 </div>
 
 <script>
-  function goTo(pageId){
-    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-    document.getElementById(pageId).classList.add('active');
-    window.scrollTo(0,0);
-  }
-  function toggle(header){
-    header.classList.toggle('open');
-    header.nextElementSibling.classList.toggle('open');
-  }
+// Gold particles
+const pc = document.getElementById('particles');
+for(let i=0;i<28;i++){
+  const p = document.createElement('div');
+  p.className = 'particle';
+  const size = 1 + Math.random()*2.5;
+  p.style.cssText = `
+    left:${Math.random()*100}%;
+    width:${size}px; height:${size}px;
+    animation-duration:${10+Math.random()*20}s;
+    animation-delay:${Math.random()*20}s;
+    opacity:0;
+  `;
+  pc.appendChild(p);
+}
+
+function goTo(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'instant'});
+}
+
+function toggle(hdr){
+  hdr.classList.toggle('open');
+  hdr.nextElementSibling.classList.toggle('open');
+}
 </script>
 </body>
 </html>
