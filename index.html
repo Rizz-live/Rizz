@@ -78,8 +78,10 @@ body{font-family:'Exo 2',sans-serif;background:var(--navy);color:var(--text);ove
 .hero{padding:44px 24px 28px;text-align:center;position:relative;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(0,229,255,0.1),rgba(124,58,237,0.1));border:1px solid rgba(0,229,255,0.3);border-radius:30px;padding:6px 18px;margin-bottom:22px;font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;letter-spacing:4px;color:var(--cyan2);text-transform:uppercase;box-shadow:0 0 20px rgba(0,229,255,0.1);}
 .hero-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);animation:livePulse 1.5s ease-in-out infinite;}
-.hero-title{font-family:'Orbitron',monospace;font-size:38px;font-weight:900;line-height:1.05;color:#fff;margin-bottom:8px;text-shadow:0 0 40px rgba(0,229,255,0.2),0 0 80px rgba(255,60,168,0.1);}
-.hero-title .hl{background:linear-gradient(135deg,var(--cyan2),var(--pink2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 20px var(--cyan-glow));}
+.hero-title{font-family:'Orbitron',monospace;font-size:38px;font-weight:900;line-height:1.05;color:#fff;margin-bottom:8px;}
+.hero-title .rizz{display:inline-block;background:linear-gradient(90deg,#00e5ff,#ff3ca8,#a855f7,#00ff9d,#00e5ff);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:rizzAnim 2s linear infinite;filter:drop-shadow(0 0 18px rgba(0,229,255,0.7));}
+.hero-title .hl{display:inline-block;background:linear-gradient(90deg,#ff3ca8,#a855f7,#00e5ff,#fbbf24,#ff3ca8);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:rizzAnim 2s linear infinite reverse;filter:drop-shadow(0 0 18px rgba(255,60,168,0.7));}
+@keyframes rizzAnim{0%{background-position:0%}100%{background-position:300%}}
 .hero-sub{font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:500;color:var(--text-dim);letter-spacing:1px;margin-top:8px;}
 .neon-divider{display:flex;align-items:center;justify-content:center;gap:12px;margin:18px 0 8px;}
 .nd-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--cyan));max-width:80px;}
@@ -263,7 +265,7 @@ body{font-family:'Exo 2',sans-serif;background:var(--navy);color:var(--text);ove
       <div class="hero-badge-dot"></div>
       <span data-t="official_policy">Official Policy Documents</span>
     </div>
-    <h1 class="hero-title">RIZZ <span class="hl">LIVE</span></h1>
+    <h1 class="hero-title"><span class="rizz">RIZZ</span> <span class="hl">LIVE</span></h1>
     <h2 style="font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:600;letter-spacing:6px;color:var(--text-dim);text-transform:uppercase;margin-bottom:4px;" data-t="policy_center">POLICY CENTER</h2>
     <p class="hero-sub" data-t="select_doc">Select a document to view full terms & guidelines</p>
     <div class="neon-divider"><div class="nd-line rev"></div><div class="nd-gem"></div><div class="nd-line"></div></div>
@@ -918,7 +920,7 @@ const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzMv1v62JmNaZNn
 
 // ─── SUPERVISOR → ADMIN MAP ───────────────────────────────────────────────────
 const SUPERVISOR_ADMINS = {
-  'Ray-IN':       ['Bunny-IN','Rajesh-IN'],
+  'Ray-IN': ['Rajesh-IN','Bunny-IN']
 };
 
 function onSupervisorChange() {
@@ -1346,22 +1348,34 @@ function setLang(lang) {
 // Particles
 const pc = document.getElementById('particles');
 const colors = ['#00e5ff','#ff3ca8','#4df3ff','#ff6ec4','#a855f7','#00ff9d','#fbbf24'];
-for(let i=0;i<40;i++){
+for(let i=0;i<300;i++){
   const p=document.createElement('div');p.className='particle';
   const size=1+Math.random()*2.8;const color=colors[Math.floor(Math.random()*colors.length)];
-  p.style.cssText=`left:${Math.random()*100}%;width:${size}px;height:${size}px;background:${color};box-shadow:0 0 ${size*3}px ${color};animation-duration:${9+Math.random()*18}s;animation-delay:${Math.random()*18}s;opacity:0;`;
+  p.style.cssText=`left:${Math.random()*100}%;width:${size}px;height:${size}px;background:${color};box-shadow:0 0 ${size*3}px ${color};animation-duration:${1+Math.random()*2}s;animation-delay:${Math.random()*2}s;opacity:0;`;
   pc.appendChild(p);
 }
 
 function createShootingStar(){
   const star=document.createElement('div');
-  star.style.cssText=`position:fixed;top:${Math.random()*50}%;left:${Math.random()*100}%;width:${60+Math.random()*80}px;height:1px;background:linear-gradient(90deg,rgba(0,229,255,0.8),transparent);transform:rotate(${-20+Math.random()*10}deg);z-index:0;pointer-events:none;animation:shootStar ${0.6+Math.random()*0.4}s ease-out forwards;`;
-  document.body.appendChild(star);setTimeout(()=>star.remove(),1200);
+  const isPink=Math.random()>0.5;
+  const color=isPink?'rgba(255,60,168,0.9)':'rgba(0,229,255,0.9)';
+  const glow=isPink?'rgba(255,60,168,0.6)':'rgba(0,229,255,0.6)';
+  const angle=-150+Math.random()*300;
+  const len=60+Math.random()*100;
+  const dur=0.5+Math.random()*0.5;
+  const rad=angle*Math.PI/180;
+  const dx=Math.cos(rad)*240;
+  const dy=Math.sin(rad)*240;
+  const startX=Math.random()*window.innerWidth;
+  const startY=Math.random()*window.innerHeight;
+  star.style.cssText=`position:fixed;top:${startY}px;left:${startX}px;width:${len}px;height:2px;border-radius:2px;background:linear-gradient(90deg,${color},transparent);transform:rotate(${angle}deg);transform-origin:0 50%;z-index:1;pointer-events:none;box-shadow:0 0 6px ${glow};transition:none;`;
+  document.body.appendChild(star);
+  star.animate([
+    {opacity:1,transform:`rotate(${angle}deg) translateX(0)`},
+    {opacity:0,transform:`rotate(${angle}deg) translateX(${len+220}px)`}
+  ],{duration:dur*1000,easing:'ease-out',fill:'forwards'}).onfinish=()=>star.remove();
 }
-const ss=document.createElement('style');
-ss.textContent=`@keyframes shootStar{0%{opacity:1;transform:rotate(-15deg) translateX(0)}100%{opacity:0;transform:rotate(-15deg) translateX(200px)}}`;
-document.head.appendChild(ss);
-setInterval(createShootingStar,3000);
+setInterval(()=>{ for(let i=0;i<5;i++) createShootingStar(); },500);
 
 function goTo(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
