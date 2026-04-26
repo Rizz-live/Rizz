@@ -54,11 +54,23 @@ body{font-family:'Exo 2',sans-serif;background:var(--navy);color:var(--text);ove
 @keyframes livePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.6)}}
 .live-label{font-family:'Orbitron',monospace;font-size:7px;letter-spacing:2px;color:var(--pink2);font-weight:700;}
 
-/* LANGUAGE SELECTOR */
-.lang-selector{display:flex;align-items:center;gap:4px;background:linear-gradient(135deg,rgba(0,229,255,0.08),rgba(124,58,237,0.08));border:1px solid rgba(0,229,255,0.3);border-radius:20px;padding:3px;margin-right:6px;}
-.lang-btn{font-family:'Orbitron',monospace;font-size:7px;letter-spacing:1px;font-weight:700;padding:4px 8px;border-radius:15px;border:none;background:transparent;color:var(--text-dim);cursor:pointer;transition:all 0.3s;white-space:nowrap;}
-.lang-btn.active{background:linear-gradient(135deg,rgba(0,229,255,0.25),rgba(124,58,237,0.2));color:var(--cyan2);box-shadow:0 0 10px rgba(0,229,255,0.2);}
-.lang-btn:hover:not(.active){color:var(--text);background:rgba(0,229,255,0.06);}
+/* LANGUAGE DROPDOWN */
+.lang-drop{position:relative;margin-right:6px;}
+.lang-drop-btn{display:flex;align-items:center;gap:5px;background:linear-gradient(135deg,rgba(0,229,255,0.08),rgba(124,58,237,0.08));border:1px solid rgba(0,229,255,0.3);border-radius:20px;padding:5px 10px;cursor:pointer;font-family:'Orbitron',monospace;font-size:8px;font-weight:700;letter-spacing:1px;color:var(--cyan2);white-space:nowrap;transition:all 0.3s;user-select:none;}
+.lang-drop-btn:hover{border-color:rgba(0,229,255,0.55);box-shadow:0 0 12px rgba(0,229,255,0.15);}
+.lang-drop-btn .chev{font-size:10px;opacity:0.6;transition:transform 0.3s;}
+.lang-drop.open .chev{transform:rotate(180deg);}
+.lang-drop-menu{display:none;position:absolute;top:calc(100% + 6px);right:0;background:rgba(8,4,40,0.97);border:1px solid rgba(0,229,255,0.3);border-radius:12px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.5),0 0 20px rgba(0,229,255,0.08);z-index:999;min-width:110px;}
+.lang-drop.open .lang-drop-menu{display:block;animation:menuReveal 0.2s cubic-bezier(0.16,1,0.3,1) both;}
+@keyframes menuReveal{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.lang-opt{display:flex;align-items:center;gap:8px;padding:10px 14px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:600;color:var(--text-dim);transition:all 0.2s;border-bottom:1px solid rgba(0,229,255,0.06);}
+.lang-opt:last-child{border-bottom:none;}
+.lang-opt:hover{background:rgba(0,229,255,0.07);color:var(--cyan2);}
+.lang-opt.active{background:rgba(0,229,255,0.1);color:var(--cyan2);}
+.lang-opt .flag{font-size:16px;}
+.lang-opt .lname{flex:1;}
+.lang-opt .tick{color:var(--cyan);opacity:0;font-size:12px;}
+.lang-opt.active .tick{opacity:1;}
 
 .back-btn{display:inline-flex;align-items:center;gap:8px;margin:18px 20px 0;color:var(--cyan2);font-size:11px;font-weight:600;font-family:'Rajdhani',sans-serif;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all 0.3s;padding:7px 14px;border:1px solid rgba(0,229,255,0.2);border-radius:20px;background:rgba(0,229,255,0.05);}
 .back-btn:hover{color:var(--cyan);border-color:rgba(0,229,255,0.5);background:rgba(0,229,255,0.1);box-shadow:0 0 16px var(--cyan-dim);}
@@ -198,6 +210,7 @@ body{font-family:'Exo 2',sans-serif;background:var(--navy);color:var(--text);ove
 .form-msg-icon{font-size:28px;display:block;margin-bottom:8px;}
 .form-msg-title{font-family:'Orbitron',monospace;font-size:12px;letter-spacing:2px;font-weight:800;text-transform:uppercase;margin-bottom:6px;display:block;}
 .neon-input.invalid,.neon-select.invalid{border-color:rgba(255,60,168,0.55);box-shadow:0 0 0 3px rgba(255,60,168,0.08),0 0 16px rgba(255,60,168,0.1);}
+.neon-select:disabled{opacity:0.4;cursor:not-allowed;}
 .field-err{font-family:'Rajdhani',sans-serif;font-size:11px;color:var(--pink2);margin-top:2px;display:none;}
 .field-err.show{display:block;}
 ::-webkit-scrollbar{width:4px;}
@@ -228,10 +241,15 @@ body{font-family:'Exo 2',sans-serif;background:var(--navy);color:var(--text);ove
       <div class="brand-sub" data-t="platform">Live Streaming Platform</div>
     </div>
     <div class="header-ornament">
-      <div class="lang-selector">
-        <button class="lang-btn active" onclick="setLang('en')">EN</button>
-        <button class="lang-btn" onclick="setLang('hi')">HI</button>
-        <button class="lang-btn" onclick="setLang('hl')">HL</button>
+      <div class="lang-drop" id="ld-home">
+        <div class="lang-drop-btn" onclick="toggleDrop('ld-home')">
+          <span id="ld-home-lbl">🌐 EN</span><span class="chev">▾</span>
+        </div>
+        <div class="lang-drop-menu">
+          <div class="lang-opt active" onclick="setLang('en');closeDrop()"><span class="flag">🇬🇧</span><span class="lname">English</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hi');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">हिंदी</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hl');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">Hinglish</span><span class="tick">✓</span></div>
+        </div>
       </div>
       <div class="live-badge">
         <div class="live-dot"></div>
@@ -342,10 +360,15 @@ body{font-family:'Exo 2',sans-serif;background:var(--navy);color:var(--text);ove
     <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-family:Orbitron,monospace;font-weight:900;font-size:18px;background:linear-gradient(135deg,#00e5ff,#ff3ca8);-webkit-background-clip:text;-webkit-text-fill-color:transparent\'>R</span>'"/></div>
     <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub" data-t="platform">Live Streaming Platform</div></div>
     <div class="header-ornament" style="margin-left:auto;">
-      <div class="lang-selector">
-        <button class="lang-btn" id="h-en" onclick="setLang('en')">EN</button>
-        <button class="lang-btn" id="h-hi" onclick="setLang('hi')">HI</button>
-        <button class="lang-btn" id="h-hl" onclick="setLang('hl')">HL</button>
+      <div class="lang-drop" id="ld-host">
+        <div class="lang-drop-btn" onclick="toggleDrop('ld-host')">
+          <span id="ld-host-lbl">🌐 EN</span><span class="chev">▾</span>
+        </div>
+        <div class="lang-drop-menu">
+          <div class="lang-opt" onclick="setLang('en');closeDrop()"><span class="flag">🇬🇧</span><span class="lname">English</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hi');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">हिंदी</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hl');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">Hinglish</span><span class="tick">✓</span></div>
+        </div>
       </div>
     </div>
   </header>
@@ -491,10 +514,15 @@ body{font-family:'Exo 2',sans-serif;background:var(--navy);color:var(--text);ove
     <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-family:Orbitron,monospace;font-weight:900;font-size:18px;background:linear-gradient(135deg,#00e5ff,#ff3ca8);-webkit-background-clip:text;-webkit-text-fill-color:transparent\'>R</span>'"/></div>
     <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub" data-t="platform">Live Streaming Platform</div></div>
     <div class="header-ornament" style="margin-left:auto;">
-      <div class="lang-selector">
-        <button class="lang-btn" onclick="setLang('en')">EN</button>
-        <button class="lang-btn" onclick="setLang('hi')">HI</button>
-        <button class="lang-btn" onclick="setLang('hl')">HL</button>
+      <div class="lang-drop" id="ld-agency">
+        <div class="lang-drop-btn" onclick="toggleDrop('ld-agency')">
+          <span id="ld-agency-lbl">🌐 EN</span><span class="chev">▾</span>
+        </div>
+        <div class="lang-drop-menu">
+          <div class="lang-opt" onclick="setLang('en');closeDrop()"><span class="flag">🇬🇧</span><span class="lname">English</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hi');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">हिंदी</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hl');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">Hinglish</span><span class="tick">✓</span></div>
+        </div>
       </div>
     </div>
   </header>
@@ -620,10 +648,15 @@ body{font-family:'Exo 2',sans-serif;background:var(--navy);color:var(--text);ove
     <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-family:Orbitron,monospace;font-weight:900;font-size:18px;background:linear-gradient(135deg,#00e5ff,#ff3ca8);-webkit-background-clip:text;-webkit-text-fill-color:transparent\'>R</span>'"/></div>
     <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub" data-t="platform">Live Streaming Platform</div></div>
     <div class="header-ornament" style="margin-left:auto;">
-      <div class="lang-selector">
-        <button class="lang-btn" onclick="setLang('en')">EN</button>
-        <button class="lang-btn" onclick="setLang('hi')">HI</button>
-        <button class="lang-btn" onclick="setLang('hl')">HL</button>
+      <div class="lang-drop" id="ld-seller">
+        <div class="lang-drop-btn" onclick="toggleDrop('ld-seller')">
+          <span id="ld-seller-lbl">🌐 EN</span><span class="chev">▾</span>
+        </div>
+        <div class="lang-drop-menu">
+          <div class="lang-opt" onclick="setLang('en');closeDrop()"><span class="flag">🇬🇧</span><span class="lname">English</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hi');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">हिंदी</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hl');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">Hinglish</span><span class="tick">✓</span></div>
+        </div>
       </div>
     </div>
   </header>
@@ -718,10 +751,15 @@ body{font-family:'Exo 2',sans-serif;background:var(--navy);color:var(--text);ove
     <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-family:Orbitron,monospace;font-weight:900;font-size:18px;background:linear-gradient(135deg,#00e5ff,#ff3ca8);-webkit-background-clip:text;-webkit-text-fill-color:transparent\'>R</span>'"/></div>
     <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub" data-t="platform">Live Streaming Platform</div></div>
     <div class="header-ornament" style="margin-left:auto;">
-      <div class="lang-selector">
-        <button class="lang-btn" onclick="setLang('en')">EN</button>
-        <button class="lang-btn" onclick="setLang('hi')">HI</button>
-        <button class="lang-btn" onclick="setLang('hl')">HL</button>
+      <div class="lang-drop" id="ld-registration">
+        <div class="lang-drop-btn" onclick="toggleDrop('ld-registration')">
+          <span id="ld-registration-lbl">🌐 EN</span><span class="chev">▾</span>
+        </div>
+        <div class="lang-drop-menu">
+          <div class="lang-opt" onclick="setLang('en');closeDrop()"><span class="flag">🇬🇧</span><span class="lname">English</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hi');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">हिंदी</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hl');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">Hinglish</span><span class="tick">✓</span></div>
+        </div>
       </div>
     </div>
   </header>
@@ -747,9 +785,11 @@ body{font-family:'Exo 2',sans-serif;background:var(--navy);color:var(--text);ove
             <span data-t="supervisor_label">Supervisor</span>
             <span class="field-required" data-t="required_label">* Required</span>
           </label>
-          <select class="neon-select" id="f-supervisor" required>
+          <select class="neon-select" id="f-supervisor" required onchange="onSupervisorChange()">
             <option value="" disabled selected data-t="select_placeholder">Select…</option>
             <option value="Ray-IN">Ray-IN</option>
+            <option value="Khushdeep-IN">Khushdeep-IN</option>
+            <option value="Zudi-IN">Zudi-IN</option>
           </select>
           <span class="field-err" id="err-supervisor" data-t="err_supervisor">Please select a supervisor.</span>
         </div>
@@ -758,14 +798,8 @@ body{font-family:'Exo 2',sans-serif;background:var(--navy);color:var(--text);ove
             <span data-t="admin_label">Admin</span>
             <span class="field-optional" data-t="optional_label">Optional</span>
           </label>
-          <select class="neon-select" id="f-admin">
-            <option value="" data-t="none_option">None</option>
-            <option value="Admin-1">Admin-1</option>
-            <option value="Admin-2">Admin-2</option>
-            <option value="Admin-3">Admin-3</option>
-            <option value="Admin-4">Admin-4</option>
-            <option value="Admin-5">Admin-5</option>
-            <option value="Admin-6">Admin-6</option>
+          <select class="neon-select" id="f-admin" disabled>
+            <option value="">— Select supervisor first —</option>
           </select>
         </div>
       </div>
@@ -840,10 +874,15 @@ body{font-family:'Exo 2',sans-serif;background:var(--navy);color:var(--text);ove
     <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-family:Orbitron,monospace;font-weight:900;font-size:18px;background:linear-gradient(135deg,#00e5ff,#ff3ca8);-webkit-background-clip:text;-webkit-text-fill-color:transparent\'>R</span>'"/></div>
     <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub" data-t="platform">Live Streaming Platform</div></div>
     <div class="header-ornament" style="margin-left:auto;">
-      <div class="lang-selector">
-        <button class="lang-btn" onclick="setLang('en')">EN</button>
-        <button class="lang-btn" onclick="setLang('hi')">HI</button>
-        <button class="lang-btn" onclick="setLang('hl')">HL</button>
+      <div class="lang-drop" id="ld-contact">
+        <div class="lang-drop-btn" onclick="toggleDrop('ld-contact')">
+          <span id="ld-contact-lbl">🌐 EN</span><span class="chev">▾</span>
+        </div>
+        <div class="lang-drop-menu">
+          <div class="lang-opt" onclick="setLang('en');closeDrop()"><span class="flag">🇬🇧</span><span class="lname">English</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hi');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">हिंदी</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hl');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">Hinglish</span><span class="tick">✓</span></div>
+        </div>
       </div>
     </div>
   </header>
@@ -878,6 +917,63 @@ body{font-family:'Exo 2',sans-serif;background:var(--navy);color:var(--text);ove
 
 <script>
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzMv1v62JmNaZNnHHWuuHM4lU1YnvGilRp-8b7RgPmb8tD81adPzJOTVVIQbuQg_sVOfQ/exec';
+
+// ─── SUPERVISOR → ADMIN MAP ───────────────────────────────────────────────────
+const SUPERVISOR_ADMINS = {
+  'Ray-IN': ['Ray-IN','Bunny-IN','Rajesh-IN],
+};
+
+function onSupervisorChange() {
+  const sup = document.getElementById('f-supervisor').value;
+  const adminSel = document.getElementById('f-admin');
+  adminSel.innerHTML = '';
+  if (!sup || !SUPERVISOR_ADMINS[sup]) {
+    adminSel.disabled = true;
+    const opt = document.createElement('option');
+    opt.value = ''; opt.textContent = '— Select supervisor first —';
+    adminSel.appendChild(opt);
+    return;
+  }
+  adminSel.disabled = false;
+  const noneOpt = document.createElement('option');
+  noneOpt.value = ''; noneOpt.textContent = 'None';
+  adminSel.appendChild(noneOpt);
+  SUPERVISOR_ADMINS[sup].forEach(a => {
+    const opt = document.createElement('option');
+    opt.value = a; opt.textContent = a;
+    adminSel.appendChild(opt);
+  });
+}
+
+// ─── LANGUAGE DROPDOWN ────────────────────────────────────────────────────────
+let currentDrop = null;
+
+function toggleDrop(id) {
+  const el = document.getElementById(id);
+  if (currentDrop && currentDrop !== el) currentDrop.classList.remove('open');
+  el.classList.toggle('open');
+  currentDrop = el.classList.contains('open') ? el : null;
+}
+
+function closeDrop() {
+  if (currentDrop) { currentDrop.classList.remove('open'); currentDrop = null; }
+}
+
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.lang-drop')) closeDrop();
+});
+
+function updateDropLabels(lang) {
+  const labels = {en:'🌐 EN', hi:'🌐 HI', hl:'🌐 HL'};
+  document.querySelectorAll('[id^="ld-"][id$="-lbl"]').forEach(el => el.textContent = labels[lang]||'🌐 EN');
+  document.querySelectorAll('.lang-opt').forEach(opt => {
+    opt.classList.remove('active');
+    const lname = opt.querySelector('.lname')?.textContent || '';
+    if ((lang==='en'&&lname==='English')||(lang==='hi'&&lname==='हिंदी')||(lang==='hl'&&lname==='Hinglish')) {
+      opt.classList.add('active');
+    }
+  });
+}
 
 // ─── TRANSLATIONS ─────────────────────────────────────────────────────────────
 const T = {
@@ -1240,13 +1336,8 @@ function setLang(lang) {
     }
   });
 
-  // Update all lang buttons active state
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.remove('active');
-    if (btn.textContent.trim().toLowerCase() === lang) {
-      btn.classList.add('active');
-    }
-  });
+  // Update dropdown labels & active state
+  updateDropLabels(lang);
 
   // Also update back buttons text (direct content)
   document.querySelectorAll('.back-btn').forEach(btn => {
