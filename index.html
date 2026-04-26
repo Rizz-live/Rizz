@@ -1355,27 +1355,36 @@ for(let i=0;i<300;i++){
   pc.appendChild(p);
 }
 
+
 function createShootingStar(){
   const star=document.createElement('div');
-  const isPink=Math.random()>0.5;
-  const color=isPink?'rgba(255,60,168,0.9)':'rgba(0,229,255,0.9)';
-  const glow=isPink?'rgba(255,60,168,0.6)':'rgba(0,229,255,0.6)';
-  const angle=-150+Math.random()*300;
-  const len=60+Math.random()*100;
-  const dur=0.5+Math.random()*0.5;
-  const rad=angle*Math.PI/180;
-  const dx=Math.cos(rad)*240;
-  const dy=Math.sin(rad)*240;
-  const startX=Math.random()*window.innerWidth;
-  const startY=Math.random()*window.innerHeight;
-  star.style.cssText=`position:fixed;top:${startY}px;left:${startX}px;width:${len}px;height:2px;border-radius:2px;background:linear-gradient(90deg,${color},transparent);transform:rotate(${angle}deg);transform-origin:0 50%;z-index:1;pointer-events:none;box-shadow:0 0 6px ${glow};transition:none;`;
+  // 4 colors: pink, green, blue, sky blue
+  const colors=[
+    {c:'rgba(255,60,168,0.95)',g:'rgba(255,60,168,0.5)'},
+    {c:'rgba(0,255,157,0.95)',g:'rgba(0,255,157,0.5)'},
+    {c:'rgba(80,80,255,0.95)',g:'rgba(80,80,255,0.5)'},
+    {c:'rgba(0,229,255,0.95)',g:'rgba(0,229,255,0.5)'}
+  ];
+  const cl=colors[Math.floor(Math.random()*colors.length)];
+  // Fixed diagonal: top-left → bottom-right (angle ~30 to 50 degrees)
+  const angle=30+Math.random()*20;
+  const len=70+Math.random()*90;
+  const dur=0.9+Math.random()*0.6;
+  // Start from left portion of screen, top area
+  const startX=Math.random()*(window.innerWidth*0.6);
+  const startY=Math.random()*(window.innerHeight*0.5);
+  // z-index:0 — behind all buttons and content
+  star.style.cssText=`position:fixed;top:${startY}px;left:${startX}px;width:${len}px;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,${cl.c});transform:rotate(${angle}deg);transform-origin:0 50%;z-index:0;pointer-events:none;box-shadow:0 0 6px ${cl.g};`;
   document.body.appendChild(star);
   star.animate([
     {opacity:1,transform:`rotate(${angle}deg) translateX(0)`},
-    {opacity:0,transform:`rotate(${angle}deg) translateX(${len+220}px)`}
-  ],{duration:dur*1000,easing:'ease-out',fill:'forwards'}).onfinish=()=>star.remove();
+    {opacity:0,transform:`rotate(${angle}deg) translateX(${len+260}px)`}
+  ],{duration:dur*1000,easing:'ease-in',fill:'forwards'}).onfinish=()=>star.remove();
 }
-setInterval(()=>{ for(let i=0;i<5;i++) createShootingStar(); },500);
+// 3 stars staggered - ek ek karke alag jagah se
+setInterval(()=>{ createShootingStar(); },1000);
+setTimeout(()=>{ setInterval(()=>{ createShootingStar(); },1000); },330);
+setTimeout(()=>{ setInterval(()=>{ createShootingStar(); },1000); },660);
 
 function goTo(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
