@@ -1188,7 +1188,7 @@ body {
       <div class="field-group">
         <label class="field-label" for="f-agency">
           Agency Name
-          <span class="field-required">* Required</span>
+          <span class="field-optional">Optional</span>
         </label>
         <input class="neon-input" type="text" id="f-agency" placeholder="Your agency or team name"/>
       </div>
@@ -1199,7 +1199,7 @@ body {
       <div class="field-group">
         <label class="field-label" for="f-rizzid">
           Rizz Live ID
-          <span class="field-required">* Required</span>
+          <span class="field-optional">Optional</span>
         </label>
         <input class="neon-input" type="text" id="f-rizzid" placeholder="e.g. RL123456"/>
       </div>
@@ -1208,7 +1208,7 @@ body {
       <div class="field-group">
         <label class="field-label" for="f-whatsapp">
           WhatsApp Number
-          <span class="field-required">* Required</span>
+          <span class="field-optional">Optional</span>
         </label>
         <input class="neon-input" type="number" id="f-whatsapp" placeholder="e.g. 919876543210" inputmode="numeric"/>
       </div>
@@ -1217,7 +1217,7 @@ body {
       <div class="field-group">
         <label class="field-label" for="f-country">
           Country
-          <span class="field-required">* Required</span>
+          <span class="field-optional">Optional</span>
         </label>
         <select class="neon-select" id="f-country">
           <option value="">Select country…</option>
@@ -1452,6 +1452,51 @@ async function submitRegForm() {
     btn.disabled = false;
   }
 }
+
+// Country flag display
+const countryFlags = {
+  'India':         'in',
+  'Bangladesh':    'bd',
+  'Nepal':         'np',
+  'Philippines':   'ph',
+  'Nigeria':       'ng',
+  'USA':           'us',
+  'Latin America': 'un'
+};
+
+const countrySelect = document.getElementById('f-country');
+const flagDisplay = document.createElement('div');
+flagDisplay.id = 'country-flag-display';
+flagDisplay.style.cssText = `
+  display: none;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  padding: 10px 14px;
+  background: linear-gradient(135deg, rgba(0,229,255,0.06), rgba(0,0,20,0.6));
+  border: 1px solid rgba(0,229,255,0.25);
+  border-radius: 10px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--cyan2);
+  animation: msgReveal 0.3s cubic-bezier(0.16,1,0.3,1) both;
+`;
+flagDisplay.innerHTML = '<img id="flag-img" src="" alt="" style="width:34px;height:23px;border-radius:5px;object-fit:cover;border:1px solid rgba(0,229,255,0.25);box-shadow:0 0 10px rgba(0,229,255,0.2);"/><span id="flag-label"></span>';
+countrySelect.parentElement.appendChild(flagDisplay);
+
+countrySelect.addEventListener('change', function() {
+  const val = this.value;
+  const code = countryFlags[val];
+  if (val && code) {
+    document.getElementById('flag-img').src = 'https://flagcdn.com/w40/' + code + '.png';
+    document.getElementById('flag-img').alt = val;
+    document.getElementById('flag-label').textContent = val;
+    flagDisplay.style.display = 'flex';
+  } else {
+    flagDisplay.style.display = 'none';
+  }
+});
 
 // Clear validation highlight on input
 document.querySelectorAll('.neon-input, .neon-select').forEach(el => {
