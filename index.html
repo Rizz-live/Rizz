@@ -1348,10 +1348,10 @@ function setLang(lang) {
 // Particles
 const pc = document.getElementById('particles');
 const colors = ['#00e5ff','#ff3ca8','#4df3ff','#ff6ec4','#a855f7','#00ff9d','#fbbf24'];
-for(let i=0;i<300;i++){
+for(let i=0;i<80;i++){
   const p=document.createElement('div');p.className='particle';
   const size=1+Math.random()*2.8;const color=colors[Math.floor(Math.random()*colors.length)];
-  p.style.cssText=`left:${Math.random()*100}%;width:${size}px;height:${size}px;background:${color};box-shadow:0 0 ${size*3}px ${color};animation-duration:${1+Math.random()*2}s;animation-delay:${Math.random()*2}s;opacity:0;`;
+  p.style.cssText=`left:${Math.random()*100}%;width:${size}px;height:${size}px;background:${color};box-shadow:0 0 ${size*3}px ${color};animation-duration:${3+Math.random()*3}s;animation-delay:${Math.random()*3}s;opacity:0;`;
   pc.appendChild(p);
 }
 
