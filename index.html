@@ -7,514 +7,241 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet"/>
 <style>
 :root {
-  --navy:        #04021a;
-  --navy2:       #060320;
-  --navy3:       #08042c;
-  --deep-blue:   #0a0535;
-  --panel:       #0c0630;
-  --panel2:      #100840;
-  --panel3:      #080428;
-
-  --pink:        #ff3ca8;
-  --pink2:       #ff6ec4;
-  --pink3:       #ffb3e0;
-  --pink-glow:   rgba(255,60,168,0.5);
-  --pink-dim:    rgba(255,60,168,0.15);
-
-  --cyan:        #00e5ff;
-  --cyan2:       #4df3ff;
-  --cyan3:       #b8fbff;
-  --cyan-glow:   rgba(0,229,255,0.5);
-  --cyan-dim:    rgba(0,229,255,0.12);
-
-  --purple:      #7c3aed;
-  --purple2:     #a855f7;
-  --purple3:     #d8b4fe;
-  --purple-glow: rgba(124,58,237,0.5);
-
-  --gold:        #fbbf24;
-  --gold2:       #fde68a;
-  --gold-glow:   rgba(251,191,36,0.5);
-
-  --green:       #00ff9d;
-  --green-glow:  rgba(0,255,157,0.4);
-
-  --border:      rgba(0,229,255,0.2);
-  --border2:     rgba(255,60,168,0.2);
-  --border3:     rgba(124,58,237,0.25);
-
-  --text:        rgba(255,255,255,0.92);
-  --text-dim:    rgba(200,210,255,0.55);
-  --text-muted:  rgba(150,160,220,0.30);
+  --navy:#04021a;--navy2:#060320;--navy3:#08042c;--deep-blue:#0a0535;
+  --panel:#0c0630;--panel2:#100840;--panel3:#080428;
+  --pink:#ff3ca8;--pink2:#ff6ec4;--pink3:#ffb3e0;--pink-glow:rgba(255,60,168,0.5);--pink-dim:rgba(255,60,168,0.15);
+  --cyan:#00e5ff;--cyan2:#4df3ff;--cyan3:#b8fbff;--cyan-glow:rgba(0,229,255,0.5);--cyan-dim:rgba(0,229,255,0.12);
+  --purple:#7c3aed;--purple2:#a855f7;--purple3:#d8b4fe;--purple-glow:rgba(124,58,237,0.5);
+  --gold:#fbbf24;--gold2:#fde68a;--gold-glow:rgba(251,191,36,0.5);
+  --green:#00ff9d;--green-glow:rgba(0,255,157,0.4);
+  --border:rgba(0,229,255,0.2);--border2:rgba(255,60,168,0.2);--border3:rgba(124,58,237,0.25);
+  --text:rgba(255,255,255,0.92);--text-dim:rgba(200,210,255,0.55);--text-muted:rgba(150,160,220,0.30);
 }
-
 *{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Exo 2',sans-serif;background:var(--navy);color:var(--text);overflow-x:hidden;min-height:100vh;}
+.bg-scene{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.bg-scene::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 15% 10%,rgba(124,58,237,0.18) 0%,transparent 55%),radial-gradient(ellipse 70% 55% at 85% 90%,rgba(255,60,168,0.14) 0%,transparent 50%),radial-gradient(ellipse 60% 50% at 50% 50%,rgba(0,229,255,0.06) 0%,transparent 65%),linear-gradient(180deg,#04021a 0%,#060320 40%,#04021a 100%);}
+.bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,229,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.04) 1px,transparent 1px);background-size:40px 40px;animation:gridMove 20s linear infinite;}
+@keyframes gridMove{0%{transform:translateY(0)}100%{transform:translateY(40px)}}
+.bg-scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,20,0.15) 2px,rgba(0,0,20,0.15) 4px);}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;}
+.orb-1{width:500px;height:500px;top:-150px;left:-100px;background:rgba(124,58,237,0.18);animation:orbFloat1 12s ease-in-out infinite;}
+.orb-2{width:400px;height:400px;bottom:-100px;right:-80px;background:rgba(255,60,168,0.15);animation:orbFloat2 15s ease-in-out infinite;}
+.orb-3{width:300px;height:300px;top:40%;left:50%;transform:translate(-50%,-50%);background:rgba(0,229,255,0.08);animation:orbFloat3 10s ease-in-out infinite;}
+@keyframes orbFloat1{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,20px)}}
+@keyframes orbFloat2{0%,100%{transform:translate(0,0)}50%{transform:translate(-25px,-15px)}}
+@keyframes orbFloat3{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.15)}}
+.particles{position:fixed;inset:0;z-index:0;pointer-events:none;}
+.particle{position:absolute;border-radius:50%;opacity:0;animation:particleDrift linear infinite;}
+@keyframes particleDrift{0%{transform:translateY(100vh) scale(0);opacity:0;}8%{opacity:0.9;}92%{opacity:0.2;}100%{transform:translateY(-20px) scale(1.2);opacity:0;}}
+.neon-line-top{position:fixed;top:0;left:0;right:0;height:2px;z-index:200;pointer-events:none;background:linear-gradient(90deg,transparent 0%,var(--cyan) 20%,var(--pink) 50%,var(--purple2) 80%,transparent 100%);box-shadow:0 0 15px var(--cyan-glow),0 0 30px var(--pink-glow);animation:neonPulse 3s ease-in-out infinite;}
+@keyframes neonPulse{0%,100%{opacity:0.8}50%{opacity:1}}
+.page{display:none;position:relative;z-index:1;max-width:480px;margin:0 auto;padding-bottom:80px;min-height:100vh;}
+.page.active{display:block;animation:pageEnter 0.5s cubic-bezier(0.16,1,0.3,1) both;}
+@keyframes pageEnter{from{opacity:0;transform:translateY(24px) scale(0.98);}to{opacity:1;transform:translateY(0) scale(1);}}
+.header{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:14px;padding:12px 18px;background:rgba(4,2,26,0.88);backdrop-filter:blur(40px) saturate(200%);-webkit-backdrop-filter:blur(40px) saturate(200%);border-bottom:1px solid rgba(0,229,255,0.15);}
+.header::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),var(--pink),var(--purple2),transparent);animation:headerLine 4s ease-in-out infinite;}
+@keyframes headerLine{0%,100%{opacity:0.6}50%{opacity:1}}
+.logo-mark{width:44px;height:44px;border-radius:12px;flex-shrink:0;overflow:hidden;border:1px solid rgba(0,229,255,0.4);box-shadow:0 0 16px var(--cyan-glow),0 0 32px rgba(0,229,255,0.15),inset 0 1px 0 rgba(0,229,255,0.3);background:linear-gradient(135deg,#0a0535,#06031a);display:flex;align-items:center;justify-content:center;position:relative;}
+.logo-mark::before{content:'';position:absolute;inset:0;border-radius:12px;background:linear-gradient(135deg,rgba(0,229,255,0.1),transparent,rgba(255,60,168,0.1));}
+.logo-mark img{width:100%;height:100%;object-fit:cover;border-radius:11px;}
+.brand-name{font-family:'Orbitron',monospace;font-weight:800;font-size:15px;letter-spacing:3px;background:linear-gradient(90deg,var(--cyan2),var(--pink2),var(--cyan2));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-transform:uppercase;animation:textShimmer 4s linear infinite;}
+@keyframes textShimmer{0%{background-position:0%}100%{background-position:200%}}
+.brand-sub{font-family:'Rajdhani',sans-serif;font-size:8px;letter-spacing:3px;color:var(--text-muted);text-transform:uppercase;font-weight:600;margin-top:1px;}
+.header-ornament{margin-left:auto;display:flex;align-items:center;gap:8px;}
+.live-badge{display:flex;align-items:center;gap:5px;background:linear-gradient(135deg,rgba(255,60,168,0.15),rgba(255,60,168,0.05));border:1px solid rgba(255,60,168,0.4);border-radius:20px;padding:4px 10px;box-shadow:0 0 12px rgba(255,60,168,0.2);}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--pink);box-shadow:0 0 8px var(--pink),0 0 16px var(--pink-glow);animation:livePulse 1.2s ease-in-out infinite;}
+@keyframes livePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.6)}}
+.live-label{font-family:'Orbitron',monospace;font-size:7px;letter-spacing:2px;color:var(--pink2);font-weight:700;}
 
-body {
-  font-family: 'Exo 2', sans-serif;
-  background: var(--navy);
-  color: var(--text);
-  overflow-x: hidden;
-  min-height: 100vh;
-}
+/* HEARTBEAT LINE */
+.heartbeat-wrap{position:absolute;bottom:0;left:0;right:0;height:2px;overflow:hidden;pointer-events:none;}
+.heartbeat-svg{position:absolute;bottom:0;left:-100%;width:200%;height:28px;animation:hbMove 2s linear infinite;}
+@keyframes hbMove{0%{left:-100%}100%{left:0%}}
 
-/* ═══════════════════ BACKGROUND ═══════════════════ */
-.bg-scene {
-  position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
-}
-.bg-scene::before {
-  content: '';
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 15% 10%, rgba(124,58,237,0.18) 0%, transparent 55%),
-    radial-gradient(ellipse 70% 55% at 85% 90%, rgba(255,60,168,0.14) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 50% at 50% 50%, rgba(0,229,255,0.06) 0%, transparent 65%),
-    linear-gradient(180deg, #04021a 0%, #060320 40%, #04021a 100%);
-}
+/* FLOATING EMOJIS */
+.float-emoji{position:fixed;font-size:20px;pointer-events:none;z-index:0;animation:floatUp linear infinite;opacity:0;}
+@keyframes floatUp{0%{transform:translateY(0) scale(0.8) rotate(-10deg);opacity:0;}10%{opacity:0.85;}80%{opacity:0.5;}100%{transform:translateY(-100vh) scale(1.1) rotate(10deg);opacity:0;}}
 
-/* Animated grid lines */
-.bg-grid {
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(0,229,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,229,255,0.04) 1px, transparent 1px);
-  background-size: 40px 40px;
-  animation: gridMove 20s linear infinite;
-}
-@keyframes gridMove { 0%{transform:translateY(0)} 100%{transform:translateY(40px)} }
+/* LANGUAGE DROPDOWN */
+.lang-drop{position:relative;margin-right:6px;}
+.lang-drop-btn{display:flex;align-items:center;gap:5px;background:linear-gradient(135deg,rgba(0,229,255,0.08),rgba(124,58,237,0.08));border:1px solid rgba(0,229,255,0.3);border-radius:20px;padding:5px 10px;cursor:pointer;font-family:'Orbitron',monospace;font-size:8px;font-weight:700;letter-spacing:1px;color:var(--cyan2);white-space:nowrap;transition:all 0.3s;user-select:none;}
+.lang-drop-btn:hover{border-color:rgba(0,229,255,0.55);box-shadow:0 0 12px rgba(0,229,255,0.15);}
+.lang-drop-btn .chev{font-size:10px;opacity:0.6;transition:transform 0.3s;}
+.lang-drop.open .chev{transform:rotate(180deg);}
+.lang-drop-menu{display:none;position:absolute;top:calc(100% + 6px);right:0;background:rgba(8,4,40,0.97);border:1px solid rgba(0,229,255,0.3);border-radius:12px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.5),0 0 20px rgba(0,229,255,0.08);z-index:999;min-width:110px;}
+.lang-drop.open .lang-drop-menu{display:block;animation:menuReveal 0.2s cubic-bezier(0.16,1,0.3,1) both;}
+@keyframes menuReveal{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.lang-opt{display:flex;align-items:center;gap:8px;padding:10px 14px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:600;color:var(--text-dim);transition:all 0.2s;border-bottom:1px solid rgba(0,229,255,0.06);}
+.lang-opt:last-child{border-bottom:none;}
+.lang-opt:hover{background:rgba(0,229,255,0.07);color:var(--cyan2);}
+.lang-opt.active{background:rgba(0,229,255,0.1);color:var(--cyan2);}
+.lang-opt .flag{font-size:16px;}
+.lang-opt .lname{flex:1;}
+.lang-opt .tick{color:var(--cyan);opacity:0;font-size:12px;}
+.lang-opt.active .tick{opacity:1;}
 
-/* Scanlines */
-.bg-scan {
-  position: absolute; inset: 0;
-  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,20,0.15) 2px, rgba(0,0,20,0.15) 4px);
-  pointer-events: none;
+.back-btn{display:inline-flex;align-items:center;gap:8px;margin:18px 20px 0;color:var(--cyan2);font-size:11px;font-weight:600;font-family:'Rajdhani',sans-serif;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all 0.3s;padding:7px 14px;border:1px solid rgba(0,229,255,0.2);border-radius:20px;background:rgba(0,229,255,0.05);}
+.back-btn:hover{color:var(--cyan);border-color:rgba(0,229,255,0.5);background:rgba(0,229,255,0.1);box-shadow:0 0 16px var(--cyan-dim);}
+.back-btn::before{content:'←';font-size:14px;}
+.hero{padding:44px 24px 28px;text-align:center;position:relative;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(0,229,255,0.1),rgba(124,58,237,0.1));border:1px solid rgba(0,229,255,0.3);border-radius:30px;padding:6px 18px;margin-bottom:22px;font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;letter-spacing:4px;color:var(--cyan2);text-transform:uppercase;box-shadow:0 0 20px rgba(0,229,255,0.1);}
+.hero-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);animation:livePulse 1.5s ease-in-out infinite;}
+.hero-title{font-family:'Orbitron',monospace;font-size:38px;font-weight:900;line-height:1.05;color:#fff;margin-bottom:8px;}
+.hero-title .rizz{display:inline-block;background:linear-gradient(90deg,#00e5ff,#ff3ca8,#a855f7,#00ff9d,#00e5ff);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:rizzAnim 2s linear infinite;filter:drop-shadow(0 0 18px rgba(0,229,255,0.7));}
+.hero-title .hl{display:inline-block;background:linear-gradient(90deg,#ff3ca8,#a855f7,#00e5ff,#fbbf24,#ff3ca8);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:rizzAnim 2s linear infinite reverse;filter:drop-shadow(0 0 18px rgba(255,60,168,0.7));}
+@keyframes rizzAnim{0%{background-position:0%}100%{background-position:300%}}
+/* Neon pulse rings */
+.hero-ring{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;border:1.5px solid transparent;opacity:0;}
+.ring1{width:160px;height:60px;border-color:rgba(0,229,255,0.6);box-shadow:0 0 12px rgba(0,229,255,0.4);animation:ringPulse 2.4s ease-out infinite;}
+.ring2{width:160px;height:60px;border-color:rgba(255,60,168,0.5);box-shadow:0 0 12px rgba(255,60,168,0.3);animation:ringPulse 2.4s ease-out infinite 0.8s;}
+.ring3{width:160px;height:60px;border-color:rgba(168,85,247,0.4);box-shadow:0 0 12px rgba(168,85,247,0.3);animation:ringPulse 2.4s ease-out infinite 1.6s;}
+@keyframes ringPulse{
+  0%{width:160px;height:60px;opacity:0.9;border-width:1.5px;}
+  100%{width:340px;height:130px;opacity:0;border-width:0.5px;}
 }
-
-/* Orbs */
-.orb {
-  position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none;
-}
-.orb-1 { width:500px;height:500px; top:-150px; left:-100px; background:rgba(124,58,237,0.18); animation:orbFloat1 12s ease-in-out infinite; }
-.orb-2 { width:400px;height:400px; bottom:-100px; right:-80px; background:rgba(255,60,168,0.15); animation:orbFloat2 15s ease-in-out infinite; }
-.orb-3 { width:300px;height:300px; top:40%; left:50%; transform:translate(-50%,-50%); background:rgba(0,229,255,0.08); animation:orbFloat3 10s ease-in-out infinite; }
-@keyframes orbFloat1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(30px,20px)} }
-@keyframes orbFloat2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-25px,-15px)} }
-@keyframes orbFloat3 { 0%,100%{transform:translate(-50%,-50%) scale(1)} 50%{transform:translate(-50%,-50%) scale(1.15)} }
-
-/* ═══════════════════ PARTICLES ═══════════════════ */
-.particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
-.particle {
-  position: absolute; border-radius: 50%; opacity: 0;
-  animation: particleDrift linear infinite;
-}
-@keyframes particleDrift {
-  0% { transform: translateY(100vh) scale(0); opacity: 0; }
-  8% { opacity: 0.9; }
-  92% { opacity: 0.2; }
-  100% { transform: translateY(-20px) scale(1.2); opacity: 0; }
-}
-
-/* ═══════════════════ NEON LINES (top deco) ═══════════════════ */
-.neon-line-top {
-  position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 200; pointer-events: none;
-  background: linear-gradient(90deg, transparent 0%, var(--cyan) 20%, var(--pink) 50%, var(--purple2) 80%, transparent 100%);
-  box-shadow: 0 0 15px var(--cyan-glow), 0 0 30px var(--pink-glow);
-  animation: neonPulse 3s ease-in-out infinite;
-}
-@keyframes neonPulse { 0%,100%{opacity:0.8} 50%{opacity:1} }
-
-/* ═══════════════════ PAGES ═══════════════════ */
-.page { display: none; position: relative; z-index: 1; max-width: 480px; margin: 0 auto; padding-bottom: 80px; min-height: 100vh; }
-.page.active { display: block; animation: pageEnter 0.5s cubic-bezier(0.16,1,0.3,1) both; }
-@keyframes pageEnter { from { opacity: 0; transform: translateY(24px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
-
-/* ═══════════════════ HEADER ═══════════════════ */
-.header {
-  position: sticky; top: 0; z-index: 100;
-  display: flex; align-items: center; gap: 14px;
-  padding: 12px 18px;
-  background: rgba(4,2,26,0.88);
-  backdrop-filter: blur(40px) saturate(200%);
-  -webkit-backdrop-filter: blur(40px) saturate(200%);
-  border-bottom: 1px solid rgba(0,229,255,0.15);
-}
-.header::after {
-  content: '';
-  position: absolute; bottom: -1px; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--cyan), var(--pink), var(--purple2), transparent);
-  animation: headerLine 4s ease-in-out infinite;
-}
-@keyframes headerLine { 0%,100%{opacity:0.6} 50%{opacity:1} }
-
-.logo-mark {
-  width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0; overflow: hidden;
-  border: 1px solid rgba(0,229,255,0.4);
-  box-shadow: 0 0 16px var(--cyan-glow), 0 0 32px rgba(0,229,255,0.15), inset 0 1px 0 rgba(0,229,255,0.3);
-  background: linear-gradient(135deg, #0a0535, #06031a);
-  display: flex; align-items: center; justify-content: center;
-  position: relative;
-}
-.logo-mark::before {
-  content: ''; position: absolute; inset: 0; border-radius: 12px;
-  background: linear-gradient(135deg, rgba(0,229,255,0.1), transparent, rgba(255,60,168,0.1));
-}
-.logo-mark img { width:100%; height:100%; object-fit:cover; border-radius:11px; }
-
-.brand-name {
-  font-family: 'Orbitron', monospace;
-  font-weight: 800; font-size: 15px; letter-spacing: 3px;
-  background: linear-gradient(90deg, var(--cyan2), var(--pink2), var(--cyan2));
-  background-size: 200% auto;
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  text-transform: uppercase;
-  animation: textShimmer 4s linear infinite;
-}
-@keyframes textShimmer { 0%{background-position:0%} 100%{background-position:200%} }
-.brand-sub { font-family:'Rajdhani',sans-serif; font-size: 8px; letter-spacing: 3px; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-top: 1px; }
-
-.header-ornament { margin-left: auto; display: flex; align-items: center; gap: 8px; }
-.live-badge {
-  display: flex; align-items: center; gap: 5px;
-  background: linear-gradient(135deg, rgba(255,60,168,0.15), rgba(255,60,168,0.05));
-  border: 1px solid rgba(255,60,168,0.4);
-  border-radius: 20px; padding: 4px 10px;
-  box-shadow: 0 0 12px rgba(255,60,168,0.2);
-}
-.live-dot {
-  width: 6px; height: 6px; border-radius: 50%; background: var(--pink);
-  box-shadow: 0 0 8px var(--pink), 0 0 16px var(--pink-glow); animation: livePulse 1.2s ease-in-out infinite;
-}
-@keyframes livePulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.6)} }
-.live-label { font-family:'Orbitron',monospace; font-size: 7px; letter-spacing: 2px; color: var(--pink2); font-weight: 700; }
-
-/* ═══════════════════ BACK BTN ═══════════════════ */
-.back-btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  margin: 18px 20px 0; color: var(--cyan2); font-size: 11px; font-weight: 600;
-  font-family:'Rajdhani',sans-serif; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.3s;
-  padding: 7px 14px; border: 1px solid rgba(0,229,255,0.2); border-radius: 20px;
-  background: rgba(0,229,255,0.05);
-}
-.back-btn:hover { color: var(--cyan); border-color: rgba(0,229,255,0.5); background: rgba(0,229,255,0.1); box-shadow: 0 0 16px var(--cyan-dim); }
-.back-btn::before { content: '←'; font-size: 14px; }
-
-/* ═══════════════════ HERO ═══════════════════ */
-.hero { padding: 44px 24px 28px; text-align: center; position: relative; }
-
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: linear-gradient(135deg, rgba(0,229,255,0.1), rgba(124,58,237,0.1));
-  border: 1px solid rgba(0,229,255,0.3); border-radius: 30px;
-  padding: 6px 18px; margin-bottom: 22px;
-  font-family:'Rajdhani',sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 4px;
-  color: var(--cyan2); text-transform: uppercase;
-  box-shadow: 0 0 20px rgba(0,229,255,0.1);
-}
-.hero-badge-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 8px var(--cyan); animation: livePulse 1.5s ease-in-out infinite; }
-
-.hero-title {
-  font-family: 'Orbitron', monospace;
-  font-size: 38px; font-weight: 900; line-height: 1.05; color: #fff;
-  margin-bottom: 8px;
-  text-shadow: 0 0 40px rgba(0,229,255,0.2), 0 0 80px rgba(255,60,168,0.1);
-}
-.hero-title .hl {
-  background: linear-gradient(135deg, var(--cyan2), var(--pink2));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  filter: drop-shadow(0 0 20px var(--cyan-glow));
-}
-.hero-sub { font-family:'Rajdhani',sans-serif; font-size: 13px; font-weight: 500; color: var(--text-dim); letter-spacing: 1px; margin-top: 8px; }
-
-/* divider */
-.neon-divider {
-  display: flex; align-items: center; justify-content: center; gap: 12px; margin: 18px 0 8px;
-}
-.nd-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--cyan)); max-width: 80px; }
-.nd-line.rev { background: linear-gradient(90deg, var(--cyan), transparent); }
-.nd-gem { width: 8px; height: 8px; border-radius: 2px; background: var(--cyan); transform: rotate(45deg); box-shadow: 0 0 12px var(--cyan-glow); animation: gemPulse 2s ease-in-out infinite; }
-@keyframes gemPulse { 0%,100%{box-shadow:0 0 8px var(--cyan-glow)} 50%{box-shadow:0 0 20px var(--cyan-glow), 0 0 40px rgba(0,229,255,0.3)} }
-
-/* ═══════════════════ NAV CARDS ═══════════════════ */
-.nav-grid { padding: 4px 14px 0; display: flex; flex-direction: column; gap: 10px; }
-
-.nav-card {
-  display: flex; align-items: center; gap: 15px;
-  background: linear-gradient(135deg, rgba(8,4,40,0.9), rgba(12,6,48,0.95));
-  border: 1px solid var(--border3);
-  border-radius: 16px; padding: 14px 16px;
-  cursor: pointer; position: relative; overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
-  animation: cardReveal 0.6s cubic-bezier(0.16,1,0.3,1) both;
-}
-/* shimmer sweep */
-.nav-card::before {
-  content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0,229,255,0.06), transparent);
-  transition: left 0.5s ease;
-}
-/* top neon border */
-.nav-card::after {
-  content: ''; position: absolute; top: 0; left: 10%; right: 10%; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--cyan), var(--pink), transparent);
-  opacity: 0; transition: opacity 0.4s;
-}
-.nav-card:hover { border-color: rgba(0,229,255,0.4); transform: translateY(-3px) scale(1.01); box-shadow: 0 12px 40px rgba(0,229,255,0.1), 0 0 0 1px rgba(0,229,255,0.08), 0 0 30px rgba(255,60,168,0.05); }
-.nav-card:hover::before { left: 120%; }
-.nav-card:hover::after { opacity: 1; }
-.nav-card:active { transform: scale(0.98); }
-@keyframes cardReveal { from { opacity: 0; transform: translateX(-18px); } to { opacity: 1; transform: translateX(0); } }
+.hero-sub{font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:500;color:var(--text-dim);letter-spacing:1px;margin-top:8px;}
+.neon-divider{display:flex;align-items:center;justify-content:center;gap:12px;margin:18px 0 8px;}
+.nd-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--cyan));max-width:80px;}
+.nd-line.rev{background:linear-gradient(90deg,var(--cyan),transparent);}
+.nd-gem{width:8px;height:8px;border-radius:2px;background:var(--cyan);transform:rotate(45deg);box-shadow:0 0 12px var(--cyan-glow);animation:gemPulse 2s ease-in-out infinite;}
+@keyframes gemPulse{0%,100%{box-shadow:0 0 8px var(--cyan-glow)}50%{box-shadow:0 0 20px var(--cyan-glow),0 0 40px rgba(0,229,255,0.3)}}
+.nav-grid{padding:4px 14px 0;display:flex;flex-direction:column;gap:10px;}
+.nav-card{display:flex;align-items:center;gap:15px;background:linear-gradient(135deg,rgba(8,4,40,0.9),rgba(12,6,48,0.95));border:1px solid var(--border3);border-radius:16px;padding:14px 16px;cursor:pointer;position:relative;overflow:hidden;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);animation:cardReveal 0.6s cubic-bezier(0.16,1,0.3,1) both;}
+.nav-card::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(0,229,255,0.06),transparent);transition:left 0.5s ease;}
+.nav-card::after{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),var(--pink),transparent);opacity:0;transition:opacity 0.4s;}
+.nav-card:hover{border-color:rgba(0,229,255,0.7);transform:translateY(-4px) scale(1.02);box-shadow:0 0 18px rgba(0,229,255,0.35),0 0 40px rgba(255,60,168,0.2),0 0 70px rgba(0,229,255,0.1),0 16px 40px rgba(0,0,0,0.4),inset 0 0 20px rgba(0,229,255,0.04);}
+.nav-card:hover::before{left:120%;}
+.nav-card:hover::after{opacity:1;}
+.nav-card:hover .nav-icon-wrap{transform:scale(1.12);transition:transform 0.3s cubic-bezier(0.16,1,0.3,1);}
+.nav-card:hover .nav-title{color:var(--cyan2);text-shadow:0 0 12px rgba(0,229,255,0.6);}
+.nav-card:active{transform:scale(0.98);}
+@keyframes cardReveal{from{opacity:0;transform:translateX(-18px);}to{opacity:1;transform:translateX(0);}}
 .nav-card:nth-child(1){animation-delay:.04s}.nav-card:nth-child(2){animation-delay:.10s}
 .nav-card:nth-child(3){animation-delay:.16s}.nav-card:nth-child(4){animation-delay:.22s}
 .nav-card:nth-child(5){animation-delay:.28s}.nav-card:nth-child(6){animation-delay:.34s}
-
-.nav-icon-wrap {
-  width: 48px; height: 48px; border-radius: 14px;
-  display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;
-  position: relative;
-}
-.icon-cyan   { background: linear-gradient(135deg, #001a22, #000f18); border: 1px solid rgba(0,229,255,0.35); box-shadow: 0 0 20px rgba(0,229,255,0.15), inset 0 1px 0 rgba(0,229,255,0.2); }
-.icon-pink   { background: linear-gradient(135deg, #220010, #180008); border: 1px solid rgba(255,60,168,0.35); box-shadow: 0 0 20px rgba(255,60,168,0.15), inset 0 1px 0 rgba(255,60,168,0.2); }
-.icon-purple { background: linear-gradient(135deg, #120820, #0a0518); border: 1px solid rgba(124,58,237,0.4); box-shadow: 0 0 20px rgba(124,58,237,0.15), inset 0 1px 0 rgba(168,85,247,0.2); }
-.icon-gold   { background: linear-gradient(135deg, #1a1000, #120b00); border: 1px solid rgba(251,191,36,0.35); box-shadow: 0 0 20px rgba(251,191,36,0.12); }
-.icon-green  { background: linear-gradient(135deg, #00180a, #000f06); border: 1px solid rgba(0,255,157,0.3); box-shadow: 0 0 20px rgba(0,255,157,0.12); }
-
-.nav-text { flex: 1; }
-.nav-title { font-family:'Orbitron',monospace; font-weight: 700; font-size: 11px; letter-spacing: 1.5px; color: #fff; text-transform: uppercase; line-height: 1.2; }
-.nav-desc { font-family:'Rajdhani',sans-serif; font-size: 12px; color: var(--text-dim); margin-top: 3px; font-weight: 500; }
-.nav-arrow { color: var(--cyan2); opacity: 0.35; font-size: 22px; transition: all 0.3s; font-weight: 300; }
-.nav-card:hover .nav-arrow { opacity: 1; transform: translateX(4px); color: var(--cyan); text-shadow: 0 0 10px var(--cyan); }
-
-/* ═══════════════════ COIN SVG ═══════════════════ */
-.coin-svg { width: 24px; height: 24px; filter: drop-shadow(0 0 6px rgba(255,60,168,0.7)); }
-
-/* ═══════════════════ INNER HERO ═══════════════════ */
-.inner-hero { padding: 28px 20px 20px; text-align: center; }
-.inner-eyebrow {
-  font-family:'Rajdhani',sans-serif; font-size: 10px; letter-spacing: 5px; color: var(--cyan2);
-  text-transform: uppercase; font-weight: 700; margin-bottom: 12px;
-  display: flex; align-items: center; justify-content: center; gap: 10px;
-}
-.inner-eyebrow::before, .inner-eyebrow::after {
-  content: ''; flex: 1; max-width: 40px; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--cyan)); opacity: 0.6;
-}
-.inner-eyebrow::after { background: linear-gradient(90deg, var(--cyan), transparent); }
-.inner-title { font-family: 'Orbitron', monospace; font-weight: 800; font-size: 26px; color: #fff; line-height: 1.15; margin-bottom: 6px; }
-
-/* ═══════════════════ SECTION CARDS ═══════════════════ */
-.sec-card {
-  margin: 10px 12px 0;
-  background: linear-gradient(135deg, rgba(8,4,40,0.95), rgba(10,5,35,0.98));
-  border: 1px solid var(--border3);
-  border-radius: 18px; overflow: hidden;
-  box-shadow: 0 4px 30px rgba(0,229,255,0.05), inset 0 1px 0 rgba(0,229,255,0.06);
-  animation: secReveal 0.5s cubic-bezier(0.16,1,0.3,1) both;
-  position: relative;
-}
-.sec-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent 5%, var(--cyan) 40%, var(--pink) 60%, transparent 95%);
-  opacity: 0.5;
-}
-@keyframes secReveal { from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)} }
+.nav-icon-wrap{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;position:relative;}
+.icon-cyan{background:linear-gradient(135deg,#001a22,#000f18);border:1px solid rgba(0,229,255,0.35);box-shadow:0 0 20px rgba(0,229,255,0.15),inset 0 1px 0 rgba(0,229,255,0.2);}
+.icon-pink{background:linear-gradient(135deg,#220010,#180008);border:1px solid rgba(255,60,168,0.35);box-shadow:0 0 20px rgba(255,60,168,0.15),inset 0 1px 0 rgba(255,60,168,0.2);}
+.icon-purple{background:linear-gradient(135deg,#120820,#0a0518);border:1px solid rgba(124,58,237,0.4);box-shadow:0 0 20px rgba(124,58,237,0.15),inset 0 1px 0 rgba(168,85,247,0.2);}
+.icon-gold{background:linear-gradient(135deg,#1a1000,#120b00);border:1px solid rgba(251,191,36,0.35);box-shadow:0 0 20px rgba(251,191,36,0.12);}
+.icon-green{background:linear-gradient(135deg,#00180a,#000f06);border:1px solid rgba(0,255,157,0.3);box-shadow:0 0 20px rgba(0,255,157,0.12);}
+.nav-text{flex:1;}
+.nav-title{font-family:'Orbitron',monospace;font-weight:700;font-size:11px;letter-spacing:1.5px;color:#fff;text-transform:uppercase;line-height:1.2;}
+.nav-desc{font-family:'Rajdhani',sans-serif;font-size:12px;color:var(--text-dim);margin-top:3px;font-weight:500;}
+.nav-arrow{color:var(--cyan2);opacity:0.35;font-size:22px;transition:all 0.3s;font-weight:300;}
+.nav-card:hover .nav-arrow{opacity:1;transform:translateX(4px);color:var(--cyan);text-shadow:0 0 10px var(--cyan);}
+.coin-svg{width:24px;height:24px;filter:drop-shadow(0 0 6px rgba(255,60,168,0.7));}
+.inner-hero{padding:28px 20px 20px;text-align:center;}
+.inner-eyebrow{font-family:'Rajdhani',sans-serif;font-size:10px;letter-spacing:5px;color:var(--cyan2);text-transform:uppercase;font-weight:700;margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:10px;}
+.inner-eyebrow::before,.inner-eyebrow::after{content:'';flex:1;max-width:40px;height:1px;background:linear-gradient(90deg,transparent,var(--cyan));opacity:0.6;}
+.inner-eyebrow::after{background:linear-gradient(90deg,var(--cyan),transparent);}
+.inner-title{font-family:'Orbitron',monospace;font-weight:800;font-size:26px;color:#fff;line-height:1.15;margin-bottom:6px;}
+.sec-card{margin:10px 12px 0;background:linear-gradient(135deg,rgba(8,4,40,0.95),rgba(10,5,35,0.98));border:1px solid var(--border3);border-radius:18px;overflow:hidden;box-shadow:0 4px 30px rgba(0,229,255,0.05),inset 0 1px 0 rgba(0,229,255,0.06);animation:secReveal 0.5s cubic-bezier(0.16,1,0.3,1) both;position:relative;}
+.sec-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 5%,var(--cyan) 40%,var(--pink) 60%,transparent 95%);opacity:0.5;}
+@keyframes secReveal{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .sec-card:nth-child(2){animation-delay:.06s}.sec-card:nth-child(3){animation-delay:.12s}
 .sec-card:nth-child(4){animation-delay:.18s}.sec-card:nth-child(5){animation-delay:.24s}
-
-.sec-hdr {
-  display: flex; align-items: center; gap: 12px; padding: 14px 16px;
-  background: linear-gradient(135deg, rgba(0,229,255,0.05), rgba(255,60,168,0.02));
-  border-bottom: 1px solid rgba(0,229,255,0.08); cursor: pointer; user-select: none;
-  transition: background 0.3s; position: relative;
-}
-.sec-hdr::before {
-  content: ''; position: absolute; left: 0; top: 10%; bottom: 10%; width: 2px;
-  background: linear-gradient(180deg, var(--cyan), var(--pink));
-  opacity: 0; transition: opacity 0.3s; border-radius: 0 2px 2px 0;
-  box-shadow: 0 0 8px var(--cyan-glow);
-}
-.sec-hdr:hover::before, .sec-hdr.open::before { opacity: 1; }
-.sec-hdr:hover { background: linear-gradient(135deg, rgba(0,229,255,0.08), rgba(255,60,168,0.04)); }
-
-.sec-num {
-  width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center;
-  font-family: 'Orbitron', monospace; font-weight: 800; font-size: 12px; flex-shrink: 0;
-  color: var(--cyan2);
-  background: linear-gradient(135deg, rgba(0,229,255,0.15), rgba(0,229,255,0.05));
-  border: 1px solid rgba(0,229,255,0.3);
-  box-shadow: 0 0 10px rgba(0,229,255,0.1);
-}
-.sec-title { font-family:'Rajdhani',sans-serif; font-weight: 700; font-size: 14px; flex: 1; color: #fff; letter-spacing: 0.5px; }
-.sec-chev { color: var(--cyan2); opacity: 0.4; font-size: 20px; transition: all 0.35s cubic-bezier(0.16,1,0.3,1); }
-.sec-hdr.open .sec-chev { transform: rotate(90deg); opacity: 1; color: var(--cyan); text-shadow: 0 0 10px var(--cyan); }
-
-.sec-body { padding: 0 16px; max-height: 0; overflow: hidden; transition: max-height 0.5s ease, padding 0.3s ease; }
-.sec-body.open { max-height: 4000px; padding: 16px 16px 20px; }
-
-/* ═══════════════════ CONTENT ═══════════════════ */
-.sub-label {
-  font-family:'Orbitron',monospace; font-size: 8px; letter-spacing: 3px; color: var(--cyan2); text-transform: uppercase;
-  font-weight: 700; margin: 14px 0 8px; display: flex; align-items: center; gap: 8px;
-}
-.sub-label:first-child { margin-top: 0; }
-.sub-label::before { content: ''; width: 14px; height: 1px; background: linear-gradient(90deg, var(--cyan), transparent); display: inline-block; }
-
-/* Table */
-.lux-table { width: 100%; border-collapse: collapse; margin: 8px 0; }
-.lux-table thead tr { border-bottom: 1px solid rgba(0,229,255,0.2); }
-.lux-table th { padding: 8px 10px; font-family:'Orbitron',monospace; font-size: 8px; font-weight: 700; letter-spacing: 2px; color: var(--cyan2); text-transform: uppercase; text-align: left; }
-.lux-table td { padding: 10px 10px; font-family:'Rajdhani',sans-serif; font-size: 13px; font-weight: 600; color: rgba(200,210,255,0.8); border-bottom: 1px solid rgba(255,255,255,0.03); }
-.lux-table tr:last-child td { border-bottom: none; }
-.lux-table tr:nth-child(even) td { background: rgba(0,229,255,0.02); }
-.lux-table tr:hover td { background: rgba(0,229,255,0.04); }
-
-.c-cyan   { color: var(--cyan2) !important; font-weight: 700 !important; text-shadow: 0 0 8px rgba(0,229,255,0.5); }
-.c-pink   { color: var(--pink2) !important; font-weight: 700 !important; text-shadow: 0 0 8px rgba(255,60,168,0.5); }
-.c-green  { color: var(--green) !important; font-weight: 700 !important; text-shadow: 0 0 8px var(--green-glow); }
-.c-gold   { color: var(--gold2) !important; font-weight: 700 !important; text-shadow: 0 0 8px var(--gold-glow); }
-.c-purple { color: var(--purple3) !important; font-weight: 700 !important; }
-.c-rose   { color: #ff6090 !important; font-weight: 700 !important; }
-
-/* Example box */
-.example-box {
-  background: linear-gradient(135deg, rgba(0,229,255,0.06), rgba(0,229,255,0.02));
-  border: 1px solid rgba(0,229,255,0.2);
-  border-left: 2px solid var(--cyan);
-  border-radius: 0 12px 12px 0;
-  padding: 12px 14px; margin: 8px 0;
-  font-family:'Rajdhani',sans-serif; font-size: 13px; line-height: 1.7; color: rgba(200,210,255,0.75);
-  box-shadow: 0 0 20px rgba(0,229,255,0.04);
-}
-.example-box strong { color: var(--cyan2); }
-.ex-label { font-family:'Orbitron',monospace; font-size: 7px; letter-spacing: 2.5px; color: var(--cyan2); text-transform: uppercase; font-weight: 700; margin-bottom: 6px; display: block; }
-
-/* Rule list */
-.rule-list { list-style: none; margin: 6px 0; }
-.rule-list li {
-  display: flex; align-items: flex-start; gap: 10px;
-  padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.025);
-  font-family:'Rajdhani',sans-serif; font-size: 13px; line-height: 1.65; color: rgba(200,210,255,0.75); font-weight: 500;
-}
-.rule-list li:last-child { border-bottom: none; }
-.r-gem { width: 6px; height: 6px; border-radius: 1px; flex-shrink: 0; margin-top: 8px; transform: rotate(45deg); }
-.gem-cyan   { background: var(--cyan); box-shadow: 0 0 8px var(--cyan-glow); }
-.gem-pink   { background: var(--pink); box-shadow: 0 0 8px var(--pink-glow); }
-.gem-green  { background: var(--green); box-shadow: 0 0 8px var(--green-glow); }
-.gem-gold   { background: var(--gold); box-shadow: 0 0 8px var(--gold-glow); }
-.gem-purple { background: var(--purple2); box-shadow: 0 0 8px var(--purple-glow); }
-.gem-rose   { background: #ff6090; box-shadow: 0 0 8px rgba(255,96,144,0.6); }
-.gem-dim    { background: rgba(255,255,255,0.2); }
-.rule-list li strong { color: #fff; font-weight: 700; }
-
-/* Alert */
-.alert-box {
-  background: linear-gradient(135deg, rgba(255,60,168,0.08), rgba(255,60,168,0.03));
-  border: 1px solid rgba(255,60,168,0.25);
-  border-left: 2px solid var(--pink);
-  border-radius: 0 12px 12px 0;
-  padding: 12px 14px; margin: 10px 0;
-  font-family:'Rajdhani',sans-serif; font-size: 13px; color: rgba(200,210,255,0.75); line-height: 1.65;
-  box-shadow: 0 0 20px rgba(255,60,168,0.04);
-}
-.alert-box strong { color: var(--pink2); }
-.al-label { font-family:'Orbitron',monospace; font-size: 7px; letter-spacing: 2.5px; color: var(--pink2); text-transform: uppercase; font-weight: 700; margin-bottom: 5px; display: block; }
-
-.divider { height: 1px; margin: 14px 0; background: linear-gradient(90deg, transparent, rgba(0,229,255,0.2), rgba(255,60,168,0.15), transparent); }
-
-/* ═══════════════════ STATS ROW (home) ═══════════════════ */
-.stats-row {
-  display: flex; gap: 10px; padding: 0 14px; margin-bottom: 14px;
-}
-.stat-card {
-  flex: 1; text-align: center; padding: 14px 10px;
-  background: linear-gradient(135deg, rgba(8,4,40,0.9), rgba(12,6,48,0.95));
-  border: 1px solid rgba(0,229,255,0.2); border-radius: 14px;
-  position: relative; overflow: hidden;
-}
-.stat-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--cyan), transparent); opacity: 0.6;
-}
-.stat-val {
-  font-family: 'Orbitron', monospace; font-weight: 900; font-size: 22px;
-  background: linear-gradient(135deg, var(--cyan2), var(--pink2));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  filter: drop-shadow(0 0 8px rgba(0,229,255,0.5));
-}
-.stat-label { font-family:'Rajdhani',sans-serif; font-size: 9px; letter-spacing: 2px; color: var(--text-dim); text-transform: uppercase; margin-top: 3px; font-weight: 600; }
-
-/* ═══════════════════ FOOTER ═══════════════════ */
-.footer {
-  text-align: center; padding: 36px 20px 14px;
-  font-family:'Orbitron',monospace; font-size: 8px; letter-spacing: 3px; color: var(--text-muted); text-transform: uppercase; font-weight: 600;
-}
-.footer span { background: linear-gradient(90deg, var(--cyan), var(--pink2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-
-/* ═══════════════════ CONTACT ═══════════════════ */
-.contact-link {
-  display: flex; align-items: center; gap: 14px;
-  background: linear-gradient(135deg, rgba(0,40,20,0.6), rgba(0,20,10,0.8));
-  border: 1px solid rgba(0,255,157,0.25);
-  border-radius: 14px; padding: 16px 18px;
-  text-decoration: none; color: #fff; transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
-}
-.contact-link:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,255,157,0.12), 0 0 30px rgba(0,255,157,0.06); border-color: rgba(0,255,157,0.45); }
-
-/* ═══════════════════ REGISTRATION ═══════════════════ */
-.reg-card {
-  margin: 20px 12px 0;
-  background: linear-gradient(135deg, rgba(8,4,40,0.95), rgba(12,6,48,0.98));
-  border: 1px solid rgba(0,229,255,0.25); border-radius: 22px; padding: 32px 22px;
-  text-align: center; position: relative; overflow: hidden;
-  box-shadow: 0 0 60px rgba(0,229,255,0.06), inset 0 1px 0 rgba(0,229,255,0.1);
-  animation: secReveal 0.6s ease both;
-}
-.reg-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent 5%, var(--cyan) 40%, var(--pink) 60%, transparent 95%);
-}
-.reg-icon { font-size: 48px; margin-bottom: 16px; display: block; filter: drop-shadow(0 4px 16px rgba(0,229,255,0.4)); }
-.reg-title { font-family:'Orbitron',monospace; font-size: 18px; font-weight: 800; color: var(--cyan2); margin-bottom: 10px; }
-.reg-desc { font-family:'Rajdhani',sans-serif; font-size: 13px; color: var(--text-dim); line-height: 1.75; margin-bottom: 22px; }
-.reg-btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: linear-gradient(135deg, rgba(0,229,255,0.12), rgba(124,58,237,0.12));
-  border: 1px solid rgba(0,229,255,0.45); border-radius: 12px; padding: 13px 28px;
-  font-family:'Orbitron',monospace; font-weight: 700; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--cyan2); text-decoration: none;
-  box-shadow: 0 6px 24px rgba(0,229,255,0.15), inset 0 1px 0 rgba(0,229,255,0.2);
-  transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
-}
-.reg-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,229,255,0.25); border-color: var(--cyan); color: #fff; }
-
-.info-row { display: flex; flex-direction: column; gap: 8px; margin: 10px 12px 0; }
-.info-item {
-  display: flex; align-items: center; gap: 12px;
-  background: linear-gradient(135deg, rgba(8,4,40,0.9), rgba(10,5,35,0.95));
-  border: 1px solid rgba(0,229,255,0.12); border-radius: 12px; padding: 12px 14px;
-}
-.info-icon { width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
-.ii-cyan   { background: rgba(0,229,255,0.1); border: 1px solid rgba(0,229,255,0.25); }
-.ii-pink   { background: rgba(255,60,168,0.1); border: 1px solid rgba(255,60,168,0.22); }
-.ii-green  { background: rgba(0,255,157,0.08); border: 1px solid rgba(0,255,157,0.2); }
-.info-item-title { font-family:'Rajdhani',sans-serif; font-weight: 700; font-size: 13px; color: #fff; }
-.info-item-sub { font-family:'Rajdhani',sans-serif; font-size: 11px; color: var(--text-dim); margin-top: 1px; }
-
-/* ═══════════════════ SCROLLBAR ═══════════════════ */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(0,229,255,0.3); border-radius: 10px; }
-
-/* ═══════════════════ TYPING CURSOR ═══════════════════ */
-.cursor-blink { animation: blink 1s step-end infinite; }
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
-/* ═══════════════════ FLOATING STARS ═══════════════════ */
-.star { position: absolute; pointer-events: none; }
+.sec-hdr{display:flex;align-items:center;gap:12px;padding:14px 16px;background:linear-gradient(135deg,rgba(0,229,255,0.05),rgba(255,60,168,0.02));border-bottom:1px solid rgba(0,229,255,0.08);cursor:pointer;user-select:none;transition:background 0.3s;position:relative;}
+.sec-hdr::before{content:'';position:absolute;left:0;top:10%;bottom:10%;width:2px;background:linear-gradient(180deg,var(--cyan),var(--pink));opacity:0;transition:opacity 0.3s;border-radius:0 2px 2px 0;box-shadow:0 0 8px var(--cyan-glow);}
+.sec-hdr:hover::before,.sec-hdr.open::before{opacity:1;}
+.sec-hdr:hover{background:linear-gradient(135deg,rgba(0,229,255,0.08),rgba(255,60,168,0.04));}
+.sec-num{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-weight:800;font-size:12px;flex-shrink:0;color:var(--cyan2);background:linear-gradient(135deg,rgba(0,229,255,0.15),rgba(0,229,255,0.05));border:1px solid rgba(0,229,255,0.3);box-shadow:0 0 10px rgba(0,229,255,0.1);}
+.sec-title{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;flex:1;color:#fff;letter-spacing:0.5px;}
+.sec-chev{color:var(--cyan2);opacity:0.4;font-size:20px;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);}
+.sec-hdr.open .sec-chev{transform:rotate(90deg);opacity:1;color:var(--cyan);text-shadow:0 0 10px var(--cyan);}
+.sec-body{padding:0 16px;max-height:0;overflow:hidden;transition:max-height 0.5s ease,padding 0.3s ease;}
+.sec-body.open{max-height:4000px;padding:16px 16px 20px;}
+.sub-label{font-family:'Orbitron',monospace;font-size:8px;letter-spacing:3px;color:var(--cyan2);text-transform:uppercase;font-weight:700;margin:14px 0 8px;display:flex;align-items:center;gap:8px;}
+.sub-label:first-child{margin-top:0;}
+.sub-label::before{content:'';width:14px;height:1px;background:linear-gradient(90deg,var(--cyan),transparent);display:inline-block;}
+.lux-table{width:100%;border-collapse:collapse;margin:8px 0;}
+.lux-table thead tr{border-bottom:1px solid rgba(0,229,255,0.2);}
+.lux-table th{padding:8px 10px;font-family:'Orbitron',monospace;font-size:8px;font-weight:700;letter-spacing:2px;color:var(--cyan2);text-transform:uppercase;text-align:left;}
+.lux-table td{padding:10px 10px;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:600;color:rgba(200,210,255,0.8);border-bottom:1px solid rgba(255,255,255,0.03);}
+.lux-table tr:last-child td{border-bottom:none;}
+.lux-table tr:nth-child(even) td{background:rgba(0,229,255,0.02);}
+.lux-table tr:hover td{background:rgba(0,229,255,0.04);}
+.c-cyan{color:var(--cyan2)!important;font-weight:700!important;text-shadow:0 0 8px rgba(0,229,255,0.5);}
+.c-pink{color:var(--pink2)!important;font-weight:700!important;text-shadow:0 0 8px rgba(255,60,168,0.5);}
+.c-green{color:var(--green)!important;font-weight:700!important;text-shadow:0 0 8px var(--green-glow);}
+.c-gold{color:var(--gold2)!important;font-weight:700!important;text-shadow:0 0 8px var(--gold-glow);}
+.c-purple{color:var(--purple3)!important;font-weight:700!important;}
+.c-rose{color:#ff6090!important;font-weight:700!important;}
+.example-box{background:linear-gradient(135deg,rgba(0,229,255,0.06),rgba(0,229,255,0.02));border:1px solid rgba(0,229,255,0.2);border-left:2px solid var(--cyan);border-radius:0 12px 12px 0;padding:12px 14px;margin:8px 0;font-family:'Rajdhani',sans-serif;font-size:13px;line-height:1.7;color:rgba(200,210,255,0.75);box-shadow:0 0 20px rgba(0,229,255,0.04);}
+.example-box strong{color:var(--cyan2);}
+.ex-label{font-family:'Orbitron',monospace;font-size:7px;letter-spacing:2.5px;color:var(--cyan2);text-transform:uppercase;font-weight:700;margin-bottom:6px;display:block;}
+.rule-list{list-style:none;margin:6px 0;}
+.rule-list li{display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.025);font-family:'Rajdhani',sans-serif;font-size:13px;line-height:1.65;color:rgba(200,210,255,0.75);font-weight:500;}
+.rule-list li:last-child{border-bottom:none;}
+.r-gem{width:6px;height:6px;border-radius:1px;flex-shrink:0;margin-top:8px;transform:rotate(45deg);}
+.gem-cyan{background:var(--cyan);box-shadow:0 0 8px var(--cyan-glow);}
+.gem-pink{background:var(--pink);box-shadow:0 0 8px var(--pink-glow);}
+.gem-green{background:var(--green);box-shadow:0 0 8px var(--green-glow);}
+.gem-gold{background:var(--gold);box-shadow:0 0 8px var(--gold-glow);}
+.gem-purple{background:var(--purple2);box-shadow:0 0 8px var(--purple-glow);}
+.gem-rose{background:#ff6090;box-shadow:0 0 8px rgba(255,96,144,0.6);}
+.gem-dim{background:rgba(255,255,255,0.2);}
+.rule-list li strong{color:#fff;font-weight:700;}
+.alert-box{background:linear-gradient(135deg,rgba(255,60,168,0.08),rgba(255,60,168,0.03));border:1px solid rgba(255,60,168,0.25);border-left:2px solid var(--pink);border-radius:0 12px 12px 0;padding:12px 14px;margin:10px 0;font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(200,210,255,0.75);line-height:1.65;box-shadow:0 0 20px rgba(255,60,168,0.04);}
+.alert-box strong{color:var(--pink2);}
+.al-label{font-family:'Orbitron',monospace;font-size:7px;letter-spacing:2.5px;color:var(--pink2);text-transform:uppercase;font-weight:700;margin-bottom:5px;display:block;}
+.divider{height:1px;margin:14px 0;background:linear-gradient(90deg,transparent,rgba(0,229,255,0.2),rgba(255,60,168,0.15),transparent);}
+.stats-row{display:flex;gap:10px;padding:0 14px;margin-bottom:14px;}
+.stat-card{flex:1;text-align:center;padding:14px 10px;background:linear-gradient(135deg,rgba(8,4,40,0.9),rgba(12,6,48,0.95));border:1px solid rgba(0,229,255,0.2);border-radius:14px;position:relative;overflow:hidden;}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:0.6;}
+.stat-val{font-family:'Orbitron',monospace;font-weight:900;font-size:22px;background:linear-gradient(135deg,var(--cyan2),var(--pink2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 8px rgba(0,229,255,0.5));}
+.stat-label{font-family:'Rajdhani',sans-serif;font-size:9px;letter-spacing:2px;color:var(--text-dim);text-transform:uppercase;margin-top:3px;font-weight:600;}
+.footer{text-align:center;padding:36px 20px 14px;font-family:'Orbitron',monospace;font-size:8px;letter-spacing:3px;color:var(--text-muted);text-transform:uppercase;font-weight:600;}
+.footer span{background:linear-gradient(90deg,var(--cyan),var(--pink2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.contact-link{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,rgba(0,40,20,0.6),rgba(0,20,10,0.8));border:1px solid rgba(0,255,157,0.25);border-radius:14px;padding:16px 18px;text-decoration:none;color:#fff;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);}
+.contact-link:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,255,157,0.12),0 0 30px rgba(0,255,157,0.06);border-color:rgba(0,255,157,0.45);}
+.reg-form-card{margin:14px 12px 0;background:linear-gradient(135deg,rgba(8,4,40,0.97),rgba(10,5,38,0.99));border:1px solid rgba(0,229,255,0.22);border-radius:20px;overflow:hidden;box-shadow:0 4px 40px rgba(0,229,255,0.06),inset 0 1px 0 rgba(0,229,255,0.08);animation:secReveal 0.5s cubic-bezier(0.16,1,0.3,1) both;position:relative;}
+.reg-form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 5%,var(--cyan) 40%,var(--pink) 60%,transparent 95%);opacity:0.7;}
+.reg-form-header{padding:18px 20px 14px;background:linear-gradient(135deg,rgba(0,229,255,0.06),rgba(255,60,168,0.03));border-bottom:1px solid rgba(0,229,255,0.09);display:flex;align-items:center;gap:12px;}
+.reg-form-header-icon{width:36px;height:36px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:16px;background:linear-gradient(135deg,rgba(0,229,255,0.15),rgba(0,229,255,0.04));border:1px solid rgba(0,229,255,0.3);box-shadow:0 0 14px rgba(0,229,255,0.12);}
+.reg-form-header-title{font-family:'Orbitron',monospace;font-weight:800;font-size:13px;letter-spacing:1.5px;color:var(--cyan2);text-transform:uppercase;}
+.reg-form-header-sub{font-family:'Rajdhani',sans-serif;font-size:11px;color:var(--text-dim);margin-top:2px;letter-spacing:0.5px;}
+.reg-form-body{padding:20px;display:flex;flex-direction:column;gap:14px;}
+.field-group{display:flex;flex-direction:column;gap:6px;}
+.field-label{font-family:'Orbitron',monospace;font-size:8px;font-weight:700;letter-spacing:2.5px;color:var(--cyan2);text-transform:uppercase;display:flex;align-items:center;gap:8px;}
+.field-label::before{content:'';width:10px;height:1px;background:linear-gradient(90deg,var(--cyan),transparent);display:inline-block;}
+.field-required{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;color:var(--pink2);letter-spacing:1px;margin-left:auto;text-transform:none;}
+.field-optional{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:500;color:var(--text-muted);letter-spacing:1px;margin-left:auto;text-transform:none;}
+.neon-input,.neon-select{width:100%;background:linear-gradient(135deg,rgba(0,229,255,0.04),rgba(0,0,20,0.6));border:1px solid rgba(0,229,255,0.2);border-radius:12px;padding:12px 14px;font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:600;color:var(--text);outline:none;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);-webkit-appearance:none;appearance:none;box-shadow:0 2px 12px rgba(0,0,0,0.3),inset 0 1px 0 rgba(0,229,255,0.06);}
+.neon-input::placeholder{color:var(--text-muted);font-weight:400;font-size:13px;}
+.neon-input:focus,.neon-select:focus{border-color:rgba(0,229,255,0.55);background:linear-gradient(135deg,rgba(0,229,255,0.07),rgba(0,0,30,0.7));box-shadow:0 0 0 3px rgba(0,229,255,0.08),0 0 20px rgba(0,229,255,0.1),inset 0 1px 0 rgba(0,229,255,0.1);}
+.neon-select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2300e5ff' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;}
+.neon-select option{background:#08042c;color:#fff;}
+.field-row{display:flex;gap:10px;}
+.field-row .field-group{flex:1;}
+.form-divider{height:1px;margin:2px 0;background:linear-gradient(90deg,transparent,rgba(0,229,255,0.15),rgba(255,60,168,0.1),transparent);}
+.submit-btn{width:100%;padding:15px;background:linear-gradient(135deg,rgba(0,229,255,0.12),rgba(124,58,237,0.14),rgba(255,60,168,0.08));border:1px solid rgba(0,229,255,0.45);border-radius:14px;font-family:'Orbitron',monospace;font-weight:800;font-size:12px;letter-spacing:3px;color:var(--cyan2);text-transform:uppercase;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 6px 28px rgba(0,229,255,0.15),inset 0 1px 0 rgba(0,229,255,0.2);transition:all 0.35s cubic-bezier(0.16,1,0.3,1);margin-top:4px;}
+.submit-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(0,229,255,0.08) 50%,transparent 100%);background-size:200% auto;animation:btnShimmer 3s linear infinite;}
+@keyframes btnShimmer{0%{background-position:200%}100%{background-position:-200%}}
+.submit-btn:hover:not(:disabled){transform:translateY(-2px);border-color:var(--cyan);box-shadow:0 12px 40px rgba(0,229,255,0.25),0 0 60px rgba(0,229,255,0.08);color:#fff;}
+.submit-btn:active:not(:disabled){transform:scale(0.98);}
+.submit-btn:disabled{opacity:0.7;cursor:not-allowed;transform:none;}
+.btn-spinner{display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid rgba(0,229,255,0.3);border-top-color:var(--cyan);animation:spin 0.7s linear infinite;vertical-align:middle;margin-right:8px;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.form-msg{display:none;border-radius:14px;padding:18px;margin-top:4px;font-family:'Rajdhani',sans-serif;font-size:14px;line-height:1.7;text-align:center;}
+.form-msg.show{display:block;animation:msgReveal 0.5s cubic-bezier(0.16,1,0.3,1) both;}
+@keyframes msgReveal{from{opacity:0;transform:scale(0.95)}to{opacity:1;transform:scale(1)}}
+.form-msg.success{background:linear-gradient(135deg,rgba(0,255,157,0.08),rgba(0,255,157,0.03));border:1px solid rgba(0,255,157,0.35);color:var(--green);box-shadow:0 0 30px rgba(0,255,157,0.08);}
+.form-msg.error{background:linear-gradient(135deg,rgba(255,60,168,0.09),rgba(255,60,168,0.03));border:1px solid rgba(255,60,168,0.35);color:var(--pink2);box-shadow:0 0 30px rgba(255,60,168,0.06);}
+.form-msg-icon{font-size:28px;display:block;margin-bottom:8px;}
+.form-msg-title{font-family:'Orbitron',monospace;font-size:12px;letter-spacing:2px;font-weight:800;text-transform:uppercase;margin-bottom:6px;display:block;}
+.neon-input.invalid,.neon-select.invalid{border-color:rgba(255,60,168,0.55);box-shadow:0 0 0 3px rgba(255,60,168,0.08),0 0 16px rgba(255,60,168,0.1);}
+.neon-select:disabled{opacity:0.4;cursor:not-allowed;}
+.field-err{font-family:'Rajdhani',sans-serif;font-size:11px;color:var(--pink2);margin-top:2px;display:none;}
+.field-err.show{display:block;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:rgba(0,229,255,0.3);border-radius:10px;}
 </style>
 </head>
 <body>
 
-<!-- Background -->
 <div class="bg-scene">
   <div class="bg-grid"></div>
   <div class="bg-scan"></div>
@@ -533,49 +260,78 @@ body {
     </div>
     <div class="brand-block">
       <div class="brand-name">Rizz Live</div>
-      <div class="brand-sub">Live Streaming Platform</div>
+      <div class="brand-sub" data-t="platform">Live Streaming Platform</div>
     </div>
     <div class="header-ornament">
+      <div class="lang-drop" id="ld-home">
+        <div class="lang-drop-btn" onclick="toggleDrop('ld-home')">
+          <span id="ld-home-lbl">🌐 EN</span><span class="chev">▾</span>
+        </div>
+        <div class="lang-drop-menu">
+          <div class="lang-opt active" onclick="setLang('en');closeDrop()"><span class="flag">🇬🇧</span><span class="lname">English</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hi');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">हिंदी</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hl');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">Hinglish</span><span class="tick">✓</span></div>
+        </div>
+      </div>
       <div class="live-badge">
         <div class="live-dot"></div>
         <span class="live-label">LIVE</span>
       </div>
+    </div>
+    <!-- Heartbeat line -->
+    <div class="heartbeat-wrap">
+      <svg class="heartbeat-svg" viewBox="0 0 800 28" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="0,14 60,14 80,14 90,2 100,26 110,2 120,26 130,14 150,14 200,14 220,14 230,4 238,22 246,4 254,22 262,14 280,14 340,14 360,14 370,2 380,26 390,2 400,26 410,14 430,14 480,14 500,14 510,4 518,22 526,4 534,22 542,14 560,14 620,14 640,14 650,2 660,26 670,2 680,26 690,14 710,14 760,14 800,14"
+          fill="none" stroke="url(#hbGrad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs>
+          <linearGradient id="hbGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#00e5ff" stop-opacity="0"/>
+            <stop offset="30%" stop-color="#00e5ff" stop-opacity="1"/>
+            <stop offset="60%" stop-color="#ff3ca8" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#ff3ca8" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+      </svg>
     </div>
   </header>
 
   <div class="hero">
     <div class="hero-badge">
       <div class="hero-badge-dot"></div>
-      Official Policy Documents
+      <span data-t="official_policy">Official Policy Documents</span>
     </div>
-    <h1 class="hero-title">RIZZ <span class="hl">LIVE</span></h1>
-    <h2 style="font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:600;letter-spacing:6px;color:var(--text-dim);text-transform:uppercase;margin-bottom:4px;">POLICY CENTER</h2>
-    <p class="hero-sub">Select a document to view full terms & guidelines</p>
+    <h1 class="hero-title" style="position:relative;display:inline-block;">
+      <div class="hero-ring ring1"></div>
+      <div class="hero-ring ring2"></div>
+      <div class="hero-ring ring3"></div>
+      <span class="rizz">RIZZ</span> <span class="hl">LIVE</span>
+    </h1>
+    <h2 style="font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:600;letter-spacing:6px;color:var(--text-dim);text-transform:uppercase;margin-bottom:4px;" data-t="policy_center">POLICY CENTER</h2>
+    <p class="hero-sub" data-t="select_doc">Select a document to view full terms & guidelines</p>
     <div class="neon-divider"><div class="nd-line rev"></div><div class="nd-gem"></div><div class="nd-line"></div></div>
   </div>
 
-  <!-- Stats -->
   <div class="stats-row">
     <div class="stat-card">
       <div class="stat-val">137%</div>
-      <div class="stat-label">Host Return</div>
+      <div class="stat-label" data-t="host_return">Host Return</div>
     </div>
     <div class="stat-card">
       <div class="stat-val">192%</div>
-      <div class="stat-label">Agency Return</div>
+      <div class="stat-label" data-t="agency_return">Agency Return</div>
     </div>
     <div class="stat-card">
       <div class="stat-val">20%</div>
-      <div class="stat-label">Commission</div>
+      <div class="stat-label" data-t="commission">Commission</div>
     </div>
   </div>
 
   <div class="nav-grid">
     <div class="nav-card" onclick="goTo('page-host')">
-      <div class="nav-icon-wrap icon-pink">🎤</div>
+      <div class="nav-icon-wrap icon-pink">🎙️</div>
       <div class="nav-text">
-        <div class="nav-title">Host Policy</div>
-        <div class="nav-desc">Salary, bonuses & streaming guidelines</div>
+        <div class="nav-title" data-t="host_policy">Host Policy</div>
+        <div class="nav-desc" data-t="host_desc">Salary, bonuses & streaming guidelines</div>
       </div>
       <div class="nav-arrow">›</div>
     </div>
@@ -583,8 +339,8 @@ body {
     <div class="nav-card" onclick="goTo('page-agency')">
       <div class="nav-icon-wrap icon-purple">🏢</div>
       <div class="nav-text">
-        <div class="nav-title">Agency Policy</div>
-        <div class="nav-desc">Commission tiers & partnership terms</div>
+        <div class="nav-title" data-t="agency_policy">Agency Policy</div>
+        <div class="nav-desc" data-t="agency_desc">Commission tiers & partnership terms</div>
       </div>
       <div class="nav-arrow">›</div>
     </div>
@@ -592,15 +348,7 @@ body {
     <div class="nav-card" onclick="goTo('page-seller')">
       <div class="nav-icon-wrap icon-pink">
         <svg class="coin-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="cFace2" cx="35%" cy="30%" r="68%">
-              <stop offset="0%" stop-color="#ccf6ff"/>
-              <stop offset="22%" stop-color="#00e5ff"/>
-              <stop offset="52%" stop-color="#0090cc"/>
-              <stop offset="78%" stop-color="#004488"/>
-              <stop offset="100%" stop-color="#001133"/>
-            </radialGradient>
-          </defs>
+          <defs><radialGradient id="cFace2" cx="35%" cy="30%" r="68%"><stop offset="0%" stop-color="#ccf6ff"/><stop offset="22%" stop-color="#00e5ff"/><stop offset="52%" stop-color="#0090cc"/><stop offset="78%" stop-color="#004488"/><stop offset="100%" stop-color="#001133"/></radialGradient></defs>
           <ellipse cx="20" cy="21.5" rx="17.5" ry="16.5" fill="#001133"/>
           <ellipse cx="20" cy="19.5" rx="17.5" ry="16.5" fill="url(#cFace2)"/>
           <ellipse cx="20" cy="19.5" rx="17.5" ry="16.5" fill="none" stroke="rgba(0,229,255,0.5)" stroke-width="1"/>
@@ -610,8 +358,8 @@ body {
         </svg>
       </div>
       <div class="nav-text">
-        <div class="nav-title">Coin Seller Policy</div>
-        <div class="nav-desc">Official coin seller guidelines & rates</div>
+        <div class="nav-title" data-t="seller_policy">Coin Seller Policy</div>
+        <div class="nav-desc" data-t="seller_desc">Official coin seller guidelines & rates</div>
       </div>
       <div class="nav-arrow">›</div>
     </div>
@@ -619,8 +367,8 @@ body {
     <div class="nav-card" onclick="goTo('page-registration')">
       <div class="nav-icon-wrap icon-cyan">📝</div>
       <div class="nav-text">
-        <div class="nav-title">Agency Registration</div>
-        <div class="nav-desc">Apply to become a partner agency</div>
+        <div class="nav-title" data-t="agency_reg">Agency Registration</div>
+        <div class="nav-desc" data-t="reg_desc">Apply to become a partner agency</div>
       </div>
       <div class="nav-arrow">›</div>
     </div>
@@ -628,8 +376,8 @@ body {
     <div class="nav-card" onclick="goTo('page-contact')">
       <div class="nav-icon-wrap icon-green">📞</div>
       <div class="nav-text">
-        <div class="nav-title">Contact Country Manager</div>
-        <div class="nav-desc">India manager direct contact</div>
+        <div class="nav-title" data-t="contact_mgr">Contact Country Manager</div>
+        <div class="nav-desc" data-t="contact_desc">India manager direct contact</div>
       </div>
       <div class="nav-arrow">›</div>
     </div>
@@ -639,255 +387,279 @@ body {
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       </div>
       <div class="nav-text">
-        <div class="nav-title">Daily Updates</div>
-        <div class="nav-desc">Join our WhatsApp channel</div>
+        <div class="nav-title" data-t="daily_updates">Daily Updates</div>
+        <div class="nav-desc" data-t="wa_channel">Join our WhatsApp channel</div>
       </div>
       <div class="nav-arrow">›</div>
     </div>
   </div>
-  <div class="footer">© 2026 <span>RIZZ LIVE</span> · All Rights Reserved</div>
+  <div class="footer">© 2026 <span>RIZZ LIVE</span> · <span data-t="all_rights">All Rights Reserved</span></div>
 </div>
 
 <!-- ══════════════════════════ HOST POLICY ══════════════════════════ -->
 <div class="page" id="page-host">
   <header class="header">
     <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-family:Orbitron,monospace;font-weight:900;font-size:18px;background:linear-gradient(135deg,#00e5ff,#ff3ca8);-webkit-background-clip:text;-webkit-text-fill-color:transparent\'>R</span>'"/></div>
-    <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
+    <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub" data-t="platform">Live Streaming Platform</div></div>
+    <div class="header-ornament" style="margin-left:auto;">
+      <div class="lang-drop" id="ld-host">
+        <div class="lang-drop-btn" onclick="toggleDrop('ld-host')">
+          <span id="ld-host-lbl">🌐 EN</span><span class="chev">▾</span>
+        </div>
+        <div class="lang-drop-menu">
+          <div class="lang-opt" onclick="setLang('en');closeDrop()"><span class="flag">🇬🇧</span><span class="lname">English</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hi');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">हिंदी</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hl');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">Hinglish</span><span class="tick">✓</span></div>
+        </div>
+      </div>
+    </div>
   </header>
-  <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
+  <div class="back-btn" onclick="goTo('page-home')" data-t="back_home">Back to Home</div>
   <div class="inner-hero">
-    <div class="inner-eyebrow">Host Guidelines</div>
-    <h1 class="inner-title">HOST POLICY</h1>
+    <div class="inner-eyebrow" data-t="host_guidelines">Host Guidelines</div>
+    <h1 class="inner-title" data-t="host_policy_title">HOST POLICY</h1>
     <div class="neon-divider"><div class="nd-line rev"></div><div class="nd-gem"></div><div class="nd-line"></div></div>
   </div>
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">01</div><div class="sec-title">Host Salary Structure</div><div class="sec-chev">›</div>
+      <div class="sec-num">01</div><div class="sec-title" data-t="salary_structure">Host Salary Structure</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
-      <div class="sub-label">1.1 Personal Gift Share</div>
+      <div class="sub-label" data-t="personal_gift_share">1.1 Personal Gift Share</div>
       <table class="lux-table">
-        <thead><tr><th>Category</th><th>Share</th></tr></thead>
-        <tbody><tr><td>Personal Gifts Received</td><td class="c-cyan">100%</td></tr></tbody>
+        <thead><tr><th data-t="category">Category</th><th data-t="share">Share</th></tr></thead>
+        <tbody><tr><td data-t="personal_gifts">Personal Gifts Received</td><td class="c-cyan">100%</td></tr></tbody>
       </table>
       <div class="example-box">
-        <span class="ex-label">📌 Example</span>
-        If a user sends <strong>10,000 Coins</strong> during a live broadcast, the host receives <strong>10,000 Rubies</strong> — the full amount.
+        <span class="ex-label" data-t="example_label">📌 Example</span>
+        <span data-t="gift_example">If a user sends <strong>10,000 Coins</strong> during a live broadcast, the host receives <strong>10,000 Rubies</strong> — the full amount.</span>
       </div>
       <div class="divider"></div>
-      <div class="sub-label">1.2 Weekly Bonus</div>
+      <div class="sub-label" data-t="weekly_bonus_label">1.2 Weekly Bonus</div>
       <table class="lux-table">
-        <thead><tr><th>Valid Hours</th><th>Valid Days</th><th>Weekly Bonus</th></tr></thead>
+        <thead><tr><th data-t="valid_hours">Valid Hours</th><th data-t="valid_days">Valid Days</th><th data-t="weekly_bonus">Weekly Bonus</th></tr></thead>
         <tbody><tr><td class="c-cyan">10 hrs</td><td class="c-cyan">4 days</td><td class="c-green">+30%</td></tr></tbody>
       </table>
       <div class="example-box">
-        <span class="ex-label">📌 Example</span>
-        If a host earns <strong>100,000 Rubies</strong> in a week <strong>(Sun 10:30 PM – Sun 10:30 PM IST)</strong>, they receive a bonus of <strong>30,000 Rubies</strong>, credited every <strong>Monday</strong>.
+        <span class="ex-label" data-t="example_label">📌 Example</span>
+        <span data-t="bonus_example">If a host earns <strong>100,000 Rubies</strong> in a week <strong>(Sun 10:30 PM – Sun 10:30 PM IST)</strong>, they receive a bonus of <strong>30,000 Rubies</strong>, credited every <strong>Monday</strong>.</span>
       </div>
       <div class="divider"></div>
-      <div class="sub-label">1.3 Platform Rules</div>
+      <div class="sub-label" data-t="platform_rules">1.3 Platform Rules</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-cyan"></span><span><strong>Withdrawal Rate:</strong> <span class="c-cyan">20,000 Ruby = $1 USD</span></span></li>
-        <li><span class="r-gem gem-cyan"></span><span><strong>Day Reset:</strong> Daily at <span class="c-pink">10:30 PM IST</span></span></li>
-        <li><span class="r-gem gem-cyan"></span><span><strong>Weekly Period:</strong> Sunday 10:30 PM → Sunday 10:30 PM IST</span></li>
-        <li><span class="r-gem gem-cyan"></span><span><strong>Valid Day:</strong> Minimum <span class="c-cyan">120 minutes</span> live per day</span></li>
-        <li><span class="r-gem gem-cyan"></span><span><strong>Valid Hour:</strong> 60+ minutes = 1 valid hour</span></li>
-        <li><span class="r-gem gem-cyan"></span><span><strong>Minimum Session:</strong> Sessions below <strong>30 minutes</strong> do not count</span></li>
-        <li><span class="r-gem gem-cyan"></span><span><strong>Bonus Payment:</strong> Every <span class="c-cyan">Monday</span> in Rubies</span></li>
-        <li><span class="r-gem gem-pink"></span><span><strong>Withdrawal:</strong> Once per day · Minimum <span class="c-rose">$10 USD</span></span></li>
+        <li><span class="r-gem gem-cyan"></span><span><strong data-t="withdrawal_rate_label">Withdrawal Rate:</strong> <span class="c-cyan">20,000 Ruby = $1 USD</span></span></li>
+        <li><span class="r-gem gem-cyan"></span><span><strong data-t="day_reset_label">Day Reset:</strong> <span data-t="day_reset_val">Daily at <span class="c-pink">10:30 PM IST</span></span></span></li>
+        <li><span class="r-gem gem-cyan"></span><span><strong data-t="weekly_period_label">Weekly Period:</strong> <span data-t="weekly_period_val">Sunday 10:30 PM → Sunday 10:30 PM IST</span></span></li>
+        <li><span class="r-gem gem-cyan"></span><span><strong data-t="valid_day_label">Valid Day:</strong> <span data-t="valid_day_val">Minimum <span class="c-cyan">120 minutes</span> live per day</span></span></li>
+        <li><span class="r-gem gem-cyan"></span><span><strong data-t="valid_hour_label">Valid Hour:</strong> <span data-t="valid_hour_val">60+ minutes = 1 valid hour</span></span></li>
+        <li><span class="r-gem gem-cyan"></span><span><strong data-t="min_session_label">Minimum Session:</strong> <span data-t="min_session_val">Sessions below <strong>30 minutes</strong> do not count</span></span></li>
+        <li><span class="r-gem gem-cyan"></span><span><strong data-t="bonus_payment_label">Bonus Payment:</strong> <span data-t="bonus_payment_val">Every <span class="c-cyan">Monday</span> in Rubies</span></span></li>
+        <li><span class="r-gem gem-pink"></span><span><strong data-t="withdrawal_label">Withdrawal:</strong> <span data-t="withdrawal_val">Once per day · Minimum <span class="c-rose">$10 USD</span></span></span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-label" style="color:var(--green)">Agency Change Rules</div>
+      <div class="sub-label" style="color:var(--green)" data-t="agency_change_rules">Agency Change Rules</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-green"></span><span>No live activity for <strong>120 days</strong></span></li>
-        <li><span class="r-gem gem-green"></span><span>Cannot contact agency for <strong>2 weeks</strong></span></li>
-        <li><span class="r-gem gem-green"></span><span>Both host and agency mutually agree</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="acr1">No live activity for <strong>120 days</strong></span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="acr2">Cannot contact agency for <strong>2 weeks</strong></span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="acr3">Both host and agency mutually agree</span></li>
       </ul>
       <div class="alert-box" style="margin-top:12px">
-        <span class="al-label">⚠️ Strict Rule</span>
-        Any misuse or deception during agency transfer will result in <strong>Warning / Suspension / Permanent Ban</strong>.
+        <span class="al-label" data-t="strict_rule_label">⚠️ Strict Rule</span>
+        <span data-t="strict_rule_val">Any misuse or deception during agency transfer will result in <strong>Warning / Suspension / Permanent Ban</strong>.</span>
       </div>
     </div>
   </div>
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">02</div><div class="sec-title">Game Commissions</div><div class="sec-chev">›</div>
+      <div class="sec-num">02</div><div class="sec-title" data-t="game_commissions">Game Commissions</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <table class="lux-table">
-        <thead><tr><th>Coins Used in Games</th><th>Host Reward</th></tr></thead>
+        <thead><tr><th data-t="coins_used">Coins Used in Games</th><th data-t="host_reward">Host Reward</th></tr></thead>
         <tbody><tr><td class="c-rose">1,000 Coins</td><td class="c-green">1 Ruby</td></tr></tbody>
       </table>
       <ul class="rule-list" style="margin-top:10px">
-        <li><span class="r-gem gem-green"></span><span>Host earns <strong>1 Ruby</strong> for every <strong>1,000 coins</strong> used in games</span></li>
-        <li><span class="r-gem gem-dim"></span><span>This income <strong>does NOT count</strong> toward weekly targets</span></li>
-        <li><span class="r-gem gem-cyan"></span><span>Earnings credited <strong>instantly</strong> after each stream ends</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="gc1">Host earns <strong>1 Ruby</strong> for every <strong>1,000 coins</strong> used in games</span></li>
+        <li><span class="r-gem gem-dim"></span><span data-t="gc2">This income <strong>does NOT count</strong> toward weekly targets</span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="gc3">Earnings credited <strong>instantly</strong> after each stream ends</span></li>
       </ul>
     </div>
   </div>
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">03</div><div class="sec-title">New Host Guarantee</div><div class="sec-chev">›</div>
+      <div class="sec-num">03</div><div class="sec-title" data-t="new_host_guarantee">New Host Guarantee</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <table class="lux-table">
-        <thead><tr><th>Cycle</th><th>Weekly Ruby Target</th><th>Valid Days</th><th>Valid Hrs</th><th>Guarantee</th></tr></thead>
+        <thead><tr><th data-t="cycle">Cycle</th><th data-t="weekly_ruby_target">Weekly Ruby Target</th><th data-t="valid_days">Valid Days</th><th data-t="valid_hrs">Valid Hrs</th><th data-t="guarantee">Guarantee</th></tr></thead>
         <tbody>
-          <tr><td>Week 1</td><td>—</td><td class="c-cyan" rowspan="4" style="vertical-align:middle;text-align:center">4</td><td class="c-cyan" rowspan="4" style="vertical-align:middle;text-align:center">10</td><td class="c-green">$5</td></tr>
-          <tr><td>Week 2</td><td class="c-pink">50,000</td><td class="c-green">$5</td></tr>
-          <tr><td>Week 3</td><td class="c-pink">100,000</td><td class="c-green">$5</td></tr>
-          <tr><td>Week 4</td><td class="c-pink">150,000</td><td class="c-green">$5</td></tr>
+          <tr><td data-t="week1">Week 1</td><td>—</td><td class="c-cyan" rowspan="4" style="vertical-align:middle;text-align:center">4</td><td class="c-cyan" rowspan="4" style="vertical-align:middle;text-align:center">10</td><td class="c-green">$5</td></tr>
+          <tr><td data-t="week2">Week 2</td><td class="c-pink">50,000</td><td class="c-green">$5</td></tr>
+          <tr><td data-t="week3">Week 3</td><td class="c-pink">100,000</td><td class="c-green">$5</td></tr>
+          <tr><td data-t="week4">Week 4</td><td class="c-pink">150,000</td><td class="c-green">$5</td></tr>
         </tbody>
       </table>
       <ul class="rule-list" style="margin-top:10px">
-        <li><span class="r-gem gem-green"></span><span>Must be <strong>approved</strong> by platform to receive guarantee</span></li>
-        <li><span class="r-gem gem-dim"></span><span>Missing one week's target <strong>does not cancel</strong> the next week's guarantee</span></li>
-        <li><span class="r-gem gem-cyan"></span><span>If Valid Days & Hours not met → salary falls under <strong>basic policy</strong></span></li>
-        <li><span class="r-gem gem-rose"></span><span>From <strong>Week 5 onward</strong>, only <strong>basic policy applies</strong></span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="nhg1">Must be <strong>approved</strong> by platform to receive guarantee</span></li>
+        <li><span class="r-gem gem-dim"></span><span data-t="nhg2">Missing one week's target <strong>does not cancel</strong> the next week's guarantee</span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="nhg3">If Valid Days & Hours not met → salary falls under <strong>basic policy</strong></span></li>
+        <li><span class="r-gem gem-rose"></span><span data-t="nhg4">From <strong>Week 5 onward</strong>, only <strong>basic policy applies</strong></span></li>
       </ul>
     </div>
   </div>
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">04</div><div class="sec-title">Sensual Category Host Policy</div><div class="sec-chev">›</div>
+      <div class="sec-num">04</div><div class="sec-title" data-t="sensual_policy">Sensual Category Host Policy</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <table class="lux-table">
-        <thead><tr><th>Cycle</th><th>Weekly Ruby Target</th><th>Valid Days</th><th>Valid Hrs</th><th>Guarantee</th></tr></thead>
+        <thead><tr><th data-t="cycle">Cycle</th><th data-t="weekly_ruby_target">Weekly Ruby Target</th><th data-t="valid_days">Valid Days</th><th data-t="valid_hrs">Valid Hrs</th><th data-t="guarantee">Guarantee</th></tr></thead>
         <tbody>
-          <tr><td>Week 1</td><td>—</td><td class="c-cyan" rowspan="5" style="vertical-align:middle;text-align:center">4</td><td class="c-cyan" rowspan="5" style="vertical-align:middle;text-align:center">10</td><td class="c-green">$15</td></tr>
-          <tr><td>Week 2</td><td class="c-pink">100,000</td><td class="c-green">$15</td></tr>
-          <tr><td>Week 3</td><td class="c-pink">150,000</td><td class="c-green">$15</td></tr>
-          <tr><td>Week 4</td><td class="c-pink">200,000</td><td class="c-green">$15</td></tr>
-          <tr><td>Week 5+</td><td class="c-pink">300,000</td><td class="c-green">$15</td></tr>
+          <tr><td data-t="week1">Week 1</td><td>—</td><td class="c-cyan" rowspan="5" style="vertical-align:middle;text-align:center">4</td><td class="c-cyan" rowspan="5" style="vertical-align:middle;text-align:center">10</td><td class="c-green">$15</td></tr>
+          <tr><td data-t="week2">Week 2</td><td class="c-pink">100,000</td><td class="c-green">$15</td></tr>
+          <tr><td data-t="week3">Week 3</td><td class="c-pink">150,000</td><td class="c-green">$15</td></tr>
+          <tr><td data-t="week4">Week 4</td><td class="c-pink">200,000</td><td class="c-green">$15</td></tr>
+          <tr><td data-t="week5plus">Week 5+</td><td class="c-pink">300,000</td><td class="c-green">$15</td></tr>
         </tbody>
       </table>
       <div class="divider"></div>
-      <div class="sub-label">Requirements</div>
+      <div class="sub-label" data-t="requirements">Requirements</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-green"></span><span>Maintain clean and presentable appearance</span></li>
-        <li><span class="r-gem gem-green"></span><span>Follow schedule and complete required hours</span></li>
-        <li><span class="r-gem gem-green"></span><span>Keep background neat and professional</span></li>
-        <li><span class="r-gem gem-green"></span><span>Maintain high audio & video quality</span></li>
-        <li><span class="r-gem gem-green"></span><span>Actively engage with and entertain viewers</span></li>
-        <li><span class="r-gem gem-green"></span><span>Follow team instructions and participate in events</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="req1">Maintain clean and presentable appearance</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="req2">Follow schedule and complete required hours</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="req3">Keep background neat and professional</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="req4">Maintain high audio & video quality</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="req5">Actively engage with and entertain viewers</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="req6">Follow team instructions and participate in events</span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-label" style="color:var(--pink2)">Grounds for Removal</div>
+      <div class="sub-label" style="color:var(--pink2)" data-t="grounds_removal">Grounds for Removal</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-rose"></span><span>Irregular streaming or unprofessional conduct</span></li>
-        <li><span class="r-gem gem-rose"></span><span>Disrespecting or ignoring viewers</span></li>
-        <li><span class="r-gem gem-rose"></span><span>Consistently poor stream quality without improvement</span></li>
-        <li><span class="r-gem gem-rose"></span><span>Refusing team instructions without valid reason</span></li>
-        <li><span class="r-gem gem-rose"></span><span>Violating platform rules or applicable laws</span></li>
+        <li><span class="r-gem gem-rose"></span><span data-t="rem1">Irregular streaming or unprofessional conduct</span></li>
+        <li><span class="r-gem gem-rose"></span><span data-t="rem2">Disrespecting or ignoring viewers</span></li>
+        <li><span class="r-gem gem-rose"></span><span data-t="rem3">Consistently poor stream quality without improvement</span></li>
+        <li><span class="r-gem gem-rose"></span><span data-t="rem4">Refusing team instructions without valid reason</span></li>
+        <li><span class="r-gem gem-rose"></span><span data-t="rem5">Violating platform rules or applicable laws</span></li>
       </ul>
     </div>
   </div>
-  <div class="footer">© 2026 <span>RIZZ LIVE</span> · All Rights Reserved</div>
+  <div class="footer">© 2026 <span>RIZZ LIVE</span> · <span data-t="all_rights">All Rights Reserved</span></div>
 </div>
 
 <!-- ══════════════════════════ AGENCY POLICY ══════════════════════════ -->
 <div class="page" id="page-agency">
   <header class="header">
     <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-family:Orbitron,monospace;font-weight:900;font-size:18px;background:linear-gradient(135deg,#00e5ff,#ff3ca8);-webkit-background-clip:text;-webkit-text-fill-color:transparent\'>R</span>'"/></div>
-    <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
+    <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub" data-t="platform">Live Streaming Platform</div></div>
+    <div class="header-ornament" style="margin-left:auto;">
+      <div class="lang-drop" id="ld-agency">
+        <div class="lang-drop-btn" onclick="toggleDrop('ld-agency')">
+          <span id="ld-agency-lbl">🌐 EN</span><span class="chev">▾</span>
+        </div>
+        <div class="lang-drop-menu">
+          <div class="lang-opt" onclick="setLang('en');closeDrop()"><span class="flag">🇬🇧</span><span class="lname">English</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hi');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">हिंदी</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hl');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">Hinglish</span><span class="tick">✓</span></div>
+        </div>
+      </div>
+    </div>
   </header>
-  <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
+  <div class="back-btn" onclick="goTo('page-home')" data-t="back_home">Back to Home</div>
   <div class="inner-hero">
-    <div class="inner-eyebrow">Agency Guidelines</div>
-    <h1 class="inner-title">AGENCY POLICY</h1>
+    <div class="inner-eyebrow" data-t="agency_guidelines">Agency Guidelines</div>
+    <h1 class="inner-title" data-t="agency_policy_title">AGENCY POLICY</h1>
     <div class="neon-divider"><div class="nd-line rev"></div><div class="nd-gem"></div><div class="nd-line"></div></div>
   </div>
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">01</div><div class="sec-title">Agency Commission Tiers</div><div class="sec-chev">›</div>
+      <div class="sec-num">01</div><div class="sec-title" data-t="commission_tiers">Agency Commission Tiers</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <table class="lux-table">
-        <thead><tr><th>Level</th><th>Weekly Revenue (Ruby)</th><th>Commission</th></tr></thead>
+        <thead><tr><th data-t="level">Level</th><th data-t="weekly_rev">Weekly Revenue (Ruby)</th><th data-t="commission">Commission</th></tr></thead>
         <tbody>
-          <tr><td class="c-purple">Level 1</td><td>Below 10M</td><td class="c-green">16.00%</td></tr>
+          <tr><td class="c-purple">Level 1</td><td data-t="below_10m">Below 10M</td><td class="c-green">16.00%</td></tr>
           <tr><td class="c-purple">Level 2</td><td>10M – 30M</td><td class="c-green">18.00%</td></tr>
-          <tr><td class="c-purple">Level 3</td><td>Above 30M</td><td class="c-green">20.00%</td></tr>
+          <tr><td class="c-purple">Level 3</td><td data-t="above_30m">Above 30M</td><td class="c-green">20.00%</td></tr>
         </tbody>
       </table>
       <div class="divider"></div>
-      <div class="sub-label">Requirements</div>
+      <div class="sub-label" data-t="requirements">Requirements</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-cyan"></span><span>Agency must maintain at least <strong>5 active hosts</strong> every week</span></li>
-        <li><span class="r-gem gem-cyan"></span><span>Agency must encourage hosts to go live & actively join platform events</span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="ag_req1">Agency must maintain at least <strong>5 active hosts</strong> every week</span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="ag_req2">Agency must encourage hosts to go live & actively join platform events</span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-label">Weekly Task Period</div>
+      <div class="sub-label" data-t="weekly_task_period">Weekly Task Period</div>
       <div class="example-box">
-        <span class="ex-label">⏰ Period</span>
-        All weekly tasks are counted from <strong>Sunday 10:30 PM to Sunday 10:30 PM (IST)</strong>.
+        <span class="ex-label" data-t="period_label">⏰ Period</span>
+        <span data-t="period_val">All weekly tasks are counted from <strong>Sunday 10:30 PM to Sunday 10:30 PM (IST)</strong>.</span>
       </div>
     </div>
   </div>
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">02</div><div class="sec-title">Host Activation Salary</div><div class="sec-chev">›</div>
+      <div class="sec-num">02</div><div class="sec-title" data-t="host_activation_salary">Host Activation Salary</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <table class="lux-table">
-        <thead><tr><th>Level</th><th>Monthly Target</th><th>Active Hosts</th><th>Basic Pay</th></tr></thead>
+        <thead><tr><th data-t="level">Level</th><th data-t="monthly_target">Monthly Target</th><th data-t="active_hosts">Active Hosts</th><th data-t="basic_pay">Basic Pay</th></tr></thead>
         <tbody>
-          <tr><td class="c-purple">L1</td><td>Below 10M</td><td>—</td><td>—</td></tr>
-          <tr><td class="c-purple">L2</td><td>Above 10M</td><td class="c-cyan">20</td><td class="c-green">$25</td></tr>
-          <tr><td class="c-purple">L3</td><td>Above 50M</td><td class="c-cyan">30</td><td class="c-green">$225</td></tr>
-          <tr><td class="c-purple">L4</td><td>Above 100M</td><td class="c-cyan">50</td><td class="c-green">$500</td></tr>
-          <tr><td class="c-purple">L5</td><td>Above 200M</td><td class="c-cyan">50</td><td class="c-green">$1,000</td></tr>
+          <tr><td class="c-purple">L1</td><td data-t="below_10m">Below 10M</td><td>—</td><td>—</td></tr>
+          <tr><td class="c-purple">L2</td><td data-t="above_10m">Above 10M</td><td class="c-cyan">20</td><td class="c-green">$25</td></tr>
+          <tr><td class="c-purple">L3</td><td data-t="above_50m">Above 50M</td><td class="c-cyan">30</td><td class="c-green">$225</td></tr>
+          <tr><td class="c-purple">L4</td><td data-t="above_100m">Above 100M</td><td class="c-cyan">50</td><td class="c-green">$500</td></tr>
+          <tr><td class="c-purple">L5</td><td data-t="above_200m">Above 200M</td><td class="c-cyan">50</td><td class="c-green">$1,000</td></tr>
         </tbody>
       </table>
       <div class="divider"></div>
-      <div class="sub-label" style="color:var(--green)">Active Host Definition</div>
+      <div class="sub-label" style="color:var(--green)" data-t="active_host_def">Active Host Definition</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-green"></span><span>At least <strong>10 valid days</strong> in a month</span></li>
-        <li><span class="r-gem gem-green"></span><span>At least <strong>20 valid hours</strong> in a month</span></li>
-        <li><span class="r-gem gem-green"></span><span>Minimum <strong>100,000 Rubies</strong> earned in gifts per month</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="ahd1">At least <strong>10 valid days</strong> in a month</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="ahd2">At least <strong>20 valid hours</strong> in a month</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="ahd3">Minimum <strong>100,000 Rubies</strong> earned in gifts per month</span></li>
       </ul>
       <div class="alert-box">
-        <span class="al-label">⚠️ Important</span>
-        Failure to meet either the monthly revenue target or active host requirement results in <strong>disqualification</strong> from the Host Activation Salary Program.
+        <span class="al-label" data-t="important_label">⚠️ Important</span>
+        <span data-t="activation_alert">Failure to meet either the monthly revenue target or active host requirement results in <strong>disqualification</strong> from the Host Activation Salary Program.</span>
       </div>
     </div>
   </div>
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">03</div><div class="sec-title">Commission Payout</div><div class="sec-chev">›</div>
+      <div class="sec-num">03</div><div class="sec-title" data-t="commission_payout">Commission Payout</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <div class="example-box">
-        <span class="ex-label">💰 Payout Schedule</span>
-        All commissions are paid <strong>every Monday in Rubies</strong>.
+        <span class="ex-label" data-t="payout_label">💰 Payout Schedule</span>
+        <span data-t="payout_val">All commissions are paid <strong>every Monday in Rubies</strong>.</span>
       </div>
     </div>
   </div>
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">04</div><div class="sec-title">Withdrawal Rules</div><div class="sec-chev">›</div>
+      <div class="sec-num">04</div><div class="sec-title" data-t="withdrawal_rules">Withdrawal Rules</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <ul class="rule-list">
-        <li><span class="r-gem gem-cyan"></span><span>Withdrawal requests may be submitted <strong>once per day</strong></span></li>
-        <li><span class="r-gem gem-cyan"></span><span>Minimum withdrawal amount: <span class="c-rose">$10 USD</span></span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="wr1">Withdrawal requests may be submitted <strong>once per day</strong></span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="wr2">Minimum withdrawal amount: <span class="c-rose">$10 USD</span></span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-label">Fee Structure</div>
+      <div class="sub-label" data-t="fee_structure">Fee Structure</div>
       <table class="lux-table">
-        <thead><tr><th>Withdrawal Amount</th><th>Fee</th></tr></thead>
+        <thead><tr><th data-t="withdrawal_amount">Withdrawal Amount</th><th data-t="fee">Fee</th></tr></thead>
         <tbody>
-          <tr><td>Less than $100</td><td class="c-rose">$2 flat per transaction</td></tr>
-          <tr><td>$100 and above</td><td class="c-rose">2% of withdrawal amount</td></tr>
+          <tr><td data-t="less_100">Less than $100</td><td class="c-rose" data-t="fee_flat">$2 flat per transaction</td></tr>
+          <tr><td data-t="above_100">$100 and above</td><td class="c-rose" data-t="fee_pct">2% of withdrawal amount</td></tr>
         </tbody>
       </table>
     </div>
@@ -895,42 +667,54 @@ body {
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">05</div><div class="sec-title">Agency Change Rules</div><div class="sec-chev">›</div>
+      <div class="sec-num">05</div><div class="sec-title" data-t="agency_change_rules">Agency Change Rules</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <ul class="rule-list">
-        <li><span class="r-gem gem-green"></span><span>No activity for <strong>120 days</strong></span></li>
-        <li><span class="r-gem gem-green"></span><span>Agency unreachable for <strong>2 weeks</strong></span></li>
-        <li><span class="r-gem gem-green"></span><span>Both agency and host mutually agree to the change</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="acr1">No activity for <strong>120 days</strong></span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="acr2">Agency unreachable for <strong>2 weeks</strong></span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="acr3">Both agency and host mutually agree to the change</span></li>
       </ul>
       <div class="alert-box">
-        <span class="al-label">⚠️ Important</span>
-        Any fraudulent transfer attempts → <strong>Warning / Suspension / Permanent Ban</strong>
+        <span class="al-label" data-t="important_label">⚠️ Important</span>
+        <span data-t="fraud_alert">Any fraudulent transfer attempts → <strong>Warning / Suspension / Permanent Ban</strong></span>
       </div>
     </div>
   </div>
-  <div class="footer">© 2026 <span>RIZZ LIVE</span> · All Rights Reserved</div>
+  <div class="footer">© 2026 <span>RIZZ LIVE</span> · <span data-t="all_rights">All Rights Reserved</span></div>
 </div>
 
 <!-- ══════════════════════════ COIN SELLER ══════════════════════════ -->
 <div class="page" id="page-seller">
   <header class="header">
     <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-family:Orbitron,monospace;font-weight:900;font-size:18px;background:linear-gradient(135deg,#00e5ff,#ff3ca8);-webkit-background-clip:text;-webkit-text-fill-color:transparent\'>R</span>'"/></div>
-    <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
+    <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub" data-t="platform">Live Streaming Platform</div></div>
+    <div class="header-ornament" style="margin-left:auto;">
+      <div class="lang-drop" id="ld-seller">
+        <div class="lang-drop-btn" onclick="toggleDrop('ld-seller')">
+          <span id="ld-seller-lbl">🌐 EN</span><span class="chev">▾</span>
+        </div>
+        <div class="lang-drop-menu">
+          <div class="lang-opt" onclick="setLang('en');closeDrop()"><span class="flag">🇬🇧</span><span class="lname">English</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hi');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">हिंदी</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hl');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">Hinglish</span><span class="tick">✓</span></div>
+        </div>
+      </div>
+    </div>
   </header>
-  <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
+  <div class="back-btn" onclick="goTo('page-home')" data-t="back_home">Back to Home</div>
   <div class="inner-hero">
-    <div class="inner-eyebrow">Coin Seller Guidelines</div>
-    <h1 class="inner-title">COIN SELLER POLICY</h1>
+    <div class="inner-eyebrow" data-t="seller_guidelines">Coin Seller Guidelines</div>
+    <h1 class="inner-title" data-t="seller_policy_title">COIN SELLER POLICY</h1>
     <div class="neon-divider"><div class="nd-line rev"></div><div class="nd-gem"></div><div class="nd-line"></div></div>
   </div>
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num" style="font-size:14px">◆</div><div class="sec-title">Purpose</div><div class="sec-chev">›</div>
+      <div class="sec-num" style="font-size:14px">◆</div><div class="sec-title" data-t="purpose">Purpose</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
-      <p style="font-family:'Rajdhani',sans-serif;font-size:14px;color:rgba(200,210,255,0.72);line-height:1.8;">
+      <p style="font-family:'Rajdhani',sans-serif;font-size:14px;color:rgba(200,210,255,0.72);line-height:1.8;" data-t="purpose_text">
         This policy outlines the eligibility requirements, operational standards, and performance expectations for agencies applying to become <strong style="color:var(--cyan2);">Official Coin Sellers</strong> on the RIZZ LIVE platform.
       </p>
     </div>
@@ -938,37 +722,37 @@ body {
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">01</div><div class="sec-title">Eligibility Criteria</div><div class="sec-chev">›</div>
+      <div class="sec-num">01</div><div class="sec-title" data-t="eligibility_criteria">Eligibility Criteria</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
-      <div class="sub-label">Minimum Requirement</div>
+      <div class="sub-label" data-t="min_requirement">Minimum Requirement</div>
       <div class="example-box">
-        <span class="ex-label">📌 Qualification Threshold</span>
-        Agencies must generate <strong>50,000,000 Coins (50M)</strong> monthly revenue to qualify as an Official Coin Seller.
+        <span class="ex-label" data-t="qualification_label">📌 Qualification Threshold</span>
+        <span data-t="qualification_val">Agencies must generate <strong>50,000,000 Coins (50M)</strong> monthly revenue to qualify as an Official Coin Seller.</span>
       </div>
       <div class="divider"></div>
-      <div class="sub-label">Security Deposit Option</div>
+      <div class="sub-label" data-t="security_deposit">Security Deposit Option</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-cyan"></span><span>Agencies below the 50M target may apply with a <strong>$1,000 security deposit</strong></span></li>
-        <li><span class="r-gem gem-green"></span><span>Deposit is <strong>fully refunded</strong> once the monthly target is achieved</span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="sd1">Agencies below the 50M target may apply with a <strong>$1,000 security deposit</strong></span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="sd2">Deposit is <strong>fully refunded</strong> once the monthly target is achieved</span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-label">Maintenance Requirement</div>
+      <div class="sub-label" data-t="maintenance_req">Maintenance Requirement</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-cyan"></span><span>Approved sellers must sustain <strong>50M monthly revenue</strong></span></li>
-        <li><span class="r-gem gem-rose"></span><span>Failure for <strong>two consecutive months</strong> may result in seller status revocation</span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="mr1">Approved sellers must sustain <strong>50M monthly revenue</strong></span></li>
+        <li><span class="r-gem gem-rose"></span><span data-t="mr2">Failure for <strong>two consecutive months</strong> may result in seller status revocation</span></li>
       </ul>
     </div>
   </div>
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">02</div><div class="sec-title">Buying Price Structure</div><div class="sec-chev">›</div>
+      <div class="sec-num">02</div><div class="sec-title" data-t="buying_price">Buying Price Structure</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
-      <p style="font-family:'Rajdhani',sans-serif;font-size:12px;color:var(--text-dim);margin-bottom:10px;">Top-up must be made via <strong style="color:#fff;">USDT</strong>.</p>
+      <p style="font-family:'Rajdhani',sans-serif;font-size:12px;color:var(--text-dim);margin-bottom:10px;" data-t="usdt_note">Top-up must be made via <strong style="color:#fff;">USDT</strong>.</p>
       <table class="lux-table">
-        <thead><tr><th>Top-Up (USD)</th><th>Buy Ratio</th><th>Total Coins</th></tr></thead>
+        <thead><tr><th data-t="topup_usd">Top-Up (USD)</th><th data-t="buy_ratio">Buy Ratio</th><th data-t="total_coins">Total Coins</th></tr></thead>
         <tbody>
           <tr><td class="c-pink">$2,000</td><td class="c-cyan">9,000 / $</td><td class="c-green">18,000,000</td></tr>
           <tr><td class="c-pink">$5,000</td><td class="c-cyan">9,200 / $</td><td class="c-green">46,000,000</td></tr>
@@ -979,185 +763,786 @@ body {
 
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">03</div><div class="sec-title">Selling Price Structure</div><div class="sec-chev">›</div>
+      <div class="sec-num">03</div><div class="sec-title" data-t="selling_price">Selling Price Structure</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <table class="lux-table">
-        <thead><tr><th>Channel</th><th>Sell Ratio / $</th></tr></thead>
+        <thead><tr><th data-t="channel">Channel</th><th data-t="sell_ratio">Sell Ratio / $</th></tr></thead>
         <tbody>
-          <tr><td>Offline Sales</td><td class="c-pink">8,300</td></tr>
-          <tr><td>Online Sales</td><td class="c-cyan">5,000</td></tr>
+          <tr><td data-t="offline_sales">Offline Sales</td><td class="c-pink">8,300</td></tr>
+          <tr><td data-t="online_sales">Online Sales</td><td class="c-cyan">5,000</td></tr>
         </tbody>
       </table>
       <div class="divider"></div>
-      <div class="sub-label" style="color:var(--pink2)">Selling Policy</div>
+      <div class="sub-label" style="color:var(--pink2)" data-t="selling_policy">Selling Policy</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-rose"></span><span>Coin Sellers must <strong>NOT sell above</strong> the approved offline ratio of <strong>8,300</strong></span></li>
+        <li><span class="r-gem gem-rose"></span><span data-t="sp1">Coin Sellers must <strong>NOT sell above</strong> the approved offline ratio of <strong>8,300</strong></span></li>
       </ul>
       <div class="alert-box">
-        <span class="al-label">⚠️ Violation Penalty</span>
-        <strong>$100 fine</strong> + equivalent coin deduction from seller's wallet.<br/><br/>
-        <strong>Repeated violations:</strong> Suspension or permanent removal from the Official Coin Seller Program.
+        <span class="al-label" data-t="violation_penalty">⚠️ Violation Penalty</span>
+        <span data-t="penalty_text"><strong>$100 fine</strong> + equivalent coin deduction from seller's wallet.<br/><br/><strong data-t="repeated_violations">Repeated violations:</strong> Suspension or permanent removal from the Official Coin Seller Program.</span>
       </div>
     </div>
   </div>
-  <div class="footer">© 2026 <span>RIZZ LIVE</span> · All Rights Reserved</div>
+  <div class="footer">© 2026 <span>RIZZ LIVE</span> · <span data-t="all_rights">All Rights Reserved</span></div>
 </div>
 
 <!-- ══════════════════════════ REGISTRATION ══════════════════════════ -->
 <div class="page" id="page-registration">
   <header class="header">
     <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-family:Orbitron,monospace;font-weight:900;font-size:18px;background:linear-gradient(135deg,#00e5ff,#ff3ca8);-webkit-background-clip:text;-webkit-text-fill-color:transparent\'>R</span>'"/></div>
-    <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
+    <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub" data-t="platform">Live Streaming Platform</div></div>
+    <div class="header-ornament" style="margin-left:auto;">
+      <div class="lang-drop" id="ld-registration">
+        <div class="lang-drop-btn" onclick="toggleDrop('ld-registration')">
+          <span id="ld-registration-lbl">🌐 EN</span><span class="chev">▾</span>
+        </div>
+        <div class="lang-drop-menu">
+          <div class="lang-opt" onclick="setLang('en');closeDrop()"><span class="flag">🇬🇧</span><span class="lname">English</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hi');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">हिंदी</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hl');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">Hinglish</span><span class="tick">✓</span></div>
+        </div>
+      </div>
+    </div>
   </header>
-  <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
+  <div class="back-btn" onclick="goTo('page-home')" data-t="back_home">Back to Home</div>
   <div class="inner-hero">
-    <div class="inner-eyebrow">Partnership</div>
-    <h1 class="inner-title">AGENCY REGISTRATION</h1>
+    <div class="inner-eyebrow" data-t="partnership">Partnership</div>
+    <h1 class="inner-title" data-t="agency_reg_title">AGENCY REGISTRATION</h1>
     <div class="neon-divider"><div class="nd-line rev"></div><div class="nd-gem"></div><div class="nd-line"></div></div>
   </div>
 
-  <div class="reg-card">
-    <span class="reg-icon">🏢</span>
-    <div class="reg-title">Apply as a Partner Agency</div>
-    <p class="reg-desc">Fill out the official form to join Rizz Live's elite agency network. Our team reviews every application with care and responds promptly.</p>
-    <a href="https://xjpumno595ok.jp.larksuite.com/share/base/form/shrjpFlhYbFWamZeMgWobW4bMye" target="_blank" class="reg-btn">
-      📝 &nbsp; Open Registration Form
-    </a>
+  <div class="reg-form-card">
+    <div class="reg-form-header">
+      <div class="reg-form-header-icon">🏢</div>
+      <div>
+        <div class="reg-form-header-title" data-t="reg_form_title">Agency Registration Form</div>
+        <div class="reg-form-header-sub" data-t="reg_form_sub">Complete all required fields to apply</div>
+      </div>
+    </div>
+    <div class="reg-form-body" id="reg-form-body">
+      <div class="field-row">
+        <div class="field-group">
+          <label class="field-label" for="f-supervisor">
+            <span data-t="supervisor_label">Supervisor</span>
+            <span class="field-required" data-t="required_label">* Required</span>
+          </label>
+          <select class="neon-select" id="f-supervisor" required onchange="onSupervisorChange()">
+            <option value="" disabled selected data-t="select_placeholder">Select…</option>
+            <option value="Ray-IN">Ray-IN</option>
+          </select>
+          <span class="field-err" id="err-supervisor" data-t="err_supervisor">Please select a supervisor.</span>
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="f-admin">
+            <span data-t="admin_label">Admin</span>
+            <span class="field-optional" data-t="optional_label">Optional</span>
+          </label>
+          <select class="neon-select" id="f-admin" disabled>
+            <option value="">— Select supervisor first —</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-divider"></div>
+      <div class="field-group">
+        <label class="field-label" for="f-leader">
+          <span data-t="leader_label">Agency Leader Name</span>
+          <span class="field-required" data-t="required_label">* Required</span>
+        </label>
+        <input class="neon-input" type="text" id="f-leader" data-placeholder-t="leader_placeholder" placeholder="Enter your full name" required autocomplete="name"/>
+        <span class="field-err" id="err-leader" data-t="err_leader">Please enter the agency leader name.</span>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="f-agency">
+          <span data-t="agency_name_label">Agency Name</span>
+          <span class="field-required" data-t="required_label">* Required</span>
+        </label>
+        <input class="neon-input" type="text" id="f-agency" data-placeholder-t="agency_placeholder" placeholder="Your agency or team name"/>
+      </div>
+      <div class="form-divider"></div>
+      <div class="field-group">
+        <label class="field-label" for="f-rizzid">
+          <span data-t="rizzid_label">Rizz Live ID</span>
+          <span class="field-required" data-t="required_label">* Required</span>
+        </label>
+        <input class="neon-input" type="text" id="f-rizzid" placeholder="e.g. RL123456"/>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="f-whatsapp">
+          <span data-t="whatsapp_label">WhatsApp Number</span>
+          <span class="field-required" data-t="required_label">* Required</span>
+        </label>
+        <input class="neon-input" type="number" id="f-whatsapp" placeholder="e.g. 919876543210" inputmode="numeric"/>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="f-country">
+          <span data-t="country_label">Country</span>
+          <span class="field-required" data-t="required_label">* Required</span>
+        </label>
+        <select class="neon-select" id="f-country">
+          <option value="" data-t="select_country_placeholder">Select country…</option>
+          <option value="India">India</option>
+          <option value="Bangladesh">Bangladesh</option>
+          <option value="Nepal">Nepal</option>
+          <option value="Philippines">Philippines</option>
+          <option value="Nigeria">Nigeria</option>
+          <option value="USA">USA</option>
+          <option value="Latin America">Latin America</option>
+        </select>
+      </div>
+      <button class="submit-btn" id="reg-submit-btn" onclick="submitRegForm()">
+        <span id="reg-btn-label" data-t="submit_btn">✦ &nbsp; Submit Application</span>
+      </button>
+      <div class="form-msg success" id="reg-success">
+        <span class="form-msg-icon">✅</span>
+        <span class="form-msg-title" data-t="success_title">Application Submitted!</span>
+        <span data-t="success_body">Your registration has been sent successfully.<br/>Our team will review and reach out to you shortly.</span>
+      </div>
+      <div class="form-msg error" id="reg-error">
+        <span class="form-msg-icon">⚠️</span>
+        <span class="form-msg-title" data-t="error_title">Submission Failed</span>
+        <span id="reg-error-text" data-t="error_body">Something went wrong. Please try again.</span>
+      </div>
+    </div>
   </div>
-
-  <div class="info-row">
-    <div class="info-item">
-      <div class="info-icon ii-cyan">✅</div>
-      <div><div class="info-item-title">Quick & Easy</div><div class="info-item-sub">Complete the form in under 5 minutes</div></div>
-    </div>
-    <div class="info-item">
-      <div class="info-icon ii-pink">⚡</div>
-      <div><div class="info-item-title">Fast Review</div><div class="info-item-sub">Our team reviews applications promptly</div></div>
-    </div>
-    <div class="info-item">
-      <div class="info-icon ii-green">🏆</div>
-      <div><div class="info-item-title">Grow Together</div><div class="info-item-sub">Join our elite agency partner network</div></div>
-    </div>
-  </div>
-  <div class="footer">© 2026 <span>RIZZ LIVE</span> · All Rights Reserved</div>
+  <div class="footer">© 2026 <span>RIZZ LIVE</span> · <span data-t="all_rights">All Rights Reserved</span></div>
 </div>
 
 <!-- ══════════════════════════ CONTACT ══════════════════════════ -->
 <div class="page" id="page-contact">
   <header class="header">
     <div class="logo-mark"><img src="logo.png" alt="R" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-family:Orbitron,monospace;font-weight:900;font-size:18px;background:linear-gradient(135deg,#00e5ff,#ff3ca8);-webkit-background-clip:text;-webkit-text-fill-color:transparent\'>R</span>'"/></div>
-    <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
+    <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub" data-t="platform">Live Streaming Platform</div></div>
+    <div class="header-ornament" style="margin-left:auto;">
+      <div class="lang-drop" id="ld-contact">
+        <div class="lang-drop-btn" onclick="toggleDrop('ld-contact')">
+          <span id="ld-contact-lbl">🌐 EN</span><span class="chev">▾</span>
+        </div>
+        <div class="lang-drop-menu">
+          <div class="lang-opt" onclick="setLang('en');closeDrop()"><span class="flag">🇬🇧</span><span class="lname">English</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hi');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">हिंदी</span><span class="tick">✓</span></div>
+          <div class="lang-opt" onclick="setLang('hl');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">Hinglish</span><span class="tick">✓</span></div>
+        </div>
+      </div>
+    </div>
   </header>
-  <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
+  <div class="back-btn" onclick="goTo('page-home')" data-t="back_home">Back to Home</div>
   <div class="inner-hero">
-    <div class="inner-eyebrow">Direct Contact</div>
-    <h1 class="inner-title">COUNTRY MANAGER</h1>
+    <div class="inner-eyebrow" data-t="direct_contact">Direct Contact</div>
+    <h1 class="inner-title" data-t="country_manager_title">COUNTRY MANAGER</h1>
     <p style="font-family:'Rajdhani',sans-serif;font-size:14px;color:var(--pink2);letter-spacing:2px;margin-top:6px;">Ray-IN · India</p>
     <div class="neon-divider"><div class="nd-line rev"></div><div class="nd-gem"></div><div class="nd-line"></div></div>
   </div>
-
   <div class="sec-card" style="margin-top:16px">
     <div class="sec-hdr" style="cursor:default">
       <div class="sec-num">🇮🇳</div>
-      <div class="sec-title">India Country Manager</div>
+      <div class="sec-title" data-t="india_manager">India Country Manager</div>
     </div>
     <div class="sec-body open">
-      <p style="font-family:'Rajdhani',sans-serif;font-size:13px;color:var(--text-dim);margin-bottom:14px;">For queries, support, and partnership — reach out directly on WhatsApp:</p>
+      <p style="font-family:'Rajdhani',sans-serif;font-size:13px;color:var(--text-dim);margin-bottom:14px;" data-t="contact_help">For queries, support, and partnership — reach out directly on WhatsApp:</p>
       <a href="https://wa.me/919286766608" target="_blank" class="contact-link">
         <div style="width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#002015,#001208);border:1px solid rgba(0,255,157,0.35);display:flex;align-items:center;justify-content:center;box-shadow:0 0 20px rgba(0,255,157,0.15);flex-shrink:0;">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </div>
         <div style="flex:1">
           <div style="font-family:'Orbitron',monospace;font-weight:800;font-size:14px;color:#25d366;letter-spacing:0.5px">+91 92867 66608</div>
-          <div style="font-family:'Rajdhani',sans-serif;font-size:11px;color:var(--text-dim);margin-top:3px">Tap to open WhatsApp</div>
+          <div style="font-family:'Rajdhani',sans-serif;font-size:11px;color:var(--text-dim);margin-top:3px" data-t="tap_whatsapp">Tap to open WhatsApp</div>
         </div>
         <div style="color:rgba(0,255,157,0.5);font-size:22px">›</div>
       </a>
     </div>
   </div>
-  <div class="footer">© 2026 <span>RIZZ LIVE</span> · All Rights Reserved</div>
+  <div class="footer">© 2026 <span>RIZZ LIVE</span> · <span data-t="all_rights">All Rights Reserved</span></div>
 </div>
 
 <script>
-// Particles — cyan & pink neon
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzMv1v62JmNaZNnHHWuuHM4lU1YnvGilRp-8b7RgPmb8tD81adPzJOTVVIQbuQg_sVOfQ/exec';
+
+// ─── SUPERVISOR → ADMIN MAP ───────────────────────────────────────────────────
+const SUPERVISOR_ADMINS = {
+  'Ray-IN': ['Rajesh-IN','Bunny-IN']
+};
+
+function onSupervisorChange() {
+  const sup = document.getElementById('f-supervisor').value;
+  const adminSel = document.getElementById('f-admin');
+  adminSel.innerHTML = '';
+  if (!sup || !SUPERVISOR_ADMINS[sup]) {
+    adminSel.disabled = true;
+    const opt = document.createElement('option');
+    opt.value = ''; opt.textContent = '— Select supervisor first —';
+    adminSel.appendChild(opt);
+    return;
+  }
+  adminSel.disabled = false;
+  const noneOpt = document.createElement('option');
+  noneOpt.value = ''; noneOpt.textContent = 'None';
+  adminSel.appendChild(noneOpt);
+  SUPERVISOR_ADMINS[sup].forEach(a => {
+    const opt = document.createElement('option');
+    opt.value = a; opt.textContent = a;
+    adminSel.appendChild(opt);
+  });
+}
+
+// ─── LANGUAGE DROPDOWN ────────────────────────────────────────────────────────
+let currentDrop = null;
+
+function toggleDrop(id) {
+  const el = document.getElementById(id);
+  if (currentDrop && currentDrop !== el) currentDrop.classList.remove('open');
+  el.classList.toggle('open');
+  currentDrop = el.classList.contains('open') ? el : null;
+}
+
+function closeDrop() {
+  if (currentDrop) { currentDrop.classList.remove('open'); currentDrop = null; }
+}
+
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.lang-drop')) closeDrop();
+});
+
+function updateDropLabels(lang) {
+  const labels = {en:'🌐 EN', hi:'🌐 HI', hl:'🌐 HL'};
+  document.querySelectorAll('[id^="ld-"][id$="-lbl"]').forEach(el => el.textContent = labels[lang]||'🌐 EN');
+  document.querySelectorAll('.lang-opt').forEach(opt => {
+    opt.classList.remove('active');
+    const lname = opt.querySelector('.lname')?.textContent || '';
+    if ((lang==='en'&&lname==='English')||(lang==='hi'&&lname==='हिंदी')||(lang==='hl'&&lname==='Hinglish')) {
+      opt.classList.add('active');
+    }
+  });
+}
+
+// ─── TRANSLATIONS ─────────────────────────────────────────────────────────────
+const T = {
+  en: {
+    platform:"Live Streaming Platform",official_policy:"Official Policy Documents",
+    policy_center:"POLICY CENTER",select_doc:"Select a document to view full terms & guidelines",
+    host_return:"Host Return",agency_return:"Agency Return",commission:"Commission",
+    host_policy:"Host Policy",host_desc:"Salary, bonuses & streaming guidelines",
+    agency_policy:"Agency Policy",agency_desc:"Commission tiers & partnership terms",
+    seller_policy:"Coin Seller Policy",seller_desc:"Official coin seller guidelines & rates",
+    agency_reg:"Agency Registration",reg_desc:"Apply to become a partner agency",
+    contact_mgr:"Contact Country Manager",contact_desc:"India manager direct contact",
+    daily_updates:"Daily Updates",wa_channel:"Join our WhatsApp channel",
+    all_rights:"All Rights Reserved",back_home:"Back to Home",
+    host_guidelines:"Host Guidelines",host_policy_title:"HOST POLICY",
+    salary_structure:"Host Salary Structure",personal_gift_share:"1.1 Personal Gift Share",
+    category:"Category",share:"Share",personal_gifts:"Personal Gifts Received",
+    example_label:"📌 Example",
+    gift_example:"If a user sends <strong>10,000 Coins</strong> during a live broadcast, the host receives <strong>10,000 Rubies</strong> — the full amount.",
+    weekly_bonus_label:"1.2 Weekly Bonus",valid_hours:"Valid Hours",valid_days:"Valid Days",
+    weekly_bonus:"Weekly Bonus",
+    bonus_example:"If a host earns <strong>100,000 Rubies</strong> in a week <strong>(Sun 10:30 PM – Sun 10:30 PM IST)</strong>, they receive a bonus of <strong>30,000 Rubies</strong>, credited every <strong>Monday</strong>.",
+    platform_rules:"1.3 Platform Rules",withdrawal_rate_label:"Withdrawal Rate:",
+    day_reset_label:"Day Reset:",day_reset_val:"Daily at <span class='c-pink'>10:30 PM IST</span>",
+    weekly_period_label:"Weekly Period:",weekly_period_val:"Sunday 10:30 PM → Sunday 10:30 PM IST",
+    valid_day_label:"Valid Day:",valid_day_val:"Minimum <span class='c-cyan'>120 minutes</span> live per day",
+    valid_hour_label:"Valid Hour:",valid_hour_val:"60+ minutes = 1 valid hour",
+    min_session_label:"Minimum Session:",min_session_val:"Sessions below <strong>30 minutes</strong> do not count",
+    bonus_payment_label:"Bonus Payment:",bonus_payment_val:"Every <span class='c-cyan'>Monday</span> in Rubies",
+    withdrawal_label:"Withdrawal:",withdrawal_val:"Once per day · Minimum <span class='c-rose'>$10 USD</span>",
+    agency_change_rules:"Agency Change Rules",
+    acr1:"No live activity for <strong>120 days</strong>",
+    acr2:"Cannot contact agency for <strong>2 weeks</strong>",
+    acr3:"Both host and agency mutually agree",
+    strict_rule_label:"⚠️ Strict Rule",
+    strict_rule_val:"Any misuse or deception during agency transfer will result in <strong>Warning / Suspension / Permanent Ban</strong>.",
+    game_commissions:"Game Commissions",coins_used:"Coins Used in Games",host_reward:"Host Reward",
+    gc1:"Host earns <strong>1 Ruby</strong> for every <strong>1,000 coins</strong> used in games",
+    gc2:"This income <strong>does NOT count</strong> toward weekly targets",
+    gc3:"Earnings credited <strong>instantly</strong> after each stream ends",
+    new_host_guarantee:"New Host Guarantee",cycle:"Cycle",weekly_ruby_target:"Weekly Ruby Target",
+    valid_hrs:"Valid Hrs",guarantee:"Guarantee",week1:"Week 1",week2:"Week 2",week3:"Week 3",week4:"Week 4",week5plus:"Week 5+",
+    nhg1:"Must be <strong>approved</strong> by platform to receive guarantee",
+    nhg2:"Missing one week's target <strong>does not cancel</strong> the next week's guarantee",
+    nhg3:"If Valid Days & Hours not met → salary falls under <strong>basic policy</strong>",
+    nhg4:"From <strong>Week 5 onward</strong>, only <strong>basic policy applies</strong>",
+    sensual_policy:"Sensual Category Host Policy",requirements:"Requirements",
+    req1:"Maintain clean and presentable appearance",req2:"Follow schedule and complete required hours",
+    req3:"Keep background neat and professional",req4:"Maintain high audio & video quality",
+    req5:"Actively engage with and entertain viewers",req6:"Follow team instructions and participate in events",
+    grounds_removal:"Grounds for Removal",
+    rem1:"Irregular streaming or unprofessional conduct",rem2:"Disrespecting or ignoring viewers",
+    rem3:"Consistently poor stream quality without improvement",rem4:"Refusing team instructions without valid reason",
+    rem5:"Violating platform rules or applicable laws",
+    agency_guidelines:"Agency Guidelines",agency_policy_title:"AGENCY POLICY",
+    commission_tiers:"Agency Commission Tiers",level:"Level",weekly_rev:"Weekly Revenue (Ruby)",
+    below_10m:"Below 10M",above_30m:"Above 30M",
+    ag_req1:"Agency must maintain at least <strong>5 active hosts</strong> every week",
+    ag_req2:"Agency must encourage hosts to go live & actively join platform events",
+    weekly_task_period:"Weekly Task Period",period_label:"⏰ Period",
+    period_val:"All weekly tasks are counted from <strong>Sunday 10:30 PM to Sunday 10:30 PM (IST)</strong>.",
+    host_activation_salary:"Host Activation Salary",monthly_target:"Monthly Target",
+    active_hosts:"Active Hosts",basic_pay:"Basic Pay",
+    above_10m:"Above 10M",above_50m:"Above 50M",above_100m:"Above 100M",above_200m:"Above 200M",
+    active_host_def:"Active Host Definition",
+    ahd1:"At least <strong>10 valid days</strong> in a month",
+    ahd2:"At least <strong>20 valid hours</strong> in a month",
+    ahd3:"Minimum <strong>100,000 Rubies</strong> earned in gifts per month",
+    important_label:"⚠️ Important",
+    activation_alert:"Failure to meet either the monthly revenue target or active host requirement results in <strong>disqualification</strong> from the Host Activation Salary Program.",
+    commission_payout:"Commission Payout",payout_label:"💰 Payout Schedule",
+    payout_val:"All commissions are paid <strong>every Monday in Rubies</strong>.",
+    withdrawal_rules:"Withdrawal Rules",
+    wr1:"Withdrawal requests may be submitted <strong>once per day</strong>",
+    wr2:"Minimum withdrawal amount: <span class='c-rose'>$10 USD</span>",
+    fee_structure:"Fee Structure",withdrawal_amount:"Withdrawal Amount",fee:"Fee",
+    less_100:"Less than $100",fee_flat:"$2 flat per transaction",
+    above_100:"$100 and above",fee_pct:"2% of withdrawal amount",
+    fraud_alert:"Any fraudulent transfer attempts → <strong>Warning / Suspension / Permanent Ban</strong>",
+    seller_guidelines:"Coin Seller Guidelines",seller_policy_title:"COIN SELLER POLICY",
+    purpose:"Purpose",
+    purpose_text:"This policy outlines the eligibility requirements, operational standards, and performance expectations for agencies applying to become <strong style='color:var(--cyan2)'>Official Coin Sellers</strong> on the RIZZ LIVE platform.",
+    eligibility_criteria:"Eligibility Criteria",min_requirement:"Minimum Requirement",
+    qualification_label:"📌 Qualification Threshold",
+    qualification_val:"Agencies must generate <strong>50,000,000 Coins (50M)</strong> monthly revenue to qualify as an Official Coin Seller.",
+    security_deposit:"Security Deposit Option",
+    sd1:"Agencies below the 50M target may apply with a <strong>$1,000 security deposit</strong>",
+    sd2:"Deposit is <strong>fully refunded</strong> once the monthly target is achieved",
+    maintenance_req:"Maintenance Requirement",
+    mr1:"Approved sellers must sustain <strong>50M monthly revenue</strong>",
+    mr2:"Failure for <strong>two consecutive months</strong> may result in seller status revocation",
+    buying_price:"Buying Price Structure",usdt_note:"Top-up must be made via <strong style='color:#fff'>USDT</strong>.",
+    topup_usd:"Top-Up (USD)",buy_ratio:"Buy Ratio",total_coins:"Total Coins",
+    selling_price:"Selling Price Structure",channel:"Channel",sell_ratio:"Sell Ratio / $",
+    offline_sales:"Offline Sales",online_sales:"Online Sales",selling_policy:"Selling Policy",
+    sp1:"Coin Sellers must <strong>NOT sell above</strong> the approved offline ratio of <strong>8,300</strong>",
+    violation_penalty:"⚠️ Violation Penalty",
+    penalty_text:"<strong>$100 fine</strong> + equivalent coin deduction from seller's wallet.<br/><br/><strong>Repeated violations:</strong> Suspension or permanent removal from the Official Coin Seller Program.",
+    repeated_violations:"Repeated violations:",
+    partnership:"Partnership",agency_reg_title:"AGENCY REGISTRATION",
+    reg_form_title:"Agency Registration Form",reg_form_sub:"Complete all required fields to apply",
+    supervisor_label:"Supervisor",required_label:"* Required",select_placeholder:"Select…",
+    err_supervisor:"Please select a supervisor.",admin_label:"Admin",optional_label:"Optional",
+    none_option:"None",leader_label:"Agency Leader Name",leader_placeholder:"Enter your full name",
+    err_leader:"Please enter the agency leader name.",agency_name_label:"Agency Name",
+    agency_placeholder:"Your agency or team name",rizzid_label:"Rizz Live ID",
+    whatsapp_label:"WhatsApp Number",country_label:"Country",select_country_placeholder:"Select country…",
+    submit_btn:"✦ &nbsp; Submit Application",success_title:"Application Submitted!",
+    success_body:"Your registration has been sent successfully.<br/>Our team will review and reach out to you shortly.",
+    error_title:"Submission Failed",error_body:"Something went wrong. Please try again.",
+    direct_contact:"Direct Contact",country_manager_title:"COUNTRY MANAGER",
+    india_manager:"India Country Manager",contact_help:"For queries, support, and partnership — reach out directly on WhatsApp:",
+    tap_whatsapp:"Tap to open WhatsApp"
+  },
+
+  hi: {
+    platform:"लाइव स्ट्रीमिंग प्लेटफॉर्म",official_policy:"आधिकारिक नीति दस्तावेज़",
+    policy_center:"नीति केंद्र",select_doc:"पूरी शर्तें देखने के लिए दस्तावेज़ चुनें",
+    host_return:"होस्ट रिटर्न",agency_return:"एजेंसी रिटर्न",commission:"कमीशन",
+    host_policy:"होस्ट नीति",host_desc:"वेतन, बोनस और स्ट्रीमिंग दिशानिर्देश",
+    agency_policy:"एजेंसी नीति",agency_desc:"कमीशन स्तर और साझेदारी शर्तें",
+    seller_policy:"कॉइन विक्रेता नीति",seller_desc:"आधिकारिक कॉइन विक्रेता दिशानिर्देश और दरें",
+    agency_reg:"एजेंसी पंजीकरण",reg_desc:"पार्टनर एजेंसी बनने के लिए आवेदन करें",
+    contact_mgr:"कंट्री मैनेजर से संपर्क करें",contact_desc:"भारत मैनेजर का सीधा संपर्क",
+    daily_updates:"दैनिक अपडेट",wa_channel:"हमारे WhatsApp चैनल से जुड़ें",
+    all_rights:"सर्वाधिकार सुरक्षित",back_home:"होम पर वापस जाएं",
+    host_guidelines:"होस्ट दिशानिर्देश",host_policy_title:"होस्ट नीति",
+    salary_structure:"होस्ट वेतन संरचना",personal_gift_share:"1.1 व्यक्तिगत गिफ्ट हिस्सा",
+    category:"श्रेणी",share:"हिस्सा",personal_gifts:"प्राप्त व्यक्तिगत गिफ्ट",
+    example_label:"📌 उदाहरण",
+    gift_example:"यदि कोई यूज़र लाइव ब्रॉडकास्ट के दौरान <strong>10,000 Coins</strong> भेजता है, तो होस्ट को <strong>10,000 Rubies</strong> मिलती हैं — पूरी राशि।",
+    weekly_bonus_label:"1.2 साप्ताहिक बोनस",valid_hours:"मान्य घंटे",valid_days:"मान्य दिन",
+    weekly_bonus:"साप्ताहिक बोनस",
+    bonus_example:"यदि होस्ट एक सप्ताह में <strong>1,00,000 Rubies</strong> कमाता है <strong>(रवि 10:30 PM – रवि 10:30 PM IST)</strong>, तो उसे <strong>30,000 Rubies</strong> बोनस मिलेगा, हर <strong>सोमवार</strong> को।",
+    platform_rules:"1.3 प्लेटफॉर्म नियम",withdrawal_rate_label:"निकासी दर:",
+    day_reset_label:"दिन रीसेट:",day_reset_val:"प्रतिदिन <span class='c-pink'>रात 10:30 IST</span> पर",
+    weekly_period_label:"साप्ताहिक अवधि:",weekly_period_val:"रविवार 10:30 PM → रविवार 10:30 PM IST",
+    valid_day_label:"मान्य दिन:",valid_day_val:"प्रतिदिन न्यूनतम <span class='c-cyan'>120 मिनट</span> लाइव",
+    valid_hour_label:"मान्य घंटा:",valid_hour_val:"60+ मिनट = 1 मान्य घंटा",
+    min_session_label:"न्यूनतम सत्र:",min_session_val:"<strong>30 मिनट</strong> से कम के सत्र नहीं गिने जाते",
+    bonus_payment_label:"बोनस भुगतान:",bonus_payment_val:"हर <span class='c-cyan'>सोमवार</span> को Rubies में",
+    withdrawal_label:"निकासी:",withdrawal_val:"दिन में एक बार · न्यूनतम <span class='c-rose'>$10 USD</span>",
+    agency_change_rules:"एजेंसी बदलने के नियम",
+    acr1:"<strong>120 दिनों</strong> तक कोई लाइव गतिविधि नहीं",
+    acr2:"<strong>2 सप्ताह</strong> तक एजेंसी से संपर्क नहीं हो सका",
+    acr3:"होस्ट और एजेंसी दोनों की आपसी सहमति",
+    strict_rule_label:"⚠️ कड़ा नियम",
+    strict_rule_val:"एजेंसी स्थानांतरण के दौरान कोई भी दुरुपयोग या धोखाधड़ी पर <strong>चेतावनी / निलंबन / स्थायी प्रतिबंध</strong> होगा।",
+    game_commissions:"गेम कमीशन",coins_used:"गेम में उपयोग किए गए Coins",host_reward:"होस्ट पुरस्कार",
+    gc1:"होस्ट को हर <strong>1,000 coins</strong> पर <strong>1 Ruby</strong> मिलती है",
+    gc2:"यह आय साप्ताहिक लक्ष्य में <strong>नहीं गिनी जाती</strong>",
+    gc3:"स्ट्रीम समाप्त होते ही कमाई <strong>तुरंत</strong> जमा होती है",
+    new_host_guarantee:"नए होस्ट की गारंटी",cycle:"चक्र",weekly_ruby_target:"साप्ताहिक Ruby लक्ष्य",
+    valid_hrs:"मान्य घंटे",guarantee:"गारंटी",week1:"सप्ताह 1",week2:"सप्ताह 2",week3:"सप्ताह 3",week4:"सप्ताह 4",week5plus:"सप्ताह 5+",
+    nhg1:"गारंटी पाने के लिए प्लेटफॉर्म की <strong>मंजूरी</strong> आवश्यक है",
+    nhg2:"एक सप्ताह का लक्ष्य चूकने से अगले सप्ताह की गारंटी <strong>रद्द नहीं होती</strong>",
+    nhg3:"मान्य दिन और घंटे पूरे न हों तो <strong>बेसिक पॉलिसी</strong> लागू होती है",
+    nhg4:"<strong>सप्ताह 5 से</strong> केवल <strong>बेसिक पॉलिसी</strong> लागू होती है",
+    sensual_policy:"सेंसुअल श्रेणी होस्ट नीति",requirements:"आवश्यकताएं",
+    req1:"साफ-सुथरा और प्रस्तुत करने योग्य रूप बनाए रखें",req2:"शेड्यूल का पालन करें और आवश्यक घंटे पूरे करें",
+    req3:"बैकग्राउंड साफ और पेशेवर रखें",req4:"उच्च ऑडियो और वीडियो गुणवत्ता बनाए रखें",
+    req5:"दर्शकों के साथ सक्रिय रूप से जुड़ें और मनोरंजन करें",req6:"टीम के निर्देशों का पालन करें और इवेंट में भाग लें",
+    grounds_removal:"हटाने के आधार",
+    rem1:"अनियमित स्ट्रीमिंग या अव्यावसायिक आचरण",rem2:"दर्शकों का अपमान या अनदेखी",
+    rem3:"बिना सुधार के लगातार खराब स्ट्रीम गुणवत्ता",rem4:"बिना कारण टीम के निर्देश मानने से इनकार",
+    rem5:"प्लेटफॉर्म नियमों या कानूनों का उल्लंघन",
+    agency_guidelines:"एजेंसी दिशानिर्देश",agency_policy_title:"एजेंसी नीति",
+    commission_tiers:"एजेंसी कमीशन स्तर",level:"स्तर",weekly_rev:"साप्ताहिक राजस्व (Ruby)",
+    below_10m:"10M से कम",above_30m:"30M से अधिक",
+    ag_req1:"एजेंसी को हर सप्ताह कम से कम <strong>5 सक्रिय होस्ट</strong> बनाए रखने होंगे",
+    ag_req2:"एजेंसी को होस्ट को लाइव जाने और प्लेटफॉर्म इवेंट में भाग लेने के लिए प्रोत्साहित करना होगा",
+    weekly_task_period:"साप्ताहिक कार्य अवधि",period_label:"⏰ अवधि",
+    period_val:"सभी साप्ताहिक कार्यों की गणना <strong>रविवार 10:30 PM से रविवार 10:30 PM (IST)</strong> तक होती है।",
+    host_activation_salary:"होस्ट एक्टिवेशन वेतन",monthly_target:"मासिक लक्ष्य",
+    active_hosts:"सक्रिय होस्ट",basic_pay:"बेसिक वेतन",
+    above_10m:"10M से अधिक",above_50m:"50M से अधिक",above_100m:"100M से अधिक",above_200m:"200M से अधिक",
+    active_host_def:"सक्रिय होस्ट की परिभाषा",
+    ahd1:"महीने में कम से कम <strong>10 मान्य दिन</strong>",
+    ahd2:"महीने में कम से कम <strong>20 मान्य घंटे</strong>",
+    ahd3:"महीने में गिफ्ट से न्यूनतम <strong>1,00,000 Rubies</strong> की कमाई",
+    important_label:"⚠️ महत्वपूर्ण",
+    activation_alert:"मासिक राजस्व लक्ष्य या सक्रिय होस्ट की शर्त पूरी न होने पर होस्ट एक्टिवेशन वेतन कार्यक्रम से <strong>अयोग्य</strong> किया जाएगा।",
+    commission_payout:"कमीशन भुगतान",payout_label:"💰 भुगतान कार्यक्रम",
+    payout_val:"सभी कमीशन <strong>हर सोमवार Rubies में</strong> दिए जाते हैं।",
+    withdrawal_rules:"निकासी नियम",
+    wr1:"निकासी अनुरोध <strong>दिन में एक बार</strong> किया जा सकता है",
+    wr2:"न्यूनतम निकासी राशि: <span class='c-rose'>$10 USD</span>",
+    fee_structure:"शुल्क संरचना",withdrawal_amount:"निकासी राशि",fee:"शुल्क",
+    less_100:"$100 से कम",fee_flat:"$2 प्रति लेनदेन",
+    above_100:"$100 और उससे अधिक",fee_pct:"निकासी राशि का 2%",
+    fraud_alert:"कोई भी धोखाधड़ी वाला स्थानांतरण प्रयास → <strong>चेतावनी / निलंबन / स्थायी प्रतिबंध</strong>",
+    seller_guidelines:"कॉइन विक्रेता दिशानिर्देश",seller_policy_title:"कॉइन विक्रेता नीति",
+    purpose:"उद्देश्य",
+    purpose_text:"यह नीति RIZZ LIVE प्लेटफॉर्म पर <strong style='color:var(--cyan2)'>आधिकारिक कॉइन विक्रेता</strong> बनने के लिए आवेदन करने वाली एजेंसियों की पात्रता आवश्यकताओं, परिचालन मानकों और प्रदर्शन अपेक्षाओं को रेखांकित करती है।",
+    eligibility_criteria:"पात्रता मानदंड",min_requirement:"न्यूनतम आवश्यकता",
+    qualification_label:"📌 योग्यता सीमा",
+    qualification_val:"आधिकारिक कॉइन विक्रेता बनने के लिए एजेंसियों को <strong>5,00,00,000 Coins (50M)</strong> मासिक राजस्व उत्पन्न करना होगा।",
+    security_deposit:"सुरक्षा जमा विकल्प",
+    sd1:"50M से कम वाली एजेंसियां <strong>$1,000 सुरक्षा जमा</strong> के साथ आवेदन कर सकती हैं",
+    sd2:"मासिक लक्ष्य प्राप्त होने पर जमा <strong>पूरी तरह वापस</strong> की जाती है",
+    maintenance_req:"रखरखाव आवश्यकता",
+    mr1:"स्वीकृत विक्रेताओं को <strong>50M मासिक राजस्व</strong> बनाए रखना होगा",
+    mr2:"<strong>लगातार दो महीने</strong> विफल रहने पर विक्रेता दर्जा रद्द हो सकता है",
+    buying_price:"खरीद मूल्य संरचना",usdt_note:"टॉप-अप <strong style='color:#fff'>USDT</strong> के माध्यम से किया जाना चाहिए।",
+    topup_usd:"टॉप-अप (USD)",buy_ratio:"खरीद अनुपात",total_coins:"कुल Coins",
+    selling_price:"बिक्री मूल्य संरचना",channel:"चैनल",sell_ratio:"बिक्री अनुपात / $",
+    offline_sales:"ऑफलाइन बिक्री",online_sales:"ऑनलाइन बिक्री",selling_policy:"बिक्री नीति",
+    sp1:"कॉइन विक्रेता <strong>8,300</strong> के स्वीकृत ऑफलाइन अनुपात से <strong>अधिक में नहीं बेच सकते</strong>",
+    violation_penalty:"⚠️ उल्लंघन दंड",
+    penalty_text:"<strong>$100 जुर्माना</strong> + विक्रेता के वॉलेट से समकक्ष कॉइन कटौती।<br/><br/><strong>बार-बार उल्लंघन:</strong> आधिकारिक कॉइन विक्रेता कार्यक्रम से निलंबन या स्थायी निष्कासन।",
+    repeated_violations:"बार-बार उल्लंघन:",
+    partnership:"साझेदारी",agency_reg_title:"एजेंसी पंजीकरण",
+    reg_form_title:"एजेंसी पंजीकरण फॉर्म",reg_form_sub:"आवेदन करने के लिए सभी आवश्यक फ़ील्ड भरें",
+    supervisor_label:"सुपरवाइज़र",required_label:"* आवश्यक",select_placeholder:"चुनें…",
+    err_supervisor:"कृपया एक सुपरवाइज़र चुनें।",admin_label:"एडमिन",optional_label:"वैकल्पिक",
+    none_option:"कोई नहीं",leader_label:"एजेंसी लीडर का नाम",leader_placeholder:"अपना पूरा नाम दर्ज करें",
+    err_leader:"कृपया एजेंसी लीडर का नाम दर्ज करें।",agency_name_label:"एजेंसी का नाम",
+    agency_placeholder:"आपकी एजेंसी या टीम का नाम",rizzid_label:"Rizz Live ID",
+    whatsapp_label:"WhatsApp नंबर",country_label:"देश",select_country_placeholder:"देश चुनें…",
+    submit_btn:"✦ &nbsp; आवेदन जमा करें",success_title:"आवेदन जमा हो गया!",
+    success_body:"आपका पंजीकरण सफलतापूर्वक भेज दिया गया है।<br/>हमारी टीम समीक्षा करके जल्द आपसे संपर्क करेगी।",
+    error_title:"जमा करने में विफल",error_body:"कुछ गलत हो गया। कृपया पुनः प्रयास करें।",
+    direct_contact:"सीधा संपर्क",country_manager_title:"कंट्री मैनेजर",
+    india_manager:"भारत कंट्री मैनेजर",contact_help:"प्रश्नों, सहायता और साझेदारी के लिए — WhatsApp पर सीधे संपर्क करें:",
+    tap_whatsapp:"WhatsApp खोलने के लिए टैप करें"
+  },
+
+  hl: {
+    platform:"Live Streaming Platform",official_policy:"Official Policy Documents",
+    policy_center:"POLICY CENTER",select_doc:"Koi bhi document select karo terms dekhne ke liye",
+    host_return:"Host Return",agency_return:"Agency Return",commission:"Commission",
+    host_policy:"Host Policy",host_desc:"Salary, bonuses aur streaming guidelines",
+    agency_policy:"Agency Policy",agency_desc:"Commission tiers aur partnership terms",
+    seller_policy:"Coin Seller Policy",seller_desc:"Official coin seller guidelines aur rates",
+    agency_reg:"Agency Registration",reg_desc:"Partner agency banne ke liye apply karo",
+    contact_mgr:"Country Manager se Contact Karo",contact_desc:"India manager ka direct contact",
+    daily_updates:"Daily Updates",wa_channel:"Hamare WhatsApp channel se judo",
+    all_rights:"All Rights Reserved",back_home:"Home par Wapas Jao",
+    host_guidelines:"Host Guidelines",host_policy_title:"HOST POLICY",
+    salary_structure:"Host Salary Structure",personal_gift_share:"1.1 Personal Gift Share",
+    category:"Category",share:"Share",personal_gifts:"Personal Gifts Mili",
+    example_label:"📌 Udaharan",
+    gift_example:"Agar koi user live mein <strong>10,000 Coins</strong> bhejta hai, toh host ko <strong>10,000 Rubies</strong> milti hain — poori amount.",
+    weekly_bonus_label:"1.2 Weekly Bonus",valid_hours:"Valid Ghante",valid_days:"Valid Din",
+    weekly_bonus:"Weekly Bonus",
+    bonus_example:"Agar host ek hafte mein <strong>1,00,000 Rubies</strong> kamata hai <strong>(Sun 10:30 PM – Sun 10:30 PM IST)</strong>, toh <strong>30,000 Rubies</strong> bonus milega, har <strong>Monday</strong> ko.",
+    platform_rules:"1.3 Platform Rules",withdrawal_rate_label:"Withdrawal Rate:",
+    day_reset_label:"Din Reset:",day_reset_val:"Roz <span class='c-pink'>raat 10:30 PM IST</span> par",
+    weekly_period_label:"Weekly Period:",weekly_period_val:"Sunday 10:30 PM → Sunday 10:30 PM IST",
+    valid_day_label:"Valid Din:",valid_day_val:"Kam se kam <span class='c-cyan'>120 minute</span> live per day",
+    valid_hour_label:"Valid Ghanta:",valid_hour_val:"60+ minute = 1 valid ghanta",
+    min_session_label:"Minimum Session:",min_session_val:"<strong>30 minute</strong> se kam ke session nahi girenge",
+    bonus_payment_label:"Bonus Payment:",bonus_payment_val:"Har <span class='c-cyan'>Monday</span> ko Rubies mein",
+    withdrawal_label:"Withdrawal:",withdrawal_val:"Din mein ek baar · Minimum <span class='c-rose'>$10 USD</span>",
+    agency_change_rules:"Agency Change Rules",
+    acr1:"<strong>120 din</strong> tak koi live activity nahi",
+    acr2:"<strong>2 hafte</strong> tak agency se contact nahi hua",
+    acr3:"Host aur agency dono ki mutual agreement ho",
+    strict_rule_label:"⚠️ Sakht Rule",
+    strict_rule_val:"Agency transfer mein koi bhi dhokha ya galat use karne par <strong>Warning / Suspension / Permanent Ban</strong> hoga.",
+    game_commissions:"Game Commissions",coins_used:"Game mein use hue Coins",host_reward:"Host Reward",
+    gc1:"Host ko har <strong>1,000 coins</strong> par <strong>1 Ruby</strong> milti hai",
+    gc2:"Yeh income weekly target mein <strong>count nahi hoti</strong>",
+    gc3:"Earnings stream khatam hote hi <strong>turant</strong> credit hoti hai",
+    new_host_guarantee:"New Host Guarantee",cycle:"Cycle",weekly_ruby_target:"Weekly Ruby Target",
+    valid_hrs:"Valid Ghante",guarantee:"Guarantee",week1:"Week 1",week2:"Week 2",week3:"Week 3",week4:"Week 4",week5plus:"Week 5+",
+    nhg1:"Guarantee lene ke liye platform ki <strong>approval</strong> zaroori hai",
+    nhg2:"Ek hafte ka target miss karne se agale hafte ki guarantee <strong>cancel nahi hoti</strong>",
+    nhg3:"Valid Days & Hours poore na ho toh <strong>basic policy</strong> lagegi",
+    nhg4:"<strong>Week 5 se</strong> sirf <strong>basic policy</strong> apply hogi",
+    sensual_policy:"Sensual Category Host Policy",requirements:"Requirements",
+    req1:"Saaf aur achha dikhna zaruri hai",req2:"Schedule follow karo aur required hours pura karo",
+    req3:"Background saaf aur professional rakho",req4:"High audio & video quality maintain karo",
+    req5:"Viewers ke saath actively engage karo",req6:"Team ke instructions follow karo aur events mein participate karo",
+    grounds_removal:"Hatane ke Karan",
+    rem1:"Irregular streaming ya unprofessional behavior",rem2:"Viewers ka apman ya unhe ignore karna",
+    rem3:"Bina improvement ke lagatar kharab stream quality",rem4:"Bina karan team ke instructions manne se inkar",
+    rem5:"Platform rules ya laws ka ullanghan",
+    agency_guidelines:"Agency Guidelines",agency_policy_title:"AGENCY POLICY",
+    commission_tiers:"Agency Commission Tiers",level:"Level",weekly_rev:"Weekly Revenue (Ruby)",
+    below_10m:"10M se Kam",above_30m:"30M se Zyada",
+    ag_req1:"Agency ko har hafte kam se kam <strong>5 active hosts</strong> rakhne honge",
+    ag_req2:"Agency ko hosts ko live jane aur platform events mein participate karne ke liye encourage karna hoga",
+    weekly_task_period:"Weekly Task Period",period_label:"⏰ Period",
+    period_val:"Sabhi weekly tasks <strong>Sunday 10:30 PM se Sunday 10:30 PM (IST)</strong> tak count hote hain.",
+    host_activation_salary:"Host Activation Salary",monthly_target:"Monthly Target",
+    active_hosts:"Active Hosts",basic_pay:"Basic Pay",
+    above_10m:"10M se Zyada",above_50m:"50M se Zyada",above_100m:"100M se Zyada",above_200m:"200M se Zyada",
+    active_host_def:"Active Host ki Definition",
+    ahd1:"Mahine mein kam se kam <strong>10 valid din</strong>",
+    ahd2:"Mahine mein kam se kam <strong>20 valid ghante</strong>",
+    ahd3:"Mahine mein gifts se minimum <strong>1,00,000 Rubies</strong> ki kamai",
+    important_label:"⚠️ Zaroori",
+    activation_alert:"Monthly revenue target ya active host requirement poori na karne par Host Activation Salary Program se <strong>disqualify</strong> kar diya jayega.",
+    commission_payout:"Commission Payout",payout_label:"💰 Payout Schedule",
+    payout_val:"Sabhi commissions <strong>har Monday Rubies mein</strong> diye jate hain.",
+    withdrawal_rules:"Withdrawal Rules",
+    wr1:"Withdrawal request <strong>din mein ek baar</strong> ki ja sakti hai",
+    wr2:"Minimum withdrawal amount: <span class='c-rose'>$10 USD</span>",
+    fee_structure:"Fee Structure",withdrawal_amount:"Withdrawal Amount",fee:"Fee",
+    less_100:"$100 se Kam",fee_flat:"$2 flat per transaction",
+    above_100:"$100 aur usse Zyada",fee_pct:"Withdrawal amount ka 2%",
+    fraud_alert:"Koi bhi fraudulent transfer attempt → <strong>Warning / Suspension / Permanent Ban</strong>",
+    seller_guidelines:"Coin Seller Guidelines",seller_policy_title:"COIN SELLER POLICY",
+    purpose:"Maqsad",
+    purpose_text:"Yeh policy RIZZ LIVE platform par <strong style='color:var(--cyan2)'>Official Coin Sellers</strong> banne ke liye apply karne wali agencies ki eligibility requirements, operational standards aur performance expectations batati hai.",
+    eligibility_criteria:"Eligibility Criteria",min_requirement:"Minimum Requirement",
+    qualification_label:"📌 Qualification Threshold",
+    qualification_val:"Official Coin Seller banne ke liye agencies ko <strong>5,00,00,000 Coins (50M)</strong> monthly revenue generate karna hoga.",
+    security_deposit:"Security Deposit Option",
+    sd1:"50M se kam wali agencies <strong>$1,000 security deposit</strong> ke saath apply kar sakti hain",
+    sd2:"Monthly target achieve karne par deposit <strong>poori wapas</strong> ki jati hai",
+    maintenance_req:"Maintenance Requirement",
+    mr1:"Approved sellers ko <strong>50M monthly revenue</strong> maintain karni hogi",
+    mr2:"<strong>Lagatar do mahine</strong> fail rehne par seller status revoke ho sakta hai",
+    buying_price:"Buying Price Structure",usdt_note:"Top-up <strong style='color:#fff'>USDT</strong> ke zariye karna hoga.",
+    topup_usd:"Top-Up (USD)",buy_ratio:"Buy Ratio",total_coins:"Total Coins",
+    selling_price:"Selling Price Structure",channel:"Channel",sell_ratio:"Sell Ratio / $",
+    offline_sales:"Offline Sales",online_sales:"Online Sales",selling_policy:"Selling Policy",
+    sp1:"Coin Sellers approved offline ratio <strong>8,300</strong> se <strong>zyada mein nahi bech sakte</strong>",
+    violation_penalty:"⚠️ Violation Penalty",
+    penalty_text:"<strong>$100 fine</strong> + seller ke wallet se coins ki katoti.<br/><br/><strong>Baar baar violation:</strong> Official Coin Seller Program se suspension ya permanent removal.",
+    repeated_violations:"Baar baar violation:",
+    partnership:"Partnership",agency_reg_title:"AGENCY REGISTRATION",
+    reg_form_title:"Agency Registration Form",reg_form_sub:"Apply karne ke liye sabhi required fields bharo",
+    supervisor_label:"Supervisor",required_label:"* Zaroori",select_placeholder:"Chuniye…",
+    err_supervisor:"Kripya ek supervisor chuniye.",admin_label:"Admin",optional_label:"Optional",
+    none_option:"Koi nahi",leader_label:"Agency Leader ka Naam",leader_placeholder:"Apna pura naam likhein",
+    err_leader:"Kripya agency leader ka naam daalein.",agency_name_label:"Agency ka Naam",
+    agency_placeholder:"Aapki agency ya team ka naam",rizzid_label:"Rizz Live ID",
+    whatsapp_label:"WhatsApp Number",country_label:"Desh",select_country_placeholder:"Desh chuniye…",
+    submit_btn:"✦ &nbsp; Application Submit Karo",success_title:"Application Submit Ho Gayi!",
+    success_body:"Aapka registration successfully bhej diya gaya hai.<br/>Hamari team review karke jald hi aapse contact karegi.",
+    error_title:"Submit Nahi Hua",error_body:"Kuch galat ho gaya. Kripya dobara try karein.",
+    direct_contact:"Direct Contact",country_manager_title:"COUNTRY MANAGER",
+    india_manager:"India Country Manager",contact_help:"Queries, support aur partnership ke liye — WhatsApp par seedha contact karein:",
+    tap_whatsapp:"WhatsApp kholne ke liye tap karein"
+  }
+};
+
+let currentLang = 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+  const dict = T[lang];
+
+  // Update all data-t elements
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const key = el.getAttribute('data-t');
+    if (dict[key] !== undefined) {
+      el.innerHTML = dict[key];
+    }
+  });
+
+  // Update placeholders
+  document.querySelectorAll('[data-placeholder-t]').forEach(el => {
+    const key = el.getAttribute('data-placeholder-t');
+    if (dict[key] !== undefined) {
+      el.placeholder = dict[key];
+    }
+  });
+
+  // Update dropdown labels & active state
+  updateDropLabels(lang);
+
+  // Also update back buttons text (direct content)
+  document.querySelectorAll('.back-btn').forEach(btn => {
+    btn.innerHTML = dict['back_home'] || 'Back to Home';
+  });
+}
+
+// Particles
 const pc = document.getElementById('particles');
 const colors = ['#00e5ff','#ff3ca8','#4df3ff','#ff6ec4','#a855f7','#00ff9d','#fbbf24'];
-for(let i = 0; i < 40; i++){
-  const p = document.createElement('div');
-  p.className = 'particle';
-  const size = 1 + Math.random() * 2.8;
-  const color = colors[Math.floor(Math.random() * colors.length)];
-  p.style.cssText = `
-    left:${Math.random()*100}%;
-    width:${size}px; height:${size}px;
-    background:${color};
-    box-shadow: 0 0 ${size*3}px ${color};
-    animation-duration:${9+Math.random()*18}s;
-    animation-delay:${Math.random()*18}s;
-    opacity:0;
-  `;
+for(let i=0;i<80;i++){
+  const p=document.createElement('div');p.className='particle';
+  const size=1+Math.random()*2.8;const color=colors[Math.floor(Math.random()*colors.length)];
+  p.style.cssText=`left:${Math.random()*100}%;width:${size}px;height:${size}px;background:${color};box-shadow:0 0 ${size*3}px ${color};animation-duration:${3+Math.random()*3}s;animation-delay:${Math.random()*3}s;opacity:0;`;
   pc.appendChild(p);
 }
 
-// Shooting stars
-function createShootingStar(){
-  const star = document.createElement('div');
-  star.style.cssText = `
-    position:fixed; top:${Math.random()*50}%; left:${Math.random()*100}%;
-    width:${60+Math.random()*80}px; height:1px;
-    background:linear-gradient(90deg, rgba(0,229,255,0.8), transparent);
-    transform:rotate(${-20 + Math.random()*10}deg);
-    z-index:0; pointer-events:none;
-    animation: shootStar ${0.6+Math.random()*0.4}s ease-out forwards;
-  `;
-  document.body.appendChild(star);
-  setTimeout(()=>star.remove(), 1200);
+// ─── FLOATING EMOJIS ─────────────────────────────────────────────────────────
+const emojis = ['🎙️','🏆','💎','⭐','🔥','✨','🎵','💫','🎤','👑'];
+function createFloatEmoji(){
+  const el = document.createElement('div');
+  el.className = 'float-emoji';
+  el.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+  const dur = 6 + Math.random()*6;
+  const size = 16 + Math.random()*14;
+  el.style.cssText = `left:${Math.random()*95}%;bottom:-40px;font-size:${size}px;animation-duration:${dur}s;animation-delay:${Math.random()*3}s;`;
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(), (dur+3)*1000);
 }
-// Add keyframes for shooting star
-const styleEl = document.createElement('style');
-styleEl.textContent = `
-  @keyframes shootStar {
-    0%{opacity:1;transform:rotate(-15deg) translateX(0)}
-    100%{opacity:0;transform:rotate(-15deg) translateX(200px)}
-  }
-`;
-document.head.appendChild(styleEl);
-setInterval(createShootingStar, 3000);
+setInterval(createFloatEmoji, 1200);
+for(let i=0;i<6;i++) setTimeout(createFloatEmoji, i*600);
 
-// Page navigation
+// ─── RIPPLE ON TAP ────────────────────────────────────────────────────────────
+document.addEventListener('click', function(e){
+  const rippleColors = ['rgba(0,229,255,0.7)','rgba(255,60,168,0.7)','rgba(168,85,247,0.7)','rgba(0,255,157,0.6)'];
+  const col = rippleColors[Math.floor(Math.random()*rippleColors.length)];
+  for(let r=0;r<2;r++){
+    const ring = document.createElement('div');
+    const delay = r*120;
+    ring.style.cssText = `position:fixed;left:${e.clientX}px;top:${e.clientY}px;width:0;height:0;border-radius:50%;border:2px solid ${col};transform:translate(-50%,-50%);pointer-events:none;z-index:9999;box-shadow:0 0 10px ${col};`;
+    document.body.appendChild(ring);
+    ring.animate([
+      {width:'0px',height:'0px',opacity:1},
+      {width:'120px',height:'120px',opacity:0}
+    ],{duration:600,delay,easing:'ease-out',fill:'forwards'}).onfinish=()=>ring.remove();
+  }
+});
+
+
+function createShootingStar(){
+  const star=document.createElement('div');
+  // 4 colors: pink, green, blue, sky blue
+  const colors=[
+    {c:'rgba(255,60,168,0.95)',g:'rgba(255,60,168,0.5)'},
+    {c:'rgba(0,255,157,0.95)',g:'rgba(0,255,157,0.5)'},
+    {c:'rgba(80,80,255,0.95)',g:'rgba(80,80,255,0.5)'},
+    {c:'rgba(0,229,255,0.95)',g:'rgba(0,229,255,0.5)'}
+  ];
+  const cl=colors[Math.floor(Math.random()*colors.length)];
+  // Fixed diagonal: top-left → bottom-right (angle ~30 to 50 degrees)
+  const angle=30+Math.random()*20;
+  const len=70+Math.random()*90;
+  const dur=0.9+Math.random()*0.6;
+  // Start from left portion of screen, top area
+  const startX=Math.random()*(window.innerWidth*0.6);
+  const startY=Math.random()*(window.innerHeight*0.5);
+  // z-index:0 — behind all buttons and content
+  star.style.cssText=`position:fixed;top:${startY}px;left:${startX}px;width:${len}px;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,${cl.c});transform:rotate(${angle}deg);transform-origin:0 50%;z-index:0;pointer-events:none;box-shadow:0 0 6px ${cl.g};`;
+  document.body.appendChild(star);
+  star.animate([
+    {opacity:1,transform:`rotate(${angle}deg) translateX(0)`},
+    {opacity:0,transform:`rotate(${angle}deg) translateX(${len+260}px)`}
+  ],{duration:dur*1000,easing:'ease-in',fill:'forwards'}).onfinish=()=>star.remove();
+}
+// 3 stars staggered - ek ek karke alag jagah se
+setInterval(()=>{ createShootingStar(); },1000);
+setTimeout(()=>{ setInterval(()=>{ createShootingStar(); },1000); },330);
+setTimeout(()=>{ setInterval(()=>{ createShootingStar(); },1000); },660);
+
 function goTo(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  const page = document.getElementById(id);
-  page.classList.add('active');
+  document.getElementById(id).classList.add('active');
   window.scrollTo({top:0,behavior:'instant'});
+  // re-apply current lang on page switch
+  setLang(currentLang);
 }
 
-// Toggle accordion
 function toggle(hdr){
   hdr.classList.toggle('open');
   hdr.nextElementSibling.classList.toggle('open');
 }
 
-// Ripple on nav cards
 document.querySelectorAll('.nav-card').forEach(card=>{
-  card.addEventListener('click', function(e){
-    const r = document.createElement('span');
-    const rect = card.getBoundingClientRect();
-    const size = Math.max(rect.width, rect.height);
-    r.style.cssText = `
-      position:absolute; width:${size}px; height:${size}px; border-radius:50%;
-      background:rgba(0,229,255,0.12);
-      left:${e.clientX-rect.left-size/2}px; top:${e.clientY-rect.top-size/2}px;
-      transform:scale(0); animation:ripple 0.5s ease-out forwards; pointer-events:none;
-    `;
-    card.appendChild(r);
-    setTimeout(()=>r.remove(), 600);
+  card.addEventListener('click',function(e){
+    const r=document.createElement('span');const rect=card.getBoundingClientRect();
+    const size=Math.max(rect.width,rect.height);
+    r.style.cssText=`position:absolute;width:${size}px;height:${size}px;border-radius:50%;background:rgba(0,229,255,0.12);left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px;transform:scale(0);animation:ripple 0.5s ease-out forwards;pointer-events:none;`;
+    card.appendChild(r);setTimeout(()=>r.remove(),600);
   });
 });
-const rippleStyle = document.createElement('style');
-rippleStyle.textContent = `@keyframes ripple{0%{transform:scale(0);opacity:1}100%{transform:scale(2.5);opacity:0}}`;
-document.head.appendChild(rippleStyle);
+const rs=document.createElement('style');
+rs.textContent=`@keyframes ripple{0%{transform:scale(0);opacity:1}100%{transform:scale(2.5);opacity:0}}`;
+document.head.appendChild(rs);
+
+function showFieldError(id,msg){const el=document.getElementById(id);el.classList.add('show');if(msg)el.textContent=msg;}
+function clearFieldErrors(){document.querySelectorAll('.field-err').forEach(e=>e.classList.remove('show'));document.querySelectorAll('.neon-input,.neon-select').forEach(e=>e.classList.remove('invalid'));}
+function markInvalid(fieldId){const el=document.getElementById(fieldId);if(el)el.classList.add('invalid');}
+
+async function submitRegForm(){
+  clearFieldErrors();
+  document.getElementById('reg-success').classList.remove('show');
+  document.getElementById('reg-error').classList.remove('show');
+  const supervisor=document.getElementById('f-supervisor').value.trim();
+  const admin=document.getElementById('f-admin').value.trim();
+  const leader=document.getElementById('f-leader').value.trim();
+  const agency=document.getElementById('f-agency').value.trim();
+  const rizzid=document.getElementById('f-rizzid').value.trim();
+  const whatsapp=document.getElementById('f-whatsapp').value.trim();
+  const country=document.getElementById('f-country').value.trim();
+  let hasError=false;
+  if(!supervisor){showFieldError('err-supervisor',T[currentLang]['err_supervisor']);markInvalid('f-supervisor');hasError=true;}
+  if(!leader){showFieldError('err-leader',T[currentLang]['err_leader']);markInvalid('f-leader');hasError=true;}
+  if(hasError)return;
+  const btn=document.getElementById('reg-submit-btn');
+  const lbl=document.getElementById('reg-btn-label');
+  btn.disabled=true;
+  lbl.innerHTML='<span class="btn-spinner"></span> Submitting…';
+  const payload={supervisor,admin,leader,agency,rizzid,whatsapp,country};
+  try{
+    await fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    document.getElementById('reg-success').classList.add('show');
+    ['f-supervisor','f-admin','f-leader','f-agency','f-rizzid','f-whatsapp','f-country'].forEach(id=>{
+      const el=document.getElementById(id);
+      if(el.tagName==='SELECT')el.selectedIndex=0;else el.value='';
+    });
+    lbl.innerHTML=T[currentLang]['submit_btn']||'✦ &nbsp; Submit Application';
+    btn.disabled=false;
+  }catch(err){
+    document.getElementById('reg-error-text').textContent=T[currentLang]['error_body']||'Something went wrong.';
+    document.getElementById('reg-error').classList.add('show');
+    lbl.innerHTML=T[currentLang]['submit_btn']||'✦ &nbsp; Submit Application';
+    btn.disabled=false;
+  }
+}
+
+// Country flag display
+const countryFlags={'India':'in','Bangladesh':'bd','Nepal':'np','Philippines':'ph','Nigeria':'ng','USA':'us','Latin America':'un'};
+const countrySelect=document.getElementById('f-country');
+const flagDisplay=document.createElement('div');
+flagDisplay.id='country-flag-display';
+flagDisplay.style.cssText=`display:none;align-items:center;gap:10px;margin-top:8px;padding:10px 14px;background:linear-gradient(135deg,rgba(0,229,255,0.06),rgba(0,0,20,0.6));border:1px solid rgba(0,229,255,0.25);border-radius:10px;font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:600;color:var(--cyan2);animation:msgReveal 0.3s cubic-bezier(0.16,1,0.3,1) both;`;
+flagDisplay.innerHTML='<img id="flag-img" src="" alt="" style="width:34px;height:23px;border-radius:5px;object-fit:cover;border:1px solid rgba(0,229,255,0.25);box-shadow:0 0 10px rgba(0,229,255,0.2);"/><span id="flag-label"></span>';
+countrySelect.parentElement.appendChild(flagDisplay);
+countrySelect.addEventListener('change',function(){
+  const val=this.value;const code=countryFlags[val];
+  if(val&&code){document.getElementById('flag-img').src='https://flagcdn.com/w40/'+code+'.png';document.getElementById('flag-img').alt=val;document.getElementById('flag-label').textContent=val;flagDisplay.style.display='flex';}
+  else{flagDisplay.style.display='none';}
+});
+document.querySelectorAll('.neon-input,.neon-select').forEach(el=>{
+  el.addEventListener('input',()=>el.classList.remove('invalid'));
+  el.addEventListener('change',()=>el.classList.remove('invalid'));
+});
+
+// Initialize language on load
+setLang('en');
 </script>
 </body>
 </html>
