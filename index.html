@@ -45,6 +45,7 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
 .header::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),var(--pink),var(--purple2),transparent);animation:headerLine 4s ease-in-out infinite;pointer-events:none}
 @keyframes headerLine{0%,100%{opacity:0.5}50%{opacity:1}}
 .logo-mark{width:40px;height:40px;border-radius:11px;flex-shrink:0;border:1px solid rgba(0,229,255,0.35);box-shadow:0 0 14px var(--cyan-glow),inset 0 1px 0 rgba(0,229,255,0.25);background:linear-gradient(135deg,#0a0535,#06031a);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.logo-mark img{width:32px;height:32px;object-fit:contain;border-radius:6px}
 .logo-mark-inner{font-family:'Orbitron',monospace;font-weight:900;font-size:18px;background:linear-gradient(135deg,var(--cyan2),var(--pink2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .brand-block{flex:1;min-width:0}
 .brand-name{font-family:'Orbitron',monospace;font-weight:800;font-size:13px;letter-spacing:2.5px;background:linear-gradient(90deg,var(--cyan2),var(--pink2),var(--cyan2));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:textShimmer 4s linear infinite;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -225,8 +226,10 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
 <!-- HOME -->
 <div class="page active" id="page-home">
   <header class="header">
-    <div <img src="logo.png" alt="Rizz Live" style="width:32px;height:32px;object-fit:contain;border-radius:6px;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-<span class="logo-mark-inner" style="display:none">R</span>
+    <div class="logo-mark">
+      <img src="logo.png" alt="Rizz Live Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="logo-mark-inner" style="display:none">R</span>
+    </div>
     <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
     <div class="header-right">
       <div class="lang-drop" id="ld-home">
@@ -247,26 +250,26 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
     </div>
   </header>
   <div class="hero">
-    <div class="hero-badge"><div class="hero-badge-dot"></div><span>Official Policy Documents</span></div>
+    <div class="hero-badge"><div class="hero-badge-dot"></div><span data-t="hero-badge">Official Policy Documents</span></div>
     <h1 class="hero-title"><span class="rizz">RIZZ</span> <span class="hl">LIVE</span></h1>
-    <h2 style="font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;letter-spacing:6px;color:var(--text-dim);text-transform:uppercase;margin-bottom:2px;">POLICY CENTER</h2>
-    <p class="hero-sub">Select a document to view full terms &amp; guidelines</p>
+    <h2 style="font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;letter-spacing:6px;color:var(--text-dim);text-transform:uppercase;margin-bottom:2px;" data-t="policy-center">POLICY CENTER</h2>
+    <p class="hero-sub" data-t="hero-sub">Select a document to view full terms &amp; guidelines</p>
     <div class="neon-divider"><div class="nd-line rev"></div><div class="nd-gem"></div><div class="nd-line"></div></div>
   </div>
   <div class="stats-row">
-    <div class="stat-card"><div class="stat-val">***%</div><div class="stat-label">Host Return</div></div>
-    <div class="stat-card"><div class="stat-val">20%</div><div class="stat-label">Agency Commission</div></div>
-    <div class="stat-card"><div class="stat-val">30%</div><div class="stat-label">Online Bonus</div></div>
+    <div class="stat-card"><div class="stat-val">***%</div><div class="stat-label" data-t="stat-return">Host Return</div></div>
+    <div class="stat-card"><div class="stat-val">20%</div><div class="stat-label" data-t="stat-commission">Agency Commission</div></div>
+    <div class="stat-card"><div class="stat-val">30%</div><div class="stat-label" data-t="stat-bonus">Online Bonus</div></div>
   </div>
   <div class="nav-grid">
     <div class="nav-card" onclick="goTo('page-host')">
       <div class="nav-icon-wrap icon-pink">🎙️</div>
-      <div class="nav-text"><div class="nav-title">Host Policy</div><div class="nav-desc">Salary, bonuses &amp; streaming guidelines</div></div>
+      <div class="nav-text"><div class="nav-title" data-t="nav-host">Host Policy</div><div class="nav-desc" data-t="nav-host-desc">Salary, bonuses &amp; streaming guidelines</div></div>
       <div class="nav-arrow">›</div>
     </div>
     <div class="nav-card" onclick="goTo('page-agency')">
       <div class="nav-icon-wrap icon-purple">🏢</div>
-      <div class="nav-text"><div class="nav-title">Agency Policy</div><div class="nav-desc">Commission tiers &amp; partnership terms</div></div>
+      <div class="nav-text"><div class="nav-title" data-t="nav-agency">Agency Policy</div><div class="nav-desc" data-t="nav-agency-desc">Commission tiers &amp; partnership terms</div></div>
       <div class="nav-arrow">›</div>
     </div>
     <div class="nav-card" onclick="goTo('page-seller')">
@@ -280,34 +283,37 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
           <text x="20" y="23" text-anchor="middle" font-family="Orbitron,monospace" font-weight="900" font-size="11" fill="#003355">R</text>
         </svg>
       </div>
-      <div class="nav-text"><div class="nav-title">Coin Seller Policy</div><div class="nav-desc">Official coin seller guidelines &amp; rates</div></div>
+      <div class="nav-text"><div class="nav-title" data-t="nav-seller">Coin Seller Policy</div><div class="nav-desc" data-t="nav-seller-desc">Official coin seller guidelines &amp; rates</div></div>
       <div class="nav-arrow">›</div>
     </div>
     <div class="nav-card" onclick="goTo('page-registration')">
       <div class="nav-icon-wrap icon-cyan">📝</div>
-      <div class="nav-text"><div class="nav-title">Agency Registration</div><div class="nav-desc">Apply to become a partner agency</div></div>
+      <div class="nav-text"><div class="nav-title" data-t="nav-reg">Agency Registration</div><div class="nav-desc" data-t="nav-reg-desc">Apply to become a partner agency</div></div>
       <div class="nav-arrow">›</div>
     </div>
     <div class="nav-card" onclick="goTo('page-contact')">
       <div class="nav-icon-wrap icon-green">📞</div>
-      <div class="nav-text"><div class="nav-title">Contact Country Manager</div><div class="nav-desc">India manager direct contact</div></div>
+      <div class="nav-text"><div class="nav-title" data-t="nav-contact">Contact Country Manager</div><div class="nav-desc" data-t="nav-contact-desc">India manager direct contact</div></div>
       <div class="nav-arrow">›</div>
     </div>
     <div class="nav-card" onclick="window.open('https://whatsapp.com/channel/0029VbBsWwtGzzKJmjQ8CU0Q','_blank')">
       <div class="nav-icon-wrap icon-green">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       </div>
-      <div class="nav-text"><div class="nav-title">Daily Updates</div><div class="nav-desc">Join our WhatsApp channel</div></div>
+      <div class="nav-text"><div class="nav-title" data-t="nav-updates">Daily Updates</div><div class="nav-desc" data-t="nav-updates-desc">Join our WhatsApp channel</div></div>
       <div class="nav-arrow">›</div>
     </div>
   </div>
   <div class="footer">© 2026 <span>RIZZ LIVE</span> · <span>All Rights Reserved</span></div>
 </div>
 
-<!-- HOST POLICY (UPDATED FROM IMAGE) -->
+<!-- HOST POLICY -->
 <div class="page" id="page-host">
   <header class="header">
-    <div class="logo-mark"><span class="logo-mark-inner">R</span></div>
+    <div class="logo-mark">
+      <img src="logo.png" alt="Rizz Live Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="logo-mark-inner" style="display:none">R</span>
+    </div>
     <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
     <div class="header-right">
       <div class="lang-drop" id="ld-host">
@@ -320,110 +326,107 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
       </div>
     </div>
   </header>
-  <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
+  <div class="back-btn" onclick="goTo('page-home')" data-t="back">Back to Home</div>
   <div class="inner-hero">
-    <div class="inner-eyebrow">Host Guidelines</div>
-    <h1 class="inner-title">HOST POLICY</h1>
+    <div class="inner-eyebrow" data-t="eyebrow-host">Host Guidelines</div>
+    <h1 class="inner-title" data-t="title-host">HOST POLICY</h1>
     <div class="neon-divider"><div class="nd-line rev"></div><div class="nd-gem"></div><div class="nd-line"></div></div>
   </div>
 
-  <!-- 1. Host Base Policy -->
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">01</div><div class="sec-title">Host Base Policy</div><div class="sec-chev">›</div>
+      <div class="sec-num">01</div><div class="sec-title" data-t="host-s1">Host Base Policy</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <table class="lux-table">
-        <thead><tr><th>Basic Share</th><th>Valid Hour</th><th>Valid Days</th><th>Online Bonus</th><th>Total</th></tr></thead>
+        <thead><tr><th data-t="th-basic-share">Basic Share</th><th data-t="th-valid-hour">Valid Hour</th><th data-t="th-valid-days">Valid Days</th><th data-t="th-online-bonus">Online Bonus</th><th data-t="th-total">Total</th></tr></thead>
         <tbody>
           <tr><td class="c-cyan">100%</td><td class="c-cyan">10</td><td class="c-cyan">4</td><td class="c-green">30%</td><td class="c-pink">130%</td></tr>
         </tbody>
       </table>
       <div class="divider"></div>
-      <div class="sub-label">Currency Exchange Rate</div>
+      <div class="sub-label" data-t="sl-exchange">Currency Exchange Rate</div>
       <ul class="rule-list">
         <li><span class="r-gem gem-cyan"></span><span><strong>20,000 Ruby</strong> = <span class="c-green">1 USD</span></span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-label">Gift Sharing Rules</div>
+      <div class="sub-label" data-t="sl-gift">Gift Sharing Rules</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-cyan"></span><span><strong>Hot Gift:</strong> 1 Coin = <span class="c-green">1 Ruby (100%)</span></span></li>
-        <li><span class="r-gem gem-cyan"></span><span><strong>Luxury Gift:</strong> 1 Coin = <span class="c-green">1 Ruby (100%)</span></span></li>
-        <li><span class="r-gem gem-orange"></span><span><strong>Lucky Gift:</strong> 1 Coin = <span class="c-orange">0.01 Ruby – 0.05 Ruby (1%–5%)</span></span></li>
+        <li><span class="r-gem gem-cyan"></span><span><strong data-t="gift-hot">Hot Gift:</strong> 1 Coin = <span class="c-green">1 Ruby (100%)</span></span></li>
+        <li><span class="r-gem gem-cyan"></span><span><strong data-t="gift-lux">Luxury Gift:</strong> 1 Coin = <span class="c-green">1 Ruby (100%)</span></span></li>
+        <li><span class="r-gem gem-orange"></span><span><strong data-t="gift-lucky">Lucky Gift:</strong> 1 Coin = <span class="c-orange">0.01 Ruby – 0.05 Ruby (1%–5%)</span></span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-label">Task Counting Period</div>
+      <div class="sub-label" data-t="sl-task-period">Task Counting Period</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-cyan"></span><span>Weekly task counting period is from <strong>Sunday 10:30 PM to Sunday 10:30 PM (UTC+7)</strong></span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="task-period-text">Weekly task counting period is from <strong>Sunday 10:30 PM to Sunday 10:30 PM (UTC+7)</strong></span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-label">Income Sources Counted Towards Weekly Tasks</div>
+      <div class="sub-label" data-t="sl-income">Income Sources Counted Towards Weekly Tasks</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-green"></span><span>Ruby generated from <strong>Luxury Gifts, Lucky Gifts</strong>, users purchasing <strong>VIP membership</strong>, and ticket revenue from <strong>ticket rooms</strong> are all counted toward weekly task targets.</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="income-text">Ruby generated from <strong>Luxury Gifts, Lucky Gifts</strong>, users purchasing <strong>VIP membership</strong>, and ticket revenue from <strong>ticket rooms</strong> are all counted toward weekly task targets.</span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-label">Valid Day Definition</div>
+      <div class="sub-label" data-t="sl-valid-day">Valid Day Definition</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-cyan"></span><span>A day is counted as one valid day if the cumulative live streaming duration exceeds <strong>120 minutes</strong>.</span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="valid-day-text">A day is counted as one valid day if the cumulative live streaming duration exceeds <strong>120 minutes</strong>.</span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-label">Valid Duration Definition</div>
+      <div class="sub-label" data-t="sl-valid-dur">Valid Duration Definition</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-cyan"></span><span>Cumulative live streaming duration exceeding <strong>60 minutes</strong> is counted as one valid hour. A single live session less than <strong>30 minutes</strong> is not counted toward valid duration.</span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="valid-dur-text">Cumulative live streaming duration exceeding <strong>60 minutes</strong> is counted as one valid hour. A single live session less than <strong>30 minutes</strong> is not counted toward valid duration.</span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-label">Additional Bonus Rules</div>
+      <div class="sub-label" data-t="sl-bonus-rules">Additional Bonus Rules</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-pink"></span><span>Failure to complete the required live streaming duration tasks will result in <strong>ineligibility for the online bonus</strong>.</span></li>
+        <li><span class="r-gem gem-pink"></span><span data-t="bonus-rules-text">Failure to complete the required live streaming duration tasks will result in <strong>ineligibility for the online bonus</strong>.</span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-label">Bonus Payout Time</div>
+      <div class="sub-label" data-t="sl-payout">Bonus Payout Time</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-green"></span><span>Bonuses will be automatically credited to the host's account in <strong>Ruby every Monday</strong>.</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="payout-text">Bonuses will be automatically credited to the host's account in <strong>Ruby every Monday</strong>.</span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-label">Withdrawal Rules</div>
+      <div class="sub-label" data-t="sl-withdraw">Withdrawal Rules</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-cyan"></span><span>Withdrawal requests can be submitted <strong>once per day</strong>.</span></li>
-        <li><span class="r-gem gem-pink"></span><span>Minimum withdrawal amount is <span class="c-rose">$10 USD</span>.</span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="withdraw-1">Withdrawal requests can be submitted <strong>once per day</strong>.</span></li>
+        <li><span class="r-gem gem-pink"></span><span data-t="withdraw-2">Minimum withdrawal amount is <span class="c-rose">$10 USD</span>.</span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-label" style="color:var(--green)">Rules for Hosts Changing Agency</div>
+      <div class="sub-label" style="color:var(--green)" data-t="sl-agency-change">Rules for Hosts Changing Agency</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-green"></span><span>If a host does not live for more than <strong>120 days</strong>, the platform will verify and then terminate the binding relationship with the old agency, allowing the host to join a new agency.</span></li>
-        <li><span class="r-gem gem-green"></span><span>If a host cannot contact the agency head for <strong>two consecutive weeks</strong> (including but not limited to phone, email, social media, etc.), the host may apply to change agency.</span></li>
-        <li><span class="r-gem gem-green"></span><span>If both the host and the agency <strong>mutually agree</strong> to the host changing agency, the transfer can proceed directly.</span></li>
-        <li><span class="r-gem gem-rose"></span><span>If any live is found to engage in <strong>malicious conduct</strong> during the agency transfer process (such as intentional disappearance, fraudulent applications, etc.), the platform may issue warnings, suspend accounts, impose permanent bans, or other penalties.</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="agency-change-1">If a host does not live for more than <strong>120 days</strong>, the platform will verify and then terminate the binding relationship with the old agency, allowing the host to join a new agency.</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="agency-change-2">If a host cannot contact the agency head for <strong>two consecutive weeks</strong> (including but not limited to phone, email, social media, etc.), the host may apply to change agency.</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="agency-change-3">If both the host and the agency <strong>mutually agree</strong> to the host changing agency, the transfer can proceed directly.</span></li>
+        <li><span class="r-gem gem-rose"></span><span data-t="agency-change-4">If any live is found to engage in <strong>malicious conduct</strong> during the agency transfer process (such as intentional disappearance, fraudulent applications, etc.), the platform may issue warnings, suspend accounts, impose permanent bans, or other penalties.</span></li>
       </ul>
     </div>
   </div>
 
-  <!-- 2. Game Commission -->
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">02</div><div class="sec-title">Game Commission</div><div class="sec-chev">›</div>
+      <div class="sec-num">02</div><div class="sec-title" data-t="host-s2">Game Commission</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <table class="lux-table">
-        <thead><tr><th>Game Coin</th><th>Bonus Ruby</th></tr></thead>
+        <thead><tr><th data-t="th-game-coin">Game Coin</th><th data-t="th-bonus-ruby">Bonus Ruby</th></tr></thead>
         <tbody><tr><td class="c-rose">1,000</td><td class="c-green">1</td></tr></tbody>
       </table>
       <ul class="rule-list" style="margin-top:10px">
-        <li><span class="r-gem gem-green"></span><span>When users participate in games in the host's live room, for every <strong>1,000 coins</strong> wagered, the host receives <strong>1 Ruby</strong> as a reward.</span></li>
-        <li><span class="r-gem gem-dim"></span><span>Commission income from games is <strong>NOT counted</strong> toward the host's weekly task income target.</span></li>
-        <li><span class="r-gem gem-cyan"></span><span>After each game session ends, the system will credit the corresponding Ruby reward to the host's account in <strong>real time</strong>.</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="game-1">When users participate in games in the host's live room, for every <strong>1,000 coins</strong> wagered, the host receives <strong>1 Ruby</strong> as a reward.</span></li>
+        <li><span class="r-gem gem-dim"></span><span data-t="game-2">Commission income from games is <strong>NOT counted</strong> toward the host's weekly task income target.</span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="game-3">After each game session ends, the system will credit the corresponding Ruby reward to the host's account in <strong>real time</strong>.</span></li>
       </ul>
     </div>
   </div>
 
-  <!-- 3. Rookie Host Guarantee Policy -->
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">03</div><div class="sec-title">Rookie Host Guarantee Policy</div><div class="sec-chev">›</div>
+      <div class="sec-num">03</div><div class="sec-title" data-t="host-s3">Rookie Host Guarantee Policy</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <table class="lux-table">
-        <thead><tr><th>Cycle</th><th>Weekly Ruby Task</th><th>Valid Days</th><th>Valid Hour</th><th>Guarantee</th></tr></thead>
+        <thead><tr><th data-t="th-cycle">Cycle</th><th data-t="th-weekly-ruby">Weekly Ruby Task</th><th data-t="th-valid-days2">Valid Days</th><th data-t="th-valid-hour2">Valid Hour</th><th data-t="th-guarantee">Guarantee</th></tr></thead>
         <tbody>
           <tr><td>· Week 1</td><td>—</td><td class="c-cyan" rowspan="4" style="text-align:center;vertical-align:middle">4</td><td class="c-cyan" rowspan="4" style="text-align:center;vertical-align:middle">10</td><td class="c-green">$5</td></tr>
           <tr><td>· Week 2</td><td class="c-pink">50,000</td><td class="c-green">$5</td></tr>
@@ -432,33 +435,32 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
         </tbody>
       </table>
       <ul class="rule-list" style="margin-top:10px">
-        <li><span class="r-gem gem-cyan"></span><span>Each new host must pass <strong>operational review and approval</strong> upon joining the platform to be eligible for the guarantee policy during the first four weeks.</span></li>
-        <li><span class="r-gem gem-green"></span><span>Approved new hosts have <strong>no minimum task requirement</strong> in the first week and will receive the guarantee policy regardless of task completion.</span></li>
-        <li><span class="r-gem gem-cyan"></span><span>From Week 2 onward: Week 2: <strong>50,000</strong> · Week 3: <strong>100,000</strong> · Week 4: <strong>150,000 Ruby</strong></span></li>
-        <li><span class="r-gem gem-rose"></span><span>From <strong>Week 5 onward</strong>, only the <strong>basic policy</strong> applies.</span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="rookie-1">Each new host must pass <strong>operational review and approval</strong> upon joining the platform to be eligible for the guarantee policy during the first four weeks.</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="rookie-2">Approved new hosts have <strong>no minimum task requirement</strong> in the first week and will receive the guarantee policy regardless of task completion.</span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="rookie-3">From Week 2 onward: Week 2: <strong>50,000</strong> · Week 3: <strong>100,000</strong> · Week 4: <strong>150,000 Ruby</strong></span></li>
+        <li><span class="r-gem gem-rose"></span><span data-t="rookie-4">From <strong>Week 5 onward</strong>, only the <strong>basic policy</strong> applies.</span></li>
       </ul>
       <div class="warn-box">
-        <span class="wl-label">⚡ Key Rule</span>
-        <strong>Failure to complete a weekly task does NOT affect eligibility for the guarantee policy in the following week.</strong><br/><br/>
-        Example: If Week 2 task is not completed, salary is per basic policy — but if Week 3 task of 150,000 Ruby is completed, the host remains eligible for the Week 3 guarantee.
+        <span class="wl-label" data-t="key-rule">⚡ Key Rule</span>
+        <strong data-t="rookie-warn">Failure to complete a weekly task does NOT affect eligibility for the guarantee policy in the following week.</strong><br/><br/>
+        <span data-t="rookie-warn-ex">Example: If Week 2 task is not completed, salary is per basic policy — but if Week 3 task of 150,000 Ruby is completed, the host remains eligible for the Week 3 guarantee.</span>
       </div>
       <div class="divider"></div>
-      <div class="sub-label">Salary Calculation</div>
+      <div class="sub-label" data-t="sl-salary">Salary Calculation</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-pink"></span><span>If a host fails to meet the duration and task requirements, salary is calculated according to the <strong>basic policy</strong>.</span></li>
-        <li><span class="r-gem gem-purple"></span><span>For outstanding performers, the host manager may adjust their task stage at their discretion (e.g., a well-performing Stage C host may be promoted to <strong>Stage A</strong>).</span></li>
+        <li><span class="r-gem gem-pink"></span><span data-t="salary-1">If a host fails to meet the duration and task requirements, salary is calculated according to the <strong>basic policy</strong>.</span></li>
+        <li><span class="r-gem gem-purple"></span><span data-t="salary-2">For outstanding performers, the host manager may adjust their task stage at their discretion (e.g., a well-performing Stage C host may be promoted to <strong>Stage A</strong>).</span></li>
       </ul>
     </div>
   </div>
 
-  <!-- 4. Prestige Category Host Guarantee Policy -->
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">04</div><div class="sec-title">Prestige Category Host Guarantee Policy</div><div class="sec-chev">›</div>
+      <div class="sec-num">04</div><div class="sec-title" data-t="host-s4">Prestige Category Host Guarantee Policy</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <table class="lux-table">
-        <thead><tr><th>Cycle</th><th>Weekly Ruby Task</th><th>Valid Days</th><th>Valid Hour</th><th>Guarantee</th></tr></thead>
+        <thead><tr><th data-t="th-cycle">Cycle</th><th data-t="th-weekly-ruby">Weekly Ruby Task</th><th data-t="th-valid-days2">Valid Days</th><th data-t="th-valid-hour2">Valid Hour</th><th data-t="th-guarantee">Guarantee</th></tr></thead>
         <tbody>
           <tr><td>· Week 1</td><td>—</td><td class="c-cyan" rowspan="5" style="text-align:center;vertical-align:middle">4</td><td class="c-cyan" rowspan="5" style="text-align:center;vertical-align:middle">10</td><td class="c-green">$15</td></tr>
           <tr><td>· Week 2</td><td class="c-pink">100,000</td><td class="c-green">$15</td></tr>
@@ -468,39 +470,39 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
         </tbody>
       </table>
       <ul class="rule-list" style="margin-top:10px">
-        <li><span class="r-gem gem-cyan"></span><span>Hosts must pass <strong>official operational review</strong>; only those meeting the corresponding requirements are eligible for this guarantee policy.</span></li>
-        <li><span class="r-gem gem-green"></span><span>Approved new hosts have <strong>no minimum task requirement</strong> in the first week.</span></li>
-        <li><span class="r-gem gem-cyan"></span><span>Week 5 and beyond: weekly target is <strong>300,000 Ruby</strong></span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="prestige-1">Hosts must pass <strong>official operational review</strong>; only those meeting the corresponding requirements are eligible for this guarantee policy.</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="prestige-2">Approved new hosts have <strong>no minimum task requirement</strong> in the first week.</span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="prestige-3">Week 5 and beyond: weekly target is <strong>300,000 Ruby</strong></span></li>
       </ul>
       <div class="warn-box">
-        <span class="wl-label">⚡ Key Rule</span>
-        <strong>Failure to complete a weekly task does NOT affect eligibility for the guarantee policy in the following week.</strong><br/><br/>
-        If Week 2 task is not completed, salary is per basic policy — but if Week 3 task of 150,000 Ruby is completed, the host remains eligible for the Week 3 guarantee.
+        <span class="wl-label" data-t="key-rule">⚡ Key Rule</span>
+        <strong data-t="prestige-warn">Failure to complete a weekly task does NOT affect eligibility for the guarantee policy in the following week.</strong><br/><br/>
+        <span data-t="prestige-warn-ex">If Week 2 task is not completed, salary is per basic policy — but if Week 3 task of 150,000 Ruby is completed, the host remains eligible for the Week 3 guarantee.</span>
       </div>
       <div class="divider"></div>
-      <div class="sub-label">Requirements</div>
+      <div class="sub-label" data-t="sl-requirements">Requirements</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-green"></span><span>Good image, neat appearance, appropriate attire, aligning with platform positioning.</span></li>
-        <li><span class="r-gem gem-green"></span><span>Serious attitude toward live streaming work, adherence to live schedules, ensuring broadcast duration.</span></li>
-        <li><span class="r-gem gem-green"></span><span>Clean and tidy live background, no clutter, ensuring clear video and audio.</span></li>
-        <li><span class="r-gem gem-green"></span><span>Active interaction, timely responses to audience comments and questions.</span></li>
-        <li><span class="r-gem gem-green"></span><span>Cooperation with VIVA operational team requirements, active participation in platform-organized activities.</span></li>
-        <li><span class="r-gem gem-cyan"></span><span>The host needs to do the broadcast between <strong>6 PM to 11:59 PM mandatory</strong>.</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="req-1">Good image, neat appearance, appropriate attire, aligning with platform positioning.</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="req-2">Serious attitude toward live streaming work, adherence to live schedules, ensuring broadcast duration.</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="req-3">Clean and tidy live background, no clutter, ensuring clear video and audio.</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="req-4">Active interaction, timely responses to audience comments and questions.</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="req-5">Cooperation with VIVA operational team requirements, active participation in platform-organized activities.</span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="req-6">The host needs to do the broadcast between <strong>6 PM to 11:59 PM mandatory</strong>.</span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-label" style="color:var(--pink2)">Grounds for Removal from Guarantee</div>
+      <div class="sub-label" style="color:var(--pink2)" data-t="sl-removal">Grounds for Removal from Guarantee</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-rose"></span><span>Failing to go live at scheduled times for extended periods, exhibiting passive work attitudes, or displaying obvious negativity during streams.</span></li>
-        <li><span class="r-gem gem-rose"></span><span>Poor attitude toward viewers, ignoring or maliciously responding to viewer questions and feedback, seriously affecting user experience.</span></li>
-        <li><span class="r-gem gem-rose"></span><span>Live streaming environment consistently messy, impairing viewing experience, with no improvement after reminders.</span></li>
-        <li><span class="r-gem gem-rose"></span><span>Refusing to cooperate with operational team directives, such as declining participation in key events or failing to execute established strategies.</span></li>
-        <li><span class="r-gem gem-rose"></span><span>Frequent interruptions or poor video/audio quality during streams due to equipment or network issues, without implementing effective corrective measures.</span></li>
-        <li><span class="r-gem gem-rose"></span><span>Violating platform content policies, laws, or regulations, including disseminating harmful information or engaging in inappropriate speech or conduct.</span></li>
-        <li><span class="r-gem gem-rose"></span><span>If an old host makes a new ID and tries to get enrolled in the fixed policy, the ID will get <strong>banned and no compensation</strong> will be issued.</span></li>
+        <li><span class="r-gem gem-rose"></span><span data-t="removal-1">Failing to go live at scheduled times for extended periods, exhibiting passive work attitudes, or displaying obvious negativity during streams.</span></li>
+        <li><span class="r-gem gem-rose"></span><span data-t="removal-2">Poor attitude toward viewers, ignoring or maliciously responding to viewer questions and feedback, seriously affecting user experience.</span></li>
+        <li><span class="r-gem gem-rose"></span><span data-t="removal-3">Live streaming environment consistently messy, impairing viewing experience, with no improvement after reminders.</span></li>
+        <li><span class="r-gem gem-rose"></span><span data-t="removal-4">Refusing to cooperate with operational team directives, such as declining participation in key events or failing to execute established strategies.</span></li>
+        <li><span class="r-gem gem-rose"></span><span data-t="removal-5">Frequent interruptions or poor video/audio quality during streams due to equipment or network issues, without implementing effective corrective measures.</span></li>
+        <li><span class="r-gem gem-rose"></span><span data-t="removal-6">Violating platform content policies, laws, or regulations, including disseminating harmful information or engaging in inappropriate speech or conduct.</span></li>
+        <li><span class="r-gem gem-rose"></span><span data-t="removal-7">If an old host makes a new ID and tries to get enrolled in the fixed policy, the ID will get <strong>banned and no compensation</strong> will be issued.</span></li>
       </ul>
       <div class="alert-box">
-        <span class="al-label">⚠️ Ban Policy</span>
-        <strong>If a host gets banned 2 times a week, the host will be removed from the policy:</strong><br/>First ban → <span class="c-orange">1 day ban</span> &nbsp;|&nbsp; Second ban → <span class="c-rose">2 day ban</span>
+        <span class="al-label" data-t="ban-label">⚠️ Ban Policy</span>
+        <strong data-t="ban-text">If a host gets banned 2 times a week, the host will be removed from the policy:</strong><br/><span data-t="ban-detail">First ban → <span class="c-orange">1 day ban</span> &nbsp;|&nbsp; Second ban → <span class="c-rose">2 day ban</span></span>
       </div>
     </div>
   </div>
@@ -511,7 +513,10 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
 <!-- AGENCY -->
 <div class="page" id="page-agency">
   <header class="header">
-    <div class="logo-mark"><span class="logo-mark-inner">R</span></div>
+    <div class="logo-mark">
+      <img src="logo.png" alt="Rizz Live Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="logo-mark-inner" style="display:none">R</span>
+    </div>
     <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
     <div class="header-right">
       <div class="lang-drop" id="ld-agency">
@@ -524,19 +529,19 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
       </div>
     </div>
   </header>
-  <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
+  <div class="back-btn" onclick="goTo('page-home')" data-t="back">Back to Home</div>
   <div class="inner-hero">
-    <div class="inner-eyebrow">Agency Guidelines</div>
-    <h1 class="inner-title">AGENCY POLICY</h1>
+    <div class="inner-eyebrow" data-t="eyebrow-agency">Agency Guidelines</div>
+    <h1 class="inner-title" data-t="title-agency">AGENCY POLICY</h1>
     <div class="neon-divider"><div class="nd-line rev"></div><div class="nd-gem"></div><div class="nd-line"></div></div>
   </div>
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">01</div><div class="sec-title">Agency Commission Tiers</div><div class="sec-chev">›</div>
+      <div class="sec-num">01</div><div class="sec-title" data-t="agency-s1">Agency Commission Tiers</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <table class="lux-table">
-        <thead><tr><th>Level</th><th>Weekly Revenue (Ruby)</th><th>Commission</th></tr></thead>
+        <thead><tr><th data-t="th-level">Level</th><th data-t="th-weekly-rev">Weekly Revenue (Ruby)</th><th data-t="th-commission">Commission</th></tr></thead>
         <tbody>
           <tr><td class="c-purple">Level 1</td><td>Below 10M</td><td class="c-green">16.00%</td></tr>
           <tr><td class="c-purple">Level 2</td><td>10M – 30M</td><td class="c-green">18.00%</td></tr>
@@ -544,23 +549,23 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
         </tbody>
       </table>
       <div class="divider"></div>
-      <div class="sub-label">Requirements</div>
+      <div class="sub-label" data-t="sl-requirements">Requirements</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-cyan"></span><span>Agency must maintain at least <strong>5 active hosts</strong> every week</span></li>
-        <li><span class="r-gem gem-cyan"></span><span>Agency must encourage hosts to go live &amp; actively join platform events</span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="agency-req-1">Agency must maintain at least <strong>5 active hosts</strong> every week</span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="agency-req-2">Agency must encourage hosts to go live &amp; actively join platform events</span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-label">Weekly Task Period</div>
-      <div class="example-box"><span class="ex-label">⏰ Period</span>All weekly tasks are counted from <strong>Sunday 10:30 PM to Sunday 10:30 PM (IST)</strong>.</div>
+      <div class="sub-label" data-t="sl-task-period">Weekly Task Period</div>
+      <div class="example-box"><span class="ex-label">⏰ <span data-t="period-label">Period</span></span><span data-t="period-text">All weekly tasks are counted from <strong>Sunday 10:30 PM to Sunday 10:30 PM (IST)</strong>.</span></div>
     </div>
   </div>
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">02</div><div class="sec-title">Host Activation Salary</div><div class="sec-chev">›</div>
+      <div class="sec-num">02</div><div class="sec-title" data-t="agency-s2">Host Activation Salary</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <table class="lux-table">
-        <thead><tr><th>Level</th><th>Monthly Target</th><th>Active Hosts</th><th>Basic Pay</th></tr></thead>
+        <thead><tr><th data-t="th-level">Level</th><th data-t="th-monthly-target">Monthly Target</th><th data-t="th-active-hosts">Active Hosts</th><th data-t="th-basic-pay">Basic Pay</th></tr></thead>
         <tbody>
           <tr><td class="c-purple">L1</td><td>Below 10M</td><td>—</td><td>—</td></tr>
           <tr><td class="c-purple">L2</td><td>Above 10M</td><td class="c-cyan">20</td><td class="c-green">$25</td></tr>
@@ -570,54 +575,54 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
         </tbody>
       </table>
       <div class="divider"></div>
-      <div class="sub-label" style="color:var(--green)">Active Host Definition</div>
+      <div class="sub-label" style="color:var(--green)" data-t="sl-active-def">Active Host Definition</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-green"></span><span>At least <strong>10 valid days</strong> in a month</span></li>
-        <li><span class="r-gem gem-green"></span><span>At least <strong>20 valid hours</strong> in a month</span></li>
-        <li><span class="r-gem gem-green"></span><span>Minimum <strong>100,000 Rubies</strong> earned in gifts per month</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="active-1">At least <strong>10 valid days</strong> in a month</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="active-2">At least <strong>20 valid hours</strong> in a month</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="active-3">Minimum <strong>100,000 Rubies</strong> earned in gifts per month</span></li>
       </ul>
-      <div class="alert-box"><span class="al-label">⚠️ Important</span>Failure to meet either the monthly revenue target or active host requirement results in <strong>disqualification</strong> from the Host Activation Salary Program.</div>
+      <div class="alert-box"><span class="al-label" data-t="important-label">⚠️ Important</span><span data-t="active-alert">Failure to meet either the monthly revenue target or active host requirement results in <strong>disqualification</strong> from the Host Activation Salary Program.</span></div>
     </div>
   </div>
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">03</div><div class="sec-title">Commission Payout</div><div class="sec-chev">›</div>
+      <div class="sec-num">03</div><div class="sec-title" data-t="agency-s3">Commission Payout</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
-      <div class="example-box"><span class="ex-label">💰 Payout Schedule</span>All commissions are paid <strong>every Monday in Rubies</strong>.</div>
+      <div class="example-box"><span class="ex-label">💰 <span data-t="payout-schedule-label">Payout Schedule</span></span><span data-t="payout-schedule-text">All commissions are paid <strong>every Monday in Rubies</strong>.</span></div>
     </div>
   </div>
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">04</div><div class="sec-title">Withdrawal Rules</div><div class="sec-chev">›</div>
+      <div class="sec-num">04</div><div class="sec-title" data-t="agency-s4">Withdrawal Rules</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <ul class="rule-list">
-        <li><span class="r-gem gem-cyan"></span><span>Withdrawal requests may be submitted <strong>once per day</strong></span></li>
-        <li><span class="r-gem gem-cyan"></span><span>Minimum withdrawal amount: <span class="c-rose">$10 USD</span></span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="aw-1">Withdrawal requests may be submitted <strong>once per day</strong></span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="aw-2">Minimum withdrawal amount: <span class="c-rose">$10 USD</span></span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-label">Fee Structure</div>
+      <div class="sub-label" data-t="sl-fee">Fee Structure</div>
       <table class="lux-table">
-        <thead><tr><th>Withdrawal Amount</th><th>Fee</th></tr></thead>
+        <thead><tr><th data-t="th-amount">Withdrawal Amount</th><th data-t="th-fee">Fee</th></tr></thead>
         <tbody>
-          <tr><td>Less than $100</td><td class="c-rose">$2 flat per transaction</td></tr>
-          <tr><td>$100 and above</td><td class="c-rose">2% of withdrawal amount</td></tr>
+          <tr><td data-t="fee-1-label">Less than $100</td><td class="c-rose" data-t="fee-1-val">$2 flat per transaction</td></tr>
+          <tr><td data-t="fee-2-label">$100 and above</td><td class="c-rose" data-t="fee-2-val">2% of withdrawal amount</td></tr>
         </tbody>
       </table>
     </div>
   </div>
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">05</div><div class="sec-title">Agency Change Rules</div><div class="sec-chev">›</div>
+      <div class="sec-num">05</div><div class="sec-title" data-t="agency-s5">Agency Change Rules</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <ul class="rule-list">
-        <li><span class="r-gem gem-green"></span><span>No activity for <strong>120 days</strong></span></li>
-        <li><span class="r-gem gem-green"></span><span>Agency unreachable for <strong>2 weeks</strong></span></li>
-        <li><span class="r-gem gem-green"></span><span>Both agency and host <strong>mutually agree</strong> to the change</span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="ac-1">No activity for <strong>120 days</strong></span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="ac-2">Agency unreachable for <strong>2 weeks</strong></span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="ac-3">Both agency and host <strong>mutually agree</strong> to the change</span></li>
       </ul>
-      <div class="alert-box"><span class="al-label">⚠️ Important</span>Any fraudulent transfer attempts → <strong>Warning / Suspension / Permanent Ban</strong></div>
+      <div class="alert-box"><span class="al-label" data-t="important-label">⚠️ Important</span><span data-t="ac-alert">Any fraudulent transfer attempts → <strong>Warning / Suspension / Permanent Ban</strong></span></div>
     </div>
   </div>
   <div class="footer">© 2026 <span>RIZZ LIVE</span> · <span>All Rights Reserved</span></div>
@@ -626,7 +631,10 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
 <!-- COIN SELLER -->
 <div class="page" id="page-seller">
   <header class="header">
-    <div class="logo-mark"><span class="logo-mark-inner">R</span></div>
+    <div class="logo-mark">
+      <img src="logo.png" alt="Rizz Live Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="logo-mark-inner" style="display:none">R</span>
+    </div>
     <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
     <div class="header-right">
       <div class="lang-drop" id="ld-seller">
@@ -639,49 +647,49 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
       </div>
     </div>
   </header>
-  <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
+  <div class="back-btn" onclick="goTo('page-home')" data-t="back">Back to Home</div>
   <div class="inner-hero">
-    <div class="inner-eyebrow">Coin Seller Guidelines</div>
-    <h1 class="inner-title">COIN SELLER POLICY</h1>
+    <div class="inner-eyebrow" data-t="eyebrow-seller">Coin Seller Guidelines</div>
+    <h1 class="inner-title" data-t="title-seller">COIN SELLER POLICY</h1>
     <div class="neon-divider"><div class="nd-line rev"></div><div class="nd-gem"></div><div class="nd-line"></div></div>
   </div>
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num" style="font-size:14px">◆</div><div class="sec-title">Purpose</div><div class="sec-chev">›</div>
+      <div class="sec-num" style="font-size:14px">◆</div><div class="sec-title" data-t="seller-s0">Purpose</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
-      <p style="font-family:'Rajdhani',sans-serif;font-size:14px;color:rgba(200,210,255,0.72);line-height:1.8;">This policy outlines the eligibility requirements, operational standards, and performance expectations for agencies applying to become <strong style="color:var(--cyan2)">Official Coin Sellers</strong> on the RIZZ LIVE platform.</p>
+      <p style="font-family:'Rajdhani',sans-serif;font-size:14px;color:rgba(200,210,255,0.72);line-height:1.8;" data-t="seller-purpose">This policy outlines the eligibility requirements, operational standards, and performance expectations for agencies applying to become <strong style="color:var(--cyan2)">Official Coin Sellers</strong> on the RIZZ LIVE platform.</p>
     </div>
   </div>
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">01</div><div class="sec-title">Eligibility Criteria</div><div class="sec-chev">›</div>
+      <div class="sec-num">01</div><div class="sec-title" data-t="seller-s1">Eligibility Criteria</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
-      <div class="sub-label">Minimum Requirement</div>
-      <div class="example-box"><span class="ex-label">📌 Qualification Threshold</span>Agencies must generate <strong>50,000,000 Coins (50M)</strong> monthly revenue to qualify as an Official Coin Seller.</div>
+      <div class="sub-label" data-t="sl-min-req">Minimum Requirement</div>
+      <div class="example-box"><span class="ex-label">📌 <span data-t="qualify-label">Qualification Threshold</span></span><span data-t="qualify-text">Agencies must generate <strong>50,000,000 Coins (50M)</strong> monthly revenue to qualify as an Official Coin Seller.</span></div>
       <div class="divider"></div>
-      <div class="sub-label">Security Deposit Option</div>
+      <div class="sub-label" data-t="sl-deposit">Security Deposit Option</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-cyan"></span><span>Agencies below the 50M target may apply with a <strong>$1,000 security deposit</strong></span></li>
-        <li><span class="r-gem gem-green"></span><span>Deposit is <strong>fully refunded</strong> once the monthly target is achieved</span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="deposit-1">Agencies below the 50M target may apply with a <strong>$1,000 security deposit</strong></span></li>
+        <li><span class="r-gem gem-green"></span><span data-t="deposit-2">Deposit is <strong>fully refunded</strong> once the monthly target is achieved</span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-label">Maintenance Requirement</div>
+      <div class="sub-label" data-t="sl-maintain">Maintenance Requirement</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-cyan"></span><span>Approved sellers must sustain <strong>50M monthly revenue</strong></span></li>
-        <li><span class="r-gem gem-rose"></span><span>Failure for <strong>two consecutive months</strong> may result in seller status revocation</span></li>
+        <li><span class="r-gem gem-cyan"></span><span data-t="maintain-1">Approved sellers must sustain <strong>50M monthly revenue</strong></span></li>
+        <li><span class="r-gem gem-rose"></span><span data-t="maintain-2">Failure for <strong>two consecutive months</strong> may result in seller status revocation</span></li>
       </ul>
     </div>
   </div>
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">02</div><div class="sec-title">Buying Price Structure</div><div class="sec-chev">›</div>
+      <div class="sec-num">02</div><div class="sec-title" data-t="seller-s2">Buying Price Structure</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
-      <p style="font-family:'Rajdhani',sans-serif;font-size:12px;color:var(--text-dim);margin-bottom:8px;">Top-up must be made via <strong style="color:#fff">USDT</strong>.</p>
+      <p style="font-family:'Rajdhani',sans-serif;font-size:12px;color:var(--text-dim);margin-bottom:8px;" data-t="topup-note">Top-up must be made via <strong style="color:#fff">USDT</strong>.</p>
       <table class="lux-table">
-        <thead><tr><th>Top-Up (USD)</th><th>Buy Ratio</th><th>Total Coins</th></tr></thead>
+        <thead><tr><th data-t="th-topup">Top-Up (USD)</th><th data-t="th-buy-ratio">Buy Ratio</th><th data-t="th-total-coins">Total Coins</th></tr></thead>
         <tbody>
           <tr><td class="c-pink">$2,000</td><td class="c-cyan">9,000 / $</td><td class="c-green">18,000,000</td></tr>
           <tr><td class="c-pink">$5,000</td><td class="c-cyan">9,200 / $</td><td class="c-green">46,000,000</td></tr>
@@ -691,22 +699,22 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
   </div>
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">03</div><div class="sec-title">Selling Price Structure</div><div class="sec-chev">›</div>
+      <div class="sec-num">03</div><div class="sec-title" data-t="seller-s3">Selling Price Structure</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <table class="lux-table">
-        <thead><tr><th>Channel</th><th>Sell Ratio / $</th></tr></thead>
+        <thead><tr><th data-t="th-channel">Channel</th><th data-t="th-sell-ratio">Sell Ratio / $</th></tr></thead>
         <tbody>
-          <tr><td>Offline Sales</td><td class="c-pink">8,300</td></tr>
-          <tr><td>Online Sales</td><td class="c-cyan">5,000</td></tr>
+          <tr><td data-t="offline-label">Offline Sales</td><td class="c-pink">8,300</td></tr>
+          <tr><td data-t="online-label">Online Sales</td><td class="c-cyan">5,000</td></tr>
         </tbody>
       </table>
       <div class="divider"></div>
-      <div class="sub-label" style="color:var(--pink2)">Selling Policy</div>
+      <div class="sub-label" style="color:var(--pink2)" data-t="sl-sell-policy">Selling Policy</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-rose"></span><span>Coin Sellers must <strong>NOT sell above</strong> the approved offline ratio of <strong>8,300</strong></span></li>
+        <li><span class="r-gem gem-rose"></span><span data-t="sell-policy-text">Coin Sellers must <strong>NOT sell above</strong> the approved offline ratio of <strong>8,300</strong></span></li>
       </ul>
-      <div class="alert-box"><span class="al-label">⚠️ Violation Penalty</span><strong>$100 fine</strong> + equivalent coin deduction from seller's wallet.<br/><br/><strong>Repeated violations:</strong> Suspension or permanent removal from the Official Coin Seller Program.</div>
+      <div class="alert-box"><span class="al-label" data-t="violation-label">⚠️ Violation Penalty</span><strong data-t="violation-fine">$100 fine</strong><span data-t="violation-text"> + equivalent coin deduction from seller's wallet.<br/><br/></span><strong data-t="violation-repeat">Repeated violations:</strong><span data-t="violation-repeat-text"> Suspension or permanent removal from the Official Coin Seller Program.</span></div>
     </div>
   </div>
   <div class="footer">© 2026 <span>RIZZ LIVE</span> · <span>All Rights Reserved</span></div>
@@ -715,7 +723,10 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
 <!-- REGISTRATION -->
 <div class="page" id="page-registration">
   <header class="header">
-    <div class="logo-mark"><span class="logo-mark-inner">R</span></div>
+    <div class="logo-mark">
+      <img src="logo.png" alt="Rizz Live Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="logo-mark-inner" style="display:none">R</span>
+    </div>
     <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
     <div class="header-right">
       <div class="lang-drop" id="ld-registration">
@@ -728,55 +739,60 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
       </div>
     </div>
   </header>
-  <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
+  <div class="back-btn" onclick="goTo('page-home')" data-t="back">Back to Home</div>
   <div class="inner-hero">
-    <div class="inner-eyebrow">Partnership</div>
-    <h1 class="inner-title">AGENCY REGISTRATION</h1>
+    <div class="inner-eyebrow" data-t="eyebrow-reg">Partnership</div>
+    <h1 class="inner-title" data-t="title-reg">AGENCY REGISTRATION</h1>
     <div class="neon-divider"><div class="nd-line rev"></div><div class="nd-gem"></div><div class="nd-line"></div></div>
   </div>
   <div class="reg-form-card">
     <div class="reg-form-header">
       <div class="reg-form-header-icon">🏢</div>
-      <div><div class="reg-form-header-title">Agency Registration Form</div><div class="reg-form-header-sub">Complete all required fields to apply</div></div>
+      <div>
+        <div class="reg-form-header-title" data-t="form-title">Agency Registration Form</div>
+        <div class="reg-form-header-sub" data-t="form-sub">Complete all required fields to apply</div>
+      </div>
     </div>
     <div class="reg-form-body" id="reg-form-body">
       <div class="field-row">
         <div class="field-group">
-          <label class="field-label" for="f-supervisor"><span>Supervisor</span><span class="field-required">* Required</span></label>
+          <label class="field-label" for="f-supervisor"><span data-t="field-supervisor">Supervisor</span><span class="field-required" data-t="required">* Required</span></label>
           <select class="neon-select" id="f-supervisor" required onchange="onSupervisorChange()">
-            <option value="" disabled selected>Select…</option>
+            <option value="" disabled selected data-t="select-placeholder">Select…</option>
             <option value="Ray-IN">Ray-IN</option>
           </select>
-          <span class="field-err" id="err-supervisor">Please select a supervisor.</span>
+          <span class="field-err" id="err-supervisor" data-t="err-supervisor">Please select a supervisor.</span>
         </div>
         <div class="field-group">
-          <label class="field-label" for="f-admin"><span>Admin</span><span class="field-optional">Optional</span></label>
-          <select class="neon-select" id="f-admin" disabled><option value="">— Select supervisor first —</option></select>
+          <label class="field-label" for="f-admin"><span data-t="field-admin">Admin</span><span class="field-optional" data-t="optional">Optional</span></label>
+          <select class="neon-select" id="f-admin" disabled>
+            <option value="" data-t="admin-placeholder">— Select supervisor first —</option>
+          </select>
         </div>
       </div>
       <div class="form-divider"></div>
       <div class="field-group">
-        <label class="field-label" for="f-leader"><span>Agency Leader Name</span><span class="field-required">* Required</span></label>
+        <label class="field-label" for="f-leader"><span data-t="field-leader">Agency Leader Name</span><span class="field-required" data-t="required">* Required</span></label>
         <input class="neon-input" type="text" id="f-leader" placeholder="Enter your full name" required autocomplete="name"/>
-        <span class="field-err" id="err-leader">Please enter the agency leader name.</span>
+        <span class="field-err" id="err-leader" data-t="err-leader">Please enter the agency leader name.</span>
       </div>
       <div class="field-group">
-        <label class="field-label" for="f-agency"><span>Agency Name</span></label>
+        <label class="field-label" for="f-agency"><span data-t="field-agency">Agency Name</span></label>
         <input class="neon-input" type="text" id="f-agency" placeholder="Your agency or team name"/>
       </div>
       <div class="form-divider"></div>
       <div class="field-group">
-        <label class="field-label" for="f-rizzid"><span>Rizz Live ID</span><span class="field-required">* Required</span></label>
+        <label class="field-label" for="f-rizzid"><span data-t="field-rizzid">Rizz Live ID</span><span class="field-required" data-t="required">* Required</span></label>
         <input class="neon-input" type="text" id="f-rizzid" placeholder="e.g. RL123456" autocomplete="off"/>
       </div>
       <div class="field-group">
-        <label class="field-label" for="f-whatsapp"><span>WhatsApp Number</span><span class="field-required">* Required</span></label>
+        <label class="field-label" for="f-whatsapp"><span data-t="field-whatsapp">WhatsApp Number</span><span class="field-required" data-t="required">* Required</span></label>
         <input class="neon-input" type="tel" id="f-whatsapp" placeholder="e.g. +919876543210" inputmode="tel" autocomplete="tel"/>
       </div>
       <div class="field-group">
-        <label class="field-label" for="f-country"><span>Country</span><span class="field-required">* Required</span></label>
+        <label class="field-label" for="f-country"><span data-t="field-country">Country</span><span class="field-required" data-t="required">* Required</span></label>
         <select class="neon-select" id="f-country">
-          <option value="">Select country…</option>
+          <option value="" data-t="country-placeholder">Select country…</option>
           <option value="India">India 🇮🇳</option>
           <option value="Bangladesh">Bangladesh 🇧🇩</option>
           <option value="Nepal">Nepal 🇳🇵</option>
@@ -787,17 +803,17 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
         </select>
       </div>
       <button class="submit-btn" id="reg-submit-btn" onclick="submitRegForm()">
-        <span id="reg-btn-label">✦ &nbsp; Submit Application</span>
+        <span id="reg-btn-label" data-t="submit-btn">✦ &nbsp; Submit Application</span>
       </button>
       <div class="form-msg success" id="reg-success">
         <span class="form-msg-icon">✅</span>
-        <span class="form-msg-title">Application Submitted!</span>
-        <span>Your registration has been sent successfully.<br/>Our team will review and reach out to you shortly.</span>
+        <span class="form-msg-title" data-t="success-title">Application Submitted!</span>
+        <span data-t="success-text">Your registration has been sent successfully.<br/>Our team will review and reach out to you shortly.</span>
       </div>
       <div class="form-msg error" id="reg-error">
         <span class="form-msg-icon">⚠️</span>
-        <span class="form-msg-title">Submission Failed</span>
-        <span id="reg-error-text">Something went wrong. Please try again.</span>
+        <span class="form-msg-title" data-t="error-title">Submission Failed</span>
+        <span id="reg-error-text" data-t="error-text">Something went wrong. Please try again.</span>
       </div>
     </div>
   </div>
@@ -807,7 +823,10 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
 <!-- CONTACT -->
 <div class="page" id="page-contact">
   <header class="header">
-    <div class="logo-mark"><span class="logo-mark-inner">R</span></div>
+    <div class="logo-mark">
+      <img src="logo.png" alt="Rizz Live Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="logo-mark-inner" style="display:none">R</span>
+    </div>
     <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
     <div class="header-right">
       <div class="lang-drop" id="ld-contact">
@@ -820,27 +839,27 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
       </div>
     </div>
   </header>
-  <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
+  <div class="back-btn" onclick="goTo('page-home')" data-t="back">Back to Home</div>
   <div class="inner-hero">
-    <div class="inner-eyebrow">Direct Contact</div>
-    <h1 class="inner-title">COUNTRY MANAGER</h1>
+    <div class="inner-eyebrow" data-t="eyebrow-contact">Direct Contact</div>
+    <h1 class="inner-title" data-t="title-contact">COUNTRY MANAGER</h1>
     <p style="font-family:'Rajdhani',sans-serif;font-size:14px;color:var(--pink2);letter-spacing:2px;margin-top:4px;">Ray-IN · India</p>
     <div class="neon-divider"><div class="nd-line rev"></div><div class="nd-gem"></div><div class="nd-line"></div></div>
   </div>
   <div class="sec-card" style="margin-top:14px">
     <div class="sec-hdr" style="cursor:default;min-height:auto">
       <div class="sec-num">🇮🇳</div>
-      <div class="sec-title">India Country Manager</div>
+      <div class="sec-title" data-t="contact-title">India Country Manager</div>
     </div>
     <div class="sec-body open">
-      <p style="font-family:'Rajdhani',sans-serif;font-size:13px;color:var(--text-dim);margin-bottom:13px;">For queries, support, and partnership — reach out directly on WhatsApp:</p>
+      <p style="font-family:'Rajdhani',sans-serif;font-size:13px;color:var(--text-dim);margin-bottom:13px;" data-t="contact-desc">For queries, support, and partnership — reach out directly on WhatsApp:</p>
       <a href="https://wa.me/919286766608" target="_blank" rel="noopener" class="contact-link">
         <div style="width:46px;height:46px;border-radius:13px;background:rgba(0,30,18,0.8);border:1px solid rgba(0,255,157,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 18px rgba(0,255,157,0.12);">
           <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </div>
         <div style="flex:1;min-width:0">
           <div style="font-family:'Orbitron',monospace;font-weight:800;font-size:14px;color:#25d366;letter-spacing:0.5px">Ray-IN</div>
-          <div style="font-family:'Rajdhani',sans-serif;font-size:11px;color:var(--text-dim);margin-top:2px;">Tap to open WhatsApp</div>
+          <div style="font-family:'Rajdhani',sans-serif;font-size:11px;color:var(--text-dim);margin-top:2px;" data-t="tap-whatsapp">Tap to open WhatsApp</div>
         </div>
         <div style="color:rgba(0,255,157,0.45);font-size:22px;flex-shrink:0">›</div>
       </a>
@@ -855,70 +874,352 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
 const APPS_SCRIPT_URL='https://script.google.com/macros/s/AKfycbzjC77trLR_qwia78wzV2V9W-OfnECstMB2wcH44fhlPjiQUFvoupDQqMnBbCSGoi9Liw/exec';
 const SUPERVISOR_ADMINS={'Ray-IN':['Rajesh-IN','Bunny-IN','Dhakadking-IN']};
 
-function setLang(lang){
-  const TRANSLATIONS = {
+/* ─── TRANSLATION DATA ─── */
+const T = {
   en: {
-    'nav-host': 'Host Policy',
-    'nav-agency': 'Agency Policy',
-    'nav-seller': 'Coin Seller Policy',
-    'nav-reg': 'Agency Registration',
-    'nav-contact': 'Contact Country Manager',
-    'nav-updates': 'Daily Updates',
-    'hero-sub': 'Select a document to view full terms & guidelines',
-    'stat-return': 'Host Return',
-    'stat-commission': 'Agency Commission',
-    'stat-bonus': 'Online Bonus',
+    'hero-badge':'Official Policy Documents',
+    'policy-center':'POLICY CENTER',
+    'hero-sub':'Select a document to view full terms & guidelines',
+    'stat-return':'Host Return','stat-commission':'Agency Commission','stat-bonus':'Online Bonus',
+    'nav-host':'Host Policy','nav-host-desc':'Salary, bonuses & streaming guidelines',
+    'nav-agency':'Agency Policy','nav-agency-desc':'Commission tiers & partnership terms',
+    'nav-seller':'Coin Seller Policy','nav-seller-desc':'Official coin seller guidelines & rates',
+    'nav-reg':'Agency Registration','nav-reg-desc':'Apply to become a partner agency',
+    'nav-contact':'Contact Country Manager','nav-contact-desc':'India manager direct contact',
+    'nav-updates':'Daily Updates','nav-updates-desc':'Join our WhatsApp channel',
+    'back':'Back to Home',
+    'eyebrow-host':'Host Guidelines','title-host':'HOST POLICY',
+    'eyebrow-agency':'Agency Guidelines','title-agency':'AGENCY POLICY',
+    'eyebrow-seller':'Coin Seller Guidelines','title-seller':'COIN SELLER POLICY',
+    'eyebrow-reg':'Partnership','title-reg':'AGENCY REGISTRATION',
+    'eyebrow-contact':'Direct Contact','title-contact':'COUNTRY MANAGER',
+    'host-s1':'Host Base Policy','host-s2':'Game Commission','host-s3':'Rookie Host Guarantee Policy','host-s4':'Prestige Category Host Guarantee Policy',
+    'agency-s1':'Agency Commission Tiers','agency-s2':'Host Activation Salary','agency-s3':'Commission Payout','agency-s4':'Withdrawal Rules','agency-s5':'Agency Change Rules',
+    'seller-s0':'Purpose','seller-s1':'Eligibility Criteria','seller-s2':'Buying Price Structure','seller-s3':'Selling Price Structure',
+    'th-basic-share':'Basic Share','th-valid-hour':'Valid Hour','th-valid-days':'Valid Days','th-online-bonus':'Online Bonus','th-total':'Total',
+    'sl-exchange':'Currency Exchange Rate','sl-gift':'Gift Sharing Rules','sl-task-period':'Task Counting Period',
+    'sl-income':'Income Sources Counted Towards Weekly Tasks','sl-valid-day':'Valid Day Definition','sl-valid-dur':'Valid Duration Definition',
+    'sl-bonus-rules':'Additional Bonus Rules','sl-payout':'Bonus Payout Time','sl-withdraw':'Withdrawal Rules',
+    'sl-agency-change':'Rules for Hosts Changing Agency','sl-salary':'Salary Calculation','sl-requirements':'Requirements','sl-removal':'Grounds for Removal from Guarantee',
+    'sl-active-def':'Active Host Definition','sl-fee':'Fee Structure','sl-min-req':'Minimum Requirement','sl-deposit':'Security Deposit Option','sl-maintain':'Maintenance Requirement',
+    'sl-sell-policy':'Selling Policy','key-rule':'⚡ Key Rule','ban-label':'⚠️ Ban Policy','important-label':'⚠️ Important','violation-label':'⚠️ Violation Penalty',
+    'gift-hot':'Hot Gift:','gift-lux':'Luxury Gift:','gift-lucky':'Lucky Gift:',
+    'th-game-coin':'Game Coin','th-bonus-ruby':'Bonus Ruby','th-cycle':'Cycle','th-weekly-ruby':'Weekly Ruby Task',
+    'th-valid-days2':'Valid Days','th-valid-hour2':'Valid Hour','th-guarantee':'Guarantee',
+    'th-level':'Level','th-weekly-rev':'Weekly Revenue (Ruby)','th-commission':'Commission',
+    'th-monthly-target':'Monthly Target','th-active-hosts':'Active Hosts','th-basic-pay':'Basic Pay',
+    'th-amount':'Withdrawal Amount','th-fee':'Fee','th-topup':'Top-Up (USD)','th-buy-ratio':'Buy Ratio','th-total-coins':'Total Coins',
+    'th-channel':'Channel','th-sell-ratio':'Sell Ratio / $',
+    'period-label':'Period','period-text':'All weekly tasks are counted from <strong>Sunday 10:30 PM to Sunday 10:30 PM (IST)</strong>.',
+    'payout-schedule-label':'Payout Schedule','payout-schedule-text':'All commissions are paid <strong>every Monday in Rubies</strong>.',
+    'qualify-label':'Qualification Threshold','qualify-text':'Agencies must generate <strong>50,000,000 Coins (50M)</strong> monthly revenue to qualify as an Official Coin Seller.',
+    'topup-note':'Top-up must be made via <strong style="color:#fff">USDT</strong>.',
+    'offline-label':'Offline Sales','online-label':'Online Sales',
+    'fee-1-label':'Less than $100','fee-1-val':'$2 flat per transaction','fee-2-label':'$100 and above','fee-2-val':'2% of withdrawal amount',
+    'form-title':'Agency Registration Form','form-sub':'Complete all required fields to apply',
+    'field-supervisor':'Supervisor','field-admin':'Admin','field-leader':'Agency Leader Name','field-agency':'Agency Name',
+    'field-rizzid':'Rizz Live ID','field-whatsapp':'WhatsApp Number','field-country':'Country',
+    'required':'* Required','optional':'Optional','select-placeholder':'Select…','admin-placeholder':'— Select supervisor first —','country-placeholder':'Select country…',
+    'err-supervisor':'Please select a supervisor.','err-leader':'Please enter the agency leader name.',
+    'submit-btn':'✦   Submit Application',
+    'success-title':'Application Submitted!','success-text':'Your registration has been sent successfully.<br/>Our team will review and reach out to you shortly.',
+    'error-title':'Submission Failed','error-text':'Something went wrong. Please try again.',
+    'contact-title':'India Country Manager','contact-desc':'For queries, support, and partnership — reach out directly on WhatsApp:','tap-whatsapp':'Tap to open WhatsApp',
+    'task-period-text':'Weekly task counting period is from <strong>Sunday 10:30 PM to Sunday 10:30 PM (UTC+7)</strong>',
+    'income-text':'Ruby generated from <strong>Luxury Gifts, Lucky Gifts</strong>, users purchasing <strong>VIP membership</strong>, and ticket revenue from <strong>ticket rooms</strong> are all counted toward weekly task targets.',
+    'valid-day-text':'A day is counted as one valid day if the cumulative live streaming duration exceeds <strong>120 minutes</strong>.',
+    'valid-dur-text':'Cumulative live streaming duration exceeding <strong>60 minutes</strong> is counted as one valid hour. A single live session less than <strong>30 minutes</strong> is not counted toward valid duration.',
+    'bonus-rules-text':'Failure to complete the required live streaming duration tasks will result in <strong>ineligibility for the online bonus</strong>.',
+    'payout-text':'Bonuses will be automatically credited to the host\'s account in <strong>Ruby every Monday</strong>.',
+    'withdraw-1':'Withdrawal requests can be submitted <strong>once per day</strong>.','withdraw-2':'Minimum withdrawal amount is <span class="c-rose">$10 USD</span>.',
+    'agency-change-1':'If a host does not live for more than <strong>120 days</strong>, the platform will verify and then terminate the binding relationship with the old agency, allowing the host to join a new agency.',
+    'agency-change-2':'If a host cannot contact the agency head for <strong>two consecutive weeks</strong> (including but not limited to phone, email, social media, etc.), the host may apply to change agency.',
+    'agency-change-3':'If both the host and the agency <strong>mutually agree</strong> to the host changing agency, the transfer can proceed directly.',
+    'agency-change-4':'If any live is found to engage in <strong>malicious conduct</strong> during the agency transfer process (such as intentional disappearance, fraudulent applications, etc.), the platform may issue warnings, suspend accounts, impose permanent bans, or other penalties.',
+    'game-1':'When users participate in games in the host\'s live room, for every <strong>1,000 coins</strong> wagered, the host receives <strong>1 Ruby</strong> as a reward.',
+    'game-2':'Commission income from games is <strong>NOT counted</strong> toward the host\'s weekly task income target.',
+    'game-3':'After each game session ends, the system will credit the corresponding Ruby reward to the host\'s account in <strong>real time</strong>.',
+    'rookie-1':'Each new host must pass <strong>operational review and approval</strong> upon joining the platform to be eligible for the guarantee policy during the first four weeks.',
+    'rookie-2':'Approved new hosts have <strong>no minimum task requirement</strong> in the first week and will receive the guarantee policy regardless of task completion.',
+    'rookie-3':'From Week 2 onward: Week 2: <strong>50,000</strong> · Week 3: <strong>100,000</strong> · Week 4: <strong>150,000 Ruby</strong>',
+    'rookie-4':'From <strong>Week 5 onward</strong>, only the <strong>basic policy</strong> applies.',
+    'rookie-warn':'Failure to complete a weekly task does NOT affect eligibility for the guarantee policy in the following week.',
+    'rookie-warn-ex':'Example: If Week 2 task is not completed, salary is per basic policy — but if Week 3 task of 150,000 Ruby is completed, the host remains eligible for the Week 3 guarantee.',
+    'salary-1':'If a host fails to meet the duration and task requirements, salary is calculated according to the <strong>basic policy</strong>.',
+    'salary-2':'For outstanding performers, the host manager may adjust their task stage at their discretion (e.g., a well-performing Stage C host may be promoted to <strong>Stage A</strong>).',
+    'prestige-1':'Hosts must pass <strong>official operational review</strong>; only those meeting the corresponding requirements are eligible for this guarantee policy.',
+    'prestige-2':'Approved new hosts have <strong>no minimum task requirement</strong> in the first week.',
+    'prestige-3':'Week 5 and beyond: weekly target is <strong>300,000 Ruby</strong>',
+    'prestige-warn':'Failure to complete a weekly task does NOT affect eligibility for the guarantee policy in the following week.',
+    'prestige-warn-ex':'If Week 2 task is not completed, salary is per basic policy — but if Week 3 task of 150,000 Ruby is completed, the host remains eligible for the Week 3 guarantee.',
+    'req-1':'Good image, neat appearance, appropriate attire, aligning with platform positioning.',
+    'req-2':'Serious attitude toward live streaming work, adherence to live schedules, ensuring broadcast duration.',
+    'req-3':'Clean and tidy live background, no clutter, ensuring clear video and audio.',
+    'req-4':'Active interaction, timely responses to audience comments and questions.',
+    'req-5':'Cooperation with VIVA operational team requirements, active participation in platform-organized activities.',
+    'req-6':'The host needs to do the broadcast between <strong>6 PM to 11:59 PM mandatory</strong>.',
+    'removal-1':'Failing to go live at scheduled times for extended periods, exhibiting passive work attitudes, or displaying obvious negativity during streams.',
+    'removal-2':'Poor attitude toward viewers, ignoring or maliciously responding to viewer questions and feedback, seriously affecting user experience.',
+    'removal-3':'Live streaming environment consistently messy, impairing viewing experience, with no improvement after reminders.',
+    'removal-4':'Refusing to cooperate with operational team directives, such as declining participation in key events or failing to execute established strategies.',
+    'removal-5':'Frequent interruptions or poor video/audio quality during streams due to equipment or network issues, without implementing effective corrective measures.',
+    'removal-6':'Violating platform content policies, laws, or regulations, including disseminating harmful information or engaging in inappropriate speech or conduct.',
+    'removal-7':'If an old host makes a new ID and tries to get enrolled in the fixed policy, the ID will get <strong>banned and no compensation</strong> will be issued.',
+    'ban-text':'If a host gets banned 2 times a week, the host will be removed from the policy:',
+    'ban-detail':'First ban → <span class="c-orange">1 day ban</span> &nbsp;|&nbsp; Second ban → <span class="c-rose">2 day ban</span>',
+    'agency-req-1':'Agency must maintain at least <strong>5 active hosts</strong> every week',
+    'agency-req-2':'Agency must encourage hosts to go live &amp; actively join platform events',
+    'active-1':'At least <strong>10 valid days</strong> in a month','active-2':'At least <strong>20 valid hours</strong> in a month','active-3':'Minimum <strong>100,000 Rubies</strong> earned in gifts per month',
+    'active-alert':'Failure to meet either the monthly revenue target or active host requirement results in <strong>disqualification</strong> from the Host Activation Salary Program.',
+    'aw-1':'Withdrawal requests may be submitted <strong>once per day</strong>','aw-2':'Minimum withdrawal amount: <span class="c-rose">$10 USD</span>',
+    'ac-1':'No activity for <strong>120 days</strong>','ac-2':'Agency unreachable for <strong>2 weeks</strong>','ac-3':'Both agency and host <strong>mutually agree</strong> to the change',
+    'ac-alert':'Any fraudulent transfer attempts → <strong>Warning / Suspension / Permanent Ban</strong>',
+    'seller-purpose':'This policy outlines the eligibility requirements, operational standards, and performance expectations for agencies applying to become <strong style="color:var(--cyan2)">Official Coin Sellers</strong> on the RIZZ LIVE platform.',
+    'deposit-1':'Agencies below the 50M target may apply with a <strong>$1,000 security deposit</strong>','deposit-2':'Deposit is <strong>fully refunded</strong> once the monthly target is achieved',
+    'maintain-1':'Approved sellers must sustain <strong>50M monthly revenue</strong>','maintain-2':'Failure for <strong>two consecutive months</strong> may result in seller status revocation',
+    'sell-policy-text':'Coin Sellers must <strong>NOT sell above</strong> the approved offline ratio of <strong>8,300</strong>',
+    'violation-fine':'$100 fine','violation-text':' + equivalent coin deduction from seller\'s wallet.<br/><br/>',
+    'violation-repeat':'Repeated violations:','violation-repeat-text':' Suspension or permanent removal from the Official Coin Seller Program.',
+    'sl-active-def':'Active Host Definition',
   },
   hi: {
-    'nav-host': 'होस्ट पॉलिसी',
-    'nav-agency': 'एजेंसी पॉलिसी',
-    'nav-seller': 'कॉइन सेलर पॉलिसी',
-    'nav-reg': 'एजेंसी रजिस्ट्रेशन',
-    'nav-contact': 'कंट्री मैनेजर से संपर्क',
-    'nav-updates': 'डेली अपडेट्स',
-    'hero-sub': 'नियम और दिशानिर्देश देखने के लिए दस्तावेज़ चुनें',
-    'stat-return': 'होस्ट रिटर्न',
-    'stat-commission': 'एजेंसी कमीशन',
-    'stat-bonus': 'ऑनलाइन बोनस',
+    'hero-badge':'आधिकारिक नीति दस्तावेज़',
+    'policy-center':'पॉलिसी केंद्र',
+    'hero-sub':'नियम और दिशानिर्देश देखने के लिए दस्तावेज़ चुनें',
+    'stat-return':'होस्ट रिटर्न','stat-commission':'एजेंसी कमीशन','stat-bonus':'ऑनलाइन बोनस',
+    'nav-host':'होस्ट पॉलिसी','nav-host-desc':'सैलरी, बोनस और स्ट्रीमिंग गाइडलाइन',
+    'nav-agency':'एजेंसी पॉलिसी','nav-agency-desc':'कमीशन टियर और पार्टनरशिप शर्तें',
+    'nav-seller':'कॉइन सेलर पॉलिसी','nav-seller-desc':'आधिकारिक कॉइन सेलर गाइडलाइन और रेट',
+    'nav-reg':'एजेंसी रजिस्ट्रेशन','nav-reg-desc':'पार्टनर एजेंसी बनने के लिए आवेदन करें',
+    'nav-contact':'कंट्री मैनेजर से संपर्क','nav-contact-desc':'इंडिया मैनेजर से सीधा संपर्क',
+    'nav-updates':'डेली अपडेट्स','nav-updates-desc':'हमारे WhatsApp चैनल से जुड़ें',
+    'back':'होम पर वापस जाएं',
+    'eyebrow-host':'होस्ट दिशानिर्देश','title-host':'होस्ट पॉलिसी',
+    'eyebrow-agency':'एजेंसी दिशानिर्देश','title-agency':'एजेंसी पॉलिसी',
+    'eyebrow-seller':'कॉइन सेलर दिशानिर्देश','title-seller':'कॉइन सेलर पॉलिसी',
+    'eyebrow-reg':'पार्टनरशिप','title-reg':'एजेंसी रजिस्ट्रेशन',
+    'eyebrow-contact':'सीधा संपर्क','title-contact':'कंट्री मैनेजर',
+    'host-s1':'होस्ट बेस पॉलिसी','host-s2':'गेम कमीशन','host-s3':'नए होस्ट गारंटी पॉलिसी','host-s4':'प्रेस्टीज होस्ट गारंटी पॉलिसी',
+    'agency-s1':'एजेंसी कमीशन टियर','agency-s2':'होस्ट एक्टिवेशन सैलरी','agency-s3':'कमीशन भुगतान','agency-s4':'निकासी नियम','agency-s5':'एजेंसी बदलने के नियम',
+    'seller-s0':'उद्देश्य','seller-s1':'पात्रता मानदंड','seller-s2':'खरीद मूल्य संरचना','seller-s3':'बिक्री मूल्य संरचना',
+    'th-basic-share':'बेसिक शेयर','th-valid-hour':'वैलिड घंटे','th-valid-days':'वैलिड दिन','th-online-bonus':'ऑनलाइन बोनस','th-total':'कुल',
+    'sl-exchange':'करेंसी एक्सचेंज रेट','sl-gift':'गिफ्ट शेयरिंग नियम','sl-task-period':'टास्क काउंटिंग पीरियड',
+    'sl-income':'साप्ताहिक टास्क में गिने जाने वाले आय स्रोत','sl-valid-day':'वैलिड दिन की परिभाषा','sl-valid-dur':'वैलिड अवधि की परिभाषा',
+    'sl-bonus-rules':'अतिरिक्त बोनस नियम','sl-payout':'बोनस भुगतान समय','sl-withdraw':'निकासी नियम',
+    'sl-agency-change':'एजेंसी बदलने के नियम','sl-salary':'सैलरी गणना','sl-requirements':'आवश्यकताएं','sl-removal':'गारंटी से हटाने के कारण',
+    'sl-active-def':'एक्टिव होस्ट की परिभाषा','sl-fee':'शुल्क संरचना','sl-min-req':'न्यूनतम आवश्यकता','sl-deposit':'सुरक्षा जमा विकल्प','sl-maintain':'रखरखाव आवश्यकता',
+    'sl-sell-policy':'बिक्री नीति','key-rule':'⚡ मुख्य नियम','ban-label':'⚠️ बैन पॉलिसी','important-label':'⚠️ महत्वपूर्ण','violation-label':'⚠️ उल्लंघन दंड',
+    'gift-hot':'हॉट गिफ्ट:','gift-lux':'लक्ज़री गिफ्ट:','gift-lucky':'लकी गिफ्ट:',
+    'th-game-coin':'गेम कॉइन','th-bonus-ruby':'बोनस रूबी','th-cycle':'साइकिल','th-weekly-ruby':'साप्ताहिक रूबी टास्क',
+    'th-valid-days2':'वैलिड दिन','th-valid-hour2':'वैलिड घंटे','th-guarantee':'गारंटी',
+    'th-level':'लेवल','th-weekly-rev':'साप्ताहिक राजस्व (रूबी)','th-commission':'कमीशन',
+    'th-monthly-target':'मासिक लक्ष्य','th-active-hosts':'एक्टिव होस्ट','th-basic-pay':'बेसिक पे',
+    'th-amount':'निकासी राशि','th-fee':'शुल्क','th-topup':'टॉप-अप (USD)','th-buy-ratio':'खरीद अनुपात','th-total-coins':'कुल कॉइन',
+    'th-channel':'चैनल','th-sell-ratio':'बिक्री अनुपात / $',
+    'period-label':'पीरियड','period-text':'सभी साप्ताहिक टास्क <strong>रविवार 10:30 PM से रविवार 10:30 PM (IST)</strong> तक गिने जाते हैं।',
+    'payout-schedule-label':'भुगतान शेड्यूल','payout-schedule-text':'सभी कमीशन <strong>हर सोमवार रूबी में</strong> भुगतान किए जाते हैं।',
+    'qualify-label':'योग्यता सीमा','qualify-text':'आधिकारिक कॉइन सेलर बनने के लिए एजेंसियों को <strong>50,000,000 कॉइन (50M)</strong> मासिक राजस्व उत्पन्न करना होगा।',
+    'topup-note':'टॉप-अप <strong style="color:#fff">USDT</strong> के माध्यम से किया जाना चाहिए।',
+    'offline-label':'ऑफलाइन बिक्री','online-label':'ऑनलाइन बिक्री',
+    'fee-1-label':'$100 से कम','fee-1-val':'प्रति लेनदेन $2 फ्लैट','fee-2-label':'$100 और उससे अधिक','fee-2-val':'निकासी राशि का 2%',
+    'form-title':'एजेंसी रजिस्ट्रेशन फॉर्म','form-sub':'आवेदन करने के लिए सभी आवश्यक फ़ील्ड भरें',
+    'field-supervisor':'सुपरवाइजर','field-admin':'एडमिन','field-leader':'एजेंसी लीडर का नाम','field-agency':'एजेंसी का नाम',
+    'field-rizzid':'Rizz Live ID','field-whatsapp':'WhatsApp नंबर','field-country':'देश',
+    'required':'* आवश्यक','optional':'वैकल्पिक','select-placeholder':'चुनें…','admin-placeholder':'— पहले सुपरवाइजर चुनें —','country-placeholder':'देश चुनें…',
+    'err-supervisor':'कृपया एक सुपरवाइजर चुनें।','err-leader':'कृपया एजेंसी लीडर का नाम दर्ज करें।',
+    'submit-btn':'✦   आवेदन जमा करें',
+    'success-title':'आवेदन जमा हो गया!','success-text':'आपका रजिस्ट्रेशन सफलतापूर्वक भेजा गया।<br/>हमारी टीम समीक्षा करके जल्द संपर्क करेगी।',
+    'error-title':'जमा करना विफल हुआ','error-text':'कुछ गलत हो गया। कृपया पुनः प्रयास करें।',
+    'contact-title':'भारत के कंट्री मैनेजर','contact-desc':'प्रश्नों, सहायता और पार्टनरशिप के लिए — WhatsApp पर सीधे संपर्क करें:','tap-whatsapp':'WhatsApp खोलने के लिए टैप करें',
+    'task-period-text':'साप्ताहिक टास्क काउंटिंग पीरियड <strong>रविवार 10:30 PM से रविवार 10:30 PM (UTC+7)</strong> तक है',
+    'income-text':'<strong>लक्ज़री गिफ्ट, लकी गिफ्ट</strong> से उत्पन्न रूबी, उपयोगकर्ताओं द्वारा <strong>VIP सदस्यता</strong> खरीदने पर, और <strong>टिकट रूम</strong> से टिकट राजस्व सभी साप्ताहिक टास्क लक्ष्य में गिने जाते हैं।',
+    'valid-day-text':'एक दिन वैलिड दिन तब माना जाता है जब संचयी लाइव स्ट्रीमिंग अवधि <strong>120 मिनट</strong> से अधिक हो।',
+    'valid-dur-text':'<strong>60 मिनट</strong> से अधिक संचयी लाइव स्ट्रीमिंग अवधि एक वैलिड घंटा मानी जाती है। <strong>30 मिनट</strong> से कम का एकल लाइव सत्र वैलिड अवधि में नहीं गिना जाता।',
+    'bonus-rules-text':'आवश्यक लाइव स्ट्रीमिंग अवधि टास्क पूरा न करने पर <strong>ऑनलाइन बोनस के लिए अयोग्य</strong> हो जाएंगे।',
+    'payout-text':'बोनस <strong>हर सोमवार रूबी</strong> में होस्ट के खाते में स्वचालित रूप से जमा होगा।',
+    'withdraw-1':'निकासी अनुरोध <strong>दिन में एक बार</strong> जमा किया जा सकता है।','withdraw-2':'न्यूनतम निकासी राशि <span class="c-rose">$10 USD</span> है।',
+    'agency-change-1':'यदि कोई होस्ट <strong>120 दिनों</strong> से अधिक समय तक लाइव नहीं करता, तो प्लेटफ़ॉर्म पुरानी एजेंसी के साथ बाइंडिंग रिलेशनशिप समाप्त कर देगा।',
+    'agency-change-2':'यदि होस्ट <strong>लगातार दो सप्ताह</strong> तक एजेंसी प्रमुख से संपर्क नहीं कर सकता, तो वह एजेंसी बदलने के लिए आवेदन कर सकता है।',
+    'agency-change-3':'यदि होस्ट और एजेंसी दोनों <strong>आपसी सहमति</strong> से एजेंसी बदलने पर राजी हों, तो ट्रांसफर सीधे किया जा सकता है।',
+    'agency-change-4':'यदि कोई एजेंसी ट्रांसफर प्रक्रिया में <strong>दुर्भावनापूर्ण आचरण</strong> (जैसे जानबूझकर गायब होना, धोखाधड़ी) में लिप्त पाया जाता है, तो प्लेटफ़ॉर्म चेतावनी, खाता निलंबन, स्थायी प्रतिबंध आदि दंड दे सकता है।',
+    'game-1':'होस्ट के लाइव रूम में खेलों में भाग लेने पर प्रत्येक <strong>1,000 कॉइन</strong> के दांव पर होस्ट को <strong>1 रूबी</strong> पुरस्कार मिलता है।',
+    'game-2':'खेलों से कमीशन आय होस्ट के साप्ताहिक टास्क आय लक्ष्य में <strong>नहीं गिनी जाती</strong>।',
+    'game-3':'प्रत्येक गेम सत्र समाप्त होने के बाद, सिस्टम <strong>तुरंत</strong> होस्ट के खाते में रूबी पुरस्कार जमा करेगा।',
+    'rookie-1':'प्रत्येक नए होस्ट को पहले चार सप्ताह की गारंटी पॉलिसी के लिए प्लेटफ़ॉर्म में शामिल होने पर <strong>परिचालन समीक्षा और अनुमोदन</strong> पास करना होगा।',
+    'rookie-2':'अनुमोदित नए होस्टों के लिए पहले सप्ताह में <strong>कोई न्यूनतम टास्क आवश्यकता नहीं</strong> है।',
+    'rookie-3':'सप्ताह 2 से: सप्ताह 2: <strong>50,000</strong> · सप्ताह 3: <strong>100,000</strong> · सप्ताह 4: <strong>150,000 रूबी</strong>',
+    'rookie-4':'<strong>सप्ताह 5 से</strong> केवल <strong>बेसिक पॉलिसी</strong> लागू होती है।',
+    'rookie-warn':'साप्ताहिक टास्क पूरा न करने पर अगले सप्ताह की गारंटी पॉलिसी पर कोई प्रभाव नहीं पड़ता।',
+    'rookie-warn-ex':'उदाहरण: यदि सप्ताह 2 का टास्क पूरा नहीं हुआ, सैलरी बेसिक पॉलिसी के अनुसार — लेकिन यदि सप्ताह 3 का 150,000 रूबी टास्क पूरा होता है, होस्ट सप्ताह 3 की गारंटी के लिए पात्र रहता है।',
+    'salary-1':'यदि होस्ट अवधि और टास्क आवश्यकताएं पूरी नहीं करता, तो सैलरी <strong>बेसिक पॉलिसी</strong> के अनुसार गणना की जाती है।',
+    'salary-2':'उत्कृष्ट प्रदर्शन करने वालों के लिए, होस्ट मैनेजर अपने विवेकाधिकार से उनके टास्क स्तर को समायोजित कर सकता है।',
+    'prestige-1':'होस्टों को <strong>आधिकारिक परिचालन समीक्षा</strong> पास करनी होगी; केवल संबंधित आवश्यकताएं पूरी करने वाले इस गारंटी पॉलिसी के लिए पात्र हैं।',
+    'prestige-2':'अनुमोदित नए होस्टों के लिए पहले सप्ताह में <strong>कोई न्यूनतम टास्क आवश्यकता नहीं</strong> है।',
+    'prestige-3':'सप्ताह 5 और उसके बाद: साप्ताहिक लक्ष्य <strong>300,000 रूबी</strong> है',
+    'prestige-warn':'साप्ताहिक टास्क पूरा न करने पर अगले सप्ताह की गारंटी पॉलिसी पर कोई प्रभाव नहीं पड़ता।',
+    'prestige-warn-ex':'यदि सप्ताह 2 का टास्क पूरा नहीं हुआ, सैलरी बेसिक पॉलिसी के अनुसार — लेकिन यदि सप्ताह 3 का 150,000 रूबी टास्क पूरा होता है, होस्ट पात्र रहता है।',
+    'req-1':'अच्छी छवि, साफ-सुथरा रूप, उचित पोशाक, प्लेटफ़ॉर्म की स्थिति के अनुरूप।',
+    'req-2':'लाइव स्ट्रीमिंग कार्य के प्रति गंभीर रवैया, लाइव शेड्यूल का पालन।',
+    'req-3':'साफ और व्यवस्थित लाइव बैकग्राउंड, स्पष्ट वीडियो और ऑडियो सुनिश्चित करना।',
+    'req-4':'सक्रिय इंटरेक्शन, दर्शकों की टिप्पणियों का समय पर जवाब।',
+    'req-5':'VIVA ऑपरेशनल टीम की आवश्यकताओं का सहयोग, प्लेटफ़ॉर्म-संगठित गतिविधियों में सक्रिय भागीदारी।',
+    'req-6':'होस्ट को <strong>शाम 6 बजे से रात 11:59 बजे के बीच अनिवार्य</strong> रूप से प्रसारण करना होगा।',
+    'removal-1':'निर्धारित समय पर लंबे समय तक लाइव न जाना, निष्क्रिय कार्य रवैया प्रदर्शित करना।',
+    'removal-2':'दर्शकों के प्रति खराब रवैया, दर्शकों के सवालों को नजरअंदाज करना।',
+    'removal-3':'लाइव स्ट्रीमिंग वातावरण लगातार अव्यवस्थित, अनुस्मारक के बाद भी सुधार नहीं।',
+    'removal-4':'ऑपरेशनल टीम के निर्देशों के साथ सहयोग करने से इनकार।',
+    'removal-5':'उपकरण या नेटवर्क समस्याओं के कारण स्ट्रीम में बार-बार रुकावट या खराब गुणवत्ता।',
+    'removal-6':'प्लेटफ़ॉर्म सामग्री नीतियों, कानूनों या विनियमों का उल्लंघन।',
+    'removal-7':'यदि कोई पुराना होस्ट नई ID बनाकर फिक्स्ड पॉलिसी में नामांकन का प्रयास करता है, तो ID <strong>बैन कर दी जाएगी और कोई मुआवजा नहीं</strong> दिया जाएगा।',
+    'ban-text':'यदि किसी होस्ट को एक सप्ताह में 2 बार बैन किया जाता है, तो उसे पॉलिसी से हटा दिया जाएगा:',
+    'ban-detail':'पहला बैन → <span class="c-orange">1 दिन का बैन</span> &nbsp;|&nbsp; दूसरा बैन → <span class="c-rose">2 दिन का बैन</span>',
+    'agency-req-1':'एजेंसी को हर सप्ताह कम से कम <strong>5 एक्टिव होस्ट</strong> बनाए रखने होंगे',
+    'agency-req-2':'एजेंसी को होस्ट को लाइव जाने और प्लेटफ़ॉर्म इवेंट में सक्रिय रूप से भाग लेने के लिए प्रोत्साहित करना होगा',
+    'active-1':'एक महीने में कम से कम <strong>10 वैलिड दिन</strong>','active-2':'एक महीने में कम से कम <strong>20 वैलिड घंटे</strong>','active-3':'एक महीने में गिफ्ट से न्यूनतम <strong>100,000 रूबी</strong> अर्जित',
+    'active-alert':'मासिक राजस्व लक्ष्य या एक्टिव होस्ट आवश्यकता में से किसी को भी पूरा न करने पर होस्ट एक्टिवेशन सैलरी प्रोग्राम से <strong>अयोग्य</strong> हो जाएंगे।',
+    'aw-1':'निकासी अनुरोध <strong>दिन में एक बार</strong> जमा किए जा सकते हैं','aw-2':'न्यूनतम निकासी राशि: <span class="c-rose">$10 USD</span>',
+    'ac-1':'<strong>120 दिनों</strong> तक कोई गतिविधि नहीं','ac-2':'<strong>2 सप्ताह</strong> तक एजेंसी से संपर्क नहीं हो सका','ac-3':'एजेंसी और होस्ट दोनों <strong>आपसी सहमति</strong> से बदलाव के लिए राजी',
+    'ac-alert':'कोई भी धोखाधड़ी ट्रांसफर प्रयास → <strong>चेतावनी / निलंबन / स्थायी बैन</strong>',
+    'seller-purpose':'यह नीति RIZZ LIVE प्लेटफ़ॉर्म पर <strong style="color:var(--cyan2)">आधिकारिक कॉइन सेलर</strong> बनने के लिए आवेदन करने वाली एजेंसियों के लिए पात्रता आवश्यकताओं, परिचालन मानकों और प्रदर्शन अपेक्षाओं की रूपरेखा देती है।',
+    'deposit-1':'50M लक्ष्य से कम एजेंसियां <strong>$1,000 सुरक्षा जमा</strong> के साथ आवेदन कर सकती हैं','deposit-2':'मासिक लक्ष्य पूरा होने पर जमा <strong>पूरी तरह वापस</strong> कर दी जाती है',
+    'maintain-1':'अनुमोदित सेलर्स को <strong>50M मासिक राजस्व</strong> बनाए रखना होगा','maintain-2':'<strong>लगातार दो महीने</strong> विफलता पर सेलर दर्जा रद्द हो सकता है',
+    'sell-policy-text':'कॉइन सेलर स्वीकृत ऑफलाइन अनुपात <strong>8,300</strong> से <strong>ऊपर नहीं बेच सकते</strong>',
+    'violation-fine':'$100 जुर्माना','violation-text':' + सेलर के वॉलेट से समकक्ष कॉइन कटौती।<br/><br/>',
+    'violation-repeat':'बार-बार उल्लंघन:','violation-repeat-text':' आधिकारिक कॉइन सेलर प्रोग्राम से निलंबन या स्थायी हटाना।',
   },
   hl: {
-    'nav-host': 'Host Policy',
-    'nav-agency': 'Agency Policy',
-    'nav-seller': 'Coin Seller Policy',
-    'nav-reg': 'Agency Registration',
-    'nav-contact': 'Country Manager se Contact',
-    'nav-updates': 'Daily Updates',
-    'hero-sub': 'Apna document select karo terms dekhne ke liye',
-    'stat-return': 'Host Return',
-    'stat-commission': 'Agency Commission',
-    'stat-bonus': 'Online Bonus',
+    'hero-badge':'Official Policy Documents',
+    'policy-center':'POLICY CENTER',
+    'hero-sub':'Apna document select karo terms dekhne ke liye',
+    'stat-return':'Host Return','stat-commission':'Agency Commission','stat-bonus':'Online Bonus',
+    'nav-host':'Host Policy','nav-host-desc':'Salary, bonuses aur streaming guidelines',
+    'nav-agency':'Agency Policy','nav-agency-desc':'Commission tiers aur partnership terms',
+    'nav-seller':'Coin Seller Policy','nav-seller-desc':'Official coin seller guidelines aur rates',
+    'nav-reg':'Agency Registration','nav-reg-desc':'Partner agency banne ke liye apply karo',
+    'nav-contact':'Country Manager se Contact','nav-contact-desc':'India manager ka direct contact',
+    'nav-updates':'Daily Updates','nav-updates-desc':'Hamara WhatsApp channel join karo',
+    'back':'Home par wapas jao',
+    'eyebrow-host':'Host Guidelines','title-host':'HOST POLICY',
+    'eyebrow-agency':'Agency Guidelines','title-agency':'AGENCY POLICY',
+    'eyebrow-seller':'Coin Seller Guidelines','title-seller':'COIN SELLER POLICY',
+    'eyebrow-reg':'Partnership','title-reg':'AGENCY REGISTRATION',
+    'eyebrow-contact':'Direct Contact','title-contact':'COUNTRY MANAGER',
+    'host-s1':'Host Base Policy','host-s2':'Game Commission','host-s3':'Rookie Host Guarantee Policy','host-s4':'Prestige Host Guarantee Policy',
+    'agency-s1':'Agency Commission Tiers','agency-s2':'Host Activation Salary','agency-s3':'Commission Payout','agency-s4':'Withdrawal Rules','agency-s5':'Agency Change Rules',
+    'seller-s0':'Purpose','seller-s1':'Eligibility Criteria','seller-s2':'Buying Price Structure','seller-s3':'Selling Price Structure',
+    'th-basic-share':'Basic Share','th-valid-hour':'Valid Hour','th-valid-days':'Valid Days','th-online-bonus':'Online Bonus','th-total':'Total',
+    'sl-exchange':'Currency Exchange Rate','sl-gift':'Gift Sharing Rules','sl-task-period':'Task Counting Period',
+    'sl-income':'Weekly Tasks mein Income Sources','sl-valid-day':'Valid Day ki Definition','sl-valid-dur':'Valid Duration ki Definition',
+    'sl-bonus-rules':'Additional Bonus Rules','sl-payout':'Bonus Payout Time','sl-withdraw':'Withdrawal Rules',
+    'sl-agency-change':'Agency Change karne ke Rules','sl-salary':'Salary Calculation','sl-requirements':'Requirements','sl-removal':'Guarantee se Hatane ke Karan',
+    'sl-active-def':'Active Host ki Definition','sl-fee':'Fee Structure','sl-min-req':'Minimum Requirement','sl-deposit':'Security Deposit Option','sl-maintain':'Maintenance Requirement',
+    'sl-sell-policy':'Selling Policy','key-rule':'⚡ Key Rule','ban-label':'⚠️ Ban Policy','important-label':'⚠️ Important','violation-label':'⚠️ Violation Penalty',
+    'gift-hot':'Hot Gift:','gift-lux':'Luxury Gift:','gift-lucky':'Lucky Gift:',
+    'th-game-coin':'Game Coin','th-bonus-ruby':'Bonus Ruby','th-cycle':'Cycle','th-weekly-ruby':'Weekly Ruby Task',
+    'th-valid-days2':'Valid Days','th-valid-hour2':'Valid Hour','th-guarantee':'Guarantee',
+    'th-level':'Level','th-weekly-rev':'Weekly Revenue (Ruby)','th-commission':'Commission',
+    'th-monthly-target':'Monthly Target','th-active-hosts':'Active Hosts','th-basic-pay':'Basic Pay',
+    'th-amount':'Withdrawal Amount','th-fee':'Fee','th-topup':'Top-Up (USD)','th-buy-ratio':'Buy Ratio','th-total-coins':'Total Coins',
+    'th-channel':'Channel','th-sell-ratio':'Sell Ratio / $',
+    'period-label':'Period','period-text':'Saare weekly tasks <strong>Sunday 10:30 PM se Sunday 10:30 PM (IST)</strong> tak count hote hain.',
+    'payout-schedule-label':'Payout Schedule','payout-schedule-text':'Saare commissions <strong>har Monday Rubies mein</strong> pay kiye jaate hain.',
+    'qualify-label':'Qualification Threshold','qualify-text':'Official Coin Seller banne ke liye agencies ko <strong>50,000,000 Coins (50M)</strong> monthly revenue generate karna hoga.',
+    'topup-note':'Top-up <strong style="color:#fff">USDT</strong> ke zariye karna hoga.',
+    'offline-label':'Offline Sales','online-label':'Online Sales',
+    'fee-1-label':'$100 se kam','fee-1-val':'$2 flat per transaction','fee-2-label':'$100 aur usse zyada','fee-2-val':'Withdrawal amount ka 2%',
+    'form-title':'Agency Registration Form','form-sub':'Apply karne ke liye saare required fields bharo',
+    'field-supervisor':'Supervisor','field-admin':'Admin','field-leader':'Agency Leader ka Naam','field-agency':'Agency ka Naam',
+    'field-rizzid':'Rizz Live ID','field-whatsapp':'WhatsApp Number','field-country':'Country',
+    'required':'* Zaroori','optional':'Optional','select-placeholder':'Select karo…','admin-placeholder':'— Pehle supervisor select karo —','country-placeholder':'Country select karo…',
+    'err-supervisor':'Kripya ek supervisor select karo.','err-leader':'Kripya agency leader ka naam dalo.',
+    'submit-btn':'✦   Application Submit Karo',
+    'success-title':'Application Submit Ho Gayi!','success-text':'Aapka registration successfully bhej diya gaya.<br/>Hamari team review karke jald contact karegi.',
+    'error-title':'Submit Nahi Hua','error-text':'Kuch galat ho gaya. Dobara try karo.',
+    'contact-title':'India Country Manager','contact-desc':'Queries, support aur partnership ke liye — WhatsApp par seedha contact karo:','tap-whatsapp':'WhatsApp kholne ke liye tap karo',
+    'task-period-text':'Weekly task counting period <strong>Sunday 10:30 PM se Sunday 10:30 PM (UTC+7)</strong> tak hai',
+    'income-text':'<strong>Luxury Gifts, Lucky Gifts</strong> se generate Ruby, users dwara <strong>VIP membership</strong> kharidne par, aur <strong>ticket rooms</strong> se ticket revenue sab weekly task targets mein count hote hain.',
+    'valid-day-text':'Ek din valid day tab count hota hai jab cumulative live streaming duration <strong>120 minutes</strong> se zyada ho.',
+    'valid-dur-text':'<strong>60 minutes</strong> se zyada cumulative live streaming duration ek valid hour count hoti hai. <strong>30 minutes</strong> se kam ka single live session valid duration mein nahi gina jata.',
+    'bonus-rules-text':'Required live streaming duration tasks poori na karne par <strong>online bonus ke liye ineligible</strong> ho jaoge.',
+    'payout-text':'Bonuses <strong>har Monday Ruby</strong> mein host ke account mein automatically credit ho jaate hain.',
+    'withdraw-1':'Withdrawal requests <strong>din mein ek baar</strong> submit ki ja sakti hain.','withdraw-2':'Minimum withdrawal amount <span class="c-rose">$10 USD</span> hai.',
+    'agency-change-1':'Agar host <strong>120 days</strong> se zyada live nahi karta, to platform purani agency ke saath binding relationship khatam kar dega.',
+    'agency-change-2':'Agar host <strong>do consecutive weeks</strong> tak agency head se contact nahi kar sakta, to host agency change ke liye apply kar sakta hai.',
+    'agency-change-3':'Agar host aur agency dono <strong>mutual agreement</strong> se agency change karna chahte hain, to transfer directly ho sakta hai.',
+    'agency-change-4':'Agar koi agency transfer process mein <strong>malicious conduct</strong> mein paya jata hai, to platform warnings, account suspension, permanent bans de sakta hai.',
+    'game-1':'Host ke live room mein games mein participate karne par har <strong>1,000 coins</strong> ke wager par host ko <strong>1 Ruby</strong> reward milta hai.',
+    'game-2':'Games se commission income host ke weekly task income target mein <strong>COUNT NAHI HOTI</strong>.',
+    'game-3':'Har game session khatam hone ke baad, system host ke account mein <strong>real time</strong> mein Ruby reward credit karega.',
+    'rookie-1':'Har naye host ko pehle char weeks ki guarantee policy ke liye platform join karte waqt <strong>operational review aur approval</strong> pass karna hoga.',
+    'rookie-2':'Approved naye hosts ke liye pehle week mein <strong>koi minimum task requirement nahi</strong> hai.',
+    'rookie-3':'Week 2 se: Week 2: <strong>50,000</strong> · Week 3: <strong>100,000</strong> · Week 4: <strong>150,000 Ruby</strong>',
+    'rookie-4':'<strong>Week 5 se</strong> sirf <strong>basic policy</strong> apply hogi.',
+    'rookie-warn':'Weekly task poori na karne par agli week ki guarantee policy eligibility par koi asar nahi padta.',
+    'rookie-warn-ex':'Example: Agar Week 2 task poori nahi hui, salary basic policy ke hisaab se — lekin agar Week 3 ka 150,000 Ruby task poori hoti hai, host Week 3 guarantee ke liye eligible rehta hai.',
+    'salary-1':'Agar host duration aur task requirements poori nahi karta, salary <strong>basic policy</strong> ke hisaab se calculate hogi.',
+    'salary-2':'Outstanding performers ke liye, host manager apne discretion se unka task stage adjust kar sakta hai.',
+    'prestige-1':'Hosts ko <strong>official operational review</strong> pass karni hogi; sirf corresponding requirements poori karne wale is guarantee policy ke liye eligible hain.',
+    'prestige-2':'Approved naye hosts ke liye pehle week mein <strong>koi minimum task requirement nahi</strong> hai.',
+    'prestige-3':'Week 5 aur uske baad: weekly target <strong>300,000 Ruby</strong> hai',
+    'prestige-warn':'Weekly task poori na karne par agli week ki guarantee policy eligibility par koi asar nahi padta.',
+    'prestige-warn-ex':'Agar Week 2 task poori nahi hui, salary basic policy ke hisaab se — lekin agar Week 3 ka 150,000 Ruby task poori hoti hai, host eligible rehta hai.',
+    'req-1':'Achhi image, saaf-suthri appearance, appropriate attire, platform positioning ke saath align karna.',
+    'req-2':'Live streaming kaam ke liye serious attitude, live schedules ka palan, broadcast duration ensure karna.',
+    'req-3':'Saaf aur tidy live background, clutter nahi, clear video aur audio ensure karna.',
+    'req-4':'Active interaction, audience comments aur questions ka time par jawab.',
+    'req-5':'VIVA operational team requirements ke saath cooperation, platform-organized activities mein active participation.',
+    'req-6':'Host ko <strong>shaam 6 baje se raat 11:59 baje ke beech mandatory</strong> broadcast karna hoga.',
+    'removal-1':'Scheduled times par extended periods ke liye live na jaana, passive work attitude dikhana.',
+    'removal-2':'Viewers ke saath bura attitude, viewers ke sawalo ko ignore karna.',
+    'removal-3':'Live streaming environment consistently messy, reminders ke baad bhi improvement nahi.',
+    'removal-4':'Operational team directives ke saath cooperate karne se inkaar.',
+    'removal-5':'Equipment ya network issues ke karan streams mein baar-baar interruptions ya poor quality.',
+    'removal-6':'Platform content policies, laws ya regulations ka ullanghan.',
+    'removal-7':'Agar koi purana host naya ID banake fixed policy mein enrolled hone ki koshish karta hai, to ID <strong>ban ho jaega aur koi compensation nahi</strong> milega.',
+    'ban-text':'Agar kisi host ko ek week mein 2 baar ban kiya jaata hai, to host ko policy se remove kar diya jaega:',
+    'ban-detail':'Pehla ban → <span class="c-orange">1 din ka ban</span> &nbsp;|&nbsp; Doosra ban → <span class="c-rose">2 din ka ban</span>',
+    'agency-req-1':'Agency ko har week kam se kam <strong>5 active hosts</strong> maintain karne honge',
+    'agency-req-2':'Agency ko hosts ko live jaane aur platform events mein actively join karne ke liye encourage karna hoga',
+    'active-1':'Month mein kam se kam <strong>10 valid days</strong>','active-2':'Month mein kam se kam <strong>20 valid hours</strong>','active-3':'Month mein gifts se minimum <strong>100,000 Rubies</strong> earn',
+    'active-alert':'Monthly revenue target ya active host requirement mein se kisi ko bhi poora na karne par Host Activation Salary Program se <strong>disqualify</strong> ho jaoge.',
+    'aw-1':'Withdrawal requests <strong>din mein ek baar</strong> submit ki ja sakti hain','aw-2':'Minimum withdrawal amount: <span class="c-rose">$10 USD</span>',
+    'ac-1':'<strong>120 days</strong> tak koi activity nahi','ac-2':'<strong>2 weeks</strong> tak agency unreachable','ac-3':'Agency aur host dono <strong>mutual agreement</strong> se change ke liye raazi',
+    'ac-alert':'Koi bhi fraudulent transfer attempt → <strong>Warning / Suspension / Permanent Ban</strong>',
+    'seller-purpose':'Yeh policy RIZZ LIVE platform par <strong style="color:var(--cyan2)">Official Coin Sellers</strong> banne ke liye apply karne wali agencies ke liye eligibility requirements, operational standards aur performance expectations outline karti hai.',
+    'deposit-1':'50M target se kam agencies <strong>$1,000 security deposit</strong> ke saath apply kar sakti hain','deposit-2':'Monthly target achieve hone par deposit <strong>fully refund</strong> ho jaati hai',
+    'maintain-1':'Approved sellers ko <strong>50M monthly revenue</strong> sustain karni hogi','maintain-2':'<strong>Do consecutive months</strong> tak failure par seller status revoke ho sakta hai',
+    'sell-policy-text':'Coin Sellers approved offline ratio <strong>8,300</strong> se <strong>upar nahi bech sakte</strong>',
+    'violation-fine':'$100 fine','violation-text':' + seller ke wallet se equivalent coin deduction.<br/><br/>',
+    'violation-repeat':'Repeated violations:','violation-repeat-text':' Official Coin Seller Program se suspension ya permanent removal.',
   }
 };
 
+let currentLang = 'en';
+
 function setLang(lang) {
+  currentLang = lang;
   const labels = { en: '🌐 EN', hi: '🌐 HI', hl: '🌐 HL' };
+  // Update all language label buttons
   document.querySelectorAll('[id$="-lbl"]').forEach(el => {
     if (el.id.startsWith('ld-')) el.textContent = labels[lang] || '🌐 EN';
   });
+  // Update active state in dropdowns
   document.querySelectorAll('.lang-opt').forEach(opt => {
     opt.classList.remove('active');
     const name = opt.querySelector('.lname')?.textContent || '';
     if ((lang==='en'&&name==='English')||(lang==='hi'&&name==='हिंदी')||(lang==='hl'&&name==='Hinglish'))
       opt.classList.add('active');
   });
-  const t = TRANSLATIONS[lang] || TRANSLATIONS.en;
-  // Nav cards text update
-  const navTitles = document.querySelectorAll('.nav-title');
-  const keys = ['nav-host','nav-agency','nav-seller','nav-reg','nav-contact','nav-updates'];
-  navTitles.forEach((el, i) => { if (keys[i] && t[keys[i]]) el.textContent = t[keys[i]]; });
-  // Hero subtitle
-  const heroSub = document.querySelector('.hero-sub');
-  if (heroSub && t['hero-sub']) heroSub.textContent = t['hero-sub'];
-  // Stat labels
-  const statLabels = document.querySelectorAll('.stat-label');
-  const statKeys = ['stat-return','stat-commission','stat-bonus'];
-  statLabels.forEach((el, i) => { if (statKeys[i] && t[statKeys[i]]) el.textContent = t[statKeys[i]]; });
+  // Apply translations
+  const t = T[lang] || T.en;
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const key = el.getAttribute('data-t');
+    if (t[key] !== undefined) {
+      el.innerHTML = t[key];
+    }
+  });
 }
+
 let currentDrop=null;
 function toggleDrop(id){const el=document.getElementById(id);if(!el)return;if(currentDrop&&currentDrop!==el)currentDrop.classList.remove('open');el.classList.toggle('open');currentDrop=el.classList.contains('open')?el:null;}
 function closeDrop(){if(currentDrop){currentDrop.classList.remove('open');currentDrop=null;}}
@@ -926,7 +1227,7 @@ document.addEventListener('click',e=>{if(!e.target.closest('.lang-drop'))closeDr
 document.addEventListener('touchstart',e=>{if(!e.target.closest('.lang-drop'))closeDrop();},{passive:true});
 function goTo(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));const pg=document.getElementById(id);if(pg)pg.classList.add('active');try{window.scrollTo({top:0,behavior:'instant'});}catch(_){window.scrollTo(0,0);}}
 function toggle(hdr){hdr.classList.toggle('open');const body=hdr.nextElementSibling;if(body)body.classList.toggle('open');}
-function onSupervisorChange(){const sup=document.getElementById('f-supervisor').value;const adminSel=document.getElementById('f-admin');adminSel.innerHTML='';if(!sup||!SUPERVISOR_ADMINS[sup]){adminSel.disabled=true;const o=document.createElement('option');o.value='';o.textContent='— Select supervisor first —';adminSel.appendChild(o);return;}adminSel.disabled=false;const none=document.createElement('option');none.value='';none.textContent='None';adminSel.appendChild(none);SUPERVISOR_ADMINS[sup].forEach(a=>{const o=document.createElement('option');o.value=a;o.textContent=a;adminSel.appendChild(o);});}
+function onSupervisorChange(){const sup=document.getElementById('f-supervisor').value;const adminSel=document.getElementById('f-admin');adminSel.innerHTML='';if(!sup||!SUPERVISOR_ADMINS[sup]){adminSel.disabled=true;const o=document.createElement('option');o.value='';const t=T[currentLang]||T.en;o.textContent=t['admin-placeholder']||'— Select supervisor first —';adminSel.appendChild(o);return;}adminSel.disabled=false;const none=document.createElement('option');none.value='';none.textContent='None';adminSel.appendChild(none);SUPERVISOR_ADMINS[sup].forEach(a=>{const o=document.createElement('option');o.value=a;o.textContent=a;adminSel.appendChild(o);});}
 function clearFieldErrors(){document.querySelectorAll('.field-err').forEach(e=>e.classList.remove('show'));document.querySelectorAll('.neon-input,.neon-select').forEach(e=>e.classList.remove('invalid'));}
 function showFieldError(id,msg){const el=document.getElementById(id);if(el){el.classList.add('show');if(msg)el.textContent=msg;}}
 function markInvalid(id){const el=document.getElementById(id);if(el)el.classList.add('invalid');}
@@ -934,6 +1235,7 @@ async function submitRegForm(){
   clearFieldErrors();
   document.getElementById('reg-success').classList.remove('show');
   document.getElementById('reg-error').classList.remove('show');
+  const t=T[currentLang]||T.en;
   const supervisor=document.getElementById('f-supervisor').value.trim();
   const admin=document.getElementById('f-admin').value.trim();
   const leader=document.getElementById('f-leader').value.trim();
@@ -942,8 +1244,8 @@ async function submitRegForm(){
   const whatsapp=document.getElementById('f-whatsapp').value.trim();
   const country=document.getElementById('f-country').value.trim();
   let err=false;
-  if(!supervisor){showFieldError('err-supervisor','Please select a supervisor.');markInvalid('f-supervisor');err=true;}
-  if(!leader){showFieldError('err-leader','Please enter the agency leader name.');markInvalid('f-leader');err=true;}
+  if(!supervisor){showFieldError('err-supervisor',t['err-supervisor']);markInvalid('f-supervisor');err=true;}
+  if(!leader){showFieldError('err-leader',t['err-leader']);markInvalid('f-leader');err=true;}
   if(err)return;
   const btn=document.getElementById('reg-submit-btn');
   const lbl=document.getElementById('reg-btn-label');
@@ -955,7 +1257,7 @@ async function submitRegForm(){
     ['f-supervisor','f-admin','f-leader','f-agency','f-rizzid','f-whatsapp','f-country'].forEach(id=>{const el=document.getElementById(id);if(!el)return;if(el.tagName==='SELECT')el.selectedIndex=0;else el.value='';});
     lbl.innerHTML='✦ &nbsp; Submit Application';btn.disabled=false;onSupervisorChange();
   }catch(e){
-    document.getElementById('reg-error-text').textContent='Something went wrong. Please try again.';
+    document.getElementById('reg-error-text').textContent=t['error-text']||'Something went wrong. Please try again.';
     document.getElementById('reg-error').classList.add('show');
     lbl.innerHTML='✦ &nbsp; Submit Application';btn.disabled=false;
   }
