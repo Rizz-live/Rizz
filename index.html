@@ -56,22 +56,6 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
 .live-dot{width:6px;height:6px;border-radius:50%;background:var(--pink);box-shadow:0 0 8px var(--pink);animation:livePulse 1.2s ease-in-out infinite}
 @keyframes livePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.6)}}
 .live-label{font-family:'Orbitron',monospace;font-size:7px;letter-spacing:2px;color:var(--pink2);font-weight:700}
-.lang-drop{position:relative}
-.lang-drop-btn{display:flex;align-items:center;gap:4px;background:rgba(0,229,255,0.07);border:1px solid rgba(0,229,255,0.25);border-radius:20px;padding:5px 9px;cursor:pointer;font-family:'Orbitron',monospace;font-size:8px;font-weight:700;letter-spacing:1px;color:var(--cyan2);white-space:nowrap;transition:border-color .25s,background .25s;min-height:34px;user-select:none}
-.lang-drop-btn:active{background:rgba(0,229,255,0.15)}
-.chev{font-size:10px;opacity:0.6;transition:transform 0.3s;display:inline-block}
-.lang-drop.open .chev{transform:rotate(180deg)}
-.lang-drop-menu{display:none;position:absolute;top:calc(100% + 6px);right:0;background:rgba(8,4,40,0.98);border:1px solid rgba(0,229,255,0.28);border-radius:12px;overflow:hidden;min-width:130px;box-shadow:0 8px 32px rgba(0,0,0,0.6);z-index:500}
-.lang-drop.open .lang-drop-menu{display:block;animation:menuReveal 0.2s cubic-bezier(0.16,1,0.3,1) both}
-@keyframes menuReveal{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-.lang-opt{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:600;color:var(--text-dim);transition:background .18s;border-bottom:1px solid rgba(0,229,255,0.06)}
-.lang-opt:last-child{border-bottom:none}
-.lang-opt:active,.lang-opt:hover{background:rgba(0,229,255,0.08);color:var(--cyan2)}
-.lang-opt.active{background:rgba(0,229,255,0.1);color:var(--cyan2)}
-.lang-opt .flag{font-size:18px;line-height:1}
-.lang-opt .lname{flex:1}
-.lang-opt .tick{color:var(--cyan);opacity:0;font-size:12px}
-.lang-opt.active .tick{opacity:1}
 .back-btn{display:inline-flex;align-items:center;gap:8px;margin:16px 16px 0;padding:10px 16px;color:var(--cyan2);font-size:11px;font-weight:700;font-family:'Rajdhani',sans-serif;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border:1px solid rgba(0,229,255,0.22);border-radius:20px;background:rgba(0,229,255,0.05);transition:all .25s;min-height:44px;user-select:none}
 .back-btn:active{background:rgba(0,229,255,0.12);border-color:rgba(0,229,255,0.5)}
 .back-btn::before{content:'←';font-size:15px}
@@ -88,11 +72,71 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
 .nd-line.rev{background:linear-gradient(90deg,var(--cyan),transparent)}
 .nd-gem{width:8px;height:8px;border-radius:2px;background:var(--cyan);transform:rotate(45deg);box-shadow:0 0 12px var(--cyan-glow);animation:gemPulse 2s ease-in-out infinite}
 @keyframes gemPulse{0%,100%{box-shadow:0 0 8px var(--cyan-glow)}50%{box-shadow:0 0 22px var(--cyan-glow),0 0 40px rgba(0,229,255,0.3)}}
-.stats-row{display:flex;gap:8px;padding:0 14px;margin-bottom:12px}
-.stat-card{flex:1;text-align:center;padding:14px 8px;background:rgba(12,6,48,0.9);border:1px solid rgba(0,229,255,0.18);border-radius:14px;position:relative;overflow:hidden}
-.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:0.5}
-.stat-val{font-family:'Orbitron',monospace;font-weight:900;font-size:clamp(18px,5vw,24px);background:linear-gradient(135deg,var(--cyan2),var(--pink2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 6px rgba(0,229,255,0.4))}
-.stat-label{font-family:'Rajdhani',sans-serif;font-size:9px;letter-spacing:1.5px;color:var(--text-dim);text-transform:uppercase;margin-top:3px;font-weight:600}
+
+/* ── ADVERTISEMENT TICKER ── */
+.ad-ticker-wrap{
+  margin:0 12px 12px;
+  background:linear-gradient(135deg,rgba(8,4,40,0.95),rgba(12,6,48,0.98));
+  border:1px solid rgba(0,229,255,0.2);
+  border-radius:14px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 0 24px rgba(0,229,255,0.06),inset 0 1px 0 rgba(0,229,255,0.08);
+}
+.ad-ticker-wrap::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent 5%,var(--cyan) 40%,var(--pink) 60%,transparent 95%);
+  opacity:0.5;
+}
+.ad-ticker-header{
+  display:flex;align-items:center;gap:8px;
+  padding:8px 12px 6px;
+  border-bottom:1px solid rgba(0,229,255,0.07);
+}
+.ad-ticker-icon{font-size:12px}
+.ad-ticker-label{
+  font-family:'Orbitron',monospace;font-size:7px;font-weight:800;
+  letter-spacing:3px;color:var(--pink2);text-transform:uppercase;
+}
+.ad-ticker-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--pink);box-shadow:0 0 6px var(--pink);
+  animation:livePulse 1.2s ease-in-out infinite;margin-left:auto;
+}
+.ad-ticker-body{
+  padding:10px 12px 12px;
+  display:flex;flex-direction:column;gap:7px;
+}
+.ad-item{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:0;
+  font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:600;
+  color:rgba(200,210,255,0.82);line-height:1.5;
+  opacity:0;transform:translateX(-8px);
+  animation:adReveal 0.5s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+.ad-item:nth-child(1){animation-delay:0.1s}
+.ad-item:nth-child(2){animation-delay:0.2s}
+.ad-item:nth-child(3){animation-delay:0.3s}
+.ad-item:nth-child(4){animation-delay:0.4s}
+.ad-item:nth-child(5){animation-delay:0.5s}
+@keyframes adReveal{to{opacity:1;transform:translateX(0)}}
+.ad-gem{
+  width:6px;height:6px;border-radius:1px;transform:rotate(45deg);
+  flex-shrink:0;margin-top:7px;
+}
+.ad-gem-cyan{background:var(--cyan);box-shadow:0 0 7px var(--cyan-glow)}
+.ad-gem-pink{background:var(--pink);box-shadow:0 0 7px var(--pink-glow)}
+.ad-gem-green{background:var(--green);box-shadow:0 0 7px var(--green-glow)}
+.ad-gem-gold{background:var(--gold);box-shadow:0 0 7px var(--gold-glow)}
+.ad-gem-purple{background:var(--purple2);box-shadow:0 0 7px var(--purple-glow)}
+.ad-hi{color:#fff;font-weight:700}
+.ad-hi-cyan{color:var(--cyan2)!important;font-weight:700;text-shadow:0 0 8px rgba(0,229,255,0.5)}
+.ad-hi-pink{color:var(--pink2)!important;font-weight:700;text-shadow:0 0 8px rgba(255,60,168,0.5)}
+.ad-hi-green{color:var(--green)!important;font-weight:700;text-shadow:0 0 8px var(--green-glow)}
+.ad-hi-gold{color:var(--gold2)!important;font-weight:700;text-shadow:0 0 8px var(--gold-glow)}
+/* ───────────────────────── */
+
 .nav-grid{padding:2px 12px 0;display:flex;flex-direction:column;gap:9px}
 .nav-card{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,rgba(8,4,40,0.9),rgba(12,6,48,0.95));border:1px solid var(--border3);border-radius:14px;padding:14px 15px;cursor:pointer;position:relative;overflow:hidden;transition:transform 0.25s cubic-bezier(0.16,1,0.3,1),box-shadow 0.25s,border-color 0.25s;min-height:64px;user-select:none;transform:translateZ(0);animation:cardReveal 0.55s cubic-bezier(0.16,1,0.3,1) both}
 .nav-card:active{transform:scale(0.97);box-shadow:0 0 18px rgba(0,229,255,0.2),0 8px 20px rgba(0,0,0,0.35);border-color:rgba(0,229,255,0.55)}
@@ -232,14 +276,6 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
     </div>
     <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
     <div class="header-right">
-      <div class="lang-drop" id="ld-home">
-        <div class="lang-drop-btn" onclick="toggleDrop('ld-home')"><span id="ld-home-lbl">🌐 EN</span><span class="chev">▾</span></div>
-        <div class="lang-drop-menu">
-          <div class="lang-opt active" onclick="setLang('en');closeDrop()"><span class="flag">🇬🇧</span><span class="lname">English</span><span class="tick">✓</span></div>
-          <div class="lang-opt" onclick="setLang('hi');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">हिंदी</span><span class="tick">✓</span></div>
-          <div class="lang-opt" onclick="setLang('hl');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">Hinglish</span><span class="tick">✓</span></div>
-        </div>
-      </div>
       <div class="live-badge"><div class="live-dot"></div><span class="live-label">LIVE</span></div>
     </div>
     <div class="heartbeat-wrap">
@@ -250,26 +286,34 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
     </div>
   </header>
   <div class="hero">
-    <div class="hero-badge"><div class="hero-badge-dot"></div><span data-t="hero-badge">Official Policy Documents</span></div>
+    <div class="hero-badge"><div class="hero-badge-dot"></div><span>Official Policy Documents</span></div>
     <h1 class="hero-title"><span class="rizz">RIZZ</span> <span class="hl">LIVE</span></h1>
-    <h2 style="font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;letter-spacing:6px;color:var(--text-dim);text-transform:uppercase;margin-bottom:2px;" data-t="policy-center">POLICY CENTER</h2>
-    <p class="hero-sub" data-t="hero-sub">Select a document to view full terms &amp; guidelines</p>
+    <h2 style="font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;letter-spacing:6px;color:var(--text-dim);text-transform:uppercase;margin-bottom:2px;">POLICY CENTER</h2>
+    <p class="hero-sub">Select a document to view full terms &amp; guidelines</p>
     <div class="neon-divider"><div class="nd-line rev"></div><div class="nd-gem"></div><div class="nd-line"></div></div>
   </div>
-  <div class="stats-row">
-    <div class="stat-card"><div class="stat-val">5$ Free </div><div class="stat-label" data-t="stat-return">New host</div></div>
-    <div class="stat-card"><div class="stat-val">20%</div><div class="stat-label" data-t="stat-commission">Agency Commission</div></div>
-    <div class="stat-card"><div class="stat-val">30%</div><div class="stat-label" data-t="stat-bonus">Online Bonus</div></div>
+
+  <!-- ADVERTISEMENT TICKER — stats-row ki jagah -->
+  <div class="ad-ticker-wrap" id="ad-ticker-wrap">
+    <div class="ad-ticker-header">
+      <span class="ad-ticker-icon">📢</span>
+      <span class="ad-ticker-label">Latest Updates</span>
+      <span class="ad-ticker-dot"></span>
+    </div>
+    <div class="ad-ticker-body" id="ad-ticker-body">
+      <!-- Items JS se inject honge -->
+    </div>
   </div>
+
   <div class="nav-grid">
     <div class="nav-card" onclick="goTo('page-host')">
       <div class="nav-icon-wrap icon-pink">🎙️</div>
-      <div class="nav-text"><div class="nav-title" data-t="nav-host">Host Policy</div><div class="nav-desc" data-t="nav-host-desc">Salary, bonuses &amp; streaming guidelines</div></div>
+      <div class="nav-text"><div class="nav-title">Host Policy</div><div class="nav-desc">Salary, bonuses &amp; streaming guidelines</div></div>
       <div class="nav-arrow">›</div>
     </div>
     <div class="nav-card" onclick="goTo('page-agency')">
       <div class="nav-icon-wrap icon-purple">🏢</div>
-      <div class="nav-text"><div class="nav-title" data-t="nav-agency">Agency Policy</div><div class="nav-desc" data-t="nav-agency-desc">Commission tiers &amp; partnership terms</div></div>
+      <div class="nav-text"><div class="nav-title">Agency Policy</div><div class="nav-desc">Commission tiers &amp; partnership terms</div></div>
       <div class="nav-arrow">›</div>
     </div>
     <div class="nav-card" onclick="goTo('page-seller')">
@@ -283,31 +327,31 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
           <text x="20" y="23" text-anchor="middle" font-family="Orbitron,monospace" font-weight="900" font-size="11" fill="#003355">R</text>
         </svg>
       </div>
-      <div class="nav-text"><div class="nav-title" data-t="nav-seller">Coin Seller Policy</div><div class="nav-desc" data-t="nav-seller-desc">Official coin seller guidelines &amp; rates</div></div>
+      <div class="nav-text"><div class="nav-title">Coin Seller Policy</div><div class="nav-desc">Official coin seller guidelines &amp; rates</div></div>
       <div class="nav-arrow">›</div>
     </div>
     <div class="nav-card" onclick="goTo('page-registration')">
       <div class="nav-icon-wrap icon-cyan">📝</div>
-      <div class="nav-text"><div class="nav-title" data-t="nav-reg">Agency Registration</div><div class="nav-desc" data-t="nav-reg-desc">Apply to become a partner agency</div></div>
+      <div class="nav-text"><div class="nav-title">Agency Registration</div><div class="nav-desc">Apply to become a partner agency</div></div>
       <div class="nav-arrow">›</div>
     </div>
     <div class="nav-card" onclick="goTo('page-contact')">
       <div class="nav-icon-wrap icon-green">📞</div>
-      <div class="nav-text"><div class="nav-title" data-t="nav-contact">Contact Country Manager</div><div class="nav-desc" data-t="nav-contact-desc">India manager direct contact</div></div>
+      <div class="nav-text"><div class="nav-title">Contact Country Manager</div><div class="nav-desc">India manager direct contact</div></div>
       <div class="nav-arrow">›</div>
     </div>
     <div class="nav-card" onclick="window.open('https://whatsapp.com/channel/0029VbBsWwtGzzKJmjQ8CU0Q','_blank')">
       <div class="nav-icon-wrap icon-green">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       </div>
-      <div class="nav-text"><div class="nav-title" data-t="nav-updates">Daily Updates</div><div class="nav-desc" data-t="nav-updates-desc">Join our WhatsApp channel</div></div>
+      <div class="nav-text"><div class="nav-title">Daily Updates</div><div class="nav-desc">Join our WhatsApp channel</div></div>
       <div class="nav-arrow">›</div>
     </div>
   </div>
   <div class="footer">© 2026 <span>RIZZ LIVE</span> · <span>All Rights Reserved</span></div>
 </div>
 
-<!-- ===== HOST POLICY - UPDATED FROM IMAGES ===== -->
+<!-- HOST POLICY -->
 <div class="page" id="page-host">
   <header class="header">
     <div class="logo-mark">
@@ -315,31 +359,19 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
       <span class="logo-mark-inner" style="display:none">R</span>
     </div>
     <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
-    <div class="header-right">
-      <div class="lang-drop" id="ld-host">
-        <div class="lang-drop-btn" onclick="toggleDrop('ld-host')"><span id="ld-host-lbl">🌐 EN</span><span class="chev">▾</span></div>
-        <div class="lang-drop-menu">
-          <div class="lang-opt active" onclick="setLang('en');closeDrop()"><span class="flag">🇬🇧</span><span class="lname">English</span><span class="tick">✓</span></div>
-          <div class="lang-opt" onclick="setLang('hi');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">हिंदी</span><span class="tick">✓</span></div>
-          <div class="lang-opt" onclick="setLang('hl');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">Hinglish</span><span class="tick">✓</span></div>
-        </div>
-      </div>
-    </div>
   </header>
-  <div class="back-btn" onclick="goTo('page-home')" data-t="back">Back to Home</div>
+  <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
   <div class="inner-hero">
     <div class="inner-eyebrow">Host Guidelines</div>
     <h1 class="inner-title">HOST POLICY</h1>
     <div class="neon-divider"><div class="nd-line rev"></div><div class="nd-gem"></div><div class="nd-line"></div></div>
   </div>
 
-  <!-- SECTION 1: Host Salary Structure -->
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
       <div class="sec-num">01</div><div class="sec-title">Host Salary Structure</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
-
       <div class="sub-label">1.1 Personal Gift Share</div>
       <table class="lux-table">
         <thead><tr><th>Basic Share</th></tr></thead>
@@ -349,7 +381,6 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
         <span class="ex-label">🔥 Example</span>
         If a user sends <strong style="color:var(--gold2)">10K Coins</strong> during a live broadcast, the host will receive <strong style="color:var(--gold2)">10K Rubies</strong>.
       </div>
-
       <div class="divider"></div>
       <div class="sub-label">1.2 Host Weekly Bonus</div>
       <table class="lux-table">
@@ -360,27 +391,25 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
       </table>
       <div class="example-box">
         <span class="ex-label">🔥 Example</span>
-        If a host earns <strong style="color:var(--gold2)">100K Rubies</strong> in one week <strong style="color:var(--pink2)">(Sunday 10:30 PM to Sunday 10:30 PM)</strong>, they receive a <strong style="color:var(--gold2)">30K Ruby bonus (30%)</strong>, credited on <strong style="color:var(--purple3)">Monday</strong>.<br/><br/>
+        If a host earns <strong style="color:var(--gold2)">100K Rubies</strong> in one week <strong style="color:var(--pink2)">(Sunday 12:00 PM to Sunday 12:00 PM – EST New York Time)</strong>, they receive a <strong style="color:var(--gold2)">30K Ruby bonus (30%)</strong>, credited on <strong style="color:var(--purple3)">Monday</strong>.<br/><br/>
         To get this bonus, the host must:
       </div>
       <ul class="rule-list">
         <li><span class="r-gem gem-pink"></span><span>Complete at least <strong>4 active days</strong></span></li>
         <li><span class="r-gem gem-pink"></span><span>Stream a total of <strong>10 hours</strong> in the week</span></li>
       </ul>
-
       <div class="divider"></div>
       <div class="sub-label">1.3 Rules</div>
       <ul class="rule-list">
         <li><span class="r-gem gem-gold"></span><span><strong>Withdrawal Rate:</strong> <span class="c-green">20,000 Ruby = 1 USD</span></span></li>
-        <li><span class="r-gem gem-gold"></span><span><strong>Day Change:</strong> Daily at <span class="c-pink">10:30 PM </span></span></li>
-        <li><span class="r-gem gem-gold"></span><span><strong>Weekly Period:</strong> <span class="c-pink">Sunday 10:30 PM to Sunday 10:30 PM </span></span></li>
+        <li><span class="r-gem gem-gold"></span><span><strong>Day Change:</strong> Daily at <span class="c-pink">12:00 PM (EST – New York Time)</span></span></li>
+        <li><span class="r-gem gem-gold"></span><span><strong>Weekly Period:</strong> <span class="c-pink">Sunday 12:00 PM to Sunday 12:00 PM (EST – New York Time)</span></span></li>
         <li><span class="r-gem gem-gold"></span><span><strong>Valid Day:</strong> Minimum <span class="c-pink">120 minutes (2 hours)</span> Live</span></li>
         <li><span class="r-gem gem-gold"></span><span><strong>Valid Hour:</strong> 60+ minutes = <span class="c-pink">1 valid hour</span></span></li>
         <li><span class="r-gem gem-gold"></span><span><strong>Minimum Live Time:</strong> Sessions below <strong>30 minutes</strong> not counted</span></li>
         <li><span class="r-gem gem-gold"></span><span><strong>Bonus Payment:</strong> Every <span class="c-purple">Monday (in Rubies)</span></span></li>
         <li><span class="r-gem gem-gold"></span><span><strong>Withdrawal:</strong> Once per day, Minimum = <span class="c-green">$10 USD</span></span></li>
       </ul>
-
       <div class="divider"></div>
       <div class="sub-label" style="color:var(--green)">Agency Change Rules</div>
       <p style="font-family:'Rajdhani',sans-serif;font-size:13px;color:var(--text-dim);margin-bottom:8px;">A host can change agency if:</p>
@@ -396,7 +425,6 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
     </div>
   </div>
 
-  <!-- SECTION 2: Host Game Commissions -->
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
       <div class="sec-num">02</div><div class="sec-title">Host Game Commissions</div><div class="sec-chev">›</div>
@@ -414,7 +442,6 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
     </div>
   </div>
 
-  <!-- SECTION 3: Rookie Host Policy -->
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
       <div class="sec-num">03</div><div class="sec-title">Rookie Host Policy</div><div class="sec-chev">›</div>
@@ -442,7 +469,6 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
     </div>
   </div>
 
-  <!-- SECTION 4: Prestige Host Policy -->
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
       <div class="sec-num">04</div><div class="sec-title">Prestige Host Policy</div><div class="sec-chev">›</div>
@@ -468,7 +494,6 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
         <li><span class="r-gem gem-purple"></span><span>Missing one week's target <strong>does not cancel</strong> next week's guarantee</span></li>
         <li><span class="r-gem gem-gold"></span><span>If targets not met → <strong>salary follows basic policy</strong></span></li>
       </ul>
-
       <div class="divider"></div>
       <div class="sub-label" style="color:var(--green)">4.1 Requirements</div>
       <ul class="rule-list">
@@ -479,7 +504,6 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
         <li><span class="r-gem gem-green"></span><span>Actively engage with viewers</span></li>
         <li><span class="r-gem gem-green"></span><span>Follow team instructions and join activities</span></li>
       </ul>
-
       <div class="divider"></div>
       <div class="sub-label" style="color:var(--pink2)">4.2 Removal from Prestige Host Policy</div>
       <ul class="rule-list">
@@ -489,9 +513,6 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
         <li><span class="r-gem gem-rose"></span><span>Not following team instructions</span></li>
         <li><span class="r-gem gem-rose"></span><span>Poor stream quality without fixing</span></li>
         <li><span class="r-gem gem-rose"></span><span>Breaking platform rules or laws</span></li>
-        <li><span class="r-gem gem-rose"></span><span>2 bans/week → removed from policy (1st ban: 1 day, 2nd: 2 days)</span></li>
-        <li><span class="r-gem gem-rose"></span><span>Broadcast mandatory: 6 PM – 11:59 PM</span></li>
-        <li><span class="r-gem gem-rose"></span><span>Old host with new ID → ban, no compensation</span></li>
       </ul>
     </div>
   </div>
@@ -507,30 +528,20 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
       <span class="logo-mark-inner" style="display:none">R</span>
     </div>
     <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
-    <div class="header-right">
-      <div class="lang-drop" id="ld-agency">
-        <div class="lang-drop-btn" onclick="toggleDrop('ld-agency')"><span id="ld-agency-lbl">🌐 EN</span><span class="chev">▾</span></div>
-        <div class="lang-drop-menu">
-          <div class="lang-opt active" onclick="setLang('en');closeDrop()"><span class="flag">🇬🇧</span><span class="lname">English</span><span class="tick">✓</span></div>
-          <div class="lang-opt" onclick="setLang('hi');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">हिंदी</span><span class="tick">✓</span></div>
-          <div class="lang-opt" onclick="setLang('hl');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">Hinglish</span><span class="tick">✓</span></div>
-        </div>
-      </div>
-    </div>
   </header>
-  <div class="back-btn" onclick="goTo('page-home')" data-t="back">Back to Home</div>
+  <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
   <div class="inner-hero">
-    <div class="inner-eyebrow" data-t="eyebrow-agency">Agency Guidelines</div>
-    <h1 class="inner-title" data-t="title-agency">AGENCY POLICY</h1>
+    <div class="inner-eyebrow">Agency Guidelines</div>
+    <h1 class="inner-title">AGENCY POLICY</h1>
     <div class="neon-divider"><div class="nd-line rev"></div><div class="nd-gem"></div><div class="nd-line"></div></div>
   </div>
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">01</div><div class="sec-title" data-t="agency-s1">Agency Commission Tiers</div><div class="sec-chev">›</div>
+      <div class="sec-num">01</div><div class="sec-title">Agency Commission Tiers</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <table class="lux-table">
-        <thead><tr><th data-t="th-level">Level</th><th data-t="th-weekly-rev">Weekly Revenue (Ruby)</th><th data-t="th-commission">Commission</th></tr></thead>
+        <thead><tr><th>Level</th><th>Weekly Revenue (Ruby)</th><th>Commission</th></tr></thead>
         <tbody>
           <tr><td class="c-purple">Level 1</td><td>Below 10M</td><td class="c-green">16.00%</td></tr>
           <tr><td class="c-purple">Level 2</td><td>10M – 30M</td><td class="c-green">18.00%</td></tr>
@@ -538,23 +549,23 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
         </tbody>
       </table>
       <div class="divider"></div>
-      <div class="sub-label" data-t="sl-requirements">Requirements</div>
+      <div class="sub-label">Requirements</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-cyan"></span><span data-t="agency-req-1">Agency must maintain at least <strong>5 active hosts</strong> every week</span></li>
-        <li><span class="r-gem gem-cyan"></span><span data-t="agency-req-2">Agency must encourage hosts to go live &amp; actively join platform events</span></li>
+        <li><span class="r-gem gem-cyan"></span><span>Agency must maintain at least <strong>5 active hosts</strong> every week</span></li>
+        <li><span class="r-gem gem-cyan"></span><span>Agency must encourage hosts to go live &amp; actively join platform events</span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-label" data-t="sl-task-period">Weekly Task Period</div>
-      <div class="example-box"><span class="ex-label">⏰ <span data-t="period-label">Period</span></span><span data-t="period-text">All weekly tasks are counted from <strong>Sunday 10:30 PM to Sunday 10:30 PM (IST)</strong>.</span></div>
+      <div class="sub-label">Weekly Task Period</div>
+      <div class="example-box"><span class="ex-label">⏰ Period</span>All weekly tasks are counted from <strong>Sunday 10:30 PM to Sunday 10:30 PM (IST)</strong>.</div>
     </div>
   </div>
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">02</div><div class="sec-title" data-t="agency-s2">Host Activation Salary</div><div class="sec-chev">›</div>
+      <div class="sec-num">02</div><div class="sec-title">Host Activation Salary</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <table class="lux-table">
-        <thead><tr><th data-t="th-level">Level</th><th data-t="th-monthly-target">Monthly Target</th><th data-t="th-active-hosts">Active Hosts</th><th data-t="th-basic-pay">Basic Pay</th></tr></thead>
+        <thead><tr><th>Level</th><th>Monthly Target</th><th>Active Hosts</th><th>Basic Pay</th></tr></thead>
         <tbody>
           <tr><td class="c-purple">L1</td><td>Below 10M</td><td>—</td><td>—</td></tr>
           <tr><td class="c-purple">L2</td><td>Above 10M</td><td class="c-cyan">20</td><td class="c-green">$25</td></tr>
@@ -564,54 +575,54 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
         </tbody>
       </table>
       <div class="divider"></div>
-      <div class="sub-label" style="color:var(--green)" data-t="sl-active-def">Active Host Definition</div>
+      <div class="sub-label" style="color:var(--green)">Active Host Definition</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-green"></span><span data-t="active-1">At least <strong>10 valid days</strong> in a month</span></li>
-        <li><span class="r-gem gem-green"></span><span data-t="active-2">At least <strong>20 valid hours</strong> in a month</span></li>
-        <li><span class="r-gem gem-green"></span><span data-t="active-3">Minimum <strong>100,000 Rubies</strong> earned in gifts per month</span></li>
+        <li><span class="r-gem gem-green"></span><span>At least <strong>10 valid days</strong> in a month</span></li>
+        <li><span class="r-gem gem-green"></span><span>At least <strong>20 valid hours</strong> in a month</span></li>
+        <li><span class="r-gem gem-green"></span><span>Minimum <strong>100,000 Rubies</strong> earned in gifts per month</span></li>
       </ul>
-      <div class="alert-box"><span class="al-label" data-t="important-label">⚠️ Important</span><span data-t="active-alert">Failure to meet either the monthly revenue target or active host requirement results in <strong>disqualification</strong> from the Host Activation Salary Program.</span></div>
+      <div class="alert-box"><span class="al-label">⚠️ Important</span>Failure to meet either the monthly revenue target or active host requirement results in <strong>disqualification</strong> from the Host Activation Salary Program.</div>
     </div>
   </div>
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">03</div><div class="sec-title" data-t="agency-s3">Commission Payout</div><div class="sec-chev">›</div>
+      <div class="sec-num">03</div><div class="sec-title">Commission Payout</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
-      <div class="example-box"><span class="ex-label">💰 <span data-t="payout-schedule-label">Payout Schedule</span></span><span data-t="payout-schedule-text">All commissions are paid <strong>every Monday in Rubies</strong>.</span></div>
+      <div class="example-box"><span class="ex-label">💰 Payout Schedule</span>All commissions are paid <strong>every Monday in Rubies</strong>.</div>
     </div>
   </div>
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">04</div><div class="sec-title" data-t="agency-s4">Withdrawal Rules</div><div class="sec-chev">›</div>
+      <div class="sec-num">04</div><div class="sec-title">Withdrawal Rules</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <ul class="rule-list">
-        <li><span class="r-gem gem-cyan"></span><span data-t="aw-1">Withdrawal requests may be submitted <strong>once per day</strong></span></li>
-        <li><span class="r-gem gem-cyan"></span><span data-t="aw-2">Minimum withdrawal amount: <span class="c-rose">$10 USD</span></span></li>
+        <li><span class="r-gem gem-cyan"></span><span>Withdrawal requests may be submitted <strong>once per day</strong></span></li>
+        <li><span class="r-gem gem-cyan"></span><span>Minimum withdrawal amount: <span class="c-rose">$10 USD</span></span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-label" data-t="sl-fee">Fee Structure</div>
+      <div class="sub-label">Fee Structure</div>
       <table class="lux-table">
-        <thead><tr><th data-t="th-amount">Withdrawal Amount</th><th data-t="th-fee">Fee</th></tr></thead>
+        <thead><tr><th>Withdrawal Amount</th><th>Fee</th></tr></thead>
         <tbody>
-          <tr><td data-t="fee-1-label">Less than $100</td><td class="c-rose" data-t="fee-1-val">$2 flat per transaction</td></tr>
-          <tr><td data-t="fee-2-label">$100 and above</td><td class="c-rose" data-t="fee-2-val">2% of withdrawal amount</td></tr>
+          <tr><td>Less than $100</td><td class="c-rose">$2 flat per transaction</td></tr>
+          <tr><td>$100 and above</td><td class="c-rose">2% of withdrawal amount</td></tr>
         </tbody>
       </table>
     </div>
   </div>
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">05</div><div class="sec-title" data-t="agency-s5">Agency Change Rules</div><div class="sec-chev">›</div>
+      <div class="sec-num">05</div><div class="sec-title">Agency Change Rules</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <ul class="rule-list">
-        <li><span class="r-gem gem-green"></span><span data-t="ac-1">No activity for <strong>120 days</strong></span></li>
-        <li><span class="r-gem gem-green"></span><span data-t="ac-2">Agency unreachable for <strong>2 weeks</strong></span></li>
-        <li><span class="r-gem gem-green"></span><span data-t="ac-3">Both agency and host <strong>mutually agree</strong> to the change</span></li>
+        <li><span class="r-gem gem-green"></span><span>No activity for <strong>120 days</strong></span></li>
+        <li><span class="r-gem gem-green"></span><span>Agency unreachable for <strong>2 weeks</strong></span></li>
+        <li><span class="r-gem gem-green"></span><span>Both agency and host <strong>mutually agree</strong> to the change</span></li>
       </ul>
-      <div class="alert-box"><span class="al-label" data-t="important-label">⚠️ Important</span><span data-t="ac-alert">Any fraudulent transfer attempts → <strong>Warning / Suspension / Permanent Ban</strong></span></div>
+      <div class="alert-box"><span class="al-label">⚠️ Important</span>Any fraudulent transfer attempts → <strong>Warning / Suspension / Permanent Ban</strong></div>
     </div>
   </div>
   <div class="footer">© 2026 <span>RIZZ LIVE</span> · <span>All Rights Reserved</span></div>
@@ -625,60 +636,50 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
       <span class="logo-mark-inner" style="display:none">R</span>
     </div>
     <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
-    <div class="header-right">
-      <div class="lang-drop" id="ld-seller">
-        <div class="lang-drop-btn" onclick="toggleDrop('ld-seller')"><span id="ld-seller-lbl">🌐 EN</span><span class="chev">▾</span></div>
-        <div class="lang-drop-menu">
-          <div class="lang-opt active" onclick="setLang('en');closeDrop()"><span class="flag">🇬🇧</span><span class="lname">English</span><span class="tick">✓</span></div>
-          <div class="lang-opt" onclick="setLang('hi');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">हिंदी</span><span class="tick">✓</span></div>
-          <div class="lang-opt" onclick="setLang('hl');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">Hinglish</span><span class="tick">✓</span></div>
-        </div>
-      </div>
-    </div>
   </header>
-  <div class="back-btn" onclick="goTo('page-home')" data-t="back">Back to Home</div>
+  <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
   <div class="inner-hero">
-    <div class="inner-eyebrow" data-t="eyebrow-seller">Coin Seller Guidelines</div>
-    <h1 class="inner-title" data-t="title-seller">COIN SELLER POLICY</h1>
+    <div class="inner-eyebrow">Coin Seller Guidelines</div>
+    <h1 class="inner-title">COIN SELLER POLICY</h1>
     <div class="neon-divider"><div class="nd-line rev"></div><div class="nd-gem"></div><div class="nd-line"></div></div>
   </div>
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num" style="font-size:14px">◆</div><div class="sec-title" data-t="seller-s0">Purpose</div><div class="sec-chev">›</div>
+      <div class="sec-num" style="font-size:14px">◆</div><div class="sec-title">Purpose</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
-      <p style="font-family:'Rajdhani',sans-serif;font-size:14px;color:rgba(200,210,255,0.72);line-height:1.8;" data-t="seller-purpose">This policy outlines the eligibility requirements, operational standards, and performance expectations for agencies applying to become <strong style="color:var(--cyan2)">Official Coin Sellers</strong> on the RIZZ LIVE platform.</p>
+      <p style="font-family:'Rajdhani',sans-serif;font-size:14px;color:rgba(200,210,255,0.72);line-height:1.8;">This policy outlines the eligibility requirements, operational standards, and performance expectations for agencies applying to become <strong style="color:var(--cyan2)">Official Coin Sellers</strong> on the RIZZ LIVE platform.</p>
     </div>
   </div>
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">01</div><div class="sec-title" data-t="seller-s1">Eligibility Criteria</div><div class="sec-chev">›</div>
+      <div class="sec-num">01</div><div class="sec-title">Eligibility Criteria</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
-      <div class="sub-label" data-t="sl-min-req">Minimum Requirement</div>
-      <div class="example-box"><span class="ex-label">📌 <span data-t="qualify-label">Qualification Threshold</span></span><span data-t="qualify-text">Agencies must generate <strong>50,000,000 Coins (50M)</strong> monthly revenue to qualify as an Official Coin Seller.</span></div>
+      <div class="sub-label">Minimum Requirement</div>
+      <div class="example-box"><span class="ex-label">📌 Qualification Threshold</span>Agencies must generate <strong>50,000,000 Coins (50M)</strong> monthly revenue to qualify as an Official Coin Seller.</div>
       <div class="divider"></div>
-      <div class="sub-label" data-t="sl-deposit">Security Deposit Option</div>
+      <div class="sub-label">Security Deposit Option</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-cyan"></span><span data-t="deposit-1">Agencies below the 50M target may apply with a <strong>$1,000 security deposit</strong></span></li>
-        <li><span class="r-gem gem-green"></span><span data-t="deposit-2">Deposit is <strong>fully refunded</strong> once the monthly target is achieved</span></li>
+        <li><span class="r-gem gem-cyan"></span><span>Agencies below the 50M target may apply with a <strong>$1,000 security deposit</strong></span></li>
+        <li><span class="r-gem gem-green"></span><span>Deposit is <strong>fully refunded</strong> once the monthly target is achieved</span></li>
       </ul>
       <div class="divider"></div>
-      <div class="sub-label" data-t="sl-maintain">Maintenance Requirement</div>
+      <div class="sub-label">Maintenance Requirement</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-cyan"></span><span data-t="maintain-1">Approved sellers must sustain <strong>50M monthly revenue</strong></span></li>
-        <li><span class="r-gem gem-rose"></span><span data-t="maintain-2">Failure for <strong>two consecutive months</strong> may result in seller status revocation</span></li>
+        <li><span class="r-gem gem-cyan"></span><span>Approved sellers must sustain <strong>50M monthly revenue</strong></span></li>
+        <li><span class="r-gem gem-rose"></span><span>Failure for <strong>two consecutive months</strong> may result in seller status revocation</span></li>
       </ul>
     </div>
   </div>
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">02</div><div class="sec-title" data-t="seller-s2">Buying Price Structure</div><div class="sec-chev">›</div>
+      <div class="sec-num">02</div><div class="sec-title">Buying Price Structure</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
-      <p style="font-family:'Rajdhani',sans-serif;font-size:12px;color:var(--text-dim);margin-bottom:8px;" data-t="topup-note">Top-up must be made via <strong style="color:#fff">USDT</strong>.</p>
+      <p style="font-family:'Rajdhani',sans-serif;font-size:12px;color:var(--text-dim);margin-bottom:8px;">Top-up must be made via <strong style="color:#fff">USDT</strong>.</p>
       <table class="lux-table">
-        <thead><tr><th data-t="th-topup">Top-Up (USD)</th><th data-t="th-buy-ratio">Buy Ratio</th><th data-t="th-total-coins">Total Coins</th></tr></thead>
+        <thead><tr><th>Top-Up (USD)</th><th>Buy Ratio</th><th>Total Coins</th></tr></thead>
         <tbody>
           <tr><td class="c-pink">$2,000</td><td class="c-cyan">9,000 / $</td><td class="c-green">18,000,000</td></tr>
           <tr><td class="c-pink">$5,000</td><td class="c-cyan">9,200 / $</td><td class="c-green">46,000,000</td></tr>
@@ -688,22 +689,22 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
   </div>
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">03</div><div class="sec-title" data-t="seller-s3">Selling Price Structure</div><div class="sec-chev">›</div>
+      <div class="sec-num">03</div><div class="sec-title">Selling Price Structure</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <table class="lux-table">
-        <thead><tr><th data-t="th-channel">Channel</th><th data-t="th-sell-ratio">Sell Ratio / $</th></tr></thead>
+        <thead><tr><th>Channel</th><th>Sell Ratio / $</th></tr></thead>
         <tbody>
-          <tr><td data-t="offline-label">Offline Sales</td><td class="c-pink">8,300</td></tr>
-          <tr><td data-t="online-label">Online Sales</td><td class="c-cyan">5,000</td></tr>
+          <tr><td>Offline Sales</td><td class="c-pink">8,300</td></tr>
+          <tr><td>Online Sales</td><td class="c-cyan">5,000</td></tr>
         </tbody>
       </table>
       <div class="divider"></div>
-      <div class="sub-label" style="color:var(--pink2)" data-t="sl-sell-policy">Selling Policy</div>
+      <div class="sub-label" style="color:var(--pink2)">Selling Policy</div>
       <ul class="rule-list">
-        <li><span class="r-gem gem-rose"></span><span data-t="sell-policy-text">Coin Sellers must <strong>NOT sell above</strong> the approved offline ratio of <strong>8,300</strong></span></li>
+        <li><span class="r-gem gem-rose"></span><span>Coin Sellers must <strong>NOT sell above</strong> the approved offline ratio of <strong>8,300</strong></span></li>
       </ul>
-      <div class="alert-box"><span class="al-label" data-t="violation-label">⚠️ Violation Penalty</span><strong data-t="violation-fine">$100 fine</strong><span data-t="violation-text"> + equivalent coin deduction from seller's wallet.<br/><br/></span><strong data-t="violation-repeat">Repeated violations:</strong><span data-t="violation-repeat-text"> Suspension or permanent removal from the Official Coin Seller Program.</span></div>
+      <div class="alert-box"><span class="al-label">⚠️ Violation Penalty</span><strong>$100 fine</strong> + equivalent coin deduction from seller's wallet.<br/><br/><strong>Repeated violations:</strong> Suspension or permanent removal from the Official Coin Seller Program.</div>
     </div>
   </div>
   <div class="footer">© 2026 <span>RIZZ LIVE</span> · <span>All Rights Reserved</span></div>
@@ -717,71 +718,61 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
       <span class="logo-mark-inner" style="display:none">R</span>
     </div>
     <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
-    <div class="header-right">
-      <div class="lang-drop" id="ld-registration">
-        <div class="lang-drop-btn" onclick="toggleDrop('ld-registration')"><span id="ld-registration-lbl">🌐 EN</span><span class="chev">▾</span></div>
-        <div class="lang-drop-menu">
-          <div class="lang-opt active" onclick="setLang('en');closeDrop()"><span class="flag">🇬🇧</span><span class="lname">English</span><span class="tick">✓</span></div>
-          <div class="lang-opt" onclick="setLang('hi');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">हिंदी</span><span class="tick">✓</span></div>
-          <div class="lang-opt" onclick="setLang('hl');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">Hinglish</span><span class="tick">✓</span></div>
-        </div>
-      </div>
-    </div>
   </header>
-  <div class="back-btn" onclick="goTo('page-home')" data-t="back">Back to Home</div>
+  <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
   <div class="inner-hero">
-    <div class="inner-eyebrow" data-t="eyebrow-reg">Partnership</div>
-    <h1 class="inner-title" data-t="title-reg">AGENCY REGISTRATION</h1>
+    <div class="inner-eyebrow">Partnership</div>
+    <h1 class="inner-title">AGENCY REGISTRATION</h1>
     <div class="neon-divider"><div class="nd-line rev"></div><div class="nd-gem"></div><div class="nd-line"></div></div>
   </div>
   <div class="reg-form-card">
     <div class="reg-form-header">
       <div class="reg-form-header-icon">🏢</div>
       <div>
-        <div class="reg-form-header-title" data-t="form-title">Agency Registration Form</div>
-        <div class="reg-form-header-sub" data-t="form-sub">Complete all required fields to apply</div>
+        <div class="reg-form-header-title">Agency Registration Form</div>
+        <div class="reg-form-header-sub">Complete all required fields to apply</div>
       </div>
     </div>
     <div class="reg-form-body" id="reg-form-body">
       <div class="field-row">
         <div class="field-group">
-          <label class="field-label" for="f-supervisor"><span data-t="field-supervisor">Supervisor</span><span class="field-required" data-t="required">* Required</span></label>
+          <label class="field-label" for="f-supervisor">Supervisor<span class="field-required">* Required</span></label>
           <select class="neon-select" id="f-supervisor" required onchange="onSupervisorChange()">
-            <option value="" disabled selected data-t="select-placeholder">Select…</option>
+            <option value="" disabled selected>Select…</option>
             <option value="Ray-IN">Ray-IN</option>
           </select>
-          <span class="field-err" id="err-supervisor" data-t="err-supervisor">Please select a supervisor.</span>
+          <span class="field-err" id="err-supervisor">Please select a supervisor.</span>
         </div>
         <div class="field-group">
-          <label class="field-label" for="f-admin"><span data-t="field-admin">Admin</span><span class="field-optional" data-t="optional">Optional</span></label>
+          <label class="field-label" for="f-admin">Admin<span class="field-optional">Optional</span></label>
           <select class="neon-select" id="f-admin" disabled>
-            <option value="" data-t="admin-placeholder">— Select supervisor first —</option>
+            <option value="">— Select supervisor first —</option>
           </select>
         </div>
       </div>
       <div class="form-divider"></div>
       <div class="field-group">
-        <label class="field-label" for="f-leader"><span data-t="field-leader">Agency Leader Name</span><span class="field-required" data-t="required">* Required</span></label>
+        <label class="field-label" for="f-leader">Agency Leader Name<span class="field-required">* Required</span></label>
         <input class="neon-input" type="text" id="f-leader" placeholder="Enter your full name" required autocomplete="name"/>
-        <span class="field-err" id="err-leader" data-t="err-leader">Please enter the agency leader name.</span>
+        <span class="field-err" id="err-leader">Please enter the agency leader name.</span>
       </div>
       <div class="field-group">
-        <label class="field-label" for="f-agency"><span data-t="field-agency">Agency Name</span></label>
+        <label class="field-label" for="f-agency">Agency Name</label>
         <input class="neon-input" type="text" id="f-agency" placeholder="Your agency or team name"/>
       </div>
       <div class="form-divider"></div>
       <div class="field-group">
-        <label class="field-label" for="f-rizzid"><span data-t="field-rizzid">Rizz Live ID</span><span class="field-required" data-t="required">* Required</span></label>
+        <label class="field-label" for="f-rizzid">Rizz Live ID<span class="field-required">* Required</span></label>
         <input class="neon-input" type="text" id="f-rizzid" placeholder="e.g. RL123456" autocomplete="off"/>
       </div>
       <div class="field-group">
-        <label class="field-label" for="f-whatsapp"><span data-t="field-whatsapp">WhatsApp Number</span><span class="field-required" data-t="required">* Required</span></label>
+        <label class="field-label" for="f-whatsapp">WhatsApp Number<span class="field-required">* Required</span></label>
         <input class="neon-input" type="tel" id="f-whatsapp" placeholder="e.g. +919876543210" inputmode="tel" autocomplete="tel"/>
       </div>
       <div class="field-group">
-        <label class="field-label" for="f-country"><span data-t="field-country">Country</span><span class="field-required" data-t="required">* Required</span></label>
+        <label class="field-label" for="f-country">Country<span class="field-required">* Required</span></label>
         <select class="neon-select" id="f-country">
-          <option value="" data-t="country-placeholder">Select country…</option>
+          <option value="">Select country…</option>
           <option value="India">India 🇮🇳</option>
           <option value="Bangladesh">Bangladesh 🇧🇩</option>
           <option value="Nepal">Nepal 🇳🇵</option>
@@ -792,17 +783,17 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
         </select>
       </div>
       <button class="submit-btn" id="reg-submit-btn" onclick="submitRegForm()">
-        <span id="reg-btn-label" data-t="submit-btn">✦ &nbsp; Submit Application</span>
+        <span id="reg-btn-label">✦ &nbsp; Submit Application</span>
       </button>
       <div class="form-msg success" id="reg-success">
         <span class="form-msg-icon">✅</span>
-        <span class="form-msg-title" data-t="success-title">Application Submitted!</span>
-        <span data-t="success-text">Your registration has been sent successfully.<br/>Our team will review and reach out to you shortly.</span>
+        <span class="form-msg-title">Application Submitted!</span>
+        <span>Your registration has been sent successfully.<br/>Our team will review and reach out to you shortly.</span>
       </div>
       <div class="form-msg error" id="reg-error">
         <span class="form-msg-icon">⚠️</span>
-        <span class="form-msg-title" data-t="error-title">Submission Failed</span>
-        <span id="reg-error-text" data-t="error-text">Something went wrong. Please try again.</span>
+        <span class="form-msg-title">Submission Failed</span>
+        <span id="reg-error-text">Something went wrong. Please try again.</span>
       </div>
     </div>
   </div>
@@ -817,38 +808,28 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
       <span class="logo-mark-inner" style="display:none">R</span>
     </div>
     <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
-    <div class="header-right">
-      <div class="lang-drop" id="ld-contact">
-        <div class="lang-drop-btn" onclick="toggleDrop('ld-contact')"><span id="ld-contact-lbl">🌐 EN</span><span class="chev">▾</span></div>
-        <div class="lang-drop-menu">
-          <div class="lang-opt active" onclick="setLang('en');closeDrop()"><span class="flag">🇬🇧</span><span class="lname">English</span><span class="tick">✓</span></div>
-          <div class="lang-opt" onclick="setLang('hi');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">हिंदी</span><span class="tick">✓</span></div>
-          <div class="lang-opt" onclick="setLang('hl');closeDrop()"><span class="flag">🇮🇳</span><span class="lname">Hinglish</span><span class="tick">✓</span></div>
-        </div>
-      </div>
-    </div>
   </header>
-  <div class="back-btn" onclick="goTo('page-home')" data-t="back">Back to Home</div>
+  <div class="back-btn" onclick="goTo('page-home')">Back to Home</div>
   <div class="inner-hero">
-    <div class="inner-eyebrow" data-t="eyebrow-contact">Direct Contact</div>
-    <h1 class="inner-title" data-t="title-contact">COUNTRY MANAGER</h1>
+    <div class="inner-eyebrow">Direct Contact</div>
+    <h1 class="inner-title">COUNTRY MANAGER</h1>
     <p style="font-family:'Rajdhani',sans-serif;font-size:14px;color:var(--pink2);letter-spacing:2px;margin-top:4px;">Ray-IN · India</p>
     <div class="neon-divider"><div class="nd-line rev"></div><div class="nd-gem"></div><div class="nd-line"></div></div>
   </div>
   <div class="sec-card" style="margin-top:14px">
     <div class="sec-hdr" style="cursor:default;min-height:auto">
       <div class="sec-num">🇮🇳</div>
-      <div class="sec-title" data-t="contact-title">India Country Manager</div>
+      <div class="sec-title">India Country Manager</div>
     </div>
     <div class="sec-body open">
-      <p style="font-family:'Rajdhani',sans-serif;font-size:13px;color:var(--text-dim);margin-bottom:13px;" data-t="contact-desc">For queries, support, and partnership — reach out directly on WhatsApp:</p>
+      <p style="font-family:'Rajdhani',sans-serif;font-size:13px;color:var(--text-dim);margin-bottom:13px;">For queries, support, and partnership — reach out directly on WhatsApp:</p>
       <a href="https://wa.me/919286766608" target="_blank" rel="noopener" class="contact-link">
         <div style="width:46px;height:46px;border-radius:13px;background:rgba(0,30,18,0.8);border:1px solid rgba(0,255,157,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 18px rgba(0,255,157,0.12);">
           <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </div>
         <div style="flex:1;min-width:0">
           <div style="font-family:'Orbitron',monospace;font-weight:800;font-size:14px;color:#25d366;letter-spacing:0.5px">Ray-IN</div>
-          <div style="font-family:'Rajdhani',sans-serif;font-size:11px;color:var(--text-dim);margin-top:2px;" data-t="tap-whatsapp">Tap to open WhatsApp</div>
+          <div style="font-family:'Rajdhani',sans-serif;font-size:11px;color:var(--text-dim);margin-top:2px;">Tap to open WhatsApp</div>
         </div>
         <div style="color:rgba(0,255,157,0.45);font-size:22px;flex-shrink:0">›</div>
       </a>
@@ -860,196 +841,62 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
 </div>
 <script>
 'use strict';
-const APPS_SCRIPT_URL='https://script.google.com/macros/s/AKfycbxKV4xPwatQew_YTL42T8z2Gx_Dj34fgjo9YOMjdtPlz2mNBdeyuho1h5ykqRX9vw6nnQ/exec';
+const APPS_SCRIPT_URL='https://script.google.com/macros/s/AKfycbzjC77trLR_qwia78wzV2V9W-OfnECstMB2wcH44fhlPjiQUFvoupDQqMnBbCSGoi9Liw/exec';
 const SUPERVISOR_ADMINS={'Ray-IN':['Rajesh-IN','Bunny-IN','Dhakadking-IN']};
 
-const T = {
-  en: {
-    'hero-badge':'Official Policy Documents','policy-center':'POLICY CENTER','hero-sub':'Select a document to view full terms & guidelines',
-    'stat-return':'For New Host','stat-commission':'Agency Commission','stat-bonus':'Online Bonus',
-    'nav-host':'Host Policy','nav-host-desc':'Salary, bonuses & streaming guidelines',
-    'nav-agency':'Agency Policy','nav-agency-desc':'Commission tiers & partnership terms',
-    'nav-seller':'Coin Seller Policy','nav-seller-desc':'Official coin seller guidelines & rates',
-    'nav-reg':'Agency Registration','nav-reg-desc':'Apply to become a partner agency',
-    'nav-contact':'Contact Country Manager','nav-contact-desc':'India manager direct contact',
-    'nav-updates':'Daily Updates','nav-updates-desc':'Join our WhatsApp channel',
-    'back':'Back to Home',
-    'eyebrow-agency':'Agency Guidelines','title-agency':'AGENCY POLICY',
-    'eyebrow-seller':'Coin Seller Guidelines','title-seller':'COIN SELLER POLICY',
-    'eyebrow-reg':'Partnership','title-reg':'AGENCY REGISTRATION',
-    'eyebrow-contact':'Direct Contact','title-contact':'COUNTRY MANAGER',
-    'agency-s1':'Agency Commission Tiers','agency-s2':'Host Activation Salary','agency-s3':'Commission Payout','agency-s4':'Withdrawal Rules','agency-s5':'Agency Change Rules',
-    'seller-s0':'Purpose','seller-s1':'Eligibility Criteria','seller-s2':'Buying Price Structure','seller-s3':'Selling Price Structure',
-    'th-level':'Level','th-weekly-rev':'Weekly Revenue (Ruby)','th-commission':'Commission',
-    'th-monthly-target':'Monthly Target','th-active-hosts':'Active Hosts','th-basic-pay':'Basic Pay',
-    'th-amount':'Withdrawal Amount','th-fee':'Fee','th-topup':'Top-Up (USD)','th-buy-ratio':'Buy Ratio','th-total-coins':'Total Coins',
-    'th-channel':'Channel','th-sell-ratio':'Sell Ratio / $',
-    'sl-requirements':'Requirements','sl-task-period':'Task Counting Period','sl-active-def':'Active Host Definition',
-    'sl-fee':'Fee Structure','sl-min-req':'Minimum Requirement','sl-deposit':'Security Deposit Option','sl-maintain':'Maintenance Requirement',
-    'sl-sell-policy':'Selling Policy','important-label':'⚠️ Important','violation-label':'⚠️ Violation Penalty',
-    'period-label':'Period','period-text':'All weekly tasks are counted from <strong>Sunday 10:30 PM to Sunday 10:30 PM (IST)</strong>.',
-    'payout-schedule-label':'Payout Schedule','payout-schedule-text':'All commissions are paid <strong>every Monday in Rubies</strong>.',
-    'qualify-label':'Qualification Threshold','qualify-text':'Agencies must generate <strong>50,000,000 Coins (50M)</strong> monthly revenue to qualify as an Official Coin Seller.',
-    'topup-note':'Top-up must be made via <strong style="color:#fff">USDT</strong>.',
-    'offline-label':'Offline Sales','online-label':'Online Sales',
-    'fee-1-label':'Less than $100','fee-1-val':'$2 flat per transaction','fee-2-label':'$100 and above','fee-2-val':'2% of withdrawal amount',
-    'form-title':'Agency Registration Form','form-sub':'Complete all required fields to apply',
-    'field-supervisor':'Supervisor','field-admin':'Admin','field-leader':'Agency Leader Name','field-agency':'Agency Name',
-    'field-rizzid':'Rizz Live ID','field-whatsapp':'WhatsApp Number','field-country':'Country',
-    'required':'* Required','optional':'Optional','select-placeholder':'Select…','admin-placeholder':'— Select supervisor first —','country-placeholder':'Select country…',
-    'err-supervisor':'Please select a supervisor.','err-leader':'Please enter the agency leader name.',
-    'submit-btn':'✦   Submit Application',
-    'success-title':'Application Submitted!','success-text':'Your registration has been sent successfully.<br/>Our team will review and reach out to you shortly.',
-    'error-title':'Submission Failed','error-text':'Something went wrong. Please try again.',
-    'contact-title':'India Country Manager','contact-desc':'For queries, support, and partnership — reach out directly on WhatsApp:','tap-whatsapp':'Tap to open WhatsApp',
-    'agency-req-1':'Agency must maintain at least <strong>5 active hosts</strong> every week',
-    'agency-req-2':'Agency must encourage hosts to go live &amp; actively join platform events',
-    'active-1':'At least <strong>10 valid days</strong> in a month','active-2':'At least <strong>20 valid hours</strong> in a month','active-3':'Minimum <strong>100,000 Rubies</strong> earned in gifts per month',
-    'active-alert':'Failure to meet either the monthly revenue target or active host requirement results in <strong>disqualification</strong> from the Host Activation Salary Program.',
-    'aw-1':'Withdrawal requests may be submitted <strong>once per day</strong>','aw-2':'Minimum withdrawal amount: <span class="c-rose">$10 USD</span>',
-    'ac-1':'No activity for <strong>120 days</strong>','ac-2':'Agency unreachable for <strong>2 weeks</strong>','ac-3':'Both agency and host <strong>mutually agree</strong> to the change',
-    'ac-alert':'Any fraudulent transfer attempts → <strong>Warning / Suspension / Permanent Ban</strong>',
-    'seller-purpose':'This policy outlines the eligibility requirements, operational standards, and performance expectations for agencies applying to become <strong style="color:var(--cyan2)">Official Coin Sellers</strong> on the RIZZ LIVE platform.',
-    'deposit-1':'Agencies below the 50M target may apply with a <strong>$1,000 security deposit</strong>','deposit-2':'Deposit is <strong>fully refunded</strong> once the monthly target is achieved',
-    'maintain-1':'Approved sellers must sustain <strong>50M monthly revenue</strong>','maintain-2':'Failure for <strong>two consecutive months</strong> may result in seller status revocation',
-    'sell-policy-text':'Coin Sellers must <strong>NOT sell above</strong> the approved offline ratio of <strong>8,300</strong>',
-    'violation-fine':'$100 fine','violation-text':' + equivalent coin deduction from seller\'s wallet.<br/><br/>',
-    'violation-repeat':'Repeated violations:','violation-repeat-text':' Suspension or permanent removal from the Official Coin Seller Program.',
+/* ── ADVERTISEMENT DATA ──
+   Yahan apne bullet points add karo.
+   gemClass: gem-cyan | gem-pink | gem-green | gem-gold | gem-purple
+   hiClass:  ad-hi-cyan | ad-hi-pink | ad-hi-green | ad-hi-gold (highlighted text)
+*/
+const AD_ITEMS = [
+  {
+    gem: 'gem-cyan',
+    html: '🎙️ <span class="ad-hi">New Hosts</span> ke liye <span class="ad-hi-green">$5 FREE</span> guarantee — pehle 4 hafte ka support!'
   },
-  hi: {
-    'hero-badge':'आधिकारिक नीति दस्तावेज़','policy-center':'पॉलिसी केंद्र','hero-sub':'नियम और दिशानिर्देश देखने के लिए दस्तावेज़ चुनें',
-    'stat-return':'होस्ट रिटर्न','stat-commission':'एजेंसी कमीशन','stat-bonus':'ऑनलाइन बोनस',
-    'nav-host':'होस्ट पॉलिसी','nav-host-desc':'सैलरी, बोनस और स्ट्रीमिंग गाइडलाइन',
-    'nav-agency':'एजेंसी पॉलिसी','nav-agency-desc':'कमीशन टियर और पार्टनरशिप शर्तें',
-    'nav-seller':'कॉइन सेलर पॉलिसी','nav-seller-desc':'आधिकारिक कॉइन सेलर गाइडलाइन और रेट',
-    'nav-reg':'एजेंसी रजिस्ट्रेशन','nav-reg-desc':'पार्टनर एजेंसी बनने के लिए आवेदन करें',
-    'nav-contact':'कंट्री मैनेजर से संपर्क','nav-contact-desc':'इंडिया मैनेजर से सीधा संपर्क',
-    'nav-updates':'डेली अपडेट्स','nav-updates-desc':'हमारे WhatsApp चैनल से जुड़ें',
-    'back':'होम पर वापस जाएं',
-    'eyebrow-agency':'एजेंसी दिशानिर्देश','title-agency':'एजेंसी पॉलिसी',
-    'eyebrow-seller':'कॉइन सेलर दिशानिर्देश','title-seller':'कॉइन सेलर पॉलिसी',
-    'eyebrow-reg':'पार्टनरशिप','title-reg':'एजेंसी रजिस्ट्रेशन',
-    'eyebrow-contact':'सीधा संपर्क','title-contact':'कंट्री मैनेजर',
-    'agency-s1':'एजेंसी कमीशन टियर','agency-s2':'होस्ट एक्टिवेशन सैलरी','agency-s3':'कमीशन भुगतान','agency-s4':'निकासी नियम','agency-s5':'एजेंसी बदलने के नियम',
-    'seller-s0':'उद्देश्य','seller-s1':'पात्रता मानदंड','seller-s2':'खरीद मूल्य संरचना','seller-s3':'बिक्री मूल्य संरचना',
-    'th-level':'लेवल','th-weekly-rev':'साप्ताहिक राजस्व (रूबी)','th-commission':'कमीशन',
-    'th-monthly-target':'मासिक लक्ष्य','th-active-hosts':'एक्टिव होस्ट','th-basic-pay':'बेसिक पे',
-    'th-amount':'निकासी राशि','th-fee':'शुल्क','th-topup':'टॉप-अप (USD)','th-buy-ratio':'खरीद अनुपात','th-total-coins':'कुल कॉइन',
-    'th-channel':'चैनल','th-sell-ratio':'बिक्री अनुपात / $',
-    'sl-requirements':'आवश्यकताएं','sl-task-period':'टास्क काउंटिंग पीरियड','sl-active-def':'एक्टिव होस्ट की परिभाषा',
-    'sl-fee':'शुल्क संरचना','sl-min-req':'न्यूनतम आवश्यकता','sl-deposit':'सुरक्षा जमा विकल्प','sl-maintain':'रखरखाव आवश्यकता',
-    'sl-sell-policy':'बिक्री नीति','important-label':'⚠️ महत्वपूर्ण','violation-label':'⚠️ उल्लंघन दंड',
-    'period-label':'पीरियड','period-text':'सभी साप्ताहिक टास्क <strong>रविवार 10:30 PM से रविवार 10:30 PM (IST)</strong> तक गिने जाते हैं।',
-    'payout-schedule-label':'भुगतान शेड्यूल','payout-schedule-text':'सभी कमीशन <strong>हर सोमवार रूबी में</strong> भुगतान किए जाते हैं।',
-    'qualify-label':'योग्यता सीमा','qualify-text':'आधिकारिक कॉइन सेलर बनने के लिए एजेंसियों को <strong>50,000,000 कॉइन (50M)</strong> मासिक राजस्व उत्पन्न करना होगा।',
-    'topup-note':'टॉप-अप <strong style="color:#fff">USDT</strong> के माध्यम से किया जाना चाहिए।',
-    'offline-label':'ऑफलाइन बिक्री','online-label':'ऑनलाइन बिक्री',
-    'fee-1-label':'$100 से कम','fee-1-val':'प्रति लेनदेन $2 फ्लैट','fee-2-label':'$100 और उससे अधिक','fee-2-val':'निकासी राशि का 2%',
-    'form-title':'एजेंसी रजिस्ट्रेशन फॉर्म','form-sub':'आवेदन करने के लिए सभी आवश्यक फ़ील्ड भरें',
-    'field-supervisor':'सुपरवाइजर','field-admin':'एडमिन','field-leader':'एजेंसी लीडर का नाम','field-agency':'एजेंसी का नाम',
-    'field-rizzid':'Rizz Live ID','field-whatsapp':'WhatsApp नंबर','field-country':'देश',
-    'required':'* आवश्यक','optional':'वैकल्पिक','select-placeholder':'चुनें…','admin-placeholder':'— पहले सुपरवाइजर चुनें —','country-placeholder':'देश चुनें…',
-    'err-supervisor':'कृपया एक सुपरवाइजर चुनें।','err-leader':'कृपया एजेंसी लीडर का नाम दर्ज करें।',
-    'submit-btn':'✦   आवेदन जमा करें',
-    'success-title':'आवेदन जमा हो गया!','success-text':'आपका रजिस्ट्रेशन सफलतापूर्वक भेजा गया।<br/>हमारी टीम समीक्षा करके जल्द संपर्क करेगी।',
-    'error-title':'जमा करना विफल हुआ','error-text':'कुछ गलत हो गया। कृपया पुनः प्रयास करें।',
-    'contact-title':'भारत के कंट्री मैनेजर','contact-desc':'प्रश्नों, सहायता और पार्टनरशिप के लिए — WhatsApp पर सीधे संपर्क करें:','tap-whatsapp':'WhatsApp खोलने के लिए टैप करें',
-    'agency-req-1':'एजेंसी को हर सप्ताह कम से कम <strong>5 एक्टिव होस्ट</strong> बनाए रखने होंगे',
-    'agency-req-2':'एजेंसी को होस्ट को लाइव जाने और प्लेटफ़ॉर्म इवेंट में सक्रिय रूप से भाग लेने के लिए प्रोत्साहित करना होगा',
-    'active-1':'एक महीने में कम से कम <strong>10 वैलिड दिन</strong>','active-2':'एक महीने में कम से कम <strong>20 वैलिड घंटे</strong>','active-3':'एक महीने में गिफ्ट से न्यूनतम <strong>100,000 रूबी</strong> अर्जित',
-    'active-alert':'मासिक राजस्व लक्ष्य या एक्टिव होस्ट आवश्यकता में से किसी को भी पूरा न करने पर होस्ट एक्टिवेशन सैलरी प्रोग्राम से <strong>अयोग्य</strong> हो जाएंगे।',
-    'aw-1':'निकासी अनुरोध <strong>दिन में एक बार</strong> जमा किए जा सकते हैं','aw-2':'न्यूनतम निकासी राशि: <span class="c-rose">$10 USD</span>',
-    'ac-1':'<strong>120 दिनों</strong> तक कोई गतिविधि नहीं','ac-2':'<strong>2 सप्ताह</strong> तक एजेंसी से संपर्क नहीं हो सका','ac-3':'एजेंसी और होस्ट दोनों <strong>आपसी सहमति</strong> से बदलाव के लिए राजी',
-    'ac-alert':'कोई भी धोखाधड़ी ट्रांसफर प्रयास → <strong>चेतावनी / निलंबन / स्थायी बैन</strong>',
-    'seller-purpose':'यह नीति RIZZ LIVE प्लेटफ़ॉर्म पर <strong style="color:var(--cyan2)">आधिकारिक कॉइन सेलर</strong> बनने के लिए आवेदन करने वाली एजेंसियों के लिए पात्रता आवश्यकताओं की रूपरेखा देती है।',
-    'deposit-1':'50M लक्ष्य से कम एजेंसियां <strong>$1,000 सुरक्षा जमा</strong> के साथ आवेदन कर सकती हैं','deposit-2':'मासिक लक्ष्य पूरा होने पर जमा <strong>पूरी तरह वापस</strong> कर दी जाती है',
-    'maintain-1':'अनुमोदित सेलर्स को <strong>50M मासिक राजस्व</strong> बनाए रखना होगा','maintain-2':'<strong>लगातार दो महीने</strong> विफलता पर सेलर दर्जा रद्द हो सकता है',
-    'sell-policy-text':'कॉइन सेलर स्वीकृत ऑफलाइन अनुपात <strong>8,300</strong> से <strong>ऊपर नहीं बेच सकते</strong>',
-    'violation-fine':'$100 जुर्माना','violation-text':' + सेलर के वॉलेट से समकक्ष कॉइन कटौती।<br/><br/>',
-    'violation-repeat':'बार-बार उल्लंघन:','violation-repeat-text':' आधिकारिक कॉइन सेलर प्रोग्राम से निलंबन या स्थायी हटाना।',
+  {
+    gem: 'gem-pink',
+    html: '💎 Weekly bonus earn karo — sirf <span class="ad-hi-pink">10 hrs stream</span> aur <span class="ad-hi-pink">4 active days</span> chahiye!'
   },
-  hl: {
-    'hero-badge':'Official Policy Documents','policy-center':'POLICY CENTER','hero-sub':'Apna document select karo terms dekhne ke liye',
-    'stat-return':'For New Host','stat-commission':'Agency Commission','stat-bonus':'Online Bonus',
-    'nav-host':'Host Policy','nav-host-desc':'Salary, bonuses aur streaming guidelines',
-    'nav-agency':'Agency Policy','nav-agency-desc':'Commission tiers aur partnership terms',
-    'nav-seller':'Coin Seller Policy','nav-seller-desc':'Official coin seller guidelines aur rates',
-    'nav-reg':'Agency Registration','nav-reg-desc':'Partner agency banne ke liye apply karo',
-    'nav-contact':'Country Manager se Contact','nav-contact-desc':'India manager ka direct contact',
-    'nav-updates':'Daily Updates','nav-updates-desc':'Hamara WhatsApp channel join karo',
-    'back':'Home par wapas jao',
-    'eyebrow-agency':'Agency Guidelines','title-agency':'AGENCY POLICY',
-    'eyebrow-seller':'Coin Seller Guidelines','title-seller':'COIN SELLER POLICY',
-    'eyebrow-reg':'Partnership','title-reg':'AGENCY REGISTRATION',
-    'eyebrow-contact':'Direct Contact','title-contact':'COUNTRY MANAGER',
-    'agency-s1':'Agency Commission Tiers','agency-s2':'Host Activation Salary','agency-s3':'Commission Payout','agency-s4':'Withdrawal Rules','agency-s5':'Agency Change Rules',
-    'seller-s0':'Purpose','seller-s1':'Eligibility Criteria','seller-s2':'Buying Price Structure','seller-s3':'Selling Price Structure',
-    'th-level':'Level','th-weekly-rev':'Weekly Revenue (Ruby)','th-commission':'Commission',
-    'th-monthly-target':'Monthly Target','th-active-hosts':'Active Hosts','th-basic-pay':'Basic Pay',
-    'th-amount':'Withdrawal Amount','th-fee':'Fee','th-topup':'Top-Up (USD)','th-buy-ratio':'Buy Ratio','th-total-coins':'Total Coins',
-    'th-channel':'Channel','th-sell-ratio':'Sell Ratio / $',
-    'sl-requirements':'Requirements','sl-task-period':'Task Counting Period','sl-active-def':'Active Host ki Definition',
-    'sl-fee':'Fee Structure','sl-min-req':'Minimum Requirement','sl-deposit':'Security Deposit Option','sl-maintain':'Maintenance Requirement',
-    'sl-sell-policy':'Selling Policy','important-label':'⚠️ Important','violation-label':'⚠️ Violation Penalty',
-    'period-label':'Period','period-text':'Saare weekly tasks <strong>Sunday 10:30 PM se Sunday 10:30 PM (IST)</strong> tak count hote hain.',
-    'payout-schedule-label':'Payout Schedule','payout-schedule-text':'Saare commissions <strong>har Monday Rubies mein</strong> pay kiye jaate hain.',
-    'qualify-label':'Qualification Threshold','qualify-text':'Official Coin Seller banne ke liye agencies ko <strong>50,000,000 Coins (50M)</strong> monthly revenue generate karna hoga.',
-    'topup-note':'Top-up <strong style="color:#fff">USDT</strong> ke zariye karna hoga.',
-    'offline-label':'Offline Sales','online-label':'Online Sales',
-    'fee-1-label':'$100 se kam','fee-1-val':'$2 flat per transaction','fee-2-label':'$100 aur usse zyada','fee-2-val':'Withdrawal amount ka 2%',
-    'form-title':'Agency Registration Form','form-sub':'Apply karne ke liye saare required fields bharo',
-    'field-supervisor':'Supervisor','field-admin':'Admin','field-leader':'Agency Leader ka Naam','field-agency':'Agency ka Naam',
-    'field-rizzid':'Rizz Live ID','field-whatsapp':'WhatsApp Number','field-country':'Country',
-    'required':'* Zaroori','optional':'Optional','select-placeholder':'Select karo…','admin-placeholder':'— Pehle supervisor select karo —','country-placeholder':'Country select karo…',
-    'err-supervisor':'Kripya ek supervisor select karo.','err-leader':'Kripya agency leader ka naam dalo.',
-    'submit-btn':'✦   Application Submit Karo',
-    'success-title':'Application Submit Ho Gayi!','success-text':'Aapka registration successfully bhej diya gaya.<br/>Hamari team review karke jald contact karegi.',
-    'error-title':'Submit Nahi Hua','error-text':'Kuch galat ho gaya. Dobara try karo.',
-    'contact-title':'India Country Manager','contact-desc':'Queries, support aur partnership ke liye — WhatsApp par seedha contact karo:','tap-whatsapp':'WhatsApp kholne ke liye tap karo',
-    'agency-req-1':'Agency ko har week kam se kam <strong>5 active hosts</strong> maintain karne honge',
-    'agency-req-2':'Agency ko hosts ko live jaane aur platform events mein actively join karne ke liye encourage karna hoga',
-    'active-1':'Month mein kam se kam <strong>10 valid days</strong>','active-2':'Month mein kam se kam <strong>20 valid hours</strong>','active-3':'Month mein gifts se minimum <strong>100,000 Rubies</strong> earn',
-    'active-alert':'Monthly revenue target ya active host requirement mein se kisi ko bhi poora na karne par Host Activation Salary Program se <strong>disqualify</strong> ho jaoge.',
-    'aw-1':'Withdrawal requests <strong>din mein ek baar</strong> submit ki ja sakti hain','aw-2':'Minimum withdrawal amount: <span class="c-rose">$10 USD</span>',
-    'ac-1':'<strong>120 days</strong> tak koi activity nahi','ac-2':'<strong>2 weeks</strong> tak agency unreachable','ac-3':'Agency aur host dono <strong>mutual agreement</strong> se change ke liye raazi',
-    'ac-alert':'Koi bhi fraudulent transfer attempt → <strong>Warning / Suspension / Permanent Ban</strong>',
-    'seller-purpose':'Yeh policy RIZZ LIVE platform par <strong style="color:var(--cyan2)">Official Coin Sellers</strong> banne ke liye apply karne wali agencies ke liye eligibility requirements outline karti hai.',
-    'deposit-1':'50M target se kam agencies <strong>$1,000 security deposit</strong> ke saath apply kar sakti hain','deposit-2':'Monthly target achieve hone par deposit <strong>fully refund</strong> ho jaati hai',
-    'maintain-1':'Approved sellers ko <strong>50M monthly revenue</strong> sustain karni hogi','maintain-2':'<strong>Do consecutive months</strong> tak failure par seller status revoke ho sakta hai',
-    'sell-policy-text':'Coin Sellers approved offline ratio <strong>8,300</strong> se <strong>upar nahi bech sakte</strong>',
-    'violation-fine':'$100 fine','violation-text':' + seller ke wallet se equivalent coin deduction.<br/><br/>',
-    'violation-repeat':'Repeated violations:','violation-repeat-text':' Official Coin Seller Program se suspension ya permanent removal.',
+  {
+    gem: 'gem-gold',
+    html: '🏆 Agency commission ab tak ka sabse high — <span class="ad-hi-gold">20% tak</span> earn karo apne hosts ke saath!'
+  },
+  {
+    gem: 'gem-green',
+    html: '📢 Abhi join karo <span class="ad-hi-cyan">WhatsApp Channel</span> aur daily updates pao — bilkul free!'
+  },
+  {
+    gem: 'gem-purple',
+    html: '🌟 <span class="ad-hi">Prestige Host Program</span> — select hosts ko milta hai <span class="ad-hi-green">$15/week guarantee</span>!'
   }
-};
+];
 
-let currentLang = 'en';
-function setLang(lang) {
-  currentLang = lang;
-  const labels = { en: '🌐 EN', hi: '🌐 HI', hl: '🌐 HL' };
-  document.querySelectorAll('[id$="-lbl"]').forEach(el => {
-    if (el.id.startsWith('ld-')) el.textContent = labels[lang] || '🌐 EN';
-  });
-  document.querySelectorAll('.lang-opt').forEach(opt => {
-    opt.classList.remove('active');
-    const name = opt.querySelector('.lname')?.textContent || '';
-    if ((lang==='en'&&name==='English')||(lang==='hi'&&name==='हिंदी')||(lang==='hl'&&name==='Hinglish'))
-      opt.classList.add('active');
-  });
-  const t = T[lang] || T.en;
-  document.querySelectorAll('[data-t]').forEach(el => {
-    const key = el.getAttribute('data-t');
-    if (t[key] !== undefined) el.innerHTML = t[key];
+function renderAdTicker(){
+  const body = document.getElementById('ad-ticker-body');
+  if(!body) return;
+  body.innerHTML = '';
+  AD_ITEMS.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'ad-item';
+    div.style.animationDelay = (0.08 + i * 0.1) + 's';
+    div.innerHTML = `<span class="ad-gem ${item.gem}"></span><span>${item.html}</span>`;
+    body.appendChild(div);
   });
 }
+renderAdTicker();
 
-let currentDrop=null;
-function toggleDrop(id){const el=document.getElementById(id);if(!el)return;if(currentDrop&&currentDrop!==el)currentDrop.classList.remove('open');el.classList.toggle('open');currentDrop=el.classList.contains('open')?el:null;}
-function closeDrop(){if(currentDrop){currentDrop.classList.remove('open');currentDrop=null;}}
-document.addEventListener('click',e=>{if(!e.target.closest('.lang-drop'))closeDrop();});
-document.addEventListener('touchstart',e=>{if(!e.target.closest('.lang-drop'))closeDrop();},{passive:true});
 function goTo(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));const pg=document.getElementById(id);if(pg)pg.classList.add('active');try{window.scrollTo({top:0,behavior:'instant'});}catch(_){window.scrollTo(0,0);}}
 function toggle(hdr){hdr.classList.toggle('open');const body=hdr.nextElementSibling;if(body)body.classList.toggle('open');}
-function onSupervisorChange(){const sup=document.getElementById('f-supervisor').value;const adminSel=document.getElementById('f-admin');adminSel.innerHTML='';if(!sup||!SUPERVISOR_ADMINS[sup]){adminSel.disabled=true;const o=document.createElement('option');o.value='';const t=T[currentLang]||T.en;o.textContent=t['admin-placeholder']||'— Select supervisor first —';adminSel.appendChild(o);return;}adminSel.disabled=false;const none=document.createElement('option');none.value='';none.textContent='None';adminSel.appendChild(none);SUPERVISOR_ADMINS[sup].forEach(a=>{const o=document.createElement('option');o.value=a;o.textContent=a;adminSel.appendChild(o);});}
+function onSupervisorChange(){
+  const sup=document.getElementById('f-supervisor').value;
+  const adminSel=document.getElementById('f-admin');
+  adminSel.innerHTML='';
+  if(!sup||!SUPERVISOR_ADMINS[sup]){adminSel.disabled=true;const o=document.createElement('option');o.value='';o.textContent='— Select supervisor first —';adminSel.appendChild(o);return;}
+  adminSel.disabled=false;
+  const none=document.createElement('option');none.value='';none.textContent='None';adminSel.appendChild(none);
+  SUPERVISOR_ADMINS[sup].forEach(a=>{const o=document.createElement('option');o.value=a;o.textContent=a;adminSel.appendChild(o);});
+}
 function clearFieldErrors(){document.querySelectorAll('.field-err').forEach(e=>e.classList.remove('show'));document.querySelectorAll('.neon-input,.neon-select').forEach(e=>e.classList.remove('invalid'));}
 function showFieldError(id,msg){const el=document.getElementById(id);if(el){el.classList.add('show');if(msg)el.textContent=msg;}}
 function markInvalid(id){const el=document.getElementById(id);if(el)el.classList.add('invalid');}
@@ -1057,7 +904,6 @@ async function submitRegForm(){
   clearFieldErrors();
   document.getElementById('reg-success').classList.remove('show');
   document.getElementById('reg-error').classList.remove('show');
-  const t=T[currentLang]||T.en;
   const supervisor=document.getElementById('f-supervisor').value.trim();
   const admin=document.getElementById('f-admin').value.trim();
   const leader=document.getElementById('f-leader').value.trim();
@@ -1066,8 +912,8 @@ async function submitRegForm(){
   const whatsapp=document.getElementById('f-whatsapp').value.trim();
   const country=document.getElementById('f-country').value.trim();
   let err=false;
-  if(!supervisor){showFieldError('err-supervisor',t['err-supervisor']);markInvalid('f-supervisor');err=true;}
-  if(!leader){showFieldError('err-leader',t['err-leader']);markInvalid('f-leader');err=true;}
+  if(!supervisor){showFieldError('err-supervisor','Please select a supervisor.');markInvalid('f-supervisor');err=true;}
+  if(!leader){showFieldError('err-leader','Please enter the agency leader name.');markInvalid('f-leader');err=true;}
   if(err)return;
   const btn=document.getElementById('reg-submit-btn');
   const lbl=document.getElementById('reg-btn-label');
@@ -1079,7 +925,7 @@ async function submitRegForm(){
     ['f-supervisor','f-admin','f-leader','f-agency','f-rizzid','f-whatsapp','f-country'].forEach(id=>{const el=document.getElementById(id);if(!el)return;if(el.tagName==='SELECT')el.selectedIndex=0;else el.value='';});
     lbl.innerHTML='✦ &nbsp; Submit Application';btn.disabled=false;onSupervisorChange();
   }catch(e){
-    document.getElementById('reg-error-text').textContent=t['error-text']||'Something went wrong. Please try again.';
+    document.getElementById('reg-error-text').textContent='Something went wrong. Please try again.';
     document.getElementById('reg-error').classList.add('show');
     lbl.innerHTML='✦ &nbsp; Submit Application';btn.disabled=false;
   }
@@ -1100,7 +946,6 @@ function spawnStar(){const cl=_starCols[Math.floor(Math.random()*_starCols.lengt
 setInterval(spawnStar,1000);setTimeout(()=>setInterval(spawnStar,1000),340);setTimeout(()=>setInterval(spawnStar,1000),680);
 document.addEventListener('click',function(e){const cols=['rgba(0,229,255,0.65)','rgba(255,60,168,0.65)','rgba(168,85,247,0.6)','rgba(0,255,157,0.55)'];const col=cols[Math.floor(Math.random()*cols.length)];const ring=document.createElement('div');ring.style.cssText=`position:fixed;left:${e.clientX}px;top:${e.clientY}px;width:0;height:0;border-radius:50%;border:2px solid ${col};transform:translate(-50%,-50%);pointer-events:none;z-index:9999;box-shadow:0 0 8px ${col};`;document.body.appendChild(ring);ring.animate([{width:'0px',height:'0px',opacity:1},{width:'110px',height:'110px',opacity:0}],{duration:550,easing:'ease-out',fill:'forwards'}).onfinish=()=>ring.remove();});
 document.querySelectorAll('.neon-input,.neon-select').forEach(el=>{el.addEventListener('input',()=>el.classList.remove('invalid'));el.addEventListener('change',()=>el.classList.remove('invalid'));});
-setLang('en');
 </script>
 </body>
 </html>
