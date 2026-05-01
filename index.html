@@ -225,7 +225,8 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
 <!-- HOME -->
 <div class="page active" id="page-home">
   <header class="header">
-    <div class="logo-mark"><span class="logo-mark-inner">R</span></div>
+    <div <img src="logo.png" alt="Rizz Live" style="width:32px;height:32px;object-fit:contain;border-radius:6px;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+<span class="logo-mark-inner" style="display:none">R</span>
     <div class="brand-block"><div class="brand-name">Rizz Live</div><div class="brand-sub">Live Streaming Platform</div></div>
     <div class="header-right">
       <div class="lang-drop" id="ld-home">
@@ -855,13 +856,68 @@ const APPS_SCRIPT_URL='https://script.google.com/macros/s/AKfycbzjC77trLR_qwia78
 const SUPERVISOR_ADMINS={'Ray-IN':['Rajesh-IN','Bunny-IN','Dhakadking-IN']};
 
 function setLang(lang){
-  const labels={en:'🌐 EN',hi:'🌐 HI',hl:'🌐 HL'};
-  document.querySelectorAll('[id$="-lbl"]').forEach(el=>{if(el.id.startsWith('ld-'))el.textContent=labels[lang]||'🌐 EN'});
-  document.querySelectorAll('.lang-opt').forEach(opt=>{
-    opt.classList.remove('active');
-    const name=opt.querySelector('.lname')?.textContent||'';
-    if((lang==='en'&&name==='English')||(lang==='hi'&&name==='हिंदी')||(lang==='hl'&&name==='Hinglish'))opt.classList.add('active');
+  const TRANSLATIONS = {
+  en: {
+    'nav-host': 'Host Policy',
+    'nav-agency': 'Agency Policy',
+    'nav-seller': 'Coin Seller Policy',
+    'nav-reg': 'Agency Registration',
+    'nav-contact': 'Contact Country Manager',
+    'nav-updates': 'Daily Updates',
+    'hero-sub': 'Select a document to view full terms & guidelines',
+    'stat-return': 'Host Return',
+    'stat-commission': 'Agency Commission',
+    'stat-bonus': 'Online Bonus',
+  },
+  hi: {
+    'nav-host': 'होस्ट पॉलिसी',
+    'nav-agency': 'एजेंसी पॉलिसी',
+    'nav-seller': 'कॉइन सेलर पॉलिसी',
+    'nav-reg': 'एजेंसी रजिस्ट्रेशन',
+    'nav-contact': 'कंट्री मैनेजर से संपर्क',
+    'nav-updates': 'डेली अपडेट्स',
+    'hero-sub': 'नियम और दिशानिर्देश देखने के लिए दस्तावेज़ चुनें',
+    'stat-return': 'होस्ट रिटर्न',
+    'stat-commission': 'एजेंसी कमीशन',
+    'stat-bonus': 'ऑनलाइन बोनस',
+  },
+  hl: {
+    'nav-host': 'Host Policy',
+    'nav-agency': 'Agency Policy',
+    'nav-seller': 'Coin Seller Policy',
+    'nav-reg': 'Agency Registration',
+    'nav-contact': 'Country Manager se Contact',
+    'nav-updates': 'Daily Updates',
+    'hero-sub': 'Apna document select karo terms dekhne ke liye',
+    'stat-return': 'Host Return',
+    'stat-commission': 'Agency Commission',
+    'stat-bonus': 'Online Bonus',
+  }
+};
+
+function setLang(lang) {
+  const labels = { en: '🌐 EN', hi: '🌐 HI', hl: '🌐 HL' };
+  document.querySelectorAll('[id$="-lbl"]').forEach(el => {
+    if (el.id.startsWith('ld-')) el.textContent = labels[lang] || '🌐 EN';
   });
+  document.querySelectorAll('.lang-opt').forEach(opt => {
+    opt.classList.remove('active');
+    const name = opt.querySelector('.lname')?.textContent || '';
+    if ((lang==='en'&&name==='English')||(lang==='hi'&&name==='हिंदी')||(lang==='hl'&&name==='Hinglish'))
+      opt.classList.add('active');
+  });
+  const t = TRANSLATIONS[lang] || TRANSLATIONS.en;
+  // Nav cards text update
+  const navTitles = document.querySelectorAll('.nav-title');
+  const keys = ['nav-host','nav-agency','nav-seller','nav-reg','nav-contact','nav-updates'];
+  navTitles.forEach((el, i) => { if (keys[i] && t[keys[i]]) el.textContent = t[keys[i]]; });
+  // Hero subtitle
+  const heroSub = document.querySelector('.hero-sub');
+  if (heroSub && t['hero-sub']) heroSub.textContent = t['hero-sub'];
+  // Stat labels
+  const statLabels = document.querySelectorAll('.stat-label');
+  const statKeys = ['stat-return','stat-commission','stat-bonus'];
+  statLabels.forEach((el, i) => { if (statKeys[i] && t[statKeys[i]]) el.textContent = t[statKeys[i]]; });
 }
 let currentDrop=null;
 function toggleDrop(id){const el=document.getElementById(id);if(!el)return;if(currentDrop&&currentDrop!==el)currentDrop.classList.remove('open');el.classList.toggle('open');currentDrop=el.classList.contains('open')?el:null;}
