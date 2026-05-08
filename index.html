@@ -973,9 +973,15 @@ async function submitRegForm() {
   lbl.innerHTML = '<span class="btn-spinner"></span> Submitting…';
 
   const payload = {
-    timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
-    countryAdmin, admin, leader, agency, rizzid, whatsapp, country
-  };
+    Timestamp:    new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+    Supervisor:   countryAdmin,
+    Admin:        admin,
+    'Leader Name': leader,
+    'Agency Name': agency,
+    'Rizz Live ID': rizzid,
+    WhatsApp:     whatsapp,
+    Country:      country
+};
 
   try {
     await fetch(APPS_SCRIPT_URL, {
