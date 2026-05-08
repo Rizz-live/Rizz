@@ -739,17 +739,20 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
     <div class="reg-form-body" id="reg-form-body">
       <div class="field-row">
         <div class="field-group">
-          <label class="field-label" for="f-supervisor">Supervisor<span class="field-required">* Required</span></label>
-          <select class="neon-select" id="f-supervisor" required onchange="onSupervisorChange()">
+          <label class="field-label" for="f-country admin">Country Amin<span class="field-required">* Required</span></label>
+          <select class="neon-select" id="f-country admin" required onchange="onCountryAdminChange()">
             <option value="" disabled selected>Select…</option>
             <option value="Ray-IN">Ray-IN</option>
+            <option value="Choudhry-IN">Choudhary-IN</option>
+            <option value="Rajesh-IN">Rajesh-IN</option>
+            <option value="Ahin-IN">Ahin-IN</option>
           </select>
-          <span class="field-err" id="err-supervisor">Please select a supervisor.</span>
+          <span class="field-err" id="err-Country Admin">Please select a country admin.</span>
         </div>
         <div class="field-group">
           <label class="field-label" for="f-admin">Admin<span class="field-optional">Optional</span></label>
           <select class="neon-select" id="f-admin" disabled>
-            <option value="">— Select supervisor first —</option>
+            <option value="">— Select country admin first —</option>
           </select>
         </div>
       </div>
@@ -845,8 +848,11 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
 <script>
 'use strict';
 const APPS_SCRIPT_URL='https://script.google.com/macros/s/AKfycby9n_JMbaDACpgcY5hAjyZ4l1sHOhpm48FBEZ08r7b6-SntLzIoNF0VePchVMw4NGhAoA/exec';
-const SUPERVISOR_ADMINS={'Ray-IN':['Rajesh-IN','Bunny-IN','Dhakadking-IN','Irshad-IN']};
-
+const COUNTRY_ADMIN_ADMINS={'Ray-IN':['Dhakadking-IN']};
+const COUNTRY_ADMIN_ADMINS={'Choudhary-IN':['Bunny-IN','Ahin-IN']};
+const COUNTRY_ADMIN_ADMINS={'Rajesh-IN':['Irsha-IN']};
+const COUNTRY_ADMIN_ADMINS={'Ahin-IN':['']};
+  
 /* ── ADVERTISEMENT DATA ──
    Yahan apne bullet points add karo.
    gemClass: gem-cyan | gem-pink | gem-green | gem-gold | gem-purple
