@@ -972,15 +972,15 @@ async function submitRegForm() {
   btn.disabled = true;
   lbl.innerHTML = '<span class="btn-spinner"></span> Submitting…';
 
-  const payload = {
-    Timestamp:    new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
-    Supervisor:   countryAdmin,
-    Admin:        admin,
-    'Leader Name': leader,
-    'Agency Name': agency,
-    'Rizz Live ID': rizzid,
-    WhatsApp:     whatsapp,
-    Country:      country
+ const payload = {
+    Timestamp:  new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+    supervisor: countryAdmin,
+    admin:      admin,
+    leader:     leader,
+    agency:     agency,
+    rizzid:     rizzid,
+    whatsapp:   whatsapp,
+    country:    country
 };
 
   try {
