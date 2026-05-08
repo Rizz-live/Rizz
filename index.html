@@ -293,16 +293,14 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
     <div class="neon-divider"><div class="nd-line rev"></div><div class="nd-gem"></div><div class="nd-line"></div></div>
   </div>
 
-  <!-- ADVERTISEMENT TICKER — stats-row ki jagah -->
+  <!-- ADVERTISEMENT TICKER -->
   <div class="ad-ticker-wrap" id="ad-ticker-wrap">
     <div class="ad-ticker-header">
       <span class="ad-ticker-icon">📢</span>
       <span class="ad-ticker-label">Latest Updates</span>
       <span class="ad-ticker-dot"></span>
     </div>
-    <div class="ad-ticker-body" id="ad-ticker-body">
-      <!-- Items JS se inject honge -->
-    </div>
+    <div class="ad-ticker-body" id="ad-ticker-body"></div>
   </div>
 
   <div class="nav-grid">
@@ -403,7 +401,7 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
       <ul class="rule-list">
         <li><span class="r-gem gem-gold"></span><span><strong>Withdrawal Rate:</strong> <span class="c-green">20,000 Ruby = 1 USD</span></span></li>
         <li><span class="r-gem gem-gold"></span><span><strong>Day Change:</strong> Daily at <span class="c-pink">10:30 PM</span></span></li>
-        <li><span class="r-gem gem-gold"></span><span><strong>Weekly Period:</strong> <span class="c-pink">Sunday 10:30 PM to Sunday 10:30 PM </span></span></li>
+        <li><span class="r-gem gem-gold"></span><span><strong>Weekly Period:</strong> <span class="c-pink">Sunday 10:30 PM to Sunday 10:30 PM</span></span></li>
         <li><span class="r-gem gem-gold"></span><span><strong>Valid Day:</strong> Minimum <span class="c-pink">120 minutes (2 hours)</span> Live</span></li>
         <li><span class="r-gem gem-gold"></span><span><strong>Valid Hour:</strong> 60+ minutes = <span class="c-pink">1 valid hour</span></span></li>
         <li><span class="r-gem gem-gold"></span><span><strong>Minimum Live Time:</strong> Sessions below <strong>30 minutes</strong> not counted</span></li>
@@ -513,7 +511,7 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
         <li><span class="r-gem gem-rose"></span><span>Not following team instructions</span></li>
         <li><span class="r-gem gem-rose"></span><span>Poor stream quality without fixing</span></li>
         <li><span class="r-gem gem-rose"></span><span>Breaking platform rules or laws</span></li>
-        <li><span class="r-gem gem-rose"></span><span>2 bans/week → removed from policy (1st ban: 1 day, 2nd: 2 days)s</span></li>
+        <li><span class="r-gem gem-rose"></span><span>2 bans/week → removed from policy (1st ban: 1 day, 2nd: 2 days)</span></li>
         <li><span class="r-gem gem-rose"></span><span>Broadcast mandatory: 6 PM – 11:59 PM</span></li>
         <li><span class="r-gem gem-rose"></span><span>Old host with new ID → ban, no compensation</span></li>
       </ul>
@@ -739,15 +737,15 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
     <div class="reg-form-body" id="reg-form-body">
       <div class="field-row">
         <div class="field-group">
-          <label class="field-label" for="f-country admin">Country Amin<span class="field-required">* Required</span></label>
-          <select class="neon-select" id="f-country admin" required onchange="onCountryAdminChange()">
+          <label class="field-label" for="f-country-admin">Country Admin<span class="field-required">* Required</span></label>
+          <select class="neon-select" id="f-country-admin" required onchange="onCountryAdminChange()">
             <option value="" disabled selected>Select…</option>
             <option value="Ray-IN">Ray-IN</option>
-            <option value="Choudhry-IN">Choudhary-IN</option>
+            <option value="Choudhary-IN">Choudhary-IN</option>
             <option value="Rajesh-IN">Rajesh-IN</option>
             <option value="Ahin-IN">Ahin-IN</option>
           </select>
-          <span class="field-err" id="err-Country Admin">Please select a country admin.</span>
+          <span class="field-err" id="err-country-admin">Please select a country admin.</span>
         </div>
         <div class="field-group">
           <label class="field-label" for="f-admin">Admin<span class="field-optional">Optional</span></label>
@@ -763,7 +761,7 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
         <span class="field-err" id="err-leader">Please enter the agency leader name.</span>
       </div>
       <div class="field-group">
-        <label class="field-label" for="f-agency">Agency Name<span class="field-required">* Required</span</label>
+        <label class="field-label" for="f-agency">Agency Name<span class="field-required">* Required</span></label>
         <input class="neon-input" type="text" id="f-agency" placeholder="Your agency name"/>
       </div>
       <div class="form-divider"></div>
@@ -779,13 +777,13 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
         <label class="field-label" for="f-country">Country<span class="field-required">* Required</span></label>
         <select class="neon-select" id="f-country">
           <option value="">Select country…</option>
-          <option value="India">India </option>
-          <option value="Bangladesh">Bangladesh </option>
-          <option value="Nepal">Nepal </option>
-          <option value="Philippines">Philippines </option>
-          <option value="Nigeria">Nigeria </option>
-          <option value="USA">USA </option>
-          <option value="Latin America">Latin America 🌎</option>
+          <option value="India">India</option>
+          <option value="Bangladesh">Bangladesh</option>
+          <option value="Nepal">Nepal</option>
+          <option value="Philippines">Philippines</option>
+          <option value="Nigeria">Nigeria</option>
+          <option value="USA">USA</option>
+          <option value="Latin America">Latin America</option>
         </select>
       </div>
       <button class="submit-btn" id="reg-submit-btn" onclick="submitRegForm()">
@@ -847,17 +845,18 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
 </div>
 <script>
 'use strict';
-const APPS_SCRIPT_URL='https://script.google.com/macros/s/AKfycby9n_JMbaDACpgcY5hAjyZ4l1sHOhpm48FBEZ08r7b6-SntLzIoNF0VePchVMw4NGhAoA/exec';
-const COUNTRY_ADMIN_ADMINS={'Ray-IN':['Dhakadking-IN']};
-const COUNTRY_ADMIN_ADMINS={'Choudhary-IN':['Bunny-IN','Ahin-IN']};
-const COUNTRY_ADMIN_ADMINS={'Rajesh-IN':['Irsha-IN']};
-const COUNTRY_ADMIN_ADMINS={'Ahin-IN':['']};
-  
-/* ── ADVERTISEMENT DATA ──
-   Yahan apne bullet points add karo.
-   gemClass: gem-cyan | gem-pink | gem-green | gem-gold | gem-purple
-   hiClass:  ad-hi-cyan | ad-hi-pink | ad-hi-green | ad-hi-gold (highlighted text)
-*/
+
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxZif9LSajJEnVVCYwVfaH9oz_8s8U9dr_tEbC1VYiPcTrGFId9RcqnZ-3fytMYV3Q9jQ/exec';
+
+/* ── FIX 1: Single object with all country admin → admins mapping ── */
+const COUNTRY_ADMIN_ADMINS = {
+  'Ray-IN':       ['Dhakadking-IN'],
+  'Choudhary-IN': ['Bunny-IN'],
+  'Rajesh-IN':    ['Irsha-IN'],
+  'Ahin-IN':      []
+};
+
+/* ── ADVERTISEMENT DATA ── */
 const AD_ITEMS = [
   {
     gem: 'gem-cyan',
@@ -881,9 +880,9 @@ const AD_ITEMS = [
   }
 ];
 
-function renderAdTicker(){
+function renderAdTicker() {
   const body = document.getElementById('ad-ticker-body');
-  if(!body) return;
+  if (!body) return;
   body.innerHTML = '';
   AD_ITEMS.forEach((item, i) => {
     const div = document.createElement('div');
@@ -895,66 +894,182 @@ function renderAdTicker(){
 }
 renderAdTicker();
 
-function goTo(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));const pg=document.getElementById(id);if(pg)pg.classList.add('active');try{window.scrollTo({top:0,behavior:'instant'});}catch(_){window.scrollTo(0,0);}}
-function toggle(hdr){hdr.classList.toggle('open');const body=hdr.nextElementSibling;if(body)body.classList.toggle('open');}
-function onSupervisorChange(){
-  const sup=document.getElementById('f-supervisor').value;
-  const adminSel=document.getElementById('f-admin');
-  adminSel.innerHTML='';
-  if(!sup||!SUPERVISOR_ADMINS[sup]){adminSel.disabled=true;const o=document.createElement('option');o.value='';o.textContent='— Select supervisor first —';adminSel.appendChild(o);return;}
-  adminSel.disabled=false;
-  const none=document.createElement('option');none.value='';none.textContent='None';adminSel.appendChild(none);
-  SUPERVISOR_ADMINS[sup].forEach(a=>{const o=document.createElement('option');o.value=a;o.textContent=a;adminSel.appendChild(o);});
+function goTo(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const pg = document.getElementById(id);
+  if (pg) pg.classList.add('active');
+  try { window.scrollTo({ top: 0, behavior: 'instant' }); } catch (_) { window.scrollTo(0, 0); }
 }
-function clearFieldErrors(){document.querySelectorAll('.field-err').forEach(e=>e.classList.remove('show'));document.querySelectorAll('.neon-input,.neon-select').forEach(e=>e.classList.remove('invalid'));}
-function showFieldError(id,msg){const el=document.getElementById(id);if(el){el.classList.add('show');if(msg)el.textContent=msg;}}
-function markInvalid(id){const el=document.getElementById(id);if(el)el.classList.add('invalid');}
-async function submitRegForm(){
+
+function toggle(hdr) {
+  hdr.classList.toggle('open');
+  const body = hdr.nextElementSibling;
+  if (body) body.classList.toggle('open');
+}
+
+/* ── FIX 2: Renamed to onCountryAdminChange, uses correct field IDs ── */
+function onCountryAdminChange() {
+  const ca = document.getElementById('f-country-admin').value;
+  const adminSel = document.getElementById('f-admin');
+  adminSel.innerHTML = '';
+  if (!ca || !COUNTRY_ADMIN_ADMINS[ca] || COUNTRY_ADMIN_ADMINS[ca].length === 0) {
+    adminSel.disabled = true;
+    const o = document.createElement('option');
+    o.value = '';
+    o.textContent = '— No admins available —';
+    adminSel.appendChild(o);
+    return;
+  }
+  adminSel.disabled = false;
+  const none = document.createElement('option');
+  none.value = '';
+  none.textContent = 'None';
+  adminSel.appendChild(none);
+  COUNTRY_ADMIN_ADMINS[ca].forEach(a => {
+    const o = document.createElement('option');
+    o.value = a;
+    o.textContent = a;
+    adminSel.appendChild(o);
+  });
+}
+
+function clearFieldErrors() {
+  document.querySelectorAll('.field-err').forEach(e => e.classList.remove('show'));
+  document.querySelectorAll('.neon-input,.neon-select').forEach(e => e.classList.remove('invalid'));
+}
+
+function showFieldError(id, msg) {
+  const el = document.getElementById(id);
+  if (el) { el.classList.add('show'); if (msg) el.textContent = msg; }
+}
+
+function markInvalid(id) {
+  const el = document.getElementById(id);
+  if (el) el.classList.add('invalid');
+}
+
+async function submitRegForm() {
   clearFieldErrors();
   document.getElementById('reg-success').classList.remove('show');
   document.getElementById('reg-error').classList.remove('show');
-  const supervisor=document.getElementById('f-supervisor').value.trim();
-  const admin=document.getElementById('f-admin').value.trim();
-  const leader=document.getElementById('f-leader').value.trim();
-  const agency=document.getElementById('f-agency').value.trim();
-  const rizzid=document.getElementById('f-rizzid').value.trim();
-  const whatsapp=document.getElementById('f-whatsapp').value.trim();
-  const country=document.getElementById('f-country').value.trim();
-  let err=false;
-  if(!supervisor){showFieldError('err-supervisor','Please select a supervisor.');markInvalid('f-supervisor');err=true;}
-  if(!leader){showFieldError('err-leader','Please enter the agency leader name.');markInvalid('f-leader');err=true;}
-  if(err)return;
-  const btn=document.getElementById('reg-submit-btn');
-  const lbl=document.getElementById('reg-btn-label');
-  btn.disabled=true;lbl.innerHTML='<span class="btn-spinner"></span> Submitting…';
-  const payload={timestamp:new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'}),supervisor,admin,leader,agency,rizzid,whatsapp,country};
-  try{
-    await fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+
+  /* ── FIX 3: Correct field IDs used here ── */
+  const countryAdmin = document.getElementById('f-country-admin').value.trim();
+  const admin        = document.getElementById('f-admin').value.trim();
+  const leader       = document.getElementById('f-leader').value.trim();
+  const agency       = document.getElementById('f-agency').value.trim();
+  const rizzid       = document.getElementById('f-rizzid').value.trim();
+  const whatsapp     = document.getElementById('f-whatsapp').value.trim();
+  const country      = document.getElementById('f-country').value.trim();
+
+  let err = false;
+  if (!countryAdmin) { showFieldError('err-country-admin', 'Please select a country admin.'); markInvalid('f-country-admin'); err = true; }
+  if (!leader)       { showFieldError('err-leader', 'Please enter the agency leader name.'); markInvalid('f-leader'); err = true; }
+  if (err) return;
+
+  const btn = document.getElementById('reg-submit-btn');
+  const lbl = document.getElementById('reg-btn-label');
+  btn.disabled = true;
+  lbl.innerHTML = '<span class="btn-spinner"></span> Submitting…';
+
+  const payload = {
+    timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+    countryAdmin, admin, leader, agency, rizzid, whatsapp, country
+  };
+
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method: 'POST', mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
     document.getElementById('reg-success').classList.add('show');
-    ['f-supervisor','f-admin','f-leader','f-agency','f-rizzid','f-whatsapp','f-country'].forEach(id=>{const el=document.getElementById(id);if(!el)return;if(el.tagName==='SELECT')el.selectedIndex=0;else el.value='';});
-    lbl.innerHTML='✦ &nbsp; Submit Application';btn.disabled=false;onSupervisorChange();
-  }catch(e){
-    document.getElementById('reg-error-text').textContent='Something went wrong. Please try again.';
+    ['f-country-admin', 'f-admin', 'f-leader', 'f-agency', 'f-rizzid', 'f-whatsapp', 'f-country'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (el.tagName === 'SELECT') el.selectedIndex = 0;
+      else el.value = '';
+    });
+    lbl.innerHTML = '✦ &nbsp; Submit Application';
+    btn.disabled = false;
+    onCountryAdminChange();
+  } catch (e) {
+    document.getElementById('reg-error-text').textContent = 'Something went wrong. Please try again.';
     document.getElementById('reg-error').classList.add('show');
-    lbl.innerHTML='✦ &nbsp; Submit Application';btn.disabled=false;
+    lbl.innerHTML = '✦ &nbsp; Submit Application';
+    btn.disabled = false;
   }
 }
-(function spawnParticles(){
-  const pc=document.getElementById('particles');if(!pc)return;
-  const colors=['#00e5ff','#ff3ca8','#4df3ff','#ff6ec4','#a855f7','#00ff9d','#fbbf24'];
-  const frag=document.createDocumentFragment();
-  for(let i=0;i<60;i++){const p=document.createElement('div');p.className='particle';const sz=1+Math.random()*2.5;const c=colors[Math.floor(Math.random()*colors.length)];p.style.cssText=`left:${Math.random()*100}%;width:${sz}px;height:${sz}px;background:${c};box-shadow:0 0 ${sz*3}px ${c};animation-duration:${3+Math.random()*3}s;animation-delay:${Math.random()*3}s;`;frag.appendChild(p);}
+
+/* ── Particles ── */
+(function spawnParticles() {
+  const pc = document.getElementById('particles');
+  if (!pc) return;
+  const colors = ['#00e5ff','#ff3ca8','#4df3ff','#ff6ec4','#a855f7','#00ff9d','#fbbf24'];
+  const frag = document.createDocumentFragment();
+  for (let i = 0; i < 60; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const sz = 1 + Math.random() * 2.5;
+    const c = colors[Math.floor(Math.random() * colors.length)];
+    p.style.cssText = `left:${Math.random()*100}%;width:${sz}px;height:${sz}px;background:${c};box-shadow:0 0 ${sz*3}px ${c};animation-duration:${3+Math.random()*3}s;animation-delay:${Math.random()*3}s;`;
+    frag.appendChild(p);
+  }
   pc.appendChild(frag);
 })();
-const _emojis=['🎙️','🏆','💎','⭐','🔥','✨','🎵','💫','🎤','👑'];
-function spawnEmoji(){const el=document.createElement('div');el.className='float-emoji';el.textContent=_emojis[Math.floor(Math.random()*_emojis.length)];const dur=7+Math.random()*6;el.style.cssText=`left:${Math.random()*92}%;bottom:-40px;font-size:${16+Math.random()*12}px;animation-duration:${dur}s;animation-delay:0s;`;document.body.appendChild(el);setTimeout(()=>el.remove(),(dur+2)*1000);}
-for(let i=0;i<5;i++)setTimeout(spawnEmoji,i*800);
-setInterval(spawnEmoji,1400);
-const _starCols=[{c:'rgba(255,60,168,0.95)',g:'rgba(255,60,168,0.4)'},{c:'rgba(0,255,157,0.95)',g:'rgba(0,255,157,0.4)'},{c:'rgba(80,80,255,0.95)',g:'rgba(80,80,255,0.4)'},{c:'rgba(0,229,255,0.95)',g:'rgba(0,229,255,0.4)'}];
-function spawnStar(){const cl=_starCols[Math.floor(Math.random()*_starCols.length)];const angle=32+Math.random()*18,len=70+Math.random()*80,dur=900+Math.random()*600;const sx=Math.random()*(window.innerWidth*0.65),sy=Math.random()*(window.innerHeight*0.55);const s=document.createElement('div');s.className='shooting-star';s.style.cssText=`top:${sy}px;left:${sx}px;width:${len}px;height:2px;background:linear-gradient(90deg,transparent,${cl.c});transform:rotate(${angle}deg);transform-origin:0 50%;box-shadow:0 0 5px ${cl.g};`;document.body.appendChild(s);s.animate([{opacity:1,transform:`rotate(${angle}deg) translateX(0)`},{opacity:0,transform:`rotate(${angle}deg) translateX(${len+240}px)`}],{duration:dur,easing:'ease-in',fill:'forwards'}).onfinish=()=>s.remove();}
-setInterval(spawnStar,1000);setTimeout(()=>setInterval(spawnStar,1000),340);setTimeout(()=>setInterval(spawnStar,1000),680);
-document.addEventListener('click',function(e){const cols=['rgba(0,229,255,0.65)','rgba(255,60,168,0.65)','rgba(168,85,247,0.6)','rgba(0,255,157,0.55)'];const col=cols[Math.floor(Math.random()*cols.length)];const ring=document.createElement('div');ring.style.cssText=`position:fixed;left:${e.clientX}px;top:${e.clientY}px;width:0;height:0;border-radius:50%;border:2px solid ${col};transform:translate(-50%,-50%);pointer-events:none;z-index:9999;box-shadow:0 0 8px ${col};`;document.body.appendChild(ring);ring.animate([{width:'0px',height:'0px',opacity:1},{width:'110px',height:'110px',opacity:0}],{duration:550,easing:'ease-out',fill:'forwards'}).onfinish=()=>ring.remove();});
-document.querySelectorAll('.neon-input,.neon-select').forEach(el=>{el.addEventListener('input',()=>el.classList.remove('invalid'));el.addEventListener('change',()=>el.classList.remove('invalid'));});
+
+const _emojis = ['🎙️','🏆','💎','⭐','🔥','✨','🎵','💫','🎤','👑'];
+function spawnEmoji() {
+  const el = document.createElement('div');
+  el.className = 'float-emoji';
+  el.textContent = _emojis[Math.floor(Math.random() * _emojis.length)];
+  const dur = 7 + Math.random() * 6;
+  el.style.cssText = `left:${Math.random()*92}%;bottom:-40px;font-size:${16+Math.random()*12}px;animation-duration:${dur}s;animation-delay:0s;`;
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), (dur + 2) * 1000);
+}
+for (let i = 0; i < 5; i++) setTimeout(spawnEmoji, i * 800);
+setInterval(spawnEmoji, 1400);
+
+const _starCols = [
+  {c:'rgba(255,60,168,0.95)', g:'rgba(255,60,168,0.4)'},
+  {c:'rgba(0,255,157,0.95)',  g:'rgba(0,255,157,0.4)'},
+  {c:'rgba(80,80,255,0.95)',  g:'rgba(80,80,255,0.4)'},
+  {c:'rgba(0,229,255,0.95)',  g:'rgba(0,229,255,0.4)'}
+];
+function spawnStar() {
+  const cl = _starCols[Math.floor(Math.random() * _starCols.length)];
+  const angle = 32 + Math.random() * 18, len = 70 + Math.random() * 80, dur = 900 + Math.random() * 600;
+  const sx = Math.random() * (window.innerWidth * 0.65), sy = Math.random() * (window.innerHeight * 0.55);
+  const s = document.createElement('div');
+  s.className = 'shooting-star';
+  s.style.cssText = `top:${sy}px;left:${sx}px;width:${len}px;height:2px;background:linear-gradient(90deg,transparent,${cl.c});transform:rotate(${angle}deg);transform-origin:0 50%;box-shadow:0 0 5px ${cl.g};`;
+  document.body.appendChild(s);
+  s.animate(
+    [{opacity:1, transform:`rotate(${angle}deg) translateX(0)`}, {opacity:0, transform:`rotate(${angle}deg) translateX(${len+240}px)`}],
+    {duration: dur, easing:'ease-in', fill:'forwards'}
+  ).onfinish = () => s.remove();
+}
+setInterval(spawnStar, 1000);
+setTimeout(() => setInterval(spawnStar, 1000), 340);
+setTimeout(() => setInterval(spawnStar, 1000), 680);
+
+document.addEventListener('click', function(e) {
+  const cols = ['rgba(0,229,255,0.65)','rgba(255,60,168,0.65)','rgba(168,85,247,0.6)','rgba(0,255,157,0.55)'];
+  const col = cols[Math.floor(Math.random() * cols.length)];
+  const ring = document.createElement('div');
+  ring.style.cssText = `position:fixed;left:${e.clientX}px;top:${e.clientY}px;width:0;height:0;border-radius:50%;border:2px solid ${col};transform:translate(-50%,-50%);pointer-events:none;z-index:9999;box-shadow:0 0 8px ${col};`;
+  document.body.appendChild(ring);
+  ring.animate(
+    [{width:'0px', height:'0px', opacity:1}, {width:'110px', height:'110px', opacity:0}],
+    {duration:550, easing:'ease-out', fill:'forwards'}
+  ).onfinish = () => ring.remove();
+});
+
+document.querySelectorAll('.neon-input,.neon-select').forEach(el => {
+  el.addEventListener('input', () => el.classList.remove('invalid'));
+  el.addEventListener('change', () => el.classList.remove('invalid'));
+});
 </script>
 </body>
 </html>
