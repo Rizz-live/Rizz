@@ -713,10 +713,9 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
           <select class="neon-select" id="f-country-admin" required onchange="onCountryAdminChange()">
             <option value="" disabled selected data-t="select-placeholder">Select…</option>
             <option value="Ray-IN">Ray-IN</option>
-            <option value="Choudhary-IN">Choudhary-IN</option>
             <option value="Rajesh-IN">Rajesh-IN</option>
             <option value="Ahin-IN">Ahin-IN</option>
-            <option value="Gulshan-IN">Gulshan-IN</option>
+            <option value="Veeraj-IN">Veeraj-IN</option>
           </select>
           <span class="field-err" id="err-country-admin" data-t="err-country-admin">Please select a country admin.</span>
         </div>
@@ -821,9 +820,9 @@ const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxZif9LSajJEnVV
 
 const COUNTRY_ADMIN_ADMINS = {
   'Ray-IN':       ['Dhakadking-IN'],
-  'Choudhary-IN': ['Bunny-IN','MrKai-IN'],
   'Rajesh-IN':    ['Irshad-IN'],
   'Ahin-IN':      ['Fiza-IN','KushAgarwal-IN']
+  'Veeraj-IN':      []
 };
 
 /* ══════════════════════════════════════════
@@ -1522,9 +1521,9 @@ function onCountryAdminChange() {
   const adminSel = document.getElementById('f-admin');
   const COUNTRY_ADMIN_ADMINS_MAP = {
     'Ray-IN':       ['Dhakadking-IN'],
-    'Choudhary-IN': ['Bunny-IN'],
     'Rajesh-IN':    ['Irsha-IN'],
     'Ahin-IN':      ['Fiza-IN','KushAgarwal-IN']
+    'Veeraj-IN':      []
   };
   adminSel.innerHTML = '';
   if (!ca || !COUNTRY_ADMIN_ADMINS_MAP[ca] || COUNTRY_ADMIN_ADMINS_MAP[ca].length === 0) {
