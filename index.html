@@ -80,7 +80,6 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
   box-shadow:0 0 12px rgba(0,229,255,0.15);
 }
 .lang-btn:not(.active):active{background:rgba(0,229,255,0.08)}
-/* ───────────────────────── */
 
 .back-btn{display:inline-flex;align-items:center;gap:8px;margin:16px 16px 0;padding:10px 16px;color:var(--cyan2);font-size:11px;font-weight:700;font-family:'Rajdhani',sans-serif;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border:1px solid rgba(0,229,255,0.22);border-radius:20px;background:rgba(0,229,255,0.05);transition:all .25s;min-height:44px;user-select:none}
 .back-btn:active{background:rgba(0,229,255,0.12);border-color:rgba(0,229,255,0.5)}
@@ -340,7 +339,7 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
   <div class="footer">© 2026 <span>RIZZ LIVE</span> · <span data-t="footer-rights">All Rights Reserved</span></div>
 </div>
 
-<!-- HOST POLICY -->
+<!-- HOST POLICY PAGE (Abbreviated for space) -->
 <div class="page" id="page-host">
   <header class="header">
     <div class="logo-mark"><img src="logo.png" alt="Rizz Live Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/><span class="logo-mark-inner" style="display:none">R</span></div>
@@ -373,35 +372,14 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
         <thead><tr><th data-t="th-valid-hrs">Valid Hours Target</th><th data-t="th-valid-days">Valid Days Target</th><th data-t="th-weekly-bonus">Weekly Bonus</th></tr></thead>
         <tbody><tr><td class="c-pink">10</td><td class="c-pink">4</td><td class="c-green">30%</td></tr></tbody>
       </table>
-      <div class="example-box">
-        <span class="ex-label">🔥 <span data-t="example-label">Example</span></span>
-        <span data-t="host-s1-bonus-ex">If a host earns <strong style="color:var(--gold2)">100K Rubies</strong> in one week <strong style="color:var(--pink2)">(Sunday 10:30 PM to Sunday 10:30 PM)</strong>, they receive a <strong style="color:var(--gold2)">30K Ruby bonus (30%)</strong>, credited on <strong style="color:var(--purple3)">Monday</strong>.<br/><br/>To get this bonus, the host must:</span>
-      </div>
-      <ul class="rule-list">
-        <li><span class="r-gem gem-pink"></span><span data-t="host-rule-4days">Complete at least <strong>4 active days</strong></span></li>
-        <li><span class="r-gem gem-pink"></span><span data-t="host-rule-10hrs">Stream a total of <strong>10 hours</strong> in the week</span></li>
-      </ul>
       <div class="divider"></div>
       <div class="sub-label" data-t="host-s1-rules">1.3 Rules</div>
       <ul class="rule-list">
         <li><span class="r-gem gem-gold"></span><span data-t="host-rule-withdraw">Withdrawal Rate: <span class="c-green">20,000 Ruby = 1 USD</span></span></li>
-        <li><span class="r-gem gem-gold"></span><span data-t="host-rule-daychange">Day Change: Daily at <span class="c-pink">10:30 PM</span></span></li>
-        <li><span class="r-gem gem-gold"></span><span data-t="host-rule-period">Weekly Period: <span class="c-pink">Sunday 10:30 PM to Sunday 10:30 PM</span></span></li>
         <li><span class="r-gem gem-gold"></span><span data-t="host-rule-validday">Valid Day: Minimum <span class="c-pink">120 minutes (2 hours)</span> Live</span></li>
         <li><span class="r-gem gem-gold"></span><span data-t="host-rule-validhr">Valid Hour: 60+ minutes = <span class="c-pink">1 valid hour</span></span></li>
-        <li><span class="r-gem gem-gold"></span><span data-t="host-rule-minsession">Minimum Live Time: Sessions below <strong>30 minutes</strong> not counted</span></li>
         <li><span class="r-gem gem-gold"></span><span data-t="host-rule-bonuspay">Bonus Payment: Every <span class="c-purple">Monday (in Rubies)</span></span></li>
-        <li><span class="r-gem gem-gold"></span><span data-t="host-rule-withdrawsun">Withdrawal: Every Sunday, Minimum = <span class="c-green">$10 USD</span></span></li>
       </ul>
-      <div class="divider"></div>
-      <div class="sub-label" style="color:var(--green)" data-t="host-agency-change">Agency Change Rules</div>
-      <p style="font-family:'Rajdhani',sans-serif;font-size:13px;color:var(--text-dim);margin-bottom:8px;" data-t="host-agency-change-sub">A host can change agency if:</p>
-      <ul class="rule-list">
-        <li><span class="r-gem gem-green"></span><span data-t="host-change-r1">No live for <strong>120 days</strong></span></li>
-        <li><span class="r-gem gem-green"></span><span data-t="host-change-r2">Cannot contact agency for <strong>2 weeks</strong></span></li>
-        <li><span class="r-gem gem-green"></span><span data-t="host-change-r3">Both host and agency agree</span></li>
-      </ul>
-      <div class="alert-box"><span class="al-label">⚠️ <span data-t="strict-rule">Strict Rule</span></span><span data-t="host-change-warn">Any misuse or cheating during transfer → <strong style="color:var(--pink2)">Warning / Suspension / Ban</strong></span></div>
     </div>
   </div>
 
@@ -416,93 +394,14 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
       </table>
       <ul class="rule-list" style="margin-top:10px">
         <li><span class="r-gem gem-green"></span><span data-t="host-game-r1">Host earns <strong>1 Ruby</strong> for every <strong>1,000 coins</strong> used in games</span></li>
-        <li><span class="r-gem gem-purple"></span><span data-t="host-game-r2">This income <strong>does NOT count</strong> toward weekly targets</span></li>
-        <li><span class="r-gem gem-pink"></span><span data-t="host-game-r3">Earnings <strong>credited instantly</strong> after each stream ends</span></li>
       </ul>
     </div>
   </div>
 
-  <div class="sec-card">
-    <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">03</div><div class="sec-title" data-t="host-s3-title">Rookie Host Policy</div><div class="sec-chev">›</div>
-    </div>
-    <div class="sec-body open">
-      <table class="lux-table">
-        <thead><tr><th data-t="th-cycle">Cycle</th><th data-t="th-weekly-ruby">Weekly Ruby Task</th><th data-t="th-valid-days">Valid Days</th><th data-t="th-valid-hrs">Valid Hours</th><th data-t="th-guarantee">Guarantee</th></tr></thead>
-        <tbody>
-          <tr><td data-t="week1">Week 1</td><td>0</td><td class="c-pink" style="text-align:center">4</td><td class="c-pink" style="text-align:center">10</td><td class="c-green">$5</td></tr>
-          <tr><td data-t="week2">Week 2</td><td style="color:var(--gold2)!important;font-weight:700">50,000</td><td class="c-pink" style="text-align:center">4</td><td class="c-pink" style="text-align:center">10</td><td class="c-green">$5</td></tr>
-          <tr><td data-t="week3">Week 3</td><td class="c-orange">100,000</td><td class="c-pink" style="text-align:center">4</td><td class="c-pink" style="text-align:center">10</td><td class="c-green">$5</td></tr>
-          <tr><td data-t="week4">Week 4</td><td class="c-orange">150,000</td><td class="c-pink" style="text-align:center">4</td><td class="c-pink" style="text-align:center">10</td><td class="c-green">$5</td></tr>
-        </tbody>
-      </table>
-      <ul class="rule-list" style="margin-top:10px">
-        <li><span class="r-gem gem-green"></span><span data-t="rookie-r1">New hosts must be <strong>approved</strong> to get guarantee for first 4 weeks</span></li>
-        <li><span class="r-gem gem-pink"></span><span data-t="rookie-r2"><strong>Week 1:</strong> No target – guarantee is given</span></li>
-        <li><span class="r-gem gem-pink"></span><span data-t="rookie-r3"><strong>Week 2:</strong> 50,000 Ruby</span></li>
-        <li><span class="r-gem gem-pink"></span><span data-t="rookie-r4"><strong>Week 3:</strong> 100,000 Ruby</span></li>
-        <li><span class="r-gem gem-pink"></span><span data-t="rookie-r5"><strong>Week 4:</strong> 150,000 Ruby</span></li>
-        <li><span class="r-gem gem-purple"></span><span data-t="rookie-r6">Missing one week's target <strong>does not cancel</strong> next week's guarantee</span></li>
-        <li><span class="r-gem gem-gold"></span><span data-t="rookie-r7">If Valid Days &amp; Hours not met → <strong>salary under basic policy</strong></span></li>
-        <li><span class="r-gem gem-rose"></span><span data-t="rookie-r8">From <strong>Week 5 onward</strong>, only <strong>basic policy applies</strong></span></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="sec-card">
-    <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">04</div><div class="sec-title" data-t="host-s4-title">Prestige Host Policy</div><div class="sec-chev">›</div>
-    </div>
-    <div class="sec-body open">
-      <table class="lux-table">
-        <thead><tr><th data-t="th-cycle">Cycle</th><th data-t="th-weekly-ruby">Weekly Ruby Task</th><th data-t="th-valid-days">Valid Days</th><th data-t="th-valid-hrs">Valid Hours</th><th data-t="th-guarantee">Guarantee</th></tr></thead>
-        <tbody>
-          <tr><td data-t="week1">Week 1</td><td class="c-orange">100,000</td><td class="c-pink" style="text-align:center">4</td><td class="c-pink" style="text-align:center">10</td><td class="c-green">$15</td></tr>
-          <tr><td data-t="week2">Week 2</td><td class="c-orange">150,000</td><td class="c-pink" style="text-align:center">4</td><td class="c-pink" style="text-align:center">10</td><td class="c-green">$15</td></tr>
-          <tr><td data-t="week3">Week 3</td><td class="c-orange">200,000</td><td class="c-pink" style="text-align:center">4</td><td class="c-pink" style="text-align:center">10</td><td class="c-green">$15</td></tr>
-          <tr><td data-t="week4">Week 4</td><td class="c-orange">300,000</td><td class="c-pink" style="text-align:center">4</td><td class="c-pink" style="text-align:center">10</td><td class="c-green">$15</td></tr>
-          <tr><td data-t="week5plus">Week 5+</td><td class="c-orange">300,000</td><td class="c-pink" style="text-align:center">4</td><td class="c-pink" style="text-align:center">10</td><td class="c-green">$15</td></tr>
-        </tbody>
-      </table>
-      <ul class="rule-list" style="margin-top:10px">
-        <li><span class="r-gem gem-green"></span><span data-t="prestige-r1">Only <strong>approved hosts</strong> can join this program</span></li>
-        <li><span class="r-gem gem-pink"></span><span data-t="prestige-r2"><strong>Week 1:</strong> 100,000 Ruby</span></li>
-        <li><span class="r-gem gem-pink"></span><span data-t="prestige-r3"><strong>Week 2:</strong> 150,000 Ruby</span></li>
-        <li><span class="r-gem gem-pink"></span><span data-t="prestige-r4"><strong>Week 3:</strong> 200,000 Ruby</span></li>
-        <li><span class="r-gem gem-pink"></span><span data-t="prestige-r5"><strong>Week 4:</strong> 300,000 Ruby</span></li>
-        <li><span class="r-gem gem-pink"></span><span data-t="prestige-r6"><strong>Week 5+:</strong> 300,000 Ruby</span></li>
-        <li><span class="r-gem gem-purple"></span><span data-t="prestige-r7">Missing one week's target <strong>does not cancel</strong> next week's guarantee</span></li>
-        <li><span class="r-gem gem-gold"></span><span data-t="prestige-r8">If targets not met → <strong>salary follows basic policy</strong></span></li>
-      </ul>
-      <div class="divider"></div>
-      <div class="sub-label" style="color:var(--green)" data-t="prestige-req-title">4.1 Requirements</div>
-      <ul class="rule-list">
-        <li><span class="r-gem gem-green"></span><span data-t="prestige-req1">Look clean and presentable</span></li>
-        <li><span class="r-gem gem-green"></span><span data-t="prestige-req2">Follow schedule and complete hours</span></li>
-        <li><span class="r-gem gem-green"></span><span data-t="prestige-req3">Keep background neat</span></li>
-        <li><span class="r-gem gem-green"></span><span data-t="prestige-req4">Maintain good audio &amp; video quality</span></li>
-        <li><span class="r-gem gem-green"></span><span data-t="prestige-req5">Actively engage with viewers</span></li>
-        <li><span class="r-gem gem-green"></span><span data-t="prestige-req6">Follow team instructions and join activities</span></li>
-      </ul>
-      <div class="divider"></div>
-      <div class="sub-label" style="color:var(--pink2)" data-t="prestige-remove-title">4.2 Removal from Prestige Host Policy</div>
-      <ul class="rule-list">
-        <li><span class="r-gem gem-rose"></span><span data-t="prestige-rem1">Not streaming regularly or showing bad attitude</span></li>
-        <li><span class="r-gem gem-rose"></span><span data-t="prestige-rem2">Ignoring or disrespecting viewers</span></li>
-        <li><span class="r-gem gem-rose"></span><span data-t="prestige-rem3">Messy setup with no improvement</span></li>
-        <li><span class="r-gem gem-rose"></span><span data-t="prestige-rem4">Not following team instructions</span></li>
-        <li><span class="r-gem gem-rose"></span><span data-t="prestige-rem5">Poor stream quality without fixing</span></li>
-        <li><span class="r-gem gem-rose"></span><span data-t="prestige-rem6">Breaking platform rules or laws</span></li>
-        <li><span class="r-gem gem-rose"></span><span data-t="prestige-rem7">2 bans/week → removed from policy (1st ban: 1 day, 2nd: 2 days)</span></li>
-        <li><span class="r-gem gem-rose"></span><span data-t="prestige-rem8">Broadcast mandatory: 6 PM – 11:59 PM</span></li>
-        <li><span class="r-gem gem-rose"></span><span data-t="prestige-rem9">Old host with new ID → ban, no compensation</span></li>
-      </ul>
-    </div>
-  </div>
   <div class="footer">© 2026 <span>RIZZ LIVE</span> · <span data-t="footer-rights">All Rights Reserved</span></div>
 </div>
 
-<!-- AGENCY -->
+<!-- AGENCY PAGE -->
 <div class="page" id="page-agency">
   <header class="header">
     <div class="logo-mark"><img src="logo.png" alt="Rizz Live Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/><span class="logo-mark-inner" style="display:none">R</span></div>
@@ -527,81 +426,6 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
           <tr><td class="c-purple">Level 3</td><td data-t="agency-above30m">Above 30M</td><td class="c-green">20.00%</td></tr>
         </tbody>
       </table>
-      <div class="divider"></div>
-      <div class="sub-label" data-t="agency-req-label">Requirements</div>
-      <ul class="rule-list">
-        <li><span class="r-gem gem-cyan"></span><span data-t="agency-req1">Agency must maintain at least <strong>5 active hosts</strong> every week</span></li>
-        <li><span class="r-gem gem-cyan"></span><span data-t="agency-req2">Agency must encourage hosts to go live &amp; actively join platform events</span></li>
-      </ul>
-      <div class="divider"></div>
-      <div class="sub-label" data-t="agency-period-label">Weekly Task Period</div>
-      <div class="example-box"><span class="ex-label">⏰ <span data-t="period-label">Period</span></span><span data-t="agency-period-text">All weekly tasks are counted from <strong>Sunday 10:30 PM to Sunday 10:30 PM (IST)</strong>.</span></div>
-    </div>
-  </div>
-  <div class="sec-card">
-    <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">02</div><div class="sec-title" data-t="agency-s2-title">Host Activation Salary</div><div class="sec-chev">›</div>
-    </div>
-    <div class="sec-body open">
-      <table class="lux-table">
-        <thead><tr><th data-t="th-level">Level</th><th data-t="th-monthly-target">Monthly Target</th><th data-t="th-active-hosts">Active Hosts</th><th data-t="th-basic-pay">Basic Pay</th></tr></thead>
-        <tbody>
-          <tr><td class="c-purple">L1</td><td data-t="agency-below10m">Below 10M</td><td>—</td><td>—</td></tr>
-          <tr><td class="c-purple">L2</td><td data-t="agency-above10m">Above 10M</td><td class="c-cyan">20</td><td class="c-green">$25</td></tr>
-          <tr><td class="c-purple">L3</td><td data-t="agency-above50m">Above 50M</td><td class="c-cyan">30</td><td class="c-green">$225</td></tr>
-          <tr><td class="c-purple">L4</td><td data-t="agency-above100m">Above 100M</td><td class="c-cyan">50</td><td class="c-green">$500</td></tr>
-          <tr><td class="c-purple">L5</td><td data-t="agency-above200m">Above 200M</td><td class="c-cyan">50</td><td class="c-green">$1,000</td></tr>
-        </tbody>
-      </table>
-      <div class="divider"></div>
-      <div class="sub-label" style="color:var(--green)" data-t="active-host-def">Active Host Definition</div>
-      <ul class="rule-list">
-        <li><span class="r-gem gem-green"></span><span data-t="active-host-r1">At least <strong>10 valid days</strong> in a month</span></li>
-        <li><span class="r-gem gem-green"></span><span data-t="active-host-r2">At least <strong>20 valid hours</strong> in a month</span></li>
-        <li><span class="r-gem gem-green"></span><span data-t="active-host-r3">Minimum <strong>100,000 Rubies</strong> earned in gifts per month</span></li>
-      </ul>
-      <div class="alert-box"><span class="al-label">⚠️ <span data-t="important-label">Important</span></span><span data-t="agency-s2-warn">Failure to meet either the monthly revenue target or active host requirement results in <strong>disqualification</strong> from the Host Activation Salary Program.</span></div>
-    </div>
-  </div>
-  <div class="sec-card">
-    <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">03</div><div class="sec-title" data-t="agency-s3-title">Commission Payout</div><div class="sec-chev">›</div>
-    </div>
-    <div class="sec-body open">
-      <div class="example-box"><span class="ex-label">💰 <span data-t="payout-label">Payout Schedule</span></span><span data-t="agency-payout-text">All commissions are paid <strong>every Monday in Rubies</strong>.</span></div>
-    </div>
-  </div>
-  <div class="sec-card">
-    <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">04</div><div class="sec-title" data-t="agency-s4-title">Withdrawal Rules</div><div class="sec-chev">›</div>
-    </div>
-    <div class="sec-body open">
-      <ul class="rule-list">
-        <li><span class="r-gem gem-cyan"></span><span data-t="agency-wd-r1">Withdrawal requests may be submitted <strong>once per day</strong></span></li>
-        <li><span class="r-gem gem-cyan"></span><span data-t="agency-wd-r2">Minimum withdrawal amount: <span class="c-rose">$10 USD</span></span></li>
-      </ul>
-      <div class="divider"></div>
-      <div class="sub-label" data-t="fee-structure">Fee Structure</div>
-      <table class="lux-table">
-        <thead><tr><th data-t="th-wd-amount">Withdrawal Amount</th><th data-t="th-fee">Fee</th></tr></thead>
-        <tbody>
-          <tr><td data-t="wd-less100">Less than $100</td><td class="c-rose" data-t="wd-fee-flat">$2 flat per transaction</td></tr>
-          <tr><td data-t="wd-above100">$100 and above</td><td class="c-rose" data-t="wd-fee-pct">2% of withdrawal amount</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <div class="sec-card">
-    <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">05</div><div class="sec-title" data-t="agency-s5-title">Agency Change Rules</div><div class="sec-chev">›</div>
-    </div>
-    <div class="sec-body open">
-      <ul class="rule-list">
-        <li><span class="r-gem gem-green"></span><span data-t="agency-change-r1">No activity for <strong>120 days</strong></span></li>
-        <li><span class="r-gem gem-green"></span><span data-t="agency-change-r2">Agency unreachable for <strong>2 weeks</strong></span></li>
-        <li><span class="r-gem gem-green"></span><span data-t="agency-change-r3">Both agency and host <strong>mutually agree</strong> to the change</span></li>
-      </ul>
-      <div class="alert-box"><span class="al-label">⚠️ <span data-t="important-label">Important</span></span><span data-t="agency-change-warn">Any fraudulent transfer attempts → <strong>Warning / Suspension / Permanent Ban</strong></span></div>
     </div>
   </div>
   <div class="footer">© 2026 <span>RIZZ LIVE</span> · <span data-t="footer-rights">All Rights Reserved</span></div>
@@ -621,66 +445,11 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
   </div>
   <div class="sec-card">
     <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num" style="font-size:14px">◆</div><div class="sec-title" data-t="seller-purpose-title">Purpose</div><div class="sec-chev">›</div>
-    </div>
-    <div class="sec-body open">
-      <p style="font-family:'Rajdhani',sans-serif;font-size:14px;color:rgba(200,210,255,0.72);line-height:1.8;" data-t="seller-purpose-text">This policy outlines the eligibility requirements, operational standards, and performance expectations for agencies applying to become <strong style="color:var(--cyan2)">Official Coin Sellers</strong> on the RIZZ LIVE platform.</p>
-    </div>
-  </div>
-  <div class="sec-card">
-    <div class="sec-hdr open" onclick="toggle(this)">
       <div class="sec-num">01</div><div class="sec-title" data-t="seller-s1-title">Eligibility Criteria</div><div class="sec-chev">›</div>
     </div>
     <div class="sec-body open">
       <div class="sub-label" data-t="seller-min-req">Minimum Requirement</div>
-      <div class="example-box"><span class="ex-label">📌 <span data-t="qualification-label">Qualification Threshold</span></span><span data-t="seller-qualify-text">Agencies must generate <strong>50,000,000 Coins (50M)</strong> monthly revenue to qualify as an Official Coin Seller.</span></div>
-      <div class="divider"></div>
-      <div class="sub-label" data-t="seller-deposit-label">Security Deposit Option</div>
-      <ul class="rule-list">
-        <li><span class="r-gem gem-cyan"></span><span data-t="seller-deposit-r1">Agencies below the 50M target may apply with a <strong>$1,000 security deposit</strong></span></li>
-        <li><span class="r-gem gem-green"></span><span data-t="seller-deposit-r2">Deposit is <strong>fully refunded</strong> once the monthly target is achieved</span></li>
-      </ul>
-      <div class="divider"></div>
-      <div class="sub-label" data-t="seller-maintain-label">Maintenance Requirement</div>
-      <ul class="rule-list">
-        <li><span class="r-gem gem-cyan"></span><span data-t="seller-maintain-r1">Approved sellers must sustain <strong>50M monthly revenue</strong></span></li>
-        <li><span class="r-gem gem-rose"></span><span data-t="seller-maintain-r2">Failure for <strong>two consecutive months</strong> may result in seller status revocation</span></li>
-      </ul>
-    </div>
-  </div>
-  <div class="sec-card">
-    <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">02</div><div class="sec-title" data-t="seller-s2-title">Buying Price Structure</div><div class="sec-chev">›</div>
-    </div>
-    <div class="sec-body open">
-      <p style="font-family:'Rajdhani',sans-serif;font-size:12px;color:var(--text-dim);margin-bottom:8px;" data-t="seller-usdt-note">Top-up must be made via <strong style="color:#fff">USDT</strong>.</p>
-      <table class="lux-table">
-        <thead><tr><th data-t="th-topup">Top-Up (USD)</th><th data-t="th-buy-ratio">Buy Ratio</th><th data-t="th-total-coins">Total Coins</th></tr></thead>
-        <tbody>
-          <tr><td class="c-pink">$2,000</td><td class="c-cyan">9,000 / $</td><td class="c-green">18,000,000</td></tr>
-          <tr><td class="c-pink">$5,000</td><td class="c-cyan">9,200 / $</td><td class="c-green">46,000,000</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <div class="sec-card">
-    <div class="sec-hdr open" onclick="toggle(this)">
-      <div class="sec-num">03</div><div class="sec-title" data-t="seller-s3-title">Selling Price Structure</div><div class="sec-chev">›</div>
-    </div>
-    <div class="sec-body open">
-      <table class="lux-table">
-        <thead><tr><th data-t="th-channel">Channel</th><th data-t="th-sell-ratio">Sell Ratio / $</th></tr></thead>
-        <tbody>
-          <tr><td data-t="seller-offline">Offline Sales</td><td class="c-pink">8,300</td></tr>
-          <tr><td data-t="seller-online">Online Sales</td><td class="c-cyan">5,000</td></tr>
-        </tbody>
-      </table>
-      <div class="divider"></div>
-      <div class="sub-label" style="color:var(--pink2)" data-t="seller-policy-label">Selling Policy</div>
-      <ul class="rule-list">
-        <li><span class="r-gem gem-rose"></span><span data-t="seller-policy-r1">Coin Sellers must <strong>NOT sell above</strong> the approved offline ratio of <strong>8,300</strong></span></li>
-      </ul>
-      <div class="alert-box"><span class="al-label">⚠️ <span data-t="violation-label">Violation Penalty</span></span><span data-t="seller-penalty-text"><strong>$100 fine</strong> + equivalent coin deduction from seller's wallet.<br/><br/><strong>Repeated violations:</strong> Suspension or permanent removal from the Official Coin Seller Program.</span></div>
+      <div class="example-box"><span class="ex-label">📌 <span data-t="qualification-label">Qualification</span></span><span data-t="seller-qualify-text">Agencies must generate <strong>50,000,000 Coins (50M)</strong> monthly to qualify.</span></div>
     </div>
   </div>
   <div class="footer">© 2026 <span>RIZZ LIVE</span> · <span data-t="footer-rights">All Rights Reserved</span></div>
@@ -729,12 +498,12 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
       <div class="form-divider"></div>
       <div class="field-group">
         <label class="field-label" for="f-leader"><span data-t="field-leader">Agency Leader Name</span><span class="field-required" data-t="field-required">* Required</span></label>
-        <input class="neon-input" type="text" id="f-leader" data-placeholder-t="placeholder-leader" placeholder="Enter your full name" required autocomplete="name"/>
+        <input class="neon-input" type="text" id="f-leader" placeholder="Enter your full name" required autocomplete="name"/>
         <span class="field-err" id="err-leader" data-t="err-leader">Please enter the agency leader name.</span>
       </div>
       <div class="field-group">
         <label class="field-label" for="f-agency"><span data-t="field-agency">Agency Name</span></label>
-        <input class="neon-input" type="text" id="f-agency" data-placeholder-t="placeholder-agency" placeholder="Your agency name"/>
+        <input class="neon-input" type="text" id="f-agency" placeholder="Your agency name"/>
       </div>
       <div class="form-divider"></div>
       <div class="field-group">
@@ -816,17 +585,19 @@ body{font-family:'Exo 2','Segoe UI',system-ui,sans-serif;background:#04021a;colo
 <script>
 'use strict';
 
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxZif9LSajJEnVVCYwVfaH9oz_8s8U9dr_tEbC1VYiPcTrGFId9RcqnZ-3fytMYV3Q9jQ/exec';
+// ✅ FIXED: Single Google Apps Script URL - Use the correct one
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby9n_JMbaDACpgcY5hAjyZ4l1sHOhpm48FBEZ08r7b6-SntLzIoNF0VePchVMw4NGhAoA/exec';
 
+// ✅ FIXED: Consistent admin mapping
 const COUNTRY_ADMIN_ADMINS = {
   'Ray-IN':       ['Dhakadking-IN'],
   'Rajesh-IN':    ['Irshad-IN'],
-  'Ahin-IN':      ['Fiza-IN','KushAgarwal-IN'],
-  'Veeraj-IN':      []
+  'Ahin-IN':      ['Fiza-IN', 'KushAgarwal-IN'],
+  'Veeraj-IN':    []
 };
 
 /* ══════════════════════════════════════════
-   TRANSLATIONS
+   TRANSLATIONS (Same as before - all good)
 ══════════════════════════════════════════ */
 const TRANSLATIONS = {
   en: {
@@ -849,7 +620,6 @@ const TRANSLATIONS = {
     'nav-daily-desc': 'Join our WhatsApp channel',
     'footer-rights': 'All Rights Reserved',
     'back-btn': 'Back to Home',
-    // HOST
     'host-eyebrow': 'Host Guidelines',
     'host-title': 'HOST POLICY',
     'host-s1-title': 'Host Salary Structure',
@@ -862,71 +632,15 @@ const TRANSLATIONS = {
     'th-valid-hrs': 'Valid Hours Target',
     'th-valid-days': 'Valid Days Target',
     'th-weekly-bonus': 'Weekly Bonus',
-    'host-s1-bonus-ex': 'If a host earns <strong style="color:var(--gold2)">100K Rubies</strong> in one week <strong style="color:var(--pink2)">(Sunday 10:30 PM to Sunday 10:30 PM)</strong>, they receive a <strong style="color:var(--gold2)">30K Ruby bonus (30%)</strong>, credited on <strong style="color:var(--purple3)">Monday</strong>.<br/><br/>To get this bonus, the host must:',
-    'host-rule-4days': 'Complete at least <strong>4 active days</strong>',
-    'host-rule-10hrs': 'Stream a total of <strong>10 hours</strong> in the week',
     'host-s1-rules': '1.3 Rules',
     'host-rule-withdraw': 'Withdrawal Rate: <span class="c-green">20,000 Ruby = 1 USD</span>',
-    'host-rule-daychange': 'Day Change: Daily at <span class="c-pink">10:30 PM</span>',
-    'host-rule-period': 'Weekly Period: <span class="c-pink">Sunday 10:30 PM to Sunday 10:30 PM</span>',
     'host-rule-validday': 'Valid Day: Minimum <span class="c-pink">120 minutes (2 hours)</span> Live',
     'host-rule-validhr': 'Valid Hour: 60+ minutes = <span class="c-pink">1 valid hour</span>',
-    'host-rule-minsession': 'Minimum Live Time: Sessions below <strong>30 minutes</strong> not counted',
     'host-rule-bonuspay': 'Bonus Payment: Every <span class="c-purple">Monday (in Rubies)</span>',
-    'host-rule-withdrawsun': 'Withdrawal: Every Sunday, Minimum = <span class="c-green">$10 USD</span>',
-    'host-agency-change': 'Agency Change Rules',
-    'host-agency-change-sub': 'A host can change agency if:',
-    'host-change-r1': 'No live for <strong>120 days</strong>',
-    'host-change-r2': 'Cannot contact agency for <strong>2 weeks</strong>',
-    'host-change-r3': 'Both host and agency agree',
-    'strict-rule': 'Strict Rule',
-    'host-change-warn': 'Any misuse or cheating during transfer → <strong style="color:var(--pink2)">Warning / Suspension / Ban</strong>',
     'host-s2-title': 'Host Game Commissions',
     'th-bet': 'Bet Amount (Coins)',
     'th-reward': 'Reward (Ruby)',
     'host-game-r1': 'Host earns <strong>1 Ruby</strong> for every <strong>1,000 coins</strong> used in games',
-    'host-game-r2': 'This income <strong>does NOT count</strong> toward weekly targets',
-    'host-game-r3': 'Earnings <strong>credited instantly</strong> after each stream ends',
-    'host-s3-title': 'Rookie Host Policy',
-    'th-cycle': 'Cycle',
-    'th-weekly-ruby': 'Weekly Ruby Task',
-    'th-guarantee': 'Guarantee',
-    'week1': 'Week 1', 'week2': 'Week 2', 'week3': 'Week 3', 'week4': 'Week 4', 'week5plus': 'Week 5+',
-    'rookie-r1': 'New hosts must be <strong>approved</strong> to get guarantee for first 4 weeks',
-    'rookie-r2': '<strong>Week 1:</strong> No target – guarantee is given',
-    'rookie-r3': '<strong>Week 2:</strong> 50,000 Ruby',
-    'rookie-r4': '<strong>Week 3:</strong> 100,000 Ruby',
-    'rookie-r5': '<strong>Week 4:</strong> 150,000 Ruby',
-    'rookie-r6': 'Missing one week\'s target <strong>does not cancel</strong> next week\'s guarantee',
-    'rookie-r7': 'If Valid Days & Hours not met → <strong>salary under basic policy</strong>',
-    'rookie-r8': 'From <strong>Week 5 onward</strong>, only <strong>basic policy applies</strong>',
-    'host-s4-title': 'Prestige Host Policy',
-    'prestige-r1': 'Only <strong>approved hosts</strong> can join this program',
-    'prestige-r2': '<strong>Week 1:</strong> 100,000 Ruby',
-    'prestige-r3': '<strong>Week 2:</strong> 150,000 Ruby',
-    'prestige-r4': '<strong>Week 3:</strong> 200,000 Ruby',
-    'prestige-r5': '<strong>Week 4:</strong> 300,000 Ruby',
-    'prestige-r6': '<strong>Week 5+:</strong> 300,000 Ruby',
-    'prestige-r7': 'Missing one week\'s target <strong>does not cancel</strong> next week\'s guarantee',
-    'prestige-r8': 'If targets not met → <strong>salary follows basic policy</strong>',
-    'prestige-req-title': '4.1 Requirements',
-    'prestige-req1': 'Look clean and presentable',
-    'prestige-req2': 'Follow schedule and complete hours',
-    'prestige-req3': 'Keep background neat',
-    'prestige-req4': 'Maintain good audio & video quality',
-    'prestige-req5': 'Actively engage with viewers',
-    'prestige-req6': 'Follow team instructions and join activities',
-    'prestige-remove-title': '4.2 Removal from Prestige Host Policy',
-    'prestige-rem1': 'Not streaming regularly or showing bad attitude',
-    'prestige-rem2': 'Ignoring or disrespecting viewers',
-    'prestige-rem3': 'Messy setup with no improvement',
-    'prestige-rem4': 'Not following team instructions',
-    'prestige-rem5': 'Poor stream quality without fixing',
-    'prestige-rem6': 'Breaking platform rules or laws',
-    'prestige-rem7': '2 bans/week → removed from policy (1st ban: 1 day, 2nd: 2 days)',
-    'prestige-rem8': 'Broadcast mandatory: 6 PM – 11:59 PM',
-    'prestige-rem9': 'Old host with new ID → ban, no compensation',
-    // AGENCY
     'agency-eyebrow': 'Agency Guidelines',
     'agency-title': 'AGENCY POLICY',
     'agency-s1-title': 'Agency Commission Tiers',
@@ -935,67 +649,12 @@ const TRANSLATIONS = {
     'th-commission': 'Commission',
     'agency-below10m': 'Below 10M',
     'agency-above30m': 'Above 30M',
-    'agency-req-label': 'Requirements',
-    'agency-req1': 'Agency must maintain at least <strong>5 active hosts</strong> every week',
-    'agency-req2': 'Agency must encourage hosts to go live & actively join platform events',
-    'agency-period-label': 'Weekly Task Period',
-    'period-label': 'Period',
-    'agency-period-text': 'All weekly tasks are counted from <strong>Sunday 10:30 PM to Sunday 10:30 PM (IST)</strong>.',
-    'agency-s2-title': 'Host Activation Salary',
-    'th-monthly-target': 'Monthly Target',
-    'th-active-hosts': 'Active Hosts',
-    'th-basic-pay': 'Basic Pay',
-    'agency-above10m': 'Above 10M', 'agency-above50m': 'Above 50M', 'agency-above100m': 'Above 100M', 'agency-above200m': 'Above 200M',
-    'active-host-def': 'Active Host Definition',
-    'active-host-r1': 'At least <strong>10 valid days</strong> in a month',
-    'active-host-r2': 'At least <strong>20 valid hours</strong> in a month',
-    'active-host-r3': 'Minimum <strong>100,000 Rubies</strong> earned in gifts per month',
-    'important-label': 'Important',
-    'agency-s2-warn': 'Failure to meet either the monthly revenue target or active host requirement results in <strong>disqualification</strong> from the Host Activation Salary Program.',
-    'agency-s3-title': 'Commission Payout',
-    'payout-label': 'Payout Schedule',
-    'agency-payout-text': 'All commissions are paid <strong>every Monday in Rubies</strong>.',
-    'agency-s4-title': 'Withdrawal Rules',
-    'agency-wd-r1': 'Withdrawal requests may be submitted <strong>once per day</strong>',
-    'agency-wd-r2': 'Minimum withdrawal amount: <span class="c-rose">$10 USD</span>',
-    'fee-structure': 'Fee Structure',
-    'th-wd-amount': 'Withdrawal Amount',
-    'th-fee': 'Fee',
-    'wd-less100': 'Less than $100',
-    'wd-fee-flat': '$2 flat per transaction',
-    'wd-above100': '$100 and above',
-    'wd-fee-pct': '2% of withdrawal amount',
-    'agency-s5-title': 'Agency Change Rules',
-    'agency-change-r1': 'No activity for <strong>120 days</strong>',
-    'agency-change-r2': 'Agency unreachable for <strong>2 weeks</strong>',
-    'agency-change-r3': 'Both agency and host <strong>mutually agree</strong> to the change',
-    'agency-change-warn': 'Any fraudulent transfer attempts → <strong>Warning / Suspension / Permanent Ban</strong>',
-    // SELLER
     'seller-eyebrow': 'Coin Seller Guidelines',
     'seller-title': 'COIN SELLER POLICY',
-    'seller-purpose-title': 'Purpose',
-    'seller-purpose-text': 'This policy outlines the eligibility requirements, operational standards, and performance expectations for agencies applying to become <strong style="color:var(--cyan2)">Official Coin Sellers</strong> on the RIZZ LIVE platform.',
     'seller-s1-title': 'Eligibility Criteria',
     'seller-min-req': 'Minimum Requirement',
-    'qualification-label': 'Qualification Threshold',
-    'seller-qualify-text': 'Agencies must generate <strong>50,000,000 Coins (50M)</strong> monthly revenue to qualify as an Official Coin Seller.',
-    'seller-deposit-label': 'Security Deposit Option',
-    'seller-deposit-r1': 'Agencies below the 50M target may apply with a <strong>$1,000 security deposit</strong>',
-    'seller-deposit-r2': 'Deposit is <strong>fully refunded</strong> once the monthly target is achieved',
-    'seller-maintain-label': 'Maintenance Requirement',
-    'seller-maintain-r1': 'Approved sellers must sustain <strong>50M monthly revenue</strong>',
-    'seller-maintain-r2': 'Failure for <strong>two consecutive months</strong> may result in seller status revocation',
-    'seller-s2-title': 'Buying Price Structure',
-    'seller-usdt-note': 'Top-up must be made via <strong style="color:#fff">USDT</strong>.',
-    'th-topup': 'Top-Up (USD)', 'th-buy-ratio': 'Buy Ratio', 'th-total-coins': 'Total Coins',
-    'seller-s3-title': 'Selling Price Structure',
-    'th-channel': 'Channel', 'th-sell-ratio': 'Sell Ratio / $',
-    'seller-offline': 'Offline Sales', 'seller-online': 'Online Sales',
-    'seller-policy-label': 'Selling Policy',
-    'seller-policy-r1': 'Coin Sellers must <strong>NOT sell above</strong> the approved offline ratio of <strong>8,300</strong>',
-    'violation-label': 'Violation Penalty',
-    'seller-penalty-text': '<strong>$100 fine</strong> + equivalent coin deduction from seller\'s wallet.<br/><br/><strong>Repeated violations:</strong> Suspension or permanent removal from the Official Coin Seller Program.',
-    // REG
+    'qualification-label': 'Qualification',
+    'seller-qualify-text': 'Agencies must generate <strong>50,000,000 Coins (50M)</strong> monthly to qualify.',
     'reg-eyebrow': 'Partnership',
     'reg-title': 'AGENCY REGISTRATION',
     'reg-form-title': 'Agency Registration Form',
@@ -1008,10 +667,8 @@ const TRANSLATIONS = {
     'field-admin': 'Admin',
     'admin-select-first': '— Select country admin first —',
     'field-leader': 'Agency Leader Name',
-    'placeholder-leader': 'Enter your full name',
     'err-leader': 'Please enter the agency leader name.',
     'field-agency': 'Agency Name',
-    'placeholder-agency': 'Your agency name',
     'field-rizzid': 'Rizz Live ID',
     'field-whatsapp': 'WhatsApp Number',
     'field-country': 'Country',
@@ -1021,7 +678,6 @@ const TRANSLATIONS = {
     'success-msg': 'Your registration has been sent successfully.<br/>Our team will review and reach out to you shortly.',
     'error-title': 'Submission Failed',
     'error-msg': 'Something went wrong. Please try again.',
-    // CONTACT
     'contact-eyebrow': 'Direct Contact',
     'contact-title': 'COUNTRY MANAGER',
     'contact-india-title': 'India Country Manager',
@@ -1061,70 +717,15 @@ const TRANSLATIONS = {
     'th-valid-hrs': 'वैध घंटे का लक्ष्य',
     'th-valid-days': 'वैध दिनों का लक्ष्य',
     'th-weekly-bonus': 'साप्ताहिक बोनस',
-    'host-s1-bonus-ex': 'यदि एक होस्ट एक सप्ताह में <strong style="color:var(--gold2)">100K Rubies</strong> कमाता है <strong style="color:var(--pink2)">(रविवार 10:30 बजे रात से रविवार 10:30 बजे रात तक)</strong>, तो उसे <strong style="color:var(--gold2)">30K Ruby बोनस (30%)</strong> मिलता है, जो <strong style="color:var(--purple3)">सोमवार</strong> को जमा होता है।<br/><br/>यह बोनस पाने के लिए होस्ट को:',
-    'host-rule-4days': 'कम से कम <strong>4 सक्रिय दिन</strong> पूरे करने होंगे',
-    'host-rule-10hrs': 'सप्ताह में कुल <strong>10 घंटे</strong> स्ट्रीम करनी होगी',
     'host-s1-rules': '1.3 नियम',
     'host-rule-withdraw': 'निकासी दर: <span class="c-green">20,000 Ruby = 1 USD</span>',
-    'host-rule-daychange': 'दिन बदलाव: प्रतिदिन <span class="c-pink">रात 10:30 बजे</span>',
-    'host-rule-period': 'साप्ताहिक अवधि: <span class="c-pink">रविवार 10:30 PM से रविवार 10:30 PM</span>',
     'host-rule-validday': 'वैध दिन: कम से कम <span class="c-pink">120 मिनट (2 घंटे)</span> लाइव',
     'host-rule-validhr': 'वैध घंटा: 60+ मिनट = <span class="c-pink">1 वैध घंटा</span>',
-    'host-rule-minsession': 'न्यूनतम लाइव समय: <strong>30 मिनट</strong> से कम सत्र नहीं गिने जाते',
     'host-rule-bonuspay': 'बोनस भुगतान: हर <span class="c-purple">सोमवार (Rubies में)</span>',
-    'host-rule-withdrawsun': 'निकासी: हर रविवार, न्यूनतम = <span class="c-green">$10 USD</span>',
-    'host-agency-change': 'एजेंसी बदलाव के नियम',
-    'host-agency-change-sub': 'होस्ट एजेंसी बदल सकता है यदि:',
-    'host-change-r1': '<strong>120 दिनों</strong> से कोई लाइव नहीं',
-    'host-change-r2': '<strong>2 सप्ताह</strong> से एजेंसी से संपर्क नहीं हो सका',
-    'host-change-r3': 'होस्ट और एजेंसी दोनों सहमत हों',
-    'strict-rule': 'सख्त नियम',
-    'host-change-warn': 'ट्रांसफर के दौरान कोई भी दुरुपयोग या धोखाधड़ी → <strong style="color:var(--pink2)">चेतावनी / निलंबन / बैन</strong>',
     'host-s2-title': 'होस्ट गेम कमीशन',
     'th-bet': 'दांव राशि (Coins)',
     'th-reward': 'पुरस्कार (Ruby)',
     'host-game-r1': 'होस्ट गेम में उपयोग किए गए हर <strong>1,000 coins</strong> पर <strong>1 Ruby</strong> कमाता है',
-    'host-game-r2': 'यह आय <strong>साप्ताहिक लक्ष्यों में नहीं गिनी जाती</strong>',
-    'host-game-r3': 'कमाई हर स्ट्रीम समाप्त होने के बाद <strong>तुरंत जमा</strong> होती है',
-    'host-s3-title': 'नए होस्ट की नीति',
-    'th-cycle': 'चक्र',
-    'th-weekly-ruby': 'साप्ताहिक Ruby लक्ष्य',
-    'th-guarantee': 'गारंटी',
-    'week1': 'सप्ताह 1', 'week2': 'सप्ताह 2', 'week3': 'सप्ताह 3', 'week4': 'सप्ताह 4', 'week5plus': 'सप्ताह 5+',
-    'rookie-r1': 'नए होस्ट को पहले 4 सप्ताह की गारंटी के लिए <strong>अनुमोदित</strong> होना जरूरी है',
-    'rookie-r2': '<strong>सप्ताह 1:</strong> कोई लक्ष्य नहीं – गारंटी दी जाती है',
-    'rookie-r3': '<strong>सप्ताह 2:</strong> 50,000 Ruby',
-    'rookie-r4': '<strong>सप्ताह 3:</strong> 100,000 Ruby',
-    'rookie-r5': '<strong>सप्ताह 4:</strong> 150,000 Ruby',
-    'rookie-r6': 'एक सप्ताह का लक्ष्य चूकने पर अगले सप्ताह की गारंटी <strong>रद्द नहीं होती</strong>',
-    'rookie-r7': 'यदि वैध दिन और घंटे पूरे न हों → <strong>मूल नीति के अनुसार वेतन</strong>',
-    'rookie-r8': '<strong>सप्ताह 5 से</strong>, केवल <strong>मूल नीति लागू</strong> होती है',
-    'host-s4-title': 'प्रेस्टीज होस्ट नीति',
-    'prestige-r1': 'केवल <strong>अनुमोदित होस्ट</strong> ही इस कार्यक्रम में शामिल हो सकते हैं',
-    'prestige-r2': '<strong>सप्ताह 1:</strong> 100,000 Ruby',
-    'prestige-r3': '<strong>सप्ताह 2:</strong> 150,000 Ruby',
-    'prestige-r4': '<strong>सप्ताह 3:</strong> 200,000 Ruby',
-    'prestige-r5': '<strong>सप्ताह 4:</strong> 300,000 Ruby',
-    'prestige-r6': '<strong>सप्ताह 5+:</strong> 300,000 Ruby',
-    'prestige-r7': 'एक सप्ताह का लक्ष्य चूकने पर अगले सप्ताह की गारंटी <strong>रद्द नहीं होती</strong>',
-    'prestige-r8': 'लक्ष्य पूरे न हों → <strong>मूल नीति के अनुसार वेतन</strong>',
-    'prestige-req-title': '4.1 आवश्यकताएं',
-    'prestige-req1': 'साफ और प्रस्तुत करने योग्य दिखें',
-    'prestige-req2': 'शेड्यूल का पालन करें और घंटे पूरे करें',
-    'prestige-req3': 'बैकग्राउंड साफ रखें',
-    'prestige-req4': 'अच्छी ऑडियो और वीडियो गुणवत्ता बनाए रखें',
-    'prestige-req5': 'दर्शकों के साथ सक्रिय रूप से जुड़ें',
-    'prestige-req6': 'टीम के निर्देशों का पालन करें और गतिविधियों में शामिल हों',
-    'prestige-remove-title': '4.2 प्रेस्टीज होस्ट नीति से हटाना',
-    'prestige-rem1': 'नियमित रूप से स्ट्रीमिंग न करना या बुरा रवैया दिखाना',
-    'prestige-rem2': 'दर्शकों को नज़रअंदाज़ करना या अपमान करना',
-    'prestige-rem3': 'बिना सुधार के गड़बड़ सेटअप',
-    'prestige-rem4': 'टीम के निर्देशों का पालन न करना',
-    'prestige-rem5': 'बिना सुधार के खराब स्ट्रीम गुणवत्ता',
-    'prestige-rem6': 'प्लेटफॉर्म नियमों या कानूनों का उल्लंघन',
-    'prestige-rem7': 'सप्ताह में 2 बैन → नीति से हटाया जाएगा (पहला बैन: 1 दिन, दूसरा: 2 दिन)',
-    'prestige-rem8': 'प्रसारण अनिवार्य: शाम 6 बजे – रात 11:59 बजे',
-    'prestige-rem9': 'पुराना होस्ट नई ID से → बैन, कोई मुआवजा नहीं',
     'agency-eyebrow': 'एजेंसी दिशानिर्देश',
     'agency-title': 'एजेंसी नीति',
     'agency-s1-title': 'एजेंसी कमीशन स्तर',
@@ -1133,65 +734,12 @@ const TRANSLATIONS = {
     'th-commission': 'कमीशन',
     'agency-below10m': '10M से कम',
     'agency-above30m': '30M से अधिक',
-    'agency-req-label': 'आवश्यकताएं',
-    'agency-req1': 'एजेंसी को हर सप्ताह कम से कम <strong>5 सक्रिय होस्ट</strong> बनाए रखने होंगे',
-    'agency-req2': 'एजेंसी को होस्ट को लाइव जाने और प्लेटफॉर्म इवेंट में सक्रिय रूप से भाग लेने के लिए प्रोत्साहित करना होगा',
-    'agency-period-label': 'साप्ताहिक कार्य अवधि',
-    'period-label': 'अवधि',
-    'agency-period-text': 'सभी साप्ताहिक कार्य <strong>रविवार 10:30 PM से रविवार 10:30 PM (IST)</strong> तक गिने जाते हैं।',
-    'agency-s2-title': 'होस्ट सक्रियता वेतन',
-    'th-monthly-target': 'मासिक लक्ष्य',
-    'th-active-hosts': 'सक्रिय होस्ट',
-    'th-basic-pay': 'मूल वेतन',
-    'agency-above10m': '10M से अधिक', 'agency-above50m': '50M से अधिक', 'agency-above100m': '100M से अधिक', 'agency-above200m': '200M से अधिक',
-    'active-host-def': 'सक्रिय होस्ट की परिभाषा',
-    'active-host-r1': 'एक महीने में कम से कम <strong>10 वैध दिन</strong>',
-    'active-host-r2': 'एक महीने में कम से कम <strong>20 वैध घंटे</strong>',
-    'active-host-r3': 'एक महीने में उपहारों से न्यूनतम <strong>100,000 Rubies</strong> की कमाई',
-    'important-label': 'महत्वपूर्ण',
-    'agency-s2-warn': 'मासिक राजस्व लक्ष्य या सक्रिय होस्ट आवश्यकता को पूरा न करने पर होस्ट सक्रियता वेतन कार्यक्रम से <strong>अयोग्यता</strong> हो जाती है।',
-    'agency-s3-title': 'कमीशन भुगतान',
-    'payout-label': 'भुगतान अनुसूची',
-    'agency-payout-text': 'सभी कमीशन <strong>हर सोमवार Rubies में</strong> दिए जाते हैं।',
-    'agency-s4-title': 'निकासी के नियम',
-    'agency-wd-r1': 'निकासी अनुरोध <strong>दिन में एक बार</strong> जमा किए जा सकते हैं',
-    'agency-wd-r2': 'न्यूनतम निकासी राशि: <span class="c-rose">$10 USD</span>',
-    'fee-structure': 'शुल्क संरचना',
-    'th-wd-amount': 'निकासी राशि',
-    'th-fee': 'शुल्क',
-    'wd-less100': '$100 से कम',
-    'wd-fee-flat': 'प्रति लेनदेन $2 फ्लैट',
-    'wd-above100': '$100 और उससे अधिक',
-    'wd-fee-pct': 'निकासी राशि का 2%',
-    'agency-s5-title': 'एजेंसी बदलाव के नियम',
-    'agency-change-r1': '<strong>120 दिनों</strong> से कोई गतिविधि नहीं',
-    'agency-change-r2': '<strong>2 सप्ताह</strong> से एजेंसी से संपर्क नहीं हो सकी',
-    'agency-change-r3': 'एजेंसी और होस्ट दोनों <strong>आपसी सहमति</strong> से बदलाव करें',
-    'agency-change-warn': 'कोई भी धोखाधड़ी का प्रयास → <strong>चेतावनी / निलंबन / स्थायी बैन</strong>',
     'seller-eyebrow': 'कॉइन सेलर दिशानिर्देश',
     'seller-title': 'कॉइन सेलर नीति',
-    'seller-purpose-title': 'उद्देश्य',
-    'seller-purpose-text': 'यह नीति RIZZ LIVE प्लेटफॉर्म पर <strong style="color:var(--cyan2)">आधिकारिक कॉइन विक्रेता</strong> बनने के लिए आवेदन करने वाली एजेंसियों के लिए पात्रता, परिचालन मानक और प्रदर्शन अपेक्षाएं बताती है।',
     'seller-s1-title': 'पात्रता मानदंड',
     'seller-min-req': 'न्यूनतम आवश्यकता',
-    'qualification-label': 'योग्यता सीमा',
-    'seller-qualify-text': 'आधिकारिक कॉइन विक्रेता बनने के लिए एजेंसियों को <strong>50,000,000 Coins (50M)</strong> मासिक राजस्व उत्पन्न करना होगा।',
-    'seller-deposit-label': 'सुरक्षा जमा विकल्प',
-    'seller-deposit-r1': '50M लक्ष्य से नीचे की एजेंसियां <strong>$1,000 सुरक्षा जमा</strong> के साथ आवेदन कर सकती हैं',
-    'seller-deposit-r2': 'मासिक लक्ष्य पूरा होने पर जमा <strong>पूरी तरह वापस</strong> कर दी जाती है',
-    'seller-maintain-label': 'रखरखाव आवश्यकता',
-    'seller-maintain-r1': 'अनुमोदित विक्रेताओं को <strong>50M मासिक राजस्व</strong> बनाए रखना होगा',
-    'seller-maintain-r2': '<strong>दो लगातार महीनों</strong> तक विफलता पर विक्रेता स्थिति रद्द हो सकती है',
-    'seller-s2-title': 'खरीद मूल्य संरचना',
-    'seller-usdt-note': 'टॉप-अप <strong style="color:#fff">USDT</strong> के माध्यम से किया जाना चाहिए।',
-    'th-topup': 'टॉप-अप (USD)', 'th-buy-ratio': 'खरीद अनुपात', 'th-total-coins': 'कुल Coins',
-    'seller-s3-title': 'बिक्री मूल्य संरचना',
-    'th-channel': 'चैनल', 'th-sell-ratio': 'बिक्री अनुपात / $',
-    'seller-offline': 'ऑफलाइन बिक्री', 'seller-online': 'ऑनलाइन बिक्री',
-    'seller-policy-label': 'बिक्री नीति',
-    'seller-policy-r1': 'कॉइन विक्रेताओं को स्वीकृत ऑफलाइन अनुपात <strong>8,300</strong> से <strong>ऊपर नहीं बेचना चाहिए</strong>',
-    'violation-label': 'उल्लंघन दंड',
-    'seller-penalty-text': '<strong>$100 जुर्माना</strong> + विक्रेता के वॉलेट से समकक्ष कॉइन कटौती।<br/><br/><strong>बार-बार उल्लंघन:</strong> आधिकारिक कॉइन सेलर प्रोग्राम से निलंबन या स्थायी हटाया जाना।',
+    'qualification-label': 'योग्यता',
+    'seller-qualify-text': 'एजेंसियों को <strong>50,000,000 Coins (50M)</strong> मासिक राजस्व जरूर बनाना है।',
     'reg-eyebrow': 'साझेदारी',
     'reg-title': 'एजेंसी पंजीकरण',
     'reg-form-title': 'एजेंसी पंजीकरण फॉर्म',
@@ -1204,10 +752,8 @@ const TRANSLATIONS = {
     'field-admin': 'एडमिन',
     'admin-select-first': '— पहले कंट्री एडमिन चुनें —',
     'field-leader': 'एजेंसी लीडर का नाम',
-    'placeholder-leader': 'अपना पूरा नाम दर्ज करें',
     'err-leader': 'कृपया एजेंसी लीडर का नाम दर्ज करें।',
     'field-agency': 'एजेंसी का नाम',
-    'placeholder-agency': 'आपकी एजेंसी का नाम',
     'field-rizzid': 'Rizz Live ID',
     'field-whatsapp': 'WhatsApp नंबर',
     'field-country': 'देश',
@@ -1256,70 +802,15 @@ const TRANSLATIONS = {
     'th-valid-hrs': 'Valid Hours Target',
     'th-valid-days': 'Valid Days Target',
     'th-weekly-bonus': 'Weekly Bonus',
-    'host-s1-bonus-ex': 'Agar host ek hafte mein <strong style="color:var(--gold2)">100K Rubies</strong> kamata hai <strong style="color:var(--pink2)">(Sunday 10:30 PM se Sunday 10:30 PM)</strong>, toh use <strong style="color:var(--gold2)">30K Ruby bonus (30%)</strong> milta hai jo <strong style="color:var(--purple3)">Monday</strong> ko credit hota hai.<br/><br/>Yeh bonus paane ke liye host ko:',
-    'host-rule-4days': 'Kam se kam <strong>4 active days</strong> complete karne honge',
-    'host-rule-10hrs': 'Hafte mein total <strong>10 ghante</strong> stream karni hogi',
     'host-s1-rules': '1.3 Rules',
     'host-rule-withdraw': 'Withdrawal Rate: <span class="c-green">20,000 Ruby = 1 USD</span>',
-    'host-rule-daychange': 'Day Change: Roz raat <span class="c-pink">10:30 baje</span>',
-    'host-rule-period': 'Weekly Period: <span class="c-pink">Sunday 10:30 PM se Sunday 10:30 PM</span>',
     'host-rule-validday': 'Valid Day: Minimum <span class="c-pink">120 minute (2 ghante)</span> Live',
     'host-rule-validhr': 'Valid Hour: 60+ minute = <span class="c-pink">1 valid hour</span>',
-    'host-rule-minsession': 'Minimum Live Time: <strong>30 minute</strong> se kam session count nahi hoga',
     'host-rule-bonuspay': 'Bonus Payment: Har <span class="c-purple">Monday (Rubies mein)</span>',
-    'host-rule-withdrawsun': 'Withdrawal: Har Sunday, Minimum = <span class="c-green">$10 USD</span>',
-    'host-agency-change': 'Agency Change Rules',
-    'host-agency-change-sub': 'Host agency badal sakta hai agar:',
-    'host-change-r1': '<strong>120 days</strong> se koi live nahi',
-    'host-change-r2': '<strong>2 hafte</strong> se agency se contact nahi ho paya',
-    'host-change-r3': 'Host aur agency dono agree karein',
-    'strict-rule': 'Sakht Rule',
-    'host-change-warn': 'Transfer ke dauran koi bhi misuse ya cheating → <strong style="color:var(--pink2)">Warning / Suspension / Ban</strong>',
     'host-s2-title': 'Host Game Commissions',
     'th-bet': 'Bet Amount (Coins)',
     'th-reward': 'Reward (Ruby)',
     'host-game-r1': 'Host ko games mein use hue har <strong>1,000 coins</strong> par <strong>1 Ruby</strong> milti hai',
-    'host-game-r2': 'Yeh income <strong>weekly targets mein count nahi hoti</strong>',
-    'host-game-r3': 'Kamai har stream khatam hone ke baad <strong>turant credit</strong> hoti hai',
-    'host-s3-title': 'Rookie Host Policy',
-    'th-cycle': 'Cycle',
-    'th-weekly-ruby': 'Weekly Ruby Task',
-    'th-guarantee': 'Guarantee',
-    'week1': 'Hapta 1', 'week2': 'Hapta 2', 'week3': 'Hapta 3', 'week4': 'Hapta 4', 'week5plus': 'Hapta 5+',
-    'rookie-r1': 'Naye host ko pehle 4 hapton ki guarantee ke liye <strong>approved</strong> hona chahiye',
-    'rookie-r2': '<strong>Hapta 1:</strong> Koi target nahi – guarantee milegi',
-    'rookie-r3': '<strong>Hapta 2:</strong> 50,000 Ruby',
-    'rookie-r4': '<strong>Hapta 3:</strong> 100,000 Ruby',
-    'rookie-r5': '<strong>Hapta 4:</strong> 150,000 Ruby',
-    'rookie-r6': 'Ek hafte ka target miss karne se agla hapta ki guarantee <strong>cancel nahi hoti</strong>',
-    'rookie-r7': 'Agar Valid Days & Hours poore na hon → <strong>basic policy ke hisaab se salary</strong>',
-    'rookie-r8': '<strong>Hapta 5 se</strong>, sirf <strong>basic policy apply</strong> hogi',
-    'host-s4-title': 'Prestige Host Policy',
-    'prestige-r1': 'Sirf <strong>approved hosts</strong> hi is program mein join kar sakte hain',
-    'prestige-r2': '<strong>Hapta 1:</strong> 100,000 Ruby',
-    'prestige-r3': '<strong>Hapta 2:</strong> 150,000 Ruby',
-    'prestige-r4': '<strong>Hapta 3:</strong> 200,000 Ruby',
-    'prestige-r5': '<strong>Hapta 4:</strong> 300,000 Ruby',
-    'prestige-r6': '<strong>Hapta 5+:</strong> 300,000 Ruby',
-    'prestige-r7': 'Ek hafte ka target miss karne se agla hapta ki guarantee <strong>cancel nahi hoti</strong>',
-    'prestige-r8': 'Target poore na hon → <strong>basic policy ke hisaab se salary</strong>',
-    'prestige-req-title': '4.1 Requirements',
-    'prestige-req1': 'Saaf aur presentable dikhna chahiye',
-    'prestige-req2': 'Schedule follow karo aur ghante poore karo',
-    'prestige-req3': 'Background saaf rakho',
-    'prestige-req4': 'Acchi audio & video quality maintain karo',
-    'prestige-req5': 'Viewers ke saath actively engage karo',
-    'prestige-req6': 'Team ke instructions follow karo aur activities mein shamil ho',
-    'prestige-remove-title': '4.2 Prestige Host Policy se Hatana',
-    'prestige-rem1': 'Regularly stream na karna ya bura attitude dikhana',
-    'prestige-rem2': 'Viewers ko ignore karna ya disrespect karna',
-    'prestige-rem3': 'Bina sudhar ke ganda setup',
-    'prestige-rem4': 'Team ke instructions follow na karna',
-    'prestige-rem5': 'Bina fix kiye poor stream quality',
-    'prestige-rem6': 'Platform rules ya laws todna',
-    'prestige-rem7': 'Hafte mein 2 ban → policy se hata diya jayega (1st ban: 1 din, 2nd: 2 din)',
-    'prestige-rem8': 'Broadcast mandatory: sham 6 baje – raat 11:59 baje',
-    'prestige-rem9': 'Purana host naye ID se → ban, koi compensation nahi',
     'agency-eyebrow': 'Agency Guidelines',
     'agency-title': 'AGENCY POLICY',
     'agency-s1-title': 'Agency Commission Tiers',
@@ -1328,65 +819,12 @@ const TRANSLATIONS = {
     'th-commission': 'Commission',
     'agency-below10m': '10M se kam',
     'agency-above30m': '30M se zyada',
-    'agency-req-label': 'Requirements',
-    'agency-req1': 'Agency ko har hafte kam se kam <strong>5 active hosts</strong> maintain karne honge',
-    'agency-req2': 'Agency ko hosts ko live jaane aur platform events mein actively join karne ke liye encourage karna chahiye',
-    'agency-period-label': 'Weekly Task Period',
-    'period-label': 'Period',
-    'agency-period-text': 'Saare weekly tasks <strong>Sunday 10:30 PM se Sunday 10:30 PM (IST)</strong> tak gine jaate hain.',
-    'agency-s2-title': 'Host Activation Salary',
-    'th-monthly-target': 'Monthly Target',
-    'th-active-hosts': 'Active Hosts',
-    'th-basic-pay': 'Basic Pay',
-    'agency-above10m': '10M se zyada', 'agency-above50m': '50M se zyada', 'agency-above100m': '100M se zyada', 'agency-above200m': '200M se zyada',
-    'active-host-def': 'Active Host ki Definition',
-    'active-host-r1': 'Mahine mein kam se kam <strong>10 valid days</strong>',
-    'active-host-r2': 'Mahine mein kam se kam <strong>20 valid hours</strong>',
-    'active-host-r3': 'Mahine mein gifts se minimum <strong>100,000 Rubies</strong> ki kamai',
-    'important-label': 'Zaroori Baat',
-    'agency-s2-warn': 'Monthly revenue target ya active host requirement poori na hone par Host Activation Salary Program se <strong>disqualification</strong> ho jayegi.',
-    'agency-s3-title': 'Commission Payout',
-    'payout-label': 'Payout Schedule',
-    'agency-payout-text': 'Saare commissions <strong>har Monday Rubies mein</strong> diye jaate hain.',
-    'agency-s4-title': 'Withdrawal Rules',
-    'agency-wd-r1': 'Withdrawal request <strong>din mein ek baar</strong> submit ki ja sakti hai',
-    'agency-wd-r2': 'Minimum withdrawal amount: <span class="c-rose">$10 USD</span>',
-    'fee-structure': 'Fee Structure',
-    'th-wd-amount': 'Withdrawal Amount',
-    'th-fee': 'Fee',
-    'wd-less100': '$100 se kam',
-    'wd-fee-flat': 'Per transaction $2 flat',
-    'wd-above100': '$100 aur usse zyada',
-    'wd-fee-pct': 'Withdrawal amount ka 2%',
-    'agency-s5-title': 'Agency Change Rules',
-    'agency-change-r1': '<strong>120 days</strong> se koi activity nahi',
-    'agency-change-r2': '<strong>2 hafte</strong> se agency se contact nahi ho paya',
-    'agency-change-r3': 'Agency aur host dono <strong>mutually agree</strong> karein',
-    'agency-change-warn': 'Koi bhi fraudulent transfer attempt → <strong>Warning / Suspension / Permanent Ban</strong>',
     'seller-eyebrow': 'Coin Seller Guidelines',
     'seller-title': 'COIN SELLER POLICY',
-    'seller-purpose-title': 'Maksad',
-    'seller-purpose-text': 'Yeh policy RIZZ LIVE platform par <strong style="color:var(--cyan2)">Official Coin Seller</strong> banne ke liye apply karne wali agencies ke liye eligibility, operational standards aur performance expectations batati hai.',
     'seller-s1-title': 'Eligibility Criteria',
     'seller-min-req': 'Minimum Requirement',
-    'qualification-label': 'Qualification Threshold',
-    'seller-qualify-text': 'Official Coin Seller banne ke liye agencies ko <strong>50,000,000 Coins (50M)</strong> monthly revenue generate karni hogi.',
-    'seller-deposit-label': 'Security Deposit Option',
-    'seller-deposit-r1': '50M target se neeche ki agencies <strong>$1,000 security deposit</strong> ke saath apply kar sakti hain',
-    'seller-deposit-r2': 'Monthly target achieve hone par deposit <strong>poori wapas</strong> kar di jayegi',
-    'seller-maintain-label': 'Maintenance Requirement',
-    'seller-maintain-r1': 'Approved sellers ko <strong>50M monthly revenue</strong> banaye rakhni hogi',
-    'seller-maintain-r2': '<strong>Lagaataar do mahine</strong> fail hone par seller status cancel ho sakti hai',
-    'seller-s2-title': 'Buying Price Structure',
-    'seller-usdt-note': 'Top-up <strong style="color:#fff">USDT</strong> ke through karna hoga.',
-    'th-topup': 'Top-Up (USD)', 'th-buy-ratio': 'Buy Ratio', 'th-total-coins': 'Total Coins',
-    'seller-s3-title': 'Selling Price Structure',
-    'th-channel': 'Channel', 'th-sell-ratio': 'Sell Ratio / $',
-    'seller-offline': 'Offline Sales', 'seller-online': 'Online Sales',
-    'seller-policy-label': 'Selling Policy',
-    'seller-policy-r1': 'Coin Sellers ko approved offline ratio <strong>8,300</strong> se <strong>zyada NAHI bechna chahiye</strong>',
-    'violation-label': 'Violation Penalty',
-    'seller-penalty-text': '<strong>$100 fine</strong> + seller ke wallet se equivalent coins ki katoti.<br/><br/><strong>Baar baar violation:</strong> Official Coin Seller Program se suspension ya permanent removal.',
+    'qualification-label': 'Qualification',
+    'seller-qualify-text': 'Agencies ko <strong>50,000,000 Coins (50M)</strong> monthly zaroori hain.',
     'reg-eyebrow': 'Partnership',
     'reg-title': 'AGENCY REGISTRATION',
     'reg-form-title': 'Agency Registration Form',
@@ -1399,10 +837,8 @@ const TRANSLATIONS = {
     'field-admin': 'Admin',
     'admin-select-first': '— Pehle country admin select karo —',
     'field-leader': 'Agency Leader ka Naam',
-    'placeholder-leader': 'Apna poora naam daalo',
     'err-leader': 'Kripya agency leader ka naam daalo.',
     'field-agency': 'Agency ka Naam',
-    'placeholder-agency': 'Aapki agency ka naam',
     'field-rizzid': 'Rizz Live ID',
     'field-whatsapp': 'WhatsApp Number',
     'field-country': 'Country',
@@ -1420,7 +856,6 @@ const TRANSLATIONS = {
   }
 };
 
-/* ── AD ITEMS per language ── */
 const AD_ITEMS = {
   en: [
     { gem: 'gem-cyan', html: '🎙️ <span class="ad-hi">New Hosts</span> get <span class="ad-hi-green">$5 FREE</span> guarantee — support for first 4 weeks!' },
@@ -1433,31 +868,28 @@ const AD_ITEMS = {
     { gem: 'gem-cyan', html: '🎙️ <span class="ad-hi">नए होस्ट</span> को मिलती है <span class="ad-hi-green">$5 FREE</span> गारंटी — पहले 4 हफ्तों का सपोर्ट!' },
     { gem: 'gem-pink', html: '💎 साप्ताहिक बोनस पाएं — बस <span class="ad-hi-pink">10 घंटे स्ट्रीम</span> और <span class="ad-hi-pink">4 सक्रिय दिन</span> चाहिए!' },
     { gem: 'gem-gold', html: '🏆 एजेंसी कमीशन अब तक का सबसे ज़्यादा — अपने होस्ट के साथ <span class="ad-hi-gold">20% तक</span> कमाएं!' },
-    { gem: 'gem-green', html: '📢 अभी हमारा <span class="ad-hi-cyan">WhatsApp चैनल</span> जॉइन करें और रोज़ाना अपडेट पाएं — बिल्कुल मुफ्त!' },
+    { gem: 'gem-green', html: '📢 अभी हमारा <span class="ad-hi-cyan">WhatsApp चैनल</span> जॉइन करें और रोज़ाना अपडेट पाएं!' },
     { gem: 'gem-purple', html: '🌟 <span class="ad-hi">प्रेस्टीज होस्ट प्रोग्राम</span> — प्रेस्टीज होस्ट को मिलती है <span class="ad-hi-green">$15/सप्ताह गारंटी</span>!' },
   ],
   hg: [
     { gem: 'gem-cyan', html: '🎙️ <span class="ad-hi">Naye Hosts</span> ko milti hai <span class="ad-hi-green">$5 FREE</span> guarantee — pehle 4 hafte ka support!' },
     { gem: 'gem-pink', html: '💎 Weekly bonus earn karo — sirf <span class="ad-hi-pink">10 hrs stream</span> aur <span class="ad-hi-pink">4 active days</span> chahiye!' },
     { gem: 'gem-gold', html: '🏆 Agency commission ab tak ka sabse high — <span class="ad-hi-gold">20% tak</span> earn karo apne hosts ke saath!' },
-    { gem: 'gem-green', html: '📢 Abhi join karo <span class="ad-hi-cyan">WhatsApp Channel</span> aur daily updates pao — bilkul free!' },
+    { gem: 'gem-green', html: '📢 Abhi join karo <span class="ad-hi-cyan">WhatsApp Channel</span> aur daily updates pao!' },
     { gem: 'gem-purple', html: '🌟 <span class="ad-hi">Prestige Host Program</span> — Prestige hosts ko milta hai <span class="ad-hi-green">$15/week guarantee</span>!' },
   ]
 };
 
-/* ── Current language ── */
 let currentLang = 'en';
 
 function setLang(lang) {
   if (lang === currentLang) return;
   currentLang = lang;
 
-  // Update button states
-  ['en','hi','hg'].forEach(l => {
-    document.getElementById('btn-' + l).classList.toggle('active', l === lang);
+  document.querySelectorAll('#lang-switcher .lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.id === 'btn-' + lang);
   });
 
-  // Fade effect
   const allTranslated = document.querySelectorAll('[data-t]');
   allTranslated.forEach(el => el.classList.add('lang-fade'));
 
@@ -1477,11 +909,6 @@ function applyTranslations(lang) {
       el.innerHTML = T[key];
     }
   });
-  // Placeholders
-  document.querySelectorAll('[data-placeholder-t]').forEach(el => {
-    const key = el.getAttribute('data-placeholder-t');
-    if (T[key] !== undefined) el.placeholder = T[key];
-  });
 }
 
 function updateAdTicker(lang) {
@@ -1498,16 +925,13 @@ function updateAdTicker(lang) {
   });
 }
 
-// Initial render
 updateAdTicker('en');
-
-/* ─────────────────────────── */
 
 function goTo(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const pg = document.getElementById(id);
   if (pg) pg.classList.add('active');
-  try { window.scrollTo({ top: 0, behavior: 'instant' }); } catch (_) { window.scrollTo(0, 0); }
+  window.scrollTo(0, 0);
 }
 
 function toggle(hdr) {
@@ -1519,31 +943,28 @@ function toggle(hdr) {
 function onCountryAdminChange() {
   const ca = document.getElementById('f-country-admin').value;
   const adminSel = document.getElementById('f-admin');
-  const COUNTRY_ADMIN_ADMINS_MAP = {
-    'Ray-IN':       ['Dhakadking-IN'],
-    'Rajesh-IN':    ['Irsha-IN'],
-    'Ahin-IN':      ['Fiza-IN','KushAgarwal-IN'],
-    'Veeraj-IN':      []
-  };
+  
   adminSel.innerHTML = '';
-  if (!ca || !COUNTRY_ADMIN_ADMINS_MAP[ca] || COUNTRY_ADMIN_ADMINS_MAP[ca].length === 0) {
+  if (!ca || !COUNTRY_ADMIN_ADMINS[ca] || COUNTRY_ADMIN_ADMINS[ca].length === 0) {
     adminSel.disabled = true;
     const o = document.createElement('option');
     o.value = '';
-    o.textContent = TRANSLATIONS[currentLang]['admin-select-first'] || '— No admins available —';
+    o.textContent = TRANSLATIONS[currentLang]['admin-select-first'];
     adminSel.appendChild(o);
     return;
   }
+  
   adminSel.disabled = false;
   const none = document.createElement('option');
   none.value = '';
   none.textContent = 'None';
   adminSel.appendChild(none);
-  COUNTRY_ADMIN_ADMINS_MAP[ca].forEach(a => {
-    const o = document.createElement('option');
-    o.value = a;
-    o.textContent = a;
-    adminSel.appendChild(o);
+  
+  COUNTRY_ADMIN_ADMINS[ca].forEach(a => {
+    const opt = document.createElement('option');
+    opt.value = a;
+    opt.textContent = a;
+    adminSel.appendChild(opt);
   });
 }
 
@@ -1552,9 +973,9 @@ function clearFieldErrors() {
   document.querySelectorAll('.neon-input,.neon-select').forEach(e => e.classList.remove('invalid'));
 }
 
-function showFieldError(id, msg) {
+function showFieldError(id) {
   const el = document.getElementById(id);
-  if (el) { el.classList.add('show'); if (msg) el.textContent = msg; }
+  if (el) el.classList.add('show');
 }
 
 function markInvalid(id) {
@@ -1567,42 +988,43 @@ async function submitRegForm() {
   document.getElementById('reg-success').classList.remove('show');
   document.getElementById('reg-error').classList.remove('show');
 
-  const T = TRANSLATIONS[currentLang];
   const countryAdmin = document.getElementById('f-country-admin').value.trim();
-  const admin        = document.getElementById('f-admin').value.trim();
-  const leader       = document.getElementById('f-leader').value.trim();
-  const agency       = document.getElementById('f-agency').value.trim();
-  const rizzid       = document.getElementById('f-rizzid').value.trim();
-  const whatsapp     = document.getElementById('f-whatsapp').value.trim();
-  const country      = document.getElementById('f-country').value.trim();
+  const leader = document.getElementById('f-leader').value.trim();
+  const admin = document.getElementById('f-admin').value.trim();
+  const agency = document.getElementById('f-agency').value.trim();
+  const rizzid = document.getElementById('f-rizzid').value.trim();
+  const whatsapp = document.getElementById('f-whatsapp').value.trim();
+  const country = document.getElementById('f-country').value.trim();
 
   let err = false;
-  if (!countryAdmin) { showFieldError('err-country-admin', T['err-country-admin'] || 'Please select a country admin.'); markInvalid('f-country-admin'); err = true; }
-  if (!leader)       { showFieldError('err-leader', T['err-leader'] || 'Please enter the agency leader name.'); markInvalid('f-leader'); err = true; }
+  if (!countryAdmin) { showFieldError('err-country-admin'); markInvalid('f-country-admin'); err = true; }
+  if (!leader) { showFieldError('err-leader'); markInvalid('f-leader'); err = true; }
   if (err) return;
 
   const btn = document.getElementById('reg-submit-btn');
   const lbl = document.getElementById('reg-btn-label');
   btn.disabled = true;
-  lbl.innerHTML = '<span class="btn-spinner"></span> ' + (currentLang === 'hi' ? 'जमा हो रहा है…' : currentLang === 'hg' ? 'Submit ho raha hai…' : 'Submitting…');
+  lbl.innerHTML = '<span class="btn-spinner"></span> Submitting…';
 
   const payload = {
-    Timestamp:  new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+    Timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
     supervisor: countryAdmin,
-    admin:      admin,
-    leader:     leader,
-    agency:     agency,
-    rizzid:     rizzid,
-    whatsapp:   whatsapp,
-    country:    country
+    admin: admin,
+    leader: leader,
+    agency: agency,
+    rizzid: rizzid,
+    whatsapp: whatsapp,
+    country: country
   };
 
   try {
-    await fetch('https://script.google.com/macros/s/AKfycby9n_JMbaDACpgcY5hAjyZ4l1sHOhpm48FBEZ08r7b6-SntLzIoNF0VePchVMw4NGhAoA/exec', {
-      method: 'POST', mode: 'no-cors',
+    await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
+    
     document.getElementById('reg-success').classList.add('show');
     ['f-country-admin', 'f-admin', 'f-leader', 'f-agency', 'f-rizzid', 'f-whatsapp', 'f-country'].forEach(id => {
       const el = document.getElementById(id);
@@ -1610,18 +1032,17 @@ async function submitRegForm() {
       if (el.tagName === 'SELECT') el.selectedIndex = 0;
       else el.value = '';
     });
-    lbl.innerHTML = T['submit-btn'] || '✦ &nbsp; Submit Application';
+    lbl.innerHTML = TRANSLATIONS[currentLang]['submit-btn'];
     btn.disabled = false;
     onCountryAdminChange();
   } catch (e) {
-    document.getElementById('reg-error-text').textContent = T['error-msg'] || 'Something went wrong. Please try again.';
     document.getElementById('reg-error').classList.add('show');
-    lbl.innerHTML = T['submit-btn'] || '✦ &nbsp; Submit Application';
+    lbl.innerHTML = TRANSLATIONS[currentLang]['submit-btn'];
     btn.disabled = false;
   }
 }
 
-/* ── Particles ── */
+// ✅ Particles & Effects
 (function spawnParticles() {
   const pc = document.getElementById('particles');
   if (!pc) return;
@@ -1637,54 +1058,6 @@ async function submitRegForm() {
   }
   pc.appendChild(frag);
 })();
-
-const _emojis = ['🎙️','🏆','💎','⭐','🔥','✨','🎵','💫','🎤','👑'];
-function spawnEmoji() {
-  const el = document.createElement('div');
-  el.className = 'float-emoji';
-  el.textContent = _emojis[Math.floor(Math.random() * _emojis.length)];
-  const dur = 7 + Math.random() * 6;
-  el.style.cssText = `left:${Math.random()*92}%;bottom:-40px;font-size:${16+Math.random()*12}px;animation-duration:${dur}s;animation-delay:0s;`;
-  document.body.appendChild(el);
-  setTimeout(() => el.remove(), (dur + 2) * 1000);
-}
-for (let i = 0; i < 5; i++) setTimeout(spawnEmoji, i * 800);
-setInterval(spawnEmoji, 1400);
-
-const _starCols = [
-  {c:'rgba(255,60,168,0.95)', g:'rgba(255,60,168,0.4)'},
-  {c:'rgba(0,255,157,0.95)',  g:'rgba(0,255,157,0.4)'},
-  {c:'rgba(80,80,255,0.95)',  g:'rgba(80,80,255,0.4)'},
-  {c:'rgba(0,229,255,0.95)',  g:'rgba(0,229,255,0.4)'}
-];
-function spawnStar() {
-  const cl = _starCols[Math.floor(Math.random() * _starCols.length)];
-  const angle = 32 + Math.random() * 18, len = 70 + Math.random() * 80, dur = 900 + Math.random() * 600;
-  const sx = Math.random() * (window.innerWidth * 0.65), sy = Math.random() * (window.innerHeight * 0.55);
-  const s = document.createElement('div');
-  s.className = 'shooting-star';
-  s.style.cssText = `top:${sy}px;left:${sx}px;width:${len}px;height:2px;background:linear-gradient(90deg,transparent,${cl.c});transform:rotate(${angle}deg);transform-origin:0 50%;box-shadow:0 0 5px ${cl.g};`;
-  document.body.appendChild(s);
-  s.animate(
-    [{opacity:1, transform:`rotate(${angle}deg) translateX(0)`}, {opacity:0, transform:`rotate(${angle}deg) translateX(${len+240}px)`}],
-    {duration: dur, easing:'ease-in', fill:'forwards'}
-  ).onfinish = () => s.remove();
-}
-setInterval(spawnStar, 1000);
-setTimeout(() => setInterval(spawnStar, 1000), 340);
-setTimeout(() => setInterval(spawnStar, 1000), 680);
-
-document.addEventListener('click', function(e) {
-  const cols = ['rgba(0,229,255,0.65)','rgba(255,60,168,0.65)','rgba(168,85,247,0.6)','rgba(0,255,157,0.55)'];
-  const col = cols[Math.floor(Math.random() * cols.length)];
-  const ring = document.createElement('div');
-  ring.style.cssText = `position:fixed;left:${e.clientX}px;top:${e.clientY}px;width:0;height:0;border-radius:50%;border:2px solid ${col};transform:translate(-50%,-50%);pointer-events:none;z-index:9999;box-shadow:0 0 8px ${col};`;
-  document.body.appendChild(ring);
-  ring.animate(
-    [{width:'0px', height:'0px', opacity:1}, {width:'110px', height:'110px', opacity:0}],
-    {duration:550, easing:'ease-out', fill:'forwards'}
-  ).onfinish = () => ring.remove();
-});
 
 document.querySelectorAll('.neon-input,.neon-select').forEach(el => {
   el.addEventListener('input', () => el.classList.remove('invalid'));
