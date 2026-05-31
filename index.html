@@ -3,408 +3,675 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Rizz Live – India Policies</title>
+<title>Rizz Live – Policies</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
 <style>
-:root {
-  --saffron:#C8973A;--saffron-d:#9A6E1E;--saffron-l:#DDB55A;--gold:#B8860B;--gold-d:#8A6200;--gold-l:#C8973A;--gold-p:#F5EFE0;--green-i:#3A7D5A;--green-l:#4A9A6E;--green-ll:#5BAD7E;--ivory:#2C1F0A;--bg-page:#EDE8DF;--bg-card:#F8F4EC;--bg-card2:#F5F0E8;--border-g:rgba(184,134,11,0.18);--border-s:rgba(200,151,58,0.18);--text-dim:rgba(44,31,10,0.42);--text-mid:rgba(44,31,10,0.65);--text-full:#2C1F0A;--blue-royal:#5B6FA8;--shadow-sm:0 2px 12px rgba(44,31,10,0.06);--shadow-md:0 4px 24px rgba(44,31,10,0.09);--shadow-lg:0 8px 40px rgba(26,15,0,0.13);--radius-card:18px;--radius-sm:10px;
-}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--bg-page);color:var(--text-full);-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh}
-body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(ellipse 80% 40% at 50% 0%,rgba(200,151,58,0.05) 0%,transparent 70%),radial-gradient(ellipse 60% 60% at 100% 100%,rgba(184,150,80,0.05) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 0% 50%,rgba(58,125,90,0.03) 0%,transparent 60%)}
-.jali{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(184,150,80,0.05) 59px,rgba(184,150,80,0.05) 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(184,150,80,0.05) 59px,rgba(184,150,80,0.05) 60px)}
-.particles{position:fixed;inset:0;z-index:1;pointer-events:none}
-.particle{position:absolute;width:3px;height:3px;border-radius:50%;background:radial-gradient(circle,#E05A00,#B8860B);box-shadow:0 0 6px 2px rgba(200,151,58,0.25);animation:floatUp linear infinite;opacity:0}
-@keyframes floatUp{0%{transform:translateY(0) scale(1);opacity:0}10%{opacity:0.45}90%{opacity:0.08}100%{transform:translateY(-280px) scale(0.3);opacity:0}}
-.page{display:none;position:relative;z-index:10;max-width:540px;margin:0 auto;padding-bottom:100px}
-.page.active{display:block;animation:pageIn 0.45s cubic-bezier(0.16,1,0.3,1) both}
+
+:root{
+  --bg:#F0EDF8;
+  --bg2:#FAF8FF;
+  --bg3:#FFFFFF;
+  --pu-deep:#3B0F8C;
+  --pu-mid:#5B2FBE;
+  --pu-soft:#7B50D4;
+  --pu-light:#A07EE8;
+  --pu-pale:#D4C4F8;
+  --pu-ghost:#EDE6FF;
+  --pu-hero1:#2A0D6E;
+  --pu-hero2:#4A1FA0;
+  --gold:#8B6200;
+  --gold2:#B8860B;
+  --gold3:#C8973A;
+  --gold4:#DDB55A;
+  --gold-pale:#FFF3D0;
+  --pk:#C0168A;
+  --pk2:#D4389C;
+  --pk-pale:#FFE8F5;
+  --text-dark:#1A0A3C;
+  --text-mid:#3D1F7A;
+  --text-soft:#6B4FA0;
+  --text-dim:#9B82C8;
+  --card-border:rgba(91,47,190,0.12);
+  --card-shadow:0 2px 16px rgba(91,47,190,0.08);
+  --card-shadow-h:0 6px 28px rgba(91,47,190,0.16);
+  --r-sm:10px;--r-md:16px;--r-lg:22px;
+}
+
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--bg);
+  color:var(--text-dark);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;min-height:100vh;
+}
+
+/* Subtle light bg texture */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 70% 40% at 50% 0%,rgba(180,140,255,0.12) 0%,transparent 65%),
+    radial-gradient(ellipse 50% 50% at 100% 100%,rgba(200,80,180,0.06) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 40% at 0% 60%,rgba(120,80,220,0.05) 0%,transparent 60%);
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(91,47,190,0.025) 59px,rgba(91,47,190,0.025) 60px),
+    repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(91,47,190,0.025) 59px,rgba(91,47,190,0.025) 60px);
+}
+
+.particles{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.particle{position:absolute;border-radius:50%;animation:floatUp linear infinite;opacity:0}
+@keyframes floatUp{0%{transform:translateY(0) scale(1);opacity:0}15%{opacity:0.7}85%{opacity:0.15}100%{transform:translateY(-100vh) scale(0.2);opacity:0}}
+
+.page{display:none;position:relative;z-index:10;max-width:500px;margin:0 auto;padding-bottom:80px}
+.page.active{display:block;animation:pageIn 0.4s cubic-bezier(0.16,1,0.3,1) both}
 @keyframes pageIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.topbar{position:sticky;top:0;z-index:200;padding:0 18px;height:72px;display:flex;align-items:center;background:rgba(237,232,223,0.94);backdrop-filter:blur(32px) saturate(1.4);-webkit-backdrop-filter:blur(32px) saturate(1.4);border-bottom:1px solid rgba(184,134,11,0.12);box-shadow:0 2px 20px rgba(44,31,10,0.06)}
-.tri-bar{position:absolute;left:0;top:0;bottom:0;width:4px;display:flex;flex-direction:column}
-.tri-s{flex:1;background:var(--saffron)}.tri-w{flex:1;background:rgba(26,15,0,0.08)}.tri-g{flex:1;background:var(--green-i)}
-.logo-wrap{position:relative;width:46px;height:46px;flex-shrink:0;margin-left:10px}
-.logo-spin-ring{position:absolute;inset:-5px;border-radius:16px;background:conic-gradient(from 0deg,transparent 0%,var(--saffron) 25%,var(--gold-l) 50%,var(--saffron) 80%,transparent 100%);animation:spinRing 6s linear infinite;filter:blur(0.5px);opacity:0.6}
-@keyframes spinRing{to{transform:rotate(360deg)}}
-.logo-spin-ring::after{content:'';position:absolute;inset:2px;background:var(--bg-card);border-radius:13px}
-.logo-inner{position:absolute;inset:0;border-radius:12px;background:linear-gradient(145deg,#fff,#fdf4e8);border:1px solid rgba(184,134,11,0.25);box-shadow:0 2px 12px rgba(184,134,11,0.12),inset 0 1px 0 rgba(255,255,255,0.8);display:flex;align-items:center;justify-content:center;z-index:1}
-.logo-img{width:36px;height:36px;object-fit:cover;border-radius:9px}
-.logo-fallback{font-family:'Cinzel',serif;font-size:13px;font-weight:700;color:var(--gold)}
-.logo-gem{position:absolute;width:5px;height:5px;background:var(--gold-l);transform:rotate(45deg);box-shadow:0 0 6px rgba(184,134,11,0.5);z-index:2}
-.lg-tl{top:-2px;left:-2px}.lg-tr{top:-2px;right:-2px}.lg-bl{bottom:-2px;left:-2px}.lg-br{bottom:-2px;right:-2px}
-.topbar-info{margin-left:12px;display:flex;flex-direction:column;gap:2px}
-.topbar-name{font-family:'Cinzel',serif;font-size:15px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#7A5510}
-.topbar-sub{font-size:8px;font-weight:400;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-dim)}
-.topbar-right{margin-left:auto;display:flex;align-items:center;gap:8px}
-.live-badge{display:flex;align-items:center;gap:5px;padding:5px 11px;border-radius:24px;background:rgba(200,151,58,0.08);border:1px solid rgba(200,151,58,0.22)}
-.live-dot-pulse{width:7px;height:7px;border-radius:50%;background:var(--saffron);box-shadow:0 0 6px rgba(200,151,58,0.6);animation:livePulse 1.2s ease-in-out infinite}
-@keyframes livePulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:0.5}}
-.live-txt{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--saffron);font-weight:600}
-.back-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:22px;background:rgba(200,151,58,0.07);border:1px solid rgba(200,151,58,0.22);color:#7A5510;font-size:8.5px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all 0.25s ease;font-weight:600}
-.back-btn:hover{background:rgba(200,151,58,0.14);border-color:rgba(200,151,58,0.4)}
-.back-btn.gb{background:rgba(4,106,56,0.07);border-color:rgba(4,106,56,0.22);color:#2E6349}
-.back-btn.gb:hover{background:rgba(4,106,56,0.14);border-color:rgba(4,106,56,0.4)}
-.back-btn svg{width:12px;height:12px;fill:currentColor;flex-shrink:0}
-.hero{padding:44px 24px 36px;text-align:center;position:relative}
-.diya-container{position:relative;width:80px;height:80px;margin:0 auto 20px}
-.diya-aura{position:absolute;inset:-16px;border-radius:50%;background:radial-gradient(circle,rgba(200,151,58,0.15) 0%,rgba(184,134,11,0.06) 50%,transparent 70%);animation:auraPulse 2s ease-in-out infinite}
-@keyframes auraPulse{0%,100%{transform:scale(1);opacity:0.6}50%{transform:scale(1.25);opacity:1}}
-.brand-eyebrow{font-size:9px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:rgba(200,151,58,0.55);margin-bottom:8px}
-.brand-name{font-family:'Cinzel Decorative',serif;font-size:34px;font-weight:900;letter-spacing:4px;line-height:1;color:#7A5510;text-shadow:0 2px 16px rgba(200,151,58,0.15)}
-.brand-sub{font-size:10px;font-weight:400;letter-spacing:4px;text-transform:uppercase;color:var(--text-dim);margin-top:8px}
-.ornament{display:flex;align-items:center;justify-content:center;gap:12px;width:260px;margin:18px auto}
-.orn-line{flex:1;height:1px}
-.orn-l{background:linear-gradient(90deg,transparent,rgba(184,134,11,0.4))}.orn-r{background:linear-gradient(90deg,rgba(184,134,11,0.4),transparent)}
-.orn-center{display:flex;align-items:center;gap:6px}
-.gem-sm{width:6px;height:6px;background:var(--saffron);transform:rotate(45deg);opacity:0.7}
-.gem-lg{width:11px;height:11px;background:var(--gold-l);transform:rotate(45deg);box-shadow:0 0 10px rgba(184,134,11,0.3)}
-.tricolor{display:flex;height:3.5px;width:180px;margin:0 auto 16px;border-radius:3px;overflow:hidden;box-shadow:0 2px 12px rgba(200,151,58,0.15)}
-.tc-s{flex:1;background:var(--saffron)}.tc-w{flex:1;background:rgba(26,15,0,0.15)}.tc-g{flex:1;background:var(--green-i)}
-.hero-pill{display:inline-flex;align-items:center;gap:8px;padding:7px 18px;border-radius:50px;background:rgba(200,151,58,0.07);border:1px solid rgba(200,151,58,0.22);font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#7A5510}
-.hero-pill::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--saffron);box-shadow:0 0 6px rgba(200,151,58,0.5);animation:livePulse 1.4s ease-in-out infinite}
-.sec-label{display:flex;align-items:center;gap:12px;padding:20px 22px 10px}
-.sl-gems{display:flex;align-items:center;gap:5px}
-.slg-s{width:5px;height:5px;background:var(--saffron);transform:rotate(45deg);opacity:0.7}
-.slg-l{width:8px;height:8px;background:var(--gold-l);transform:rotate(45deg);box-shadow:0 0 6px rgba(184,134,11,0.3)}
-.sl-text{font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(26,15,0,0.3);font-weight:700}
-.sl-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(184,134,11,0.18),transparent)}
-.cards{padding:0 18px;display:flex;flex-direction:column;gap:12px}
-.nav-card{position:relative;display:flex;align-items:center;gap:16px;padding:18px 18px 18px 20px;background:var(--bg-card);border-radius:var(--radius-card);border:1px solid rgba(184,134,11,0.14);cursor:pointer;overflow:hidden;text-decoration:none;transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),box-shadow 0.3s,border-color 0.3s;box-shadow:var(--shadow-sm)}
-.nav-card::before{content:'';position:absolute;left:0;top:12px;bottom:12px;width:3px;border-radius:2px}
-.nc-host::before{background:linear-gradient(180deg,var(--saffron),var(--gold-l));box-shadow:0 0 10px rgba(200,151,58,0.3)}
-.nc-agency::before{background:linear-gradient(180deg,var(--green-l),var(--green-i))}
-.nc-register::before{background:linear-gradient(180deg,#5B6FA8,#1D4ED8)}
-.nc-wa::before{background:linear-gradient(180deg,#3A9A5C,#2E6349)}
-.nav-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:rgba(184,134,11,0.28)}
-.nc-icon{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1)}
-.nav-card:hover .nc-icon{transform:scale(1.1) rotate(-4deg)}
-.ni-host{background:linear-gradient(135deg,rgba(200,151,58,0.10),rgba(184,134,11,0.07));border:1px solid rgba(200,151,58,0.18)}
-.ni-agency{background:linear-gradient(135deg,rgba(4,106,56,0.10),rgba(6,160,69,0.07));border:1px solid rgba(4,106,56,0.18)}
-.ni-register{background:linear-gradient(135deg,rgba(91,111,168,0.10),rgba(70,90,148,0.07));border:1px solid rgba(91,111,168,0.2)}
-.ni-wa{background:linear-gradient(135deg,rgba(37,211,102,0.10),rgba(18,140,126,0.07));border:1px solid rgba(37,211,102,0.2)}
-.nc-body{flex:1;min-width:0}
-.nc-title{font-family:'Cinzel',serif;font-size:13.5px;font-weight:700;letter-spacing:2px;color:var(--text-full);line-height:1.2}
-.nc-desc{font-size:11px;color:var(--text-dim);margin-top:3px;font-weight:400}
-.wa-chip{display:inline-flex;align-items:center;margin-top:6px;padding:2px 8px;border-radius:4px;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:rgba(37,211,102,0.10);color:#2E6349;border:1px solid rgba(37,211,102,0.25)}
-.register-chip{display:inline-flex;align-items:center;margin-top:6px;padding:2px 8px;border-radius:4px;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:rgba(91,111,168,0.10);color:#4A5A8A;border:1px solid rgba(91,111,168,0.22)}
-.nc-arrow{width:32px;height:32px;border-radius:9px;background:rgba(184,134,11,0.06);border:1px solid rgba(184,134,11,0.14);display:flex;align-items:center;justify-content:center;color:rgba(184,134,11,0.45);font-size:20px;flex-shrink:0;transition:all 0.25s}
-.nav-card:hover .nc-arrow{background:rgba(184,134,11,0.12);border-color:rgba(184,134,11,0.35);color:var(--gold-d);transform:translateX(3px)}
-.chakra-wrap{display:flex;justify-content:center;padding:32px 0 16px}
-.chakra-svg{width:50px;height:50px;opacity:0.10;animation:chakraSpin 40s linear infinite}
-@keyframes chakraSpin{to{transform:rotate(360deg)}}
-.footer{text-align:center;padding:0 24px 20px}
-.footer-bar{display:flex;height:2.5px;margin-bottom:12px;border-radius:2px;overflow:hidden}
-.fb-s{flex:1;background:linear-gradient(90deg,transparent,var(--saffron) 60%)}
-.fb-w{flex:1;background:rgba(44,31,10,0.12)}
-.fb-g{flex:1;background:linear-gradient(90deg,var(--green-i) 40%,transparent)}
-.footer-text{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(26,15,0,0.2)}
-.footer-text b{color:rgba(184,134,11,0.45);font-weight:700}
-.policy-hero{padding:36px 24px 28px;text-align:center}
-.ph-eyebrow{font-size:8.5px;letter-spacing:5px;text-transform:uppercase;margin-bottom:10px;font-weight:600}
-.ph-host{color:rgba(200,151,58,0.6)}.ph-agency{color:rgba(4,106,56,0.7)}.ph-register{color:rgba(91,111,168,0.65)}
-.ph-title{font-family:'Cinzel',serif;font-size:28px;font-weight:900;letter-spacing:5px}
-.ph-title-host{color:#7A5510;text-shadow:0 2px 12px rgba(200,151,58,0.12)}
-.ph-title-agency{color:#2E6349;text-shadow:0 2px 12px rgba(4,106,56,0.10)}
-.ph-title-register{color:#4A5A8A;text-shadow:0 2px 12px rgba(91,111,168,0.10)}
-.ph-orn{display:flex;align-items:center;justify-content:center;gap:12px;width:240px;margin:14px auto 0}
-.pho-line{flex:1;height:1px}
-.pho-host-l{background:linear-gradient(90deg,transparent,rgba(184,134,11,0.4))}.pho-host-r{background:linear-gradient(90deg,rgba(184,134,11,0.4),transparent)}
-.pho-agency-l{background:linear-gradient(90deg,transparent,rgba(4,106,56,0.4))}.pho-agency-r{background:linear-gradient(90deg,rgba(4,106,56,0.4),transparent)}
-.pho-register-l{background:linear-gradient(90deg,transparent,rgba(91,111,168,0.4))}.pho-register-r{background:linear-gradient(90deg,rgba(91,111,168,0.4),transparent)}
-.pho-gems{display:flex;align-items:center;gap:6px}
-.phg-s{width:6px;height:6px;transform:rotate(45deg)}.phg-l{width:10px;height:10px;transform:rotate(45deg)}
-.phg-host-s{background:var(--saffron);opacity:0.7}.phg-host-l{background:var(--gold-l);box-shadow:0 0 8px rgba(184,134,11,0.35)}
-.phg-agency-s{background:var(--green-l);opacity:0.7}.phg-agency-l{background:#16A34A;box-shadow:0 0 8px rgba(22,163,74,0.3)}
-.phg-register-s{background:#5B6FA8;opacity:0.7}.phg-register-l{background:#5B6FA8;box-shadow:0 0 8px rgba(37,99,235,0.3)}
-.sections{padding:0 16px}
-.sec-block{background:var(--bg-card);border-radius:16px;margin-bottom:11px;overflow:hidden;position:relative;transition:box-shadow 0.25s;box-shadow:var(--shadow-sm)}
-.sec-block:hover{box-shadow:var(--shadow-md)}
-.host-block{border:1px solid rgba(200,151,58,0.12)}.agency-block{border:1px solid rgba(4,106,56,0.12)}
-.sec-block::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3.5px}
-.sb-1.host::before{background:linear-gradient(180deg,var(--saffron),var(--gold-l))}
-.sb-2.host::before{background:linear-gradient(180deg,#7C3AED,#4F46E5)}
-.sb-3.host::before{background:linear-gradient(180deg,#059669,#10B981)}
-.sb-4.host::before{background:linear-gradient(180deg,#5B6FA8,#7C3AED)}
-.sb-1.agency::before{background:linear-gradient(180deg,#10B981,#059669)}
-.sb-2.agency::before{background:linear-gradient(180deg,var(--saffron),var(--gold-l))}
-.sb-3.agency::before{background:linear-gradient(180deg,#5B6FA8,#8B5CF6)}
-.sb-4.agency::before{background:linear-gradient(180deg,#F59E0B,#EF4444)}
-.sb-5.agency::before{background:linear-gradient(180deg,#EC4899,#8B5CF6)}
-.sec-header{display:flex;align-items:center;gap:12px;padding:15px 16px 15px 20px;cursor:pointer;transition:background 0.2s;border-bottom:1px solid rgba(44,31,10,0.05)}
-.sec-header:hover{background:rgba(44,31,10,0.02)}
-.sec-num{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:10px;font-weight:700;flex-shrink:0}
-.host-num{background:rgba(200,151,58,0.08);border:1px solid rgba(200,151,58,0.2);color:#7A5510}
-.agency-num{background:rgba(4,106,56,0.08);border:1px solid rgba(4,106,56,0.2);color:#2E6349}
-.sec-title{font-family:'Cinzel',serif;font-size:12.5px;font-weight:700;letter-spacing:1.5px;color:var(--text-full);flex:1}
-.sec-arrow{font-size:20px;transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1)}
-.host-arrow{color:rgba(200,151,58,0.35)}.agency-arrow{color:rgba(4,106,56,0.45)}
-.sec-block.open .sec-arrow{transform:rotate(90deg)}
-.sec-body{padding:16px 16px 20px 20px;display:none;background:var(--bg-card2)}
-.sec-block.open .sec-body{display:block;animation:fadeSlide 0.3s ease both}
-@keyframes fadeSlide{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
 
-/* ===== NEW HEADING STYLES ===== */
-.h-main{display:flex;align-items:center;gap:10px;font-family:'Cinzel',serif;font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:#7A5510;padding:8px 14px;background:linear-gradient(90deg,rgba(200,151,58,0.13),rgba(200,151,58,0.04));border-left:3.5px solid #C8973A;border-radius:0 8px 8px 0;margin:18px 0 8px;position:relative}
+/* ── TOPBAR ── */
+.topbar{
+  position:sticky;top:0;z-index:200;padding:0 16px;height:64px;
+  display:flex;align-items:center;gap:12px;
+  background:rgba(240,237,248,0.95);
+  backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4);
+  border-bottom:1px solid rgba(91,47,190,0.1);
+  box-shadow:0 2px 16px rgba(91,47,190,0.06);
+}
+.logo-wrap{
+  position:relative;width:42px;height:42px;flex-shrink:0;
+  border-radius:12px;overflow:hidden;
+  border:1.5px solid rgba(91,47,190,0.2);
+  box-shadow:0 2px 10px rgba(91,47,190,0.1);
+}
+.logo-wrap img{width:100%;height:100%;object-fit:cover}
+.logo-wrap .lf{width:100%;height:100%;display:none;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:13px;font-weight:700;color:var(--pu-mid);background:var(--pu-ghost)}
+.topbar-info{display:flex;flex-direction:column;gap:1px}
+.t-name{
+  font-family:'Cinzel',serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  background:linear-gradient(90deg,var(--pu-hero1),var(--pu-mid));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.t-sub{font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-dim)}
+.topbar-right{margin-left:auto}
+.live-pill{
+  display:flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;
+  background:rgba(91,47,190,0.07);border:1px solid rgba(91,47,190,0.18);
+}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--pu-mid);animation:livePulse 1.2s ease-in-out infinite;box-shadow:0 0 5px rgba(91,47,190,0.5)}
+@keyframes livePulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:0.5}}
+.live-txt{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--pu-mid);font-weight:600}
+
+/* ── BACK BTN ── */
+.back-btn{
+  display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:20px;
+  background:rgba(91,47,190,0.07);border:1px solid rgba(91,47,190,0.18);
+  color:var(--pu-mid);font-size:8px;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;font-weight:600;transition:all 0.2s;
+}
+.back-btn:hover{background:rgba(91,47,190,0.14);border-color:rgba(91,47,190,0.35)}
+.back-btn svg{width:12px;height:12px;fill:currentColor}
+.back-wrap{display:flex;justify-content:center;padding:0 18px 4px}
+
+/* ══════════════════════════
+   HOME HERO  — light bg like banner
+══════════════════════════ */
+.home-hero{
+  position:relative;overflow:hidden;
+  padding:32px 20px 28px;text-align:center;
+  background:linear-gradient(160deg,#EAE2FF 0%,#F5F0FF 45%,#FAF6FF 100%);
+  border-bottom:1px solid rgba(91,47,190,0.1);
+}
+/* Gold diagonal lines - exact banner style */
+.home-hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(135deg,transparent 30%,rgba(184,134,11,0.1) 31%,rgba(184,134,11,0.1) 32%,transparent 33%),
+    linear-gradient(135deg,transparent 55%,rgba(184,134,11,0.06) 56%,rgba(184,134,11,0.06) 57%,transparent 58%),
+    linear-gradient(225deg,transparent 30%,rgba(184,134,11,0.08) 31%,rgba(184,134,11,0.08) 32%,transparent 33%);
+}
+/* Soft purple glow top */
+.home-hero::after{
+  content:'';position:absolute;top:-40px;left:-40px;right:-40px;height:200px;pointer-events:none;
+  background:radial-gradient(ellipse 80% 70% at 50% 0%,rgba(91,47,190,0.12) 0%,transparent 70%);
+}
+
+.hero-logo-row{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:16px;
+}
+.hero-logo-box{
+  width:52px;height:52px;border-radius:14px;overflow:hidden;
+  border:2px solid rgba(184,134,11,0.4);
+  box-shadow:0 4px 16px rgba(91,47,190,0.15),0 0 0 4px rgba(91,47,190,0.06);
+}
+.hero-logo-box img{width:100%;height:100%;object-fit:cover}
+.hero-logo-box .hlf{width:100%;height:100%;display:none;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:15px;font-weight:700;color:var(--pu-mid);background:var(--pu-ghost)}
+.hero-brand{text-align:left}
+.hero-brand-name{
+  font-family:'Cinzel Decorative',serif;font-size:20px;font-weight:900;letter-spacing:2.5px;line-height:1;
+  background:linear-gradient(135deg,var(--pu-hero1) 0%,var(--pu-mid) 60%,var(--pu-soft) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-brand-sub{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--text-dim);margin-top:3px}
+
+/* Big POLICY — 3D purple like banner */
+.policy-big-title{
+  position:relative;z-index:2;
+  font-family:'Cinzel Decorative',serif;font-size:56px;font-weight:900;
+  letter-spacing:4px;line-height:1;margin:8px 0 4px;
+  background:linear-gradient(180deg,#5B0FD4 0%,#3B0F8C 40%,#5B2FBE 70%,#7B50D4 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 2px 0 rgba(184,134,11,0.25)) drop-shadow(0 4px 12px rgba(91,47,190,0.25));
+  -webkit-text-stroke:1px rgba(184,134,11,0.3);
+}
+
+/* Gem divider */
+.hero-gem-row{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  margin:8px auto 0;width:200px;
+}
+.hero-gem-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(184,134,11,0.45),transparent)}
+.hero-gem{width:9px;height:9px;background:var(--gold3);transform:rotate(45deg);box-shadow:0 0 6px rgba(184,134,11,0.4)}
+
+/* Nav pill bar - like banner bottom */
+.hero-nav-bar{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:center;gap:0;
+  margin:18px auto 0;
+  background:#FFFFFF;
+  border:1px solid rgba(91,47,190,0.12);
+  border-radius:50px;
+  padding:6px 16px;
+  box-shadow:0 4px 20px rgba(91,47,190,0.1);
+  max-width:340px;
+}
+.hnb-item{
+  display:flex;align-items:center;gap:7px;
+  padding:7px 14px;cursor:pointer;
+  font-size:12px;font-weight:600;color:var(--text-mid);
+  transition:color 0.2s;
+  white-space:nowrap;
+}
+.hnb-item:hover{color:var(--pu-mid)}
+.hnb-icon{
+  width:28px;height:28px;border-radius:50%;
+  background:linear-gradient(135deg,var(--pu-mid),var(--pu-deep));
+  display:flex;align-items:center;justify-content:center;font-size:13px;
+  box-shadow:0 2px 8px rgba(91,47,190,0.3);flex-shrink:0;
+}
+.hnb-sep{width:1px;height:28px;background:rgba(91,47,190,0.12);margin:0 2px}
+
+/* ── HOME CARDS (below hero) ── */
+.home-cards{padding:16px 14px 0;display:flex;flex-direction:column;gap:10px}
+.hcard{
+  position:relative;display:flex;align-items:center;gap:14px;
+  padding:15px 15px 15px 18px;border-radius:var(--r-md);
+  cursor:pointer;overflow:hidden;text-decoration:none;
+  background:var(--bg3);
+  border:1px solid var(--card-border);
+  box-shadow:var(--card-shadow);
+  transition:transform 0.3s cubic-bezier(0.16,1,0.3,1),box-shadow 0.25s;
+}
+.hcard::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3.5px;border-radius:2px}
+.hc-host::before{background:linear-gradient(180deg,var(--gold3),var(--gold2))}
+.hc-agency::before{background:linear-gradient(180deg,var(--pu-soft),var(--pu-mid))}
+.hc-reg::before{background:linear-gradient(180deg,var(--pk2),var(--pk))}
+.hc-wa::before{background:linear-gradient(180deg,#25D366,#128C7E)}
+.hcard:hover{transform:translateY(-2px);box-shadow:var(--card-shadow-h);border-color:rgba(91,47,190,0.22)}
+
+.hcard-icon{
+  width:48px;height:48px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;
+  transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+.hcard:hover .hcard-icon{transform:scale(1.1) rotate(-4deg)}
+.hi-host{background:rgba(184,134,11,0.08);border:1px solid rgba(184,134,11,0.2)}
+.hi-agency{background:rgba(91,47,190,0.07);border:1px solid rgba(91,47,190,0.18)}
+.hi-reg{background:rgba(192,22,138,0.07);border:1px solid rgba(192,22,138,0.18)}
+.hi-wa{background:rgba(37,211,102,0.07);border:1px solid rgba(37,211,102,0.2)}
+
+.hcard-body{flex:1;min-width:0}
+.hcard-title{font-family:'Cinzel',serif;font-size:12.5px;font-weight:700;letter-spacing:1.5px;color:var(--text-dark);line-height:1.2}
+.hcard-desc{font-size:11px;color:var(--text-dim);margin-top:3px}
+.hcard-chip{
+  display:inline-flex;align-items:center;margin-top:5px;
+  padding:2px 8px;border-radius:4px;font-size:8px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+}
+.chip-gold{background:rgba(184,134,11,0.08);color:var(--gold);border:1px solid rgba(184,134,11,0.2)}
+.chip-purple{background:rgba(91,47,190,0.07);color:var(--pu-mid);border:1px solid rgba(91,47,190,0.18)}
+.chip-pink{background:rgba(192,22,138,0.07);color:var(--pk);border:1px solid rgba(192,22,138,0.18)}
+.chip-wa{background:rgba(37,211,102,0.07);color:#16A34A;border:1px solid rgba(37,211,102,0.2)}
+.hcard-arrow{
+  width:30px;height:30px;border-radius:8px;flex-shrink:0;
+  background:rgba(91,47,190,0.05);border:1px solid rgba(91,47,190,0.12);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(91,47,190,0.3);font-size:18px;transition:all 0.2s;
+}
+.hcard:hover .hcard-arrow{background:rgba(91,47,190,0.1);border-color:rgba(91,47,190,0.3);color:var(--pu-mid);transform:translateX(3px)}
+
+/* Section label */
+.sec-lbl{display:flex;align-items:center;gap:10px;padding:20px 16px 8px}
+.slg1{width:5px;height:5px;background:var(--gold3);transform:rotate(45deg);opacity:0.6}
+.slg2{width:8px;height:8px;background:var(--gold3);transform:rotate(45deg);box-shadow:0 0 5px rgba(184,134,11,0.3)}
+.sec-lbl-gems{display:flex;align-items:center;gap:4px}
+.sec-lbl-text{font-family:'Cinzel',serif;font-size:8px;letter-spacing:4px;text-transform:uppercase;color:rgba(59,15,140,0.28);font-weight:700}
+.sec-lbl-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(91,47,190,0.15),transparent)}
+
+/* Footer */
+.home-footer{text-align:center;padding:24px 20px 14px}
+.hf-bar{display:flex;height:2px;margin-bottom:10px;border-radius:2px;overflow:hidden}
+.hfb1{flex:1;background:linear-gradient(90deg,transparent,rgba(91,47,190,0.4))}
+.hfb2{flex:1;background:linear-gradient(90deg,rgba(91,47,190,0.4),rgba(192,22,138,0.3))}
+.hfb3{flex:1;background:linear-gradient(90deg,rgba(192,22,138,0.3),transparent)}
+.hf-text{font-family:'Cinzel',serif;font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(59,15,140,0.25)}
+.hf-text b{color:rgba(91,47,190,0.4)}
+
+/* ══════════════════════════
+   POLICY PAGE HERO
+══════════════════════════ */
+.pol-hero{
+  position:relative;overflow:hidden;
+  padding:26px 20px 22px;text-align:center;
+  background:linear-gradient(160deg,#EAE2FF 0%,#F2EDFF 50%,#FAF8FF 100%);
+  border-bottom:1px solid rgba(91,47,190,0.1);
+}
+.pol-hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(135deg,transparent 30%,rgba(184,134,11,0.08) 31%,rgba(184,134,11,0.08) 32%,transparent 33%),
+    linear-gradient(225deg,transparent 65%,rgba(184,134,11,0.06) 66%,rgba(184,134,11,0.06) 67%,transparent 68%);
+}
+.pol-hero::after{
+  content:'';position:absolute;top:-30px;left:0;right:0;height:160px;pointer-events:none;
+  background:radial-gradient(ellipse 80% 70% at 50% 0%,rgba(91,47,190,0.1) 0%,transparent 70%);
+}
+.ph-eyebrow{position:relative;z-index:1;font-size:8px;letter-spacing:5px;text-transform:uppercase;margin-bottom:7px;font-weight:600}
+.ph-ey-gold{color:rgba(184,134,11,0.7)}
+.ph-ey-purple{color:rgba(91,47,190,0.6)}
+.ph-ey-pink{color:rgba(192,22,138,0.6)}
+.ph-title{
+  position:relative;z-index:1;
+  font-family:'Cinzel',serif;font-size:24px;font-weight:900;letter-spacing:4px;
+}
+.ph-gold{background:linear-gradient(135deg,var(--pu-hero1),var(--pu-mid));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ph-purple{background:linear-gradient(135deg,var(--pu-hero1),var(--pu-soft));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ph-pink{background:linear-gradient(135deg,var(--pk),var(--pk2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ph-orn{display:flex;align-items:center;justify-content:center;gap:8px;width:200px;margin:10px auto 0;position:relative;z-index:1}
+.ph-orn-line{flex:1;height:1px}
+.phl-gold{background:linear-gradient(90deg,transparent,rgba(184,134,11,0.5))}
+.phr-gold{background:linear-gradient(90deg,rgba(184,134,11,0.5),transparent)}
+.phl-pu{background:linear-gradient(90deg,transparent,rgba(91,47,190,0.4))}
+.phr-pu{background:linear-gradient(90deg,rgba(91,47,190,0.4),transparent)}
+.phl-pk{background:linear-gradient(90deg,transparent,rgba(192,22,138,0.4))}
+.phr-pk{background:linear-gradient(90deg,rgba(192,22,138,0.4),transparent)}
+.pg-s{width:5px;height:5px;transform:rotate(45deg);opacity:0.7}
+.pg-l{width:9px;height:9px;transform:rotate(45deg)}
+.pgg-gold{background:var(--gold3);box-shadow:0 0 6px rgba(184,134,11,0.4)}
+.pgs-gold{background:var(--gold2)}
+.pgg-pu{background:var(--pu-soft);box-shadow:0 0 6px rgba(91,47,190,0.35)}
+.pgs-pu{background:var(--pu-mid)}
+.pgg-pk{background:var(--pk2);box-shadow:0 0 6px rgba(192,22,138,0.35)}
+.pgs-pk{background:var(--pk)}
+
+/* ══════════════════════════
+   SECTIONS
+══════════════════════════ */
+.sections{padding:14px 13px 0}
+.sec-block{
+  background:var(--bg3);
+  border-radius:var(--r-md);margin-bottom:9px;overflow:hidden;
+  position:relative;transition:box-shadow 0.25s;
+  border:1px solid rgba(91,47,190,0.1);
+  box-shadow:0 1px 8px rgba(91,47,190,0.05);
+}
+.sec-block:hover{box-shadow:0 4px 20px rgba(91,47,190,0.1)}
+.sec-block::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
+.sb-1h::before{background:linear-gradient(180deg,var(--gold3),var(--gold2))}
+.sb-2h::before{background:linear-gradient(180deg,var(--pu-light),var(--pu-mid))}
+.sb-3h::before{background:linear-gradient(180deg,#25D366,#128C7E)}
+.sb-4h::before{background:linear-gradient(180deg,var(--pk2),var(--pk))}
+.sb-1a::before{background:linear-gradient(180deg,var(--pu-light),var(--pu-mid))}
+.sb-2a::before{background:linear-gradient(180deg,var(--gold3),var(--gold2))}
+.sb-3a::before{background:linear-gradient(180deg,#25D366,#128C7E)}
+.sb-4a::before{background:linear-gradient(180deg,var(--pk2),var(--pk))}
+.sb-5a::before{background:linear-gradient(180deg,#F59E0B,#E87040)}
+
+.sec-header{
+  display:flex;align-items:center;gap:10px;
+  padding:13px 14px 13px 18px;cursor:pointer;
+  transition:background 0.15s;
+  border-bottom:1px solid rgba(91,47,190,0.06);
+}
+.sec-header:hover{background:rgba(91,47,190,0.02)}
+.sec-num{
+  width:26px;height:26px;border-radius:7px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cinzel',serif;font-size:9px;font-weight:700;flex-shrink:0;
+  background:rgba(91,47,190,0.07);border:1px solid rgba(91,47,190,0.18);color:var(--pu-mid);
+}
+.sec-title{font-family:'Cinzel',serif;font-size:12px;font-weight:700;letter-spacing:1.5px;color:var(--text-dark);flex:1}
+.sec-arr{font-size:18px;color:rgba(91,47,190,0.3);transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1)}
+.sec-block.open .sec-arr{transform:rotate(90deg)}
+.sec-body{padding:14px 14px 18px 18px;display:none;background:rgba(248,246,255,0.7)}
+.sec-block.open .sec-body{display:block;animation:fadeIn 0.25s ease both}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── NEW HEADINGS ── */
+.h-main{
+  display:flex;align-items:center;gap:8px;
+  font-family:'Cinzel',serif;font-size:10px;font-weight:900;
+  letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--pu-deep);padding:7px 12px;
+  background:linear-gradient(90deg,rgba(91,47,190,0.07),rgba(91,47,190,0.02));
+  border-left:3px solid var(--pu-mid);border-radius:0 7px 7px 0;
+  margin:16px 0 8px;
+}
 .h-main:first-child{margin-top:2px}
-.h-main::before{content:'';width:7px;height:7px;background:#C8973A;transform:rotate(45deg);flex-shrink:0;box-shadow:0 0 5px rgba(200,151,58,0.4)}
-.hm-line{flex:1;height:0.6px;background:linear-gradient(90deg,rgba(200,151,58,0.3),transparent)}
-.h-sub{display:flex;align-items:center;gap:8px;font-family:'Cinzel',serif;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#9A7828;padding:6px 14px;border-left:2.5px solid rgba(200,151,58,0.45);margin:12px 0 6px 4px}
-.h-sub::before{content:'';width:5px;height:5px;background:rgba(200,151,58,0.55);transform:rotate(45deg);flex-shrink:0}
-.hs-line{flex:1;height:0.5px;background:linear-gradient(90deg,rgba(200,151,58,0.2),transparent)}
-/* ===== END NEW HEADING STYLES ===== */
+.h-main::before{content:'';width:6px;height:6px;background:var(--pu-mid);transform:rotate(45deg);flex-shrink:0;box-shadow:0 0 5px rgba(91,47,190,0.3)}
+.hm-line{flex:1;height:0.5px;background:linear-gradient(90deg,rgba(91,47,190,0.2),transparent)}
+.h-sub{
+  display:flex;align-items:center;gap:7px;
+  font-family:'Cinzel',serif;font-size:9px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;
+  color:var(--pu-soft);padding:5px 12px;
+  border-left:2px solid rgba(91,47,190,0.25);
+  margin:10px 0 5px 4px;
+}
+.h-sub::before{content:'';width:4px;height:4px;background:rgba(91,47,190,0.4);transform:rotate(45deg);flex-shrink:0}
+.hs-line{flex:1;height:0.5px;background:linear-gradient(90deg,rgba(91,47,190,0.12),transparent)}
 
-.sub-label{display:flex;align-items:center;gap:10px;margin:16px 0 8px}
-.sub-label:first-child{margin-top:2px}
-.sub-line{flex:1;height:0.6px}
-.host-sub-line{background:rgba(200,151,58,0.12)}.agency-sub-line{background:rgba(4,106,56,0.10)}
-.sub-txt{font-size:8px;letter-spacing:3px;text-transform:uppercase;white-space:nowrap;font-weight:600}
-.host-sub-txt{color:rgba(200,151,58,0.55)}.agency-sub-txt{color:rgba(4,106,56,0.55)}
-.ibox{padding:12px 14px;border-radius:10px;margin:8px 0;position:relative;overflow:hidden}
-.ibox-gold{background:rgba(184,134,11,0.05);border:1px solid rgba(184,134,11,0.16);border-left:3px solid var(--gold-l)}
-.ibox-saffron{background:rgba(200,151,58,0.05);border:1px solid rgba(200,151,58,0.16);border-left:3px solid var(--saffron)}
-.ibox-green{background:rgba(4,106,56,0.05);border:1px solid rgba(4,106,56,0.16);border-left:3px solid var(--green-ll)}
-.ibox-red{background:rgba(160,40,40,0.05);border:1px solid rgba(160,40,40,0.16);border-left:3px solid #B83232}
-.ibox-blue{background:rgba(91,111,168,0.06);border:1px solid rgba(91,111,168,0.18);border-left:3px solid #5B6FA8}
-.ibox-warn{background:rgba(217,119,6,0.06);border:1px solid rgba(217,119,6,0.18);border-left:3px solid #D97706}
-.ibox-agency{background:rgba(4,106,56,0.05);border:1px solid rgba(22,163,74,0.16);border-left:3px solid #16A34A}
-.ibox-lbl{font-size:8px;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:7px;font-weight:600}
+/* ── IBOXES ── */
+.ibox{padding:11px 13px;border-radius:9px;margin:7px 0;overflow:hidden}
+.ibox-gold{background:rgba(184,134,11,0.05);border:1px solid rgba(184,134,11,0.15);border-left:3px solid var(--gold3)}
+.ibox-purple{background:rgba(91,47,190,0.05);border:1px solid rgba(91,47,190,0.14);border-left:3px solid var(--pu-soft)}
+.ibox-green{background:rgba(37,211,102,0.05);border:1px solid rgba(37,211,102,0.15);border-left:3px solid #16A34A}
+.ibox-red{background:rgba(200,30,30,0.04);border:1px solid rgba(200,30,30,0.14);border-left:3px solid #DC2626}
+.ibox-blue{background:rgba(59,130,246,0.05);border:1px solid rgba(59,130,246,0.15);border-left:3px solid #3B82F6}
+.ibox-warn{background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.15);border-left:3px solid #F59E0B}
+.ibox-pink{background:rgba(192,22,138,0.05);border:1px solid rgba(192,22,138,0.14);border-left:3px solid var(--pk2)}
+
+.ibox-lbl{font-size:8px;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px;display:flex;align-items:center;gap:6px;font-weight:600}
 .ibox-lbl::before{content:'';width:5px;height:5px;border-radius:50%;flex-shrink:0}
-.ibox-gold .ibox-lbl{color:var(--gold)}.ibox-gold .ibox-lbl::before{background:var(--gold-l)}
-.ibox-saffron .ibox-lbl{color:#7A5510}.ibox-saffron .ibox-lbl::before{background:var(--saffron)}
-.ibox-green .ibox-lbl{color:#2E6349}.ibox-green .ibox-lbl::before{background:var(--green-ll)}
-.ibox-red .ibox-lbl{color:#9A2828}.ibox-red .ibox-lbl::before{background:#B83232}
-.ibox-warn .ibox-lbl{color:#B45309}.ibox-warn .ibox-lbl::before{background:#D97706}
-.ibox-agency .ibox-lbl{color:#2E6349}.ibox-agency .ibox-lbl::before{background:#16A34A}
-.ibox-blue .ibox-lbl{color:#4A5A8A}.ibox-blue .ibox-lbl::before{background:#5B6FA8}
-.ibox-text{font-size:12px;color:var(--text-mid);line-height:1.7;font-weight:400}
-.ibox-text b,.ibox-text strong{color:var(--text-full);font-weight:600}
-.ibox-green .ibox-text b{color:#2E6349}.ibox-saffron .ibox-text b{color:#7A5510}
-.ibox-red .ibox-text b{color:#9A2828}.ibox-warn .ibox-text b{color:#92400E}
-.ibox-blue .ibox-text b{color:#4A5A8A}
-.pol-table{width:100%;border-collapse:collapse;margin:8px 0;table-layout:auto}
-.h-th{font-size:7.5px;letter-spacing:0;text-transform:uppercase;padding:8px 6px;text-align:left;color:rgba(184,134,11,0.65);border-bottom:1px solid rgba(184,134,11,0.14);white-space:nowrap;font-weight:700}
-.a-th{font-size:7.5px;letter-spacing:0;text-transform:uppercase;padding:8px 6px;text-align:left;color:rgba(4,106,56,0.65);border-bottom:1px solid rgba(4,106,56,0.12);white-space:nowrap;font-weight:700}
-.pol-table td{padding:9px 6px;font-size:11.5px;color:var(--text-mid);border-bottom:1px solid rgba(44,31,10,0.05);font-weight:400;white-space:nowrap;vertical-align:middle}
+.ibox-gold .ibox-lbl{color:var(--gold)}.ibox-gold .ibox-lbl::before{background:var(--gold3)}
+.ibox-purple .ibox-lbl{color:var(--pu-mid)}.ibox-purple .ibox-lbl::before{background:var(--pu-soft)}
+.ibox-green .ibox-lbl{color:#166534}.ibox-green .ibox-lbl::before{background:#16A34A}
+.ibox-red .ibox-lbl{color:#991B1B}.ibox-red .ibox-lbl::before{background:#DC2626}
+.ibox-warn .ibox-lbl{color:#92400E}.ibox-warn .ibox-lbl::before{background:#F59E0B}
+.ibox-pink .ibox-lbl{color:var(--pk)}.ibox-pink .ibox-lbl::before{background:var(--pk2)}
+.ibox-blue .ibox-lbl{color:#1D4ED8}.ibox-blue .ibox-lbl::before{background:#3B82F6}
+
+.ibox-text{font-size:12px;color:#3D2060;line-height:1.7;font-weight:400}
+.ibox-text b,.ibox-text strong{color:var(--text-dark);font-weight:600}
+.ibox-gold .ibox-text b{color:var(--gold)}
+.ibox-green .ibox-text b{color:#166534}
+.ibox-red .ibox-text b{color:#991B1B}
+.ibox-warn .ibox-text b{color:#92400E}
+.ibox-purple .ibox-text b{color:var(--pu-deep)}
+.ibox-blue .ibox-text b{color:#1D4ED8}
+
+/* TABLE */
+.pol-table{width:100%;border-collapse:collapse;margin:7px 0;table-layout:auto}
+.h-th{font-size:7.5px;text-transform:uppercase;padding:7px 6px;text-align:left;color:rgba(184,134,11,0.7);border-bottom:1px solid rgba(184,134,11,0.15);white-space:nowrap;font-weight:700}
+.a-th{font-size:7.5px;text-transform:uppercase;padding:7px 6px;text-align:left;color:rgba(91,47,190,0.6);border-bottom:1px solid rgba(91,47,190,0.12);white-space:nowrap;font-weight:700}
+.pol-table td{padding:8px 6px;font-size:11.5px;color:#3D2060;border-bottom:1px solid rgba(91,47,190,0.05);font-weight:400;white-space:nowrap;vertical-align:middle}
 .pol-table tr:last-child td{border-bottom:none}
-.pol-table tr:hover td{background:rgba(44,31,10,0.02)}
-td.gold{color:var(--gold);font-weight:600}td.green{color:#2E6349;font-weight:600}td.red{color:#9A2828;font-weight:500}td.purple{color:#6D28D9;font-weight:600}
-.bul{list-style:none;margin:6px 0}
-.bul li{display:block;font-size:12px;color:var(--text-mid);padding:4px 0 4px 18px;line-height:1.65;font-weight:400;position:relative;word-break:normal;overflow-wrap:break-word}
-.bul li::before{content:'';position:absolute;left:0;top:8px;width:7px;height:7px;transform:rotate(45deg)}
-.hb li::before{background:var(--gold-l);box-shadow:0 0 4px rgba(184,134,11,0.3)}
-.ab li::before{background:#16A34A;box-shadow:0 0 4px rgba(22,163,74,0.3)}
-.bul li b{color:var(--text-full);font-weight:600}
-.bul li .red{color:#9A2828}.bul li .green{color:#2E6349}.bul li .gold{color:var(--gold)}
-.tier-grid{display:flex;flex-direction:column;gap:8px;margin:10px 0}
-.tier-card{display:flex;align-items:center;gap:12px;padding:13px 13px;border-radius:10px;background:var(--bg-page);position:relative;overflow:hidden}
+.pol-table tr:hover td{background:rgba(91,47,190,0.02)}
+td.gold{color:var(--gold);font-weight:600}td.green{color:#166534;font-weight:600}td.red{color:#991B1B;font-weight:500}td.purple{color:var(--pu-mid);font-weight:600}
+
+/* BULLETS */
+.bul{list-style:none;margin:5px 0}
+.bul li{display:block;font-size:12px;color:#3D2060;padding:3px 0 3px 17px;line-height:1.65;font-weight:400;position:relative;word-break:normal;overflow-wrap:break-word}
+.bul li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;transform:rotate(45deg)}
+.hb li::before{background:var(--gold3);box-shadow:0 0 3px rgba(184,134,11,0.3)}
+.ab li::before{background:var(--pu-soft);box-shadow:0 0 3px rgba(91,47,190,0.3)}
+.bul li b{color:var(--text-dark);font-weight:600}
+.bul li .red{color:#991B1B}.bul li .green{color:#166534}.bul li .gold{color:var(--gold)}
+
+/* TIER CARDS */
+.tier-grid{display:flex;flex-direction:column;gap:7px;margin:9px 0}
+.tier-card{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:9px;background:var(--bg);position:relative;overflow:hidden}
 .tier-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:1px}
-.tc1{border:1px solid rgba(22,163,74,0.15)}.tc1::before{background:linear-gradient(180deg,#16A34A,#2E6349)}
-.tc2{border:1px solid rgba(22,163,74,0.12)}.tc2::before{background:linear-gradient(180deg,#5BAD7E,#2E6349)}
-.tc3{border:1px solid rgba(184,134,11,0.15)}.tc3::before{background:linear-gradient(180deg,var(--gold-l),var(--gold))}
-.tier-lvl{font-family:'Cinzel',serif;font-size:9.5px;font-weight:700;color:#2E6349;min-width:46px;flex-shrink:0}
-.tier-range{font-size:12px;color:var(--text-mid);flex:1;line-height:1.4}
-.tier-pct{font-family:'Cinzel Decorative',serif;font-size:20px;font-weight:700;color:#2E6349;flex-shrink:0}
+.tc1{border:1px solid rgba(37,211,102,0.15)}.tc1::before{background:linear-gradient(180deg,#16A34A,#15803D)}
+.tc2{border:1px solid rgba(91,47,190,0.12)}.tc2::before{background:linear-gradient(180deg,var(--pu-light),var(--pu-mid))}
+.tc3{border:1px solid rgba(184,134,11,0.15)}.tc3::before{background:linear-gradient(180deg,var(--gold3),var(--gold2))}
+.tier-lvl{font-family:'Cinzel',serif;font-size:9px;font-weight:700;color:var(--pu-mid);min-width:44px;flex-shrink:0}
+.tier-range{font-size:11.5px;color:#3D2060;flex:1;line-height:1.4}
+.tier-pct{font-family:'Cinzel Decorative',serif;font-size:19px;font-weight:700;color:#166534;flex-shrink:0}
 .tc3 .tier-pct{color:var(--gold)}
-.fee-row{display:flex;align-items:center;gap:12px;padding:10px 13px;border-radius:8px;margin:4px 0;background:rgba(44,31,10,0.03);border:1px solid rgba(44,31,10,0.06)}
-.fee-label{font-size:12px;color:var(--text-mid);flex:1;line-height:1.4}
-.fee-val{font-size:12.5px;font-weight:600;color:#9A2828;white-space:nowrap;flex-shrink:0}
-.divider{display:flex;align-items:center;padding:20px 22px 2px}
-.div-line{flex:1;height:1px}
-.div-l{background:linear-gradient(90deg,transparent,rgba(184,134,11,0.18))}.div-r{background:linear-gradient(90deg,rgba(184,134,11,0.18),transparent)}
-.div-center{padding:0 14px;display:flex;align-items:center;gap:6px}
-.dc-sm{width:4px;height:4px;background:var(--saffron);transform:rotate(45deg);opacity:0.5}
-.dc-lg{width:8px;height:8px;background:var(--gold-l);transform:rotate(45deg);box-shadow:0 0 7px rgba(184,134,11,0.3)}
-.form-group{margin-bottom:16px;display:flex;flex-direction:column;gap:7px}
-.form-label{font-size:11.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);font-family:'Cinzel',serif}
-.form-label .optional-tag{font-size:9px;letter-spacing:0.5px;color:var(--text-dim);font-family:'DM Sans',sans-serif;text-transform:none;font-weight:400;margin-left:6px}
-.form-input,.form-select{width:100%;padding:11px 13px;border-radius:9px;background:#FAFAF8;border:1px solid rgba(44,31,10,0.12);color:var(--text-full);font-size:13px;font-family:'DM Sans',sans-serif;transition:all 0.25s ease;box-shadow:inset 0 1px 3px rgba(44,31,10,0.04)}
+
+/* FEE ROWS */
+.fee-row{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:7px;margin:4px 0;background:rgba(91,47,190,0.03);border:1px solid rgba(91,47,190,0.07)}
+.fee-label{font-size:11.5px;color:#3D2060;flex:1;line-height:1.4}
+.fee-val{font-size:12px;font-weight:600;color:#991B1B;white-space:nowrap;flex-shrink:0}
+
+/* SUB LABEL */
+.sub-label{display:flex;align-items:center;gap:8px;margin:13px 0 6px}
+.sub-line{flex:1;height:0.5px;background:rgba(91,47,190,0.1)}
+.sub-txt{font-size:7.5px;letter-spacing:2.5px;text-transform:uppercase;white-space:nowrap;font-weight:600;color:rgba(91,47,190,0.45)}
+
+/* FORM */
+.form-group{margin-bottom:14px;display:flex;flex-direction:column;gap:6px}
+.form-label{
+  font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  font-family:'Cinzel',serif;color:var(--pu-deep);
+}
+.form-label .optional-tag{font-size:9px;color:var(--text-dim);font-family:'DM Sans',sans-serif;text-transform:none;font-weight:400;margin-left:5px}
+.form-input,.form-select{
+  width:100%;padding:11px 12px;border-radius:9px;
+  background:#FAFAFE;
+  border:1px solid rgba(91,47,190,0.18);
+  color:var(--text-dark);font-size:13px;font-family:'DM Sans',sans-serif;
+  transition:all 0.2s ease;
+}
 .form-input::placeholder{color:var(--text-dim)}
-.form-input:focus,.form-select:focus{outline:none;background:#fff;border-color:rgba(184,134,11,0.4);box-shadow:0 0 0 3px rgba(184,134,11,0.08),inset 0 1px 3px rgba(26,15,0,0.03)}
-.form-select{-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B8860B' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");background-repeat:no-repeat;background-position:right 10px center;background-size:18px;padding-right:36px;background-color:#FAFAF8 !important;cursor:pointer}
-.form-select option{background:#fff !important;color:#1A0F00 !important}
-.form-select option:checked{background:#FFF8E1 !important;color:var(--gold-d) !important;font-weight:600}
-.submit-btn{width:100%;padding:15px 20px;border-radius:11px;background:linear-gradient(135deg,#8A6820,#6A4E10);border:1px solid rgba(138,104,32,0.35);color:#fff;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all 0.25s ease;font-family:'Cinzel',serif;box-shadow:0 4px 16px rgba(138,104,32,0.20);margin-top:8px;display:flex;align-items:center;justify-content:center;gap:10px}
-.submit-btn:hover{background:linear-gradient(135deg,#7A5810,#5A3E08);box-shadow:0 8px 24px rgba(138,104,32,0.28);transform:translateY(-2px)}
+.form-input:focus,.form-select:focus{
+  outline:none;background:#fff;
+  border-color:rgba(91,47,190,0.4);
+  box-shadow:0 0 0 3px rgba(91,47,190,0.08);
+}
+.form-select{
+  -webkit-appearance:none;appearance:none;
+  background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235B2FBE' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat:no-repeat;background-position:right 10px center;background-size:16px;
+  padding-right:34px;cursor:pointer;background-color:#FAFAFE !important;
+}
+.form-select option{background:#fff !important;color:#1A0A3C !important}
+.form-section-card{
+  background:#fff;border:1px solid rgba(91,47,190,0.1);
+  border-radius:var(--r-md);padding:20px 16px;
+  box-shadow:0 2px 16px rgba(91,47,190,0.06);
+}
+
+.submit-btn{
+  width:100%;padding:14px 20px;border-radius:10px;
+  background:linear-gradient(135deg,var(--pu-mid),var(--pu-deep));
+  border:1px solid rgba(91,47,190,0.3);
+  color:#fff;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;transition:all 0.25s;font-family:'Cinzel',serif;
+  box-shadow:0 4px 16px rgba(91,47,190,0.25);
+  margin-top:8px;display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.submit-btn:hover{background:linear-gradient(135deg,var(--pu-soft),var(--pu-mid));box-shadow:0 8px 24px rgba(91,47,190,0.35);transform:translateY(-2px)}
 .submit-btn:active{transform:translateY(0)}
 .submit-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
-.submit-btn .btn-spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,0.3);border-top-color:white;border-radius:50%;animation:spin 0.8s linear infinite;display:none}
+.btn-spinner{width:15px;height:15px;border:2px solid rgba(255,255,255,0.35);border-top-color:white;border-radius:50%;animation:spin 0.8s linear infinite;display:none}
 @keyframes spin{to{transform:rotate(360deg)}}
 .submit-btn.loading .btn-spinner{display:block}
 .submit-btn.loading .btn-text{display:none}
-.form-error{padding:11px 13px;border-radius:9px;background:rgba(160,40,40,0.06);border:1px solid rgba(160,40,40,0.18);border-left:3px solid #B83232;color:#9A2828;font-size:12px;display:none;margin-top:8px}
-.success-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(237,232,223,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);align-items:center;justify-content:center;padding:24px}
+.form-error{padding:10px 12px;border-radius:8px;background:rgba(200,30,30,0.05);border:1px solid rgba(200,30,30,0.18);border-left:3px solid #DC2626;color:#991B1B;font-size:12px;display:none;margin-top:8px}
+
+/* SUCCESS */
+.success-overlay{
+  display:none;position:fixed;inset:0;z-index:9999;
+  background:rgba(240,237,248,0.92);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  align-items:center;justify-content:center;padding:24px;
+}
 .success-overlay.visible{display:flex}
-.success-card{position:relative;max-width:400px;width:100%;background:#fff;border:1px solid rgba(22,163,74,0.22);border-radius:24px;padding:44px 30px 36px;text-align:center;box-shadow:0 8px 60px rgba(44,31,10,0.12),0 2px 8px rgba(44,31,10,0.06);animation:cardIn 0.6s cubic-bezier(0.16,1,0.3,1) both}
-@keyframes cardIn{from{opacity:0;transform:scale(0.9) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
-.success-card::before{content:'';position:absolute;top:0;left:30px;right:30px;height:1px;background:linear-gradient(90deg,transparent,rgba(22,163,74,0.35) 50%,transparent)}
-.success-left-bar{position:absolute;left:0;top:36px;bottom:36px;width:3px;border-radius:2px;background:linear-gradient(180deg,var(--saffron),#16A34A,var(--gold-l))}
-.success-icon-wrap{position:relative;width:80px;height:80px;margin:0 auto 24px}
-.success-icon-ring{position:absolute;inset:-8px;border-radius:50%;border:1.5px dashed rgba(22,163,74,0.3);animation:spinRing 8s linear infinite}
-.success-icon-inner{position:absolute;inset:0;border-radius:50%;background:rgba(22,163,74,0.08);border:1.5px solid rgba(22,163,74,0.22);display:flex;align-items:center;justify-content:center}
-.success-check{font-size:32px;animation:checkBounce 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.3s both}
+.success-card{
+  position:relative;max-width:380px;width:100%;
+  background:#fff;border:1px solid rgba(91,47,190,0.18);
+  border-radius:22px;padding:40px 28px 32px;text-align:center;
+  box-shadow:0 8px 50px rgba(91,47,190,0.15);
+  animation:cardIn 0.5s cubic-bezier(0.16,1,0.3,1) both;
+}
+@keyframes cardIn{from{opacity:0;transform:scale(0.9) translateY(16px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.success-card::before{content:'';position:absolute;top:0;left:30px;right:30px;height:1px;background:linear-gradient(90deg,transparent,rgba(91,47,190,0.35) 50%,transparent)}
+.sc-corner{position:absolute;width:16px;height:16px}
+.sc-tl{top:12px;left:12px;border-top:1.5px solid rgba(184,134,11,0.3);border-left:1.5px solid rgba(184,134,11,0.3);border-radius:4px 0 0 0}
+.sc-tr{top:12px;right:12px;border-top:1.5px solid rgba(184,134,11,0.3);border-right:1.5px solid rgba(184,134,11,0.3);border-radius:0 4px 0 0}
+.sc-bl{bottom:12px;left:12px;border-bottom:1.5px solid rgba(184,134,11,0.3);border-left:1.5px solid rgba(184,134,11,0.3);border-radius:0 0 0 4px}
+.sc-br{bottom:12px;right:12px;border-bottom:1.5px solid rgba(184,134,11,0.3);border-right:1.5px solid rgba(184,134,11,0.3);border-radius:0 0 4px 0}
+.s-icon-wrap{position:relative;width:70px;height:70px;margin:0 auto 20px}
+.s-icon-ring{position:absolute;inset:-8px;border-radius:50%;border:1.5px dashed rgba(91,47,190,0.2);animation:spin 10s linear infinite}
+.s-icon-inner{position:absolute;inset:0;border-radius:50%;background:rgba(91,47,190,0.07);border:1.5px solid rgba(91,47,190,0.18);display:flex;align-items:center;justify-content:center}
+.s-check{font-size:28px;animation:checkBounce 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.3s both}
 @keyframes checkBounce{from{transform:scale(0) rotate(-20deg);opacity:0}to{transform:scale(1) rotate(0deg);opacity:1}}
-.success-eyebrow{font-size:8.5px;letter-spacing:5px;text-transform:uppercase;color:rgba(22,163,74,0.7);margin-bottom:10px}
-.success-title{font-family:'Cinzel Decorative',serif;font-size:20px;font-weight:900;letter-spacing:2px;color:#7A5510;margin-bottom:18px;line-height:1.35}
-.success-ornament{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 auto 18px;width:200px}
-.so-line{flex:1;height:1px}.so-l{background:linear-gradient(90deg,transparent,rgba(22,163,74,0.35))}.so-r{background:linear-gradient(90deg,rgba(22,163,74,0.35),transparent)}
-.so-gem{width:7px;height:7px;background:#16A34A;transform:rotate(45deg)}
-.success-message-box{background:rgba(22,163,74,0.05);border:1px solid rgba(22,163,74,0.15);border-radius:14px;padding:18px 20px;margin-bottom:20px}
-.success-msg-text{font-size:13px;color:var(--text-mid);line-height:1.8;font-weight:400}
-.success-msg-text .highlight{color:#2E6349;font-weight:600}.success-msg-text .gold-txt{color:var(--gold);font-weight:600}
-.success-tricolor{display:flex;height:3px;width:140px;margin:0 auto 20px;border-radius:3px;overflow:hidden}
-.stc-s{flex:1;background:var(--saffron)}.stc-w{flex:1;background:rgba(44,31,10,0.12)}.stc-g{flex:1;background:var(--green-i)}
-.success-close-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 28px;border-radius:50px;background:rgba(22,163,74,0.08);border:1px solid rgba(22,163,74,0.25);color:#2E6349;font-size:10.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;font-family:'Cinzel',serif;transition:all 0.25s ease}
-.success-close-btn:hover{background:rgba(22,163,74,0.14);border-color:rgba(22,163,74,0.45);transform:translateY(-2px)}
-.success-corner{position:absolute;width:18px;height:18px}
-.sc-tl{top:12px;left:12px;border-top:1.5px solid rgba(184,134,11,0.25);border-left:1.5px solid rgba(184,134,11,0.25);border-radius:4px 0 0 0}
-.sc-tr{top:12px;right:12px;border-top:1.5px solid rgba(184,134,11,0.25);border-right:1.5px solid rgba(184,134,11,0.25);border-radius:0 4px 0 0}
-.sc-bl{bottom:12px;left:12px;border-bottom:1.5px solid rgba(184,134,11,0.25);border-left:1.5px solid rgba(184,134,11,0.25);border-radius:0 0 0 4px}
-.sc-br{bottom:12px;right:12px;border-bottom:1.5px solid rgba(184,134,11,0.25);border-right:1.5px solid rgba(184,134,11,0.25);border-radius:0 0 4px 0}
-::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg-page)}::-webkit-scrollbar-thumb{background:rgba(184,134,11,0.25);border-radius:2px}
-@media (max-width:480px){.success-title{font-size:17px}.success-card{padding:36px 22px 30px}}
+.s-eyebrow{font-size:8px;letter-spacing:4px;text-transform:uppercase;color:rgba(91,47,190,0.5);margin-bottom:8px}
+.s-title{font-family:'Cinzel Decorative',serif;font-size:17px;font-weight:900;letter-spacing:2px;margin-bottom:14px;line-height:1.35;
+  background:linear-gradient(135deg,var(--pu-deep),var(--pu-mid));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.s-msg-box{background:rgba(91,47,190,0.04);border:1px solid rgba(91,47,190,0.12);border-radius:12px;padding:14px 16px;margin-bottom:16px}
+.s-msg-text{font-size:12.5px;color:#3D2060;line-height:1.8}
+.s-msg-text .hl{color:var(--pu-mid);font-weight:600}
+.s-msg-text .gl{color:var(--gold);font-weight:600}
+.s-close-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:11px 22px;border-radius:50px;
+  background:rgba(91,47,190,0.07);border:1px solid rgba(91,47,190,0.2);
+  color:var(--pu-mid);font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;font-family:'Cinzel',serif;transition:all 0.2s;
+}
+.s-close-btn:hover{background:rgba(91,47,190,0.14);border-color:rgba(91,47,190,0.35);transform:translateY(-2px)}
+
+/* Policy footer */
+.pol-footer{text-align:center;padding:22px 20px 12px}
+.pol-footer-bar{display:flex;height:1.5px;margin-bottom:10px;border-radius:2px;overflow:hidden}
+.pfb1{flex:1;background:linear-gradient(90deg,transparent,rgba(91,47,190,0.35))}
+.pfb2{flex:1;background:linear-gradient(90deg,rgba(91,47,190,0.35),rgba(192,22,138,0.25))}
+.pfb3{flex:1;background:linear-gradient(90deg,rgba(192,22,138,0.25),transparent)}
+.pol-footer-text{font-family:'Cinzel',serif;font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(59,15,140,0.2)}
+.pol-footer-text b{color:rgba(91,47,190,0.35)}
+
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:rgba(91,47,190,0.2);border-radius:2px}
+@media(max-width:480px){.policy-big-title{font-size:42px}.hero-nav-bar{flex-direction:column;gap:0;border-radius:16px;padding:8px 12px}.hnb-sep{width:80%;height:1px;margin:4px 0}}
 </style>
 </head>
 <body>
-<div class="jali"></div>
 <div class="particles" id="particles"></div>
 
-<!-- SUCCESS OVERLAY -->
+<!-- SUCCESS -->
 <div class="success-overlay" id="successOverlay">
   <div class="success-card">
-    <div class="success-corner sc-tl"></div><div class="success-corner sc-tr"></div>
-    <div class="success-corner sc-bl"></div><div class="success-corner sc-br"></div>
-    <div class="success-left-bar"></div>
-    <div class="success-icon-wrap"><div class="success-icon-ring"></div><div class="success-icon-inner"><div class="success-check">✓</div></div></div>
-    <div class="success-eyebrow">Registration Status</div>
-    <div class="success-title">Form Successfully<br>Submitted!</div>
-    <div class="success-ornament"><div class="so-line so-l"></div><div class="so-gem"></div><div class="so-line so-r"></div></div>
-    <div class="success-message-box">
-      <div class="success-msg-text">🎉 <span class="highlight">Aapka Form Safaltapoorvak Submit Ho Gaya Hai!</span><br><br>Hamari <span class="gold-txt">Team aapki application review karegi</span> aur jaldi hi aapse sampark karegi.<br><br>Kripaya <span class="highlight">WhatsApp</span> par available rahein. Dhanyavaad! 🙏</div>
+    <div class="sc-corner sc-tl"></div><div class="sc-corner sc-tr"></div>
+    <div class="sc-corner sc-bl"></div><div class="sc-corner sc-br"></div>
+    <div class="s-icon-wrap"><div class="s-icon-ring"></div><div class="s-icon-inner"><div class="s-check">✓</div></div></div>
+    <div class="s-eyebrow">Registration Status</div>
+    <div class="s-title">Form Successfully<br>Submitted!</div>
+    <div class="s-msg-box">
+      <div class="s-msg-text">🎉 <span class="hl">Aapka Form Safaltapoorvak Submit Ho Gaya!</span><br><br>Hamari <span class="gl">Team aapki application review karegi</span> aur jaldi hi aapse sampark karegi.<br><br>Kripaya <span class="hl">WhatsApp</span> par available rahein. Dhanyavaad! 🙏</div>
     </div>
-    <div class="success-tricolor"><div class="stc-s"></div><div class="stc-w"></div><div class="stc-g"></div></div>
-    <button class="success-close-btn" onclick="closeSuccessAndGoHome()">← Back to Home</button>
+    <button class="s-close-btn" onclick="closeSuccessAndGoHome()">← Back to Home</button>
   </div>
 </div>
 
-<!-- PAGE 1 · HOME -->
+<!-- ══ HOME ══ -->
 <div class="page active" id="page-home">
   <div class="topbar">
-    <div class="tri-bar"><div class="tri-s"></div><div class="tri-w"></div><div class="tri-g"></div></div>
-    <div class="logo-wrap"><div class="logo-spin-ring"></div><div class="logo-inner"><img class="logo-img" src="logo.png" alt="Rizz Live" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="logo-fallback" style="display:none">RL</span></div><div class="logo-gem lg-tl"></div><div class="logo-gem lg-tr"></div><div class="logo-gem lg-bl"></div><div class="logo-gem lg-br"></div></div>
-    <div class="topbar-info"><div class="topbar-name">Rizz Live</div><div class="topbar-sub">Live Streaming Platform</div></div>
-    <div class="topbar-right"><div class="live-badge"><div class="live-dot-pulse"></div><span class="live-txt">Live</span></div></div>
+    <div class="logo-wrap"><img src="logo.png" alt="Rizz Live" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="lf">RL</div></div>
+    <div class="topbar-info"><div class="t-name">Rizz Live</div><div class="t-sub">Live Streaming Platform</div></div>
+    <div class="topbar-right"><div class="live-pill"><div class="live-dot"></div><span class="live-txt">Live</span></div></div>
   </div>
-  <div class="hero">
-    <div class="diya-container">
-      <div class="diya-aura"></div>
-      <svg width="80" height="80" viewBox="0 0 90 90" fill="none">
-        <circle cx="45" cy="29" r="18" fill="rgba(200,151,58,0.10)"><animate attributeName="r" values="13;22;12;20;13" dur="2.1s" repeatCount="indefinite"/><animate attributeName="opacity" values=".10;.22;.06;.16;.10" dur="2.1s" repeatCount="indefinite"/></circle>
-        <path d="M45 11 Q52 19 52 27 Q52 35 45 38 Q38 35 38 27 Q38 19 45 11Z" fill="#C8550E"><animate attributeName="d" values="M45 11 Q52 19 52 27 Q52 35 45 38 Q38 35 38 27 Q38 19 45 11Z;M45 6 Q54 17 54 26 Q54 36 45 39 Q36 36 36 26 Q36 17 45 6Z;M45 11 Q52 19 52 27 Q52 35 45 38 Q38 35 38 27 Q38 19 45 11Z" dur="1.4s" repeatCount="indefinite"/></path>
-        <path d="M45 15 Q50 22 50 27 Q50 33 45 35 Q40 33 40 27 Q40 22 45 15Z" fill="#D4A000"/>
-        <ellipse cx="45" cy="23" rx="3" ry="5.5" fill="#FFF8DC"><animate attributeName="ry" values="5.5;8;4;7;5.5" dur="0.9s" repeatCount="indefinite"/><animate attributeName="cy" values="23;18;24;19;23" dur="0.9s" repeatCount="indefinite"/></ellipse>
-        <line x1="45" y1="38" x2="45" y2="50" stroke="rgba(184,134,11,0.5)" stroke-width="2" stroke-linecap="round"/>
-        <path d="M24 50 Q27 70 45 72 Q63 70 66 50Z" fill="rgba(184,134,11,0.35)" stroke="rgba(184,134,11,0.5)" stroke-width="1"/>
-        <path d="M22 50 Q45 44 68 50" stroke="rgba(184,134,11,0.5)" stroke-width="1.8" fill="none"/>
-        <circle cx="34" cy="59" r="2" fill="rgba(184,134,11,0.3)"/><circle cx="45" cy="63" r="2" fill="rgba(184,134,11,0.3)"/><circle cx="56" cy="59" r="2" fill="rgba(184,134,11,0.3)"/>
-        <ellipse cx="45" cy="74" rx="26" ry="5" fill="rgba(184,134,11,0.10)" stroke="rgba(184,134,11,0.18)" stroke-width=".8"/>
-      </svg>
+
+  <div class="home-hero">
+    <div class="hero-logo-row">
+      <div class="hero-logo-box"><img src="logo.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="hlf">RL</div></div>
+      <div class="hero-brand"><div class="hero-brand-name">RIZZ LIVE</div><div class="hero-brand-sub">Live Streaming Platform</div></div>
     </div>
-    <div class="brand-eyebrow">India's Live Streaming</div>
-    <div class="brand-name">RIZZ LIVE</div>
-    <div class="brand-sub">Live Streaming Platform</div>
-    <div class="ornament"><div class="orn-line orn-l"></div><div class="orn-center"><div class="gem-sm"></div><div class="gem-lg"></div><div class="gem-sm"></div></div><div class="orn-line orn-r"></div></div>
-    <div class="tricolor"><div class="tc-s"></div><div class="tc-w"></div><div class="tc-g"></div></div>
-    <div class="hero-pill">Official Policy Documents</div>
+    <div class="policy-big-title">POLICY</div>
+    <div class="hero-gem-row"><div class="hero-gem-line"></div><div class="hero-gem"></div><div class="hero-gem-line"></div></div>
+
+    <!-- Banner-style bottom nav pill -->
+    <div class="hero-nav-bar">
+      <div class="hnb-item" onclick="showPage('page-host')">
+        <div class="hnb-icon">🛡️</div>
+        <span>Host Policy</span>
+      </div>
+      <div class="hnb-sep"></div>
+      <div class="hnb-item" onclick="showPage('page-agency')">
+        <div class="hnb-icon">📋</div>
+        <span>Agency Policy</span>
+      </div>
+      <div class="hnb-sep"></div>
+      <div class="hnb-item" onclick="showPage('page-register')">
+        <div class="hnb-icon">👤</div>
+        <span>Registration</span>
+      </div>
+    </div>
   </div>
-  <div class="divider"><div class="div-line div-l"></div><div class="div-center"><div class="dc-sm"></div><div class="dc-lg"></div><div class="dc-sm"></div></div><div class="div-line div-r"></div></div>
-  <div class="sec-label"><div class="sl-gems"><div class="slg-s"></div><div class="slg-l"></div></div><span class="sl-text">Policies</span><div class="sl-line"></div></div>
-  <div class="cards">
-    <div class="nav-card nc-host" onclick="showPage('page-host')"><div class="nc-icon ni-host">🎙️</div><div class="nc-body"><div class="nc-title">HOST POLICY</div><div class="nc-desc">Rules &amp; guidelines for live hosts</div></div><div class="nc-arrow">›</div></div>
-    <div class="nav-card nc-agency" onclick="showPage('page-agency')"><div class="nc-icon ni-agency">🏛️</div><div class="nc-body"><div class="nc-title">AGENCY POLICY</div><div class="nc-desc">Agency terms &amp; conditions</div></div><div class="nc-arrow">›</div></div>
-    <div class="nav-card nc-register" onclick="showPage('page-register')"><div class="nc-icon ni-register">📝</div><div class="nc-body"><div class="nc-title">AGENCY REGISTRATION</div><div class="nc-desc">Register your agency with Rizz Live</div><div class="register-chip">Registration Form</div></div><div class="nc-arrow">›</div></div>
+
+  <div class="sec-lbl"><div class="sec-lbl-gems"><div class="slg1"></div><div class="slg2"></div></div><span class="sec-lbl-text">Policies</span><div class="sec-lbl-line"></div></div>
+  <div class="home-cards">
+    <div class="hcard hc-host" onclick="showPage('page-host')">
+      <div class="hcard-icon hi-host">🎙️</div>
+      <div class="hcard-body"><div class="hcard-title">HOST POLICY</div><div class="hcard-desc">Rules &amp; guidelines for live hosts</div><div class="hcard-chip chip-gold">Host Guidelines</div></div>
+      <div class="hcard-arrow">›</div>
+    </div>
+    <div class="hcard hc-agency" onclick="showPage('page-agency')">
+      <div class="hcard-icon hi-agency">🏛️</div>
+      <div class="hcard-body"><div class="hcard-title">AGENCY POLICY</div><div class="hcard-desc">Agency terms &amp; conditions</div><div class="hcard-chip chip-purple">Agency Guidelines</div></div>
+      <div class="hcard-arrow">›</div>
+    </div>
+    <div class="hcard hc-reg" onclick="showPage('page-register')">
+      <div class="hcard-icon hi-reg">📝</div>
+      <div class="hcard-body"><div class="hcard-title">AGENCY REGISTRATION</div><div class="hcard-desc">Register your agency with Rizz Live</div><div class="hcard-chip chip-pink">Registration Form</div></div>
+      <div class="hcard-arrow">›</div>
+    </div>
   </div>
-  <div class="divider"><div class="div-line div-l"></div><div class="div-center"><div class="dc-sm"></div><div class="dc-lg"></div><div class="dc-sm"></div></div><div class="div-line div-r"></div></div>
-  <div class="sec-label"><div class="sl-gems"><div class="slg-s"></div><div class="slg-l"></div></div><span class="sl-text">Contact</span><div class="sl-line"></div></div>
-  <div class="cards">
-    <a href="https://whatsapp.com/channel/0029VbBsWwtGzzKJmjQ8CU0Q" class="nav-card nc-wa" target="_blank" rel="noopener">
-      <div class="nc-icon ni-wa"><svg width="24" height="24" viewBox="0 0 24 24" fill="#16A34A"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
-      <div class="nc-body"><div class="nc-title">OFFICIAL CHANNEL</div><div class="nc-desc">Daily updates &amp; announcements</div><div class="wa-chip">WhatsApp</div></div>
-      <div class="nc-arrow">›</div>
+
+  <div class="sec-lbl"><div class="sec-lbl-gems"><div class="slg1"></div><div class="slg2"></div></div><span class="sec-lbl-text">Contact</span><div class="sec-lbl-line"></div></div>
+  <div class="home-cards">
+    <a href="https://whatsapp.com/channel/0029VbBsWwtGzzKJmjQ8CU0Q" class="hcard hc-wa" target="_blank" rel="noopener">
+      <div class="hcard-icon hi-wa"><svg width="24" height="24" viewBox="0 0 24 24" fill="#16A34A"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+      <div class="hcard-body"><div class="hcard-title">OFFICIAL CHANNEL</div><div class="hcard-desc">Daily updates &amp; announcements</div><div class="hcard-chip chip-wa">WhatsApp</div></div>
+      <div class="hcard-arrow">›</div>
     </a>
   </div>
-  <div class="chakra-wrap">
-    <svg class="chakra-svg" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="44" stroke="#1A3596" stroke-width="3.5"/><circle cx="50" cy="50" r="8" fill="#1A3596"/><circle cx="50" cy="50" r="3.5" fill="#B8860B" opacity=".7"/><g stroke="#1A3596" stroke-width="1.4"><line x1="50" y1="50" x2="50" y2="6" transform="rotate(0 50 50)"/><line x1="50" y1="50" x2="50" y2="6" transform="rotate(15 50 50)"/><line x1="50" y1="50" x2="50" y2="6" transform="rotate(30 50 50)"/><line x1="50" y1="50" x2="50" y2="6" transform="rotate(45 50 50)"/><line x1="50" y1="50" x2="50" y2="6" transform="rotate(60 50 50)"/><line x1="50" y1="50" x2="50" y2="6" transform="rotate(75 50 50)"/><line x1="50" y1="50" x2="50" y2="6" transform="rotate(90 50 50)"/><line x1="50" y1="50" x2="50" y2="6" transform="rotate(105 50 50)"/><line x1="50" y1="50" x2="50" y2="6" transform="rotate(120 50 50)"/><line x1="50" y1="50" x2="50" y2="6" transform="rotate(135 50 50)"/><line x1="50" y1="50" x2="50" y2="6" transform="rotate(150 50 50)"/><line x1="50" y1="50" x2="50" y2="6" transform="rotate(165 50 50)"/><line x1="50" y1="50" x2="50" y2="6" transform="rotate(180 50 50)"/><line x1="50" y1="50" x2="50" y2="6" transform="rotate(195 50 50)"/><line x1="50" y1="50" x2="50" y2="6" transform="rotate(210 50 50)"/><line x1="50" y1="50" x2="50" y2="6" transform="rotate(225 50 50)"/><line x1="50" y1="50" x2="50" y2="6" transform="rotate(240 50 50)"/><line x1="50" y1="50" x2="50" y2="6" transform="rotate(255 50 50)"/><line x1="50" y1="50" x2="50" y2="6" transform="rotate(270 50 50)"/><line x1="50" y1="50" x2="50" y2="6" transform="rotate(285 50 50)"/><line x1="50" y1="50" x2="50" y2="6" transform="rotate(300 50 50)"/><line x1="50" y1="50" x2="50" y2="6" transform="rotate(315 50 50)"/><line x1="50" y1="50" x2="50" y2="6" transform="rotate(330 50 50)"/><line x1="50" y1="50" x2="50" y2="6" transform="rotate(345 50 50)"/></g></svg>
-  </div>
-  <div class="footer"><div class="footer-bar"><div class="fb-s"></div><div class="fb-w"></div><div class="fb-g"></div></div><p class="footer-text">© 2026 All Rights Reserved · <b>Rizz Live India</b></p></div>
+
+  <div class="home-footer"><div class="hf-bar"><div class="hfb1"></div><div class="hfb2"></div><div class="hfb3"></div></div><p class="hf-text">© 2026 All Rights Reserved · <b>Rizz Live India</b></p></div>
 </div>
 
-<!-- PAGE 2 · HOST POLICY -->
+<!-- ══ HOST POLICY ══ -->
 <div class="page" id="page-host">
-  <div class="topbar">
-    <div class="tri-bar"><div class="tri-s"></div><div class="tri-w"></div><div class="tri-g"></div></div>
-    <div class="logo-wrap"><div class="logo-spin-ring"></div><div class="logo-inner"><img class="logo-img" src="logo.png" alt="Rizz Live" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="logo-fallback" style="display:none">RL</span></div><div class="logo-gem lg-tl"></div><div class="logo-gem lg-tr"></div><div class="logo-gem lg-bl"></div><div class="logo-gem lg-br"></div></div>
-    <div class="topbar-info"><div class="topbar-name">Rizz Live</div><div class="topbar-sub">Live Streaming Platform</div></div>
+  <div class="topbar"><div class="logo-wrap"><img src="logo.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="lf">RL</div></div><div class="topbar-info"><div class="t-name">Rizz Live</div><div class="t-sub">Live Streaming Platform</div></div></div>
+  <div class="pol-hero">
+    <div class="ph-eyebrow ph-ey-gold">Host Guidelines</div>
+    <div class="ph-title ph-gold">HOST POLICY</div>
+    <div class="ph-orn"><div class="ph-orn-line phl-gold"></div><div class="pg-s pgs-gold"></div><div class="pg-l pgg-gold"></div><div class="pg-s pgs-gold"></div><div class="ph-orn-line phr-gold"></div></div>
   </div>
-  <div class="policy-hero">
-    <div class="ph-eyebrow ph-host">Host Guidelines</div>
-    <div class="ph-title ph-title-host">HOST POLICY</div>
-    <div class="ph-orn"><div class="pho-line pho-host-l"></div><div class="pho-gems"><div class="phg-s phg-host-s"></div><div class="phg-l phg-host-l"></div><div class="phg-s phg-host-s"></div></div><div class="pho-line pho-host-r"></div></div>
-  </div>
-  <div style="padding:0 18px 20px;display:flex;justify-content:center;">
-    <span class="back-btn" onclick="showPage('page-home')"><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>Back to Home</span>
-  </div>
+  <div class="back-wrap"><span class="back-btn" onclick="showPage('page-home')"><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>Back to Home</span></div>
   <div class="sections">
-
-    <!-- SECTION 01 -->
-    <div class="sec-block host-block sb-1 host open">
-      <div class="sec-header" onclick="toggleSection(this)"><div class="sec-num host-num">01</div><div class="sec-title">Host Salary Structure</div><div class="sec-arrow host-arrow">›</div></div>
+    <div class="sec-block sb-1h open">
+      <div class="sec-header" onclick="toggleSection(this)"><div class="sec-num">01</div><div class="sec-title">Host Salary Structure</div><div class="sec-arr">›</div></div>
       <div class="sec-body">
-
-        <div class="h-main">1. Personal Gift Share<div class="hm-line"></div></div>
-        <div class="ibox ibox-green">
-          <div class="ibox-lbl">Host Gift Share</div>
-          <div class="ibox-text" style="font-family:'Cinzel',serif;font-size:22px;color:var(--green-i);font-weight:700;">100%</div>
-        </div>
-
+        <div class="h-main">1.1 Personal Gift Share<div class="hm-line"></div></div>
+        <div class="ibox ibox-green"><div class="ibox-lbl">Host Gift Share</div><div class="ibox-text" style="font-family:'Cinzel',serif;font-size:22px;color:#166534;font-weight:700;">100%</div></div>
         <div class="h-sub">Example<div class="hs-line"></div></div>
-        <div class="ibox ibox-gold">
-          <div class="ibox-text">If a user sends <b>10K Coins</b> during a live broadcast, the host receives <b>10K Rubies</b>.</div>
-        </div>
-
-        <div class="h-main">2. Daily Live Bonus<div class="hm-line"></div></div>
-        <table class="pol-table">
-          <tr><th class="h-th">Valid Hours Target</th><th class="h-th">Valid Days Target</th><th class="h-th">Daily Bonus</th></tr>
-          <tr><td class="gold">2</td><td class="gold">1</td><td class="gold">10%</td></tr>
-        </table>
-
+        <div class="ibox ibox-gold"><div class="ibox-text">If a user sends <b>10K Coins</b> during a live broadcast, the host receives <b>10K Rubies</b>.</div></div>
+        <div class="h-main">1.2 Daily Live Bonus<div class="hm-line"></div></div>
+        <table class="pol-table"><tr><th class="h-th">Valid Hours Target</th><th class="h-th">Valid Days Target</th><th class="h-th">Daily Bonus</th></tr><tr><td class="gold">2</td><td class="gold">1</td><td class="gold">5%</td></tr></table>
         <div class="h-sub">Example<div class="hs-line"></div></div>
-        <div class="ibox ibox-saffron">
-          <div class="ibox-text">If a host earns <b>100,000 Rubies</b> in gifts that day and completes <b>2 Valid Hours</b>, they receive a <b>10,000 Ruby bonus (10%)</b>, credited Daily <b></b>.</div>
-        </div>
-
+        <div class="ibox ibox-gold"><div class="ibox-text">If a host earns <b>50,000 Rubies</b> in gifts that day and completes <b>2 Valid Hours</b>, they receive a <b>2,500 Ruby bonus (5%)</b>, credited daily at <b>10:30 PM IST</b>.</div></div>
         <div class="h-sub">Bonus Requirements<div class="hs-line"></div></div>
-        <ul class="bul hb">
-          <li>Stream at least <b>2 valid hours</b> in a single day</li>
-          <li>Bonus applies on <b>gift Rubies only</b> — game commission excluded</li>
-        </ul>
-
-        <div class="h-main">3. Weekly Bonus<div class="hm-line"></div></div>
-        <table class="pol-table">
-          <tr><th class="h-th">Valid Hours Target</th><th class="h-th">Valid Days Target</th><th class="h-th">Weekly Bonus</th></tr>
-          <tr><td class="gold">10</td><td class="gold">4</td><td class="gold">30%</td></tr>
-        </table>
-
+        <ul class="bul hb"><li>Stream at least <b>2 valid hours</b> in a single day</li><li>Bonus applies on <b>gift Rubies only</b> — game commission excluded</li></ul>
+        <div class="h-main">1.3 Weekly Bonus<div class="hm-line"></div></div>
+        <table class="pol-table"><tr><th class="h-th">Valid Hours Target</th><th class="h-th">Valid Days Target</th><th class="h-th">Weekly Bonus</th></tr><tr><td class="gold">10</td><td class="gold">4</td><td class="gold">30%</td></tr></table>
         <div class="h-sub">Example<div class="hs-line"></div></div>
-        <div class="ibox ibox-saffron">
-          <div class="ibox-text">If a host earns <b>100K Rubies</b> in one week (Sun 10:30 PM – Sun 10:30 PM), they receive a <b>30K Ruby bonus (30%)</b>, credited on <b>Monday</b>.</div>
-        </div>
-
+        <div class="ibox ibox-gold"><div class="ibox-text">If a host earns <b>100K Rubies</b> in one week (Sun 10:30 PM – Sun 10:30 PM), they receive a <b>30K Ruby bonus (30%)</b>, credited on <b>Monday</b>.</div></div>
         <div class="h-sub">Bonus Requirements<div class="hs-line"></div></div>
-        <ul class="bul hb">
-          <li>Complete at least <b>4 active days</b></li>
-          <li>Stream a total of <b>10 hours</b> in the week</li>
-        </ul>
-
+        <ul class="bul hb"><li>Complete at least <b>4 active days</b></li><li>Stream a total of <b>10 hours</b> in the week</li></ul>
         <div class="h-main">Rules<div class="hm-line"></div></div>
         <ul class="bul hb">
           <li><b>Withdrawal Rate:</b> <span class="gold">20,000 Ruby = 1 USD</span></li>
@@ -416,228 +683,156 @@ td.gold{color:var(--gold);font-weight:600}td.green{color:#2E6349;font-weight:600
           <li><b>Bonus Payment:</b> Every <b>Monday</b> (In Rubies)</li>
           <li><b>Withdrawal:</b> Once per day — Minimum <span class="gold">$10 USD</span></li>
         </ul>
-
         <div class="h-sub">Agency Change Rules<div class="hs-line"></div></div>
-        <ul class="bul hb">
-          <li>No live for <b>120 days</b></li>
-          <li>Current contract agency unreachable for <b>2 weeks</b></li>
-          <li>Both host and agency <b>mutually agree</b></li>
-        </ul>
-        <div class="ibox ibox-red" style="margin-top:10px">
-          <div class="ibox-lbl">Strict Rule</div>
-          <div class="ibox-text">Any misuse or cheating during transfer → <b>Warning / Suspension / Ban</b></div>
-        </div>
+        <ul class="bul hb"><li>No live for <b>120 days</b></li><li>Current contract agency unreachable for <b>2 weeks</b></li><li>Both host and agency <b>mutually agree</b></li></ul>
+        <div class="ibox ibox-red" style="margin-top:9px"><div class="ibox-lbl">Strict Rule</div><div class="ibox-text">Any misuse or cheating during transfer → <b>Warning / Suspension / Ban</b></div></div>
       </div>
     </div>
-
-    <!-- SECTION 02 -->
-    <div class="sec-block host-block sb-2 host open">
-      <div class="sec-header" onclick="toggleSection(this)"><div class="sec-num host-num">02</div><div class="sec-title">Host Game Commissions</div><div class="sec-arrow host-arrow">›</div></div>
+    <div class="sec-block sb-2h open">
+      <div class="sec-header" onclick="toggleSection(this)"><div class="sec-num">02</div><div class="sec-title">Host Game Commissions</div><div class="sec-arr">›</div></div>
       <div class="sec-body">
-        <table class="pol-table">
-          <tr><th class="h-th">Bet Amount (Coins)</th><th class="h-th">Reward (Ruby)</th></tr>
-          <tr><td class="gold">1,000</td><td class="gold">1</td></tr>
-        </table>
-        <ul class="bul hb" style="margin-top:12px">
-          <li>Host earns <b>1 Ruby</b> for every <b>1,000 coins</b> used in games</li>
-          <li>This income <b><span class="red">does NOT count</span></b> toward weekly targets</li>
-          <li>Earnings <b>credited instantly</b> after each stream ends</li>
-        </ul>
+        <table class="pol-table"><tr><th class="h-th">Bet Amount (Coins)</th><th class="h-th">Reward (Ruby)</th></tr><tr><td class="gold">1,000</td><td class="gold">1</td></tr></table>
+        <ul class="bul hb" style="margin-top:10px"><li>Host earns <b>1 Ruby</b> for every <b>1,000 coins</b> used in games</li><li>This income <b><span class="red">does NOT count</span></b> toward weekly targets</li><li>Earnings <b>credited instantly</b> after each stream ends</li></ul>
       </div>
     </div>
-
-    <!-- SECTION 03 -->
-    <div class="sec-block host-block sb-3 host open">
-      <div class="sec-header" onclick="toggleSection(this)"><div class="sec-num host-num">03</div><div class="sec-title">Rookie Host Policy</div><div class="sec-arrow host-arrow">›</div></div>
+    <div class="sec-block sb-3h open">
+      <div class="sec-header" onclick="toggleSection(this)"><div class="sec-num">03</div><div class="sec-title">Rookie Host Policy</div><div class="sec-arr">›</div></div>
       <div class="sec-body">
-        <table class="pol-table">
-          <tr><th class="h-th">Cycle</th><th class="h-th">Ruby Target</th><th class="h-th">Days</th><th class="h-th">Hours</th><th class="h-th">Guarantee</th></tr>
-          <tr><td>Week 1</td><td class="gold">0</td><td>4</td><td>10</td><td class="green">$5</td></tr>
-          <tr><td>Week 2</td><td class="gold">50,000</td><td>4</td><td>10</td><td class="green">$5</td></tr>
-          <tr><td>Week 3</td><td class="gold">100,000</td><td>4</td><td>10</td><td class="green">$5</td></tr>
-          <tr><td>Week 4</td><td class="gold">150,000</td><td>4</td><td>10</td><td class="green">$5</td></tr>
-        </table>
-        <ul class="bul hb" style="margin-top:12px">
-          <li>New hosts must be <b>approved</b> to get guarantee for first 4 weeks</li>
-          <li><b>Week 1:</b> No target – guarantee given automatically</li>
-          <li>Missing one week's target <b>does not cancel</b> next week's guarantee</li>
-          <li>If Valid Days &amp; Hours not met → <b>salary under basic policy</b></li>
-          <li>From <b>Week 5 onward</b>, only basic policy applies</li>
-        </ul>
+        <table class="pol-table"><tr><th class="h-th">Cycle</th><th class="h-th">Ruby Target</th><th class="h-th">Days</th><th class="h-th">Hours</th><th class="h-th">Guarantee</th></tr><tr><td>Week 1</td><td class="gold">0</td><td>4</td><td>10</td><td class="green">$5</td></tr><tr><td>Week 2</td><td class="gold">50,000</td><td>4</td><td>10</td><td class="green">$5</td></tr><tr><td>Week 3</td><td class="gold">100,000</td><td>4</td><td>10</td><td class="green">$5</td></tr><tr><td>Week 4</td><td class="gold">150,000</td><td>4</td><td>10</td><td class="green">$5</td></tr></table>
+        <ul class="bul hb" style="margin-top:10px"><li>New hosts must be <b>approved</b> to get guarantee for first 4 weeks</li><li><b>Week 1:</b> No target – guarantee given automatically</li><li>Missing one week's target <b>does not cancel</b> next week's guarantee</li><li>If Valid Days &amp; Hours not met → <b>salary under basic policy</b></li><li>From <b>Week 5 onward</b>, only basic policy applies</li></ul>
       </div>
     </div>
-
-    <!-- SECTION 04 -->
-    <div class="sec-block host-block sb-4 host open">
-      <div class="sec-header" onclick="toggleSection(this)"><div class="sec-num host-num">04</div><div class="sec-title">Prestige Host Policy</div><div class="sec-arrow host-arrow">›</div></div>
+    <div class="sec-block sb-4h open">
+      <div class="sec-header" onclick="toggleSection(this)"><div class="sec-num">04</div><div class="sec-title">Prestige Host Policy</div><div class="sec-arr">›</div></div>
       <div class="sec-body">
-        <table class="pol-table">
-          <tr><th class="h-th">Cycle</th><th class="h-th">Ruby Target</th><th class="h-th">Days</th><th class="h-th">Hours</th><th class="h-th">Guarantee</th></tr>
-          <tr><td>Week 1</td><td class="gold">100,000</td><td>4</td><td>10</td><td class="green">$15</td></tr>
-          <tr><td>Week 2</td><td class="gold">150,000</td><td>4</td><td>10</td><td class="green">$15</td></tr>
-          <tr><td>Week 3</td><td class="gold">200,000</td><td>4</td><td>10</td><td class="green">$15</td></tr>
-          <tr><td>Week 4</td><td class="gold">300,000</td><td>4</td><td>10</td><td class="green">$15</td></tr>
-          <tr><td>Week 5+</td><td class="gold">300,000</td><td>4</td><td>10</td><td class="green">$15</td></tr>
-        </table>
-        <ul class="bul hb" style="margin-top:12px">
-          <li>Only <b>approved hosts</b> can join this program</li>
-          <li>Missing one week's target <b>does not cancel</b> next week's guarantee</li>
-          <li>If targets not met → <b>salary follows basic policy</b></li>
-        </ul>
-
+        <table class="pol-table"><tr><th class="h-th">Cycle</th><th class="h-th">Ruby Target</th><th class="h-th">Days</th><th class="h-th">Hours</th><th class="h-th">Guarantee</th></tr><tr><td>Week 1</td><td class="gold">100,000</td><td>4</td><td>10</td><td class="green">$15</td></tr><tr><td>Week 2</td><td class="gold">150,000</td><td>4</td><td>10</td><td class="green">$15</td></tr><tr><td>Week 3</td><td class="gold">200,000</td><td>4</td><td>10</td><td class="green">$15</td></tr><tr><td>Week 4</td><td class="gold">300,000</td><td>4</td><td>10</td><td class="green">$15</td></tr><tr><td>Week 5+</td><td class="gold">300,000</td><td>4</td><td>10</td><td class="green">$15</td></tr></table>
+        <ul class="bul hb" style="margin-top:10px"><li>Only <b>approved hosts</b> can join this program</li><li>Missing one week's target <b>does not cancel</b> next week's guarantee</li><li>If targets not met → <b>salary follows basic policy</b></li></ul>
         <div class="h-main">4.1 Week 5 and Beyond<div class="hm-line"></div></div>
-        <div class="ibox ibox-gold">
-          <div class="ibox-lbl">Fixed Target Structure</div>
-          <div class="ibox-text">From <b>Week 5 onwards</b>, the Ruby target is <b>fixed at 300,000 Rubies</b> per week, establishing a stable and consistent earning benchmark. This standardized target ensures predictability for long-term planning while maintaining the <b>$15 weekly guarantee</b>.</div>
-        </div>
-        <div class="ibox ibox-blue" style="margin-top:8px">
-          <div class="ibox-lbl">Old Host Audition</div>
-          <div class="ibox-text">If an <b>existing/old host</b> passes the Prestige Policy audition, they are placed directly at <b>Week 5</b> — no ramp-up period.<br><br><b>Fixed Terms:</b> 300,000 Ruby target · 4 days · 10 hrs/week<br><b>Earnings:</b> Basic salary + <span class="green">$15 weekly guarantee</span></div>
-        </div>
-
+        <div class="ibox ibox-gold"><div class="ibox-lbl">Fixed Target Structure</div><div class="ibox-text">From <b>Week 5 onwards</b>, the Ruby target is <b>fixed at 300,000 Rubies</b> per week, maintaining the <b>$15 weekly guarantee</b>.</div></div>
+        <div class="ibox ibox-blue" style="margin-top:7px"><div class="ibox-lbl">Old Host Audition</div><div class="ibox-text">If an <b>existing/old host</b> passes the Prestige Policy audition, they are placed directly at <b>Week 5</b> — no ramp-up period.<br><br><b>Fixed Terms:</b> 300,000 Ruby target · 4 days · 10 hrs/week</div></div>
         <div class="h-main">4.2 Requirements<div class="hm-line"></div></div>
-        <ul class="bul hb">
-          <li>Look clean and presentable on stream</li>
-          <li>Follow schedule and complete required hours</li>
-          <li>Keep background neat and professional</li>
-          <li>Maintain good audio &amp; video quality</li>
-          <li>Actively engage with viewers</li>
-          <li>Follow team instructions and join activities</li>
-        </ul>
-
+        <ul class="bul hb"><li>Look clean and presentable on stream</li><li>Follow schedule and complete required hours</li><li>Keep background neat and professional</li><li>Maintain good audio &amp; video quality</li><li>Actively engage with viewers</li><li>Follow team instructions and join activities</li></ul>
         <div class="h-main">4.3 Removal Triggers<div class="hm-line"></div></div>
-        <div class="ibox ibox-red">
-          <div class="ibox-lbl">Warning Triggers</div>
-          <div class="ibox-text">
-            • Not streaming regularly or bad attitude<br>
-            • Ignoring or disrespecting viewers<br>
-            • Noisy setup with no improvement<br>
-            • Not following team instructions<br>
-            • Poor screen quality without fixing<br>
-            • Breaking platform rules or laws<br>
-            • <b>2 bans/week</b> → removed from policy<br>
-            &nbsp;&nbsp;(1st ban: 1 day · 2nd: 2 days)<br>
-            • Mandatory broadcast: <b>6 PM – 11:50 PM</b><br>
-            • Old host with new ID → <b>ban, no compensation</b>
-          </div>
-        </div>
+        <div class="ibox ibox-red"><div class="ibox-lbl">Warning Triggers</div><div class="ibox-text">• Not streaming regularly or bad attitude<br>• Ignoring or disrespecting viewers<br>• Noisy setup with no improvement<br>• Not following team instructions<br>• Poor screen quality without fixing<br>• Breaking platform rules or laws<br>• <b>2 bans/week</b> → removed from policy (1st ban: 1 day · 2nd: 2 days)<br>• Mandatory broadcast: <b>6 PM – 11:50 PM</b><br>• Old host with new ID → <b>ban, no compensation</b></div></div>
       </div>
     </div>
   </div>
-  <div class="footer"><div class="footer-bar"><div class="fb-s"></div><div class="fb-w"></div><div class="fb-g"></div></div><p class="footer-text">© 2026 <b>Rizz Live</b> · All Rights Reserved</p></div>
+  <div class="pol-footer"><div class="pol-footer-bar"><div class="pfb1"></div><div class="pfb2"></div><div class="pfb3"></div></div><p class="pol-footer-text">© 2026 <b>Rizz Live</b> · All Rights Reserved</p></div>
 </div>
 
-<!-- PAGE 3 · AGENCY POLICY -->
+<!-- ══ AGENCY POLICY ══ -->
 <div class="page" id="page-agency">
-  <div class="topbar">
-    <div class="tri-bar"><div class="tri-s"></div><div class="tri-w"></div><div class="tri-g"></div></div>
-    <div class="logo-wrap"><div class="logo-spin-ring"></div><div class="logo-inner"><img class="logo-img" src="logo.png" alt="Rizz Live" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="logo-fallback" style="display:none">RL</span></div><div class="logo-gem lg-tl"></div><div class="logo-gem lg-tr"></div><div class="logo-gem lg-bl"></div><div class="logo-gem lg-br"></div></div>
-    <div class="topbar-info"><div class="topbar-name">Rizz Live</div><div class="topbar-sub">Live Streaming Platform</div></div>
+  <div class="topbar"><div class="logo-wrap"><img src="logo.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="lf">RL</div></div><div class="topbar-info"><div class="t-name">Rizz Live</div><div class="t-sub">Live Streaming Platform</div></div></div>
+  <div class="pol-hero">
+    <div class="ph-eyebrow ph-ey-purple">Agency Guidelines</div>
+    <div class="ph-title ph-purple">AGENCY POLICY</div>
+    <div class="ph-orn"><div class="ph-orn-line phl-pu"></div><div class="pg-s pgs-pu"></div><div class="pg-l pgg-pu"></div><div class="pg-s pgs-pu"></div><div class="ph-orn-line phr-pu"></div></div>
   </div>
-  <div class="policy-hero">
-    <div class="ph-eyebrow ph-agency">Agency Guidelines</div>
-    <div class="ph-title ph-title-agency">AGENCY POLICY</div>
-    <div class="ph-orn"><div class="pho-line pho-agency-l"></div><div class="pho-gems"><div class="phg-s phg-agency-s"></div><div class="phg-l phg-agency-l"></div><div class="phg-s phg-agency-s"></div></div><div class="pho-line pho-agency-r"></div></div>
-  </div>
-  <div style="padding:0 18px 20px;display:flex;justify-content:center;"><span class="back-btn gb" onclick="showPage('page-home')"><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>Back to Home</span></div>
+  <div class="back-wrap"><span class="back-btn" onclick="showPage('page-home')"><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>Back to Home</span></div>
   <div class="sections">
-    <div class="sec-block agency-block sb-1 agency open">
-      <div class="sec-header" onclick="toggleSection(this)"><div class="sec-num agency-num">01</div><div class="sec-title">Agency Commission Tiers</div><div class="sec-arrow agency-arrow">›</div></div>
+    <div class="sec-block sb-1a open">
+      <div class="sec-header" onclick="toggleSection(this)"><div class="sec-num">01</div><div class="sec-title">Agency Commission Tiers</div><div class="sec-arr">›</div></div>
       <div class="sec-body">
-        <div class="tier-grid">
-          <div class="tier-card tc1"><div class="tier-lvl">Level 1</div><div class="tier-range">Weekly Revenue below <b>10M Ruby</b></div><div class="tier-pct">16%</div></div>
-          <div class="tier-card tc2"><div class="tier-lvl">Level 2</div><div class="tier-range">Weekly Revenue <b>10M – 30M Ruby</b></div><div class="tier-pct">18%</div></div>
-          <div class="tier-card tc3"><div class="tier-lvl">Level 3</div><div class="tier-range">Weekly Revenue above <b>30M Ruby</b></div><div class="tier-pct">20%</div></div>
-        </div>
-        <div class="sub-label"><div class="sub-txt agency-sub-txt">Requirements</div><div class="sub-line agency-sub-line"></div></div>
+        <div class="tier-grid"><div class="tier-card tc1"><div class="tier-lvl">Level 1</div><div class="tier-range">Weekly Revenue below <b>10M Ruby</b></div><div class="tier-pct">16%</div></div><div class="tier-card tc2"><div class="tier-lvl">Level 2</div><div class="tier-range">Weekly Revenue <b>10M – 30M Ruby</b></div><div class="tier-pct">18%</div></div><div class="tier-card tc3"><div class="tier-lvl">Level 3</div><div class="tier-range">Weekly Revenue above <b>30M Ruby</b></div><div class="tier-pct">20%</div></div></div>
+        <div class="sub-label"><div class="sub-txt">Requirements</div><div class="sub-line"></div></div>
         <ul class="bul ab"><li>Agency must maintain at least <b>5 active hosts</b> every week</li><li>Actively encourage hosts to go live &amp; join platform events</li></ul>
-        <div class="ibox ibox-agency" style="margin-top:10px"><div class="ibox-lbl">Weekly Task Period</div><div class="ibox-text">All weekly tasks counted from <b>Sunday 10:30 PM to Sunday 10:30 PM (IST)</b>.</div></div>
+        <div class="ibox ibox-purple" style="margin-top:9px"><div class="ibox-lbl">Weekly Task Period</div><div class="ibox-text">All weekly tasks counted from <b>Sunday 10:30 PM to Sunday 10:30 PM (IST)</b>.</div></div>
       </div>
     </div>
-    <div class="sec-block agency-block sb-2 agency open">
-      <div class="sec-header" onclick="toggleSection(this)"><div class="sec-num agency-num">02</div><div class="sec-title">Host Activation Salary</div><div class="sec-arrow agency-arrow">›</div></div>
+    <div class="sec-block sb-2a open">
+      <div class="sec-header" onclick="toggleSection(this)"><div class="sec-num">02</div><div class="sec-title">Host Activation Salary</div><div class="sec-arr">›</div></div>
       <div class="sec-body">
-        <table class="pol-table">
-          <tr><th class="a-th">Level</th><th class="a-th">Monthly Target</th><th class="a-th">Active Hosts</th><th class="a-th">Basic Pay</th></tr>
-          <tr><td>L1</td><td>Below 10M</td><td>—</td><td>—</td></tr>
-          <tr><td>L2</td><td>Above 10M</td><td class="green">20</td><td class="gold">$25</td></tr>
-          <tr><td>L3</td><td>Above 50M</td><td class="green">30</td><td class="gold">$225</td></tr>
-          <tr><td>L4</td><td>Above 100M</td><td class="green">50</td><td class="gold">$500</td></tr>
-          <tr><td>L5</td><td>Above 200M</td><td class="green">50</td><td class="gold">$1,000</td></tr>
-        </table>
-        <div class="sub-label"><div class="sub-txt agency-sub-txt">Active Host Definition</div><div class="sub-line agency-sub-line"></div></div>
+        <table class="pol-table"><tr><th class="a-th">Level</th><th class="a-th">Monthly Target</th><th class="a-th">Active Hosts</th><th class="a-th">Basic Pay</th></tr><tr><td>L1</td><td>Below 10M</td><td>—</td><td>—</td></tr><tr><td>L2</td><td>Above 10M</td><td class="green">20</td><td class="gold">$25</td></tr><tr><td>L3</td><td>Above 50M</td><td class="green">30</td><td class="gold">$225</td></tr><tr><td>L4</td><td>Above 100M</td><td class="green">50</td><td class="gold">$500</td></tr><tr><td>L5</td><td>Above 200M</td><td class="green">50</td><td class="gold">$1,000</td></tr></table>
+        <div class="sub-label"><div class="sub-txt">Active Host Definition</div><div class="sub-line"></div></div>
         <ul class="bul ab"><li>At least <b>10 valid days</b> in a month</li><li>At least <b>20 valid hours</b> in a month</li><li>Minimum <b>100,000 Rubies</b> earned in gifts per month</li></ul>
-        <div class="ibox ibox-warn" style="margin-top:10px"><div class="ibox-lbl">Important</div><div class="ibox-text">Failure to meet the monthly revenue target or active host requirement results in <b>disqualification</b> from the Host Activation Salary Program.</div></div>
+        <div class="ibox ibox-warn" style="margin-top:9px"><div class="ibox-lbl">Important</div><div class="ibox-text">Failure to meet the monthly revenue target or active host requirement results in <b>disqualification</b> from the Host Activation Salary Program.</div></div>
       </div>
     </div>
-    <div class="sec-block agency-block sb-3 agency open">
-      <div class="sec-header" onclick="toggleSection(this)"><div class="sec-num agency-num">03</div><div class="sec-title">Commission Payout</div><div class="sec-arrow agency-arrow">›</div></div>
+    <div class="sec-block sb-3a open">
+      <div class="sec-header" onclick="toggleSection(this)"><div class="sec-num">03</div><div class="sec-title">Commission Payout</div><div class="sec-arr">›</div></div>
       <div class="sec-body"><div class="ibox ibox-gold"><div class="ibox-lbl">Payout Schedule</div><div class="ibox-text">Commissions are paid on a <b>daily basis in Rubies</b>.</div></div></div>
     </div>
-    <div class="sec-block agency-block sb-4 agency open">
-      <div class="sec-header" onclick="toggleSection(this)"><div class="sec-num agency-num">04</div><div class="sec-title">Withdrawal Rules</div><div class="sec-arrow agency-arrow">›</div></div>
+    <div class="sec-block sb-4a open">
+      <div class="sec-header" onclick="toggleSection(this)"><div class="sec-num">04</div><div class="sec-title">Withdrawal Rules</div><div class="sec-arr">›</div></div>
       <div class="sec-body">
         <ul class="bul ab"><li>Withdrawal requests may be submitted <b>once per day</b></li><li>Minimum withdrawal amount: <b>$10 USD</b></li></ul>
-        <div class="sub-label"><div class="sub-txt agency-sub-txt">Fee Structure</div><div class="sub-line agency-sub-line"></div></div>
+        <div class="sub-label"><div class="sub-txt">Fee Structure</div><div class="sub-line"></div></div>
         <div class="fee-row"><div class="fee-label">Withdrawal less than <b>$100</b></div><div class="fee-val">$2 flat fee</div></div>
         <div class="fee-row"><div class="fee-label">Withdrawal <b>$100 and above</b></div><div class="fee-val">2% of amount</div></div>
       </div>
     </div>
-    <div class="sec-block agency-block sb-5 agency open">
-      <div class="sec-header" onclick="toggleSection(this)"><div class="sec-num agency-num">05</div><div class="sec-title">Agency Change Rules</div><div class="sec-arrow agency-arrow">›</div></div>
+    <div class="sec-block sb-5a open">
+      <div class="sec-header" onclick="toggleSection(this)"><div class="sec-num">05</div><div class="sec-title">Agency Change Rules</div><div class="sec-arr">›</div></div>
       <div class="sec-body">
         <ul class="bul ab"><li>No activity for <b>120 days</b></li><li>Agency unreachable for <b>2 weeks</b></li><li>Both agency and host <b>mutually agree</b> to the change</li></ul>
-        <div class="ibox ibox-red" style="margin-top:10px"><div class="ibox-lbl">Strict Warning</div><div class="ibox-text">Any fraudulent transfer attempts → <b>Warning / Suspension / Permanent Ban</b></div></div>
+        <div class="ibox ibox-red" style="margin-top:9px"><div class="ibox-lbl">Strict Warning</div><div class="ibox-text">Any fraudulent transfer attempts → <b>Warning / Suspension / Permanent Ban</b></div></div>
       </div>
     </div>
   </div>
-  <div class="footer"><div class="footer-bar"><div class="fb-s"></div><div class="fb-w"></div><div class="fb-g"></div></div><p class="footer-text">© 2026 <b>Rizz Live</b> · All Rights Reserved</p></div>
+  <div class="pol-footer"><div class="pol-footer-bar"><div class="pfb1"></div><div class="pfb2"></div><div class="pfb3"></div></div><p class="pol-footer-text">© 2026 <b>Rizz Live</b> · All Rights Reserved</p></div>
 </div>
 
-<!-- PAGE 4 · AGENCY REGISTRATION -->
+<!-- ══ REGISTRATION ══ -->
 <div class="page" id="page-register">
-  <div class="topbar">
-    <div class="tri-bar"><div class="tri-s"></div><div class="tri-w"></div><div class="tri-g"></div></div>
-    <div class="logo-wrap"><div class="logo-spin-ring"></div><div class="logo-inner"><img class="logo-img" src="logo.png" alt="Rizz Live" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="logo-fallback" style="display:none">RL</span></div><div class="logo-gem lg-tl"></div><div class="logo-gem lg-tr"></div><div class="logo-gem lg-bl"></div><div class="logo-gem lg-br"></div></div>
-    <div class="topbar-info"><div class="topbar-name">Rizz Live</div><div class="topbar-sub">Live Streaming Platform</div></div>
+  <div class="topbar"><div class="logo-wrap"><img src="logo.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="lf">RL</div></div><div class="topbar-info"><div class="t-name">Rizz Live</div><div class="t-sub">Live Streaming Platform</div></div></div>
+  <div class="pol-hero">
+    <div class="ph-eyebrow ph-ey-pink">Registration Form</div>
+    <div class="ph-title ph-pink">AGENCY REGISTRATION</div>
+    <div class="ph-orn"><div class="ph-orn-line phl-pk"></div><div class="pg-s pgs-pk"></div><div class="pg-l pgg-pk"></div><div class="pg-s pgs-pk"></div><div class="ph-orn-line phr-pk"></div></div>
   </div>
-  <div class="policy-hero">
-    <div class="ph-eyebrow ph-register">Registration Form</div>
-    <div class="ph-title ph-title-register">AGENCY REGISTRATION</div>
-    <div class="ph-orn"><div class="pho-line pho-register-l"></div><div class="pho-gems"><div class="phg-s phg-register-s"></div><div class="phg-l phg-register-l"></div><div class="phg-s phg-register-s"></div></div><div class="pho-line pho-register-r"></div></div>
-  </div>
-  <div style="padding:0 18px 20px;display:flex;justify-content:center;"><span class="back-btn gb" onclick="showPage('page-home')"><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>Back to Home</span></div>
-  <div class="sections">
-    <div class="sec-block agency-block sb-1 agency open" style="border-color:rgba(91,111,168,0.14);margin-bottom:0;">
-      <div class="sec-body" style="padding:22px 16px;background:#fff;">
-        <div class="form-group"><label class="form-label" for="admin">Country Admin / Team Leader</label><select id="admin" class="form-select" required onchange="updateAdmins()"><option value="">Select Team Leader</option><option value="Ray-IN">Ray-IN</option><option value="Rajesh-IN">Rajesh-IN</option><option value="Ahin-IN">Ahin-IN</option><option value="Veeraj-IN">Veeraj-IN</option></select></div>
-        <div class="form-group"><label class="form-label" for="subAdmin">Admin <span class="optional-tag">(optional)</span></label><select id="subAdmin" class="form-select"><option value="">Select Admin (Optional)</option></select></div>
-        <div class="form-group"><label class="form-label" for="agencyLeader">Agency Leader Name</label><input type="text" id="agencyLeader" class="form-input" placeholder="Enter full name" required></div>
-        <div class="form-group"><label class="form-label" for="agencyName">Agency Name</label><input type="text" id="agencyName" class="form-input" placeholder="Enter agency name" required></div>
-        <div class="form-group"><label class="form-label" for="rizzId">Rizz Live ID</label><input type="text" id="rizzId" class="form-input" placeholder="e.g., RL-12345" required></div>
-        <div class="form-group"><label class="form-label" for="whatsapp">WhatsApp Number</label><input type="tel" id="whatsapp" class="form-input" placeholder="+91 XXXXX XXXXX" required></div>
-        <div class="form-group"><label class="form-label" for="country">Country</label>
-          <select id="country" class="form-select" required>
-            <option value="">Select Country</option>
-            <option value="India">India</option><option value="Afghanistan">Afghanistan</option><option value="Albania">Albania</option><option value="Algeria">Algeria</option><option value="Andorra">Andorra</option><option value="Angola">Angola</option><option value="Argentina">Argentina</option><option value="Armenia">Armenia</option><option value="Australia">Australia</option><option value="Austria">Austria</option><option value="Azerbaijan">Azerbaijan</option><option value="Bahrain">Bahrain</option><option value="Bangladesh">Bangladesh</option><option value="Belgium">Belgium</option><option value="Brazil">Brazil</option><option value="Canada">Canada</option><option value="China">China</option><option value="Egypt">Egypt</option><option value="France">France</option><option value="Germany">Germany</option><option value="Indonesia">Indonesia</option><option value="Iran">Iran</option><option value="Iraq">Iraq</option><option value="Italy">Italy</option><option value="Japan">Japan</option><option value="Jordan">Jordan</option><option value="Kazakhstan">Kazakhstan</option><option value="Kenya">Kenya</option><option value="Kuwait">Kuwait</option><option value="Malaysia">Malaysia</option><option value="Maldives">Maldives</option><option value="Morocco">Morocco</option><option value="Myanmar">Myanmar</option><option value="Nepal">Nepal</option><option value="Netherlands">Netherlands</option><option value="Nigeria">Nigeria</option><option value="Oman">Oman</option><option value="Pakistan">Pakistan</option><option value="Philippines">Philippines</option><option value="Qatar">Qatar</option><option value="Russia">Russia</option><option value="Saudi Arabia">Saudi Arabia</option><option value="Singapore">Singapore</option><option value="South Africa">South Africa</option><option value="South Korea">South Korea</option><option value="Spain">Spain</option><option value="Sri Lanka">Sri Lanka</option><option value="Sweden">Sweden</option><option value="Switzerland">Switzerland</option><option value="Thailand">Thailand</option><option value="Turkey">Turkey</option><option value="Ukraine">Ukraine</option><option value="United Arab Emirates">United Arab Emirates</option><option value="United Kingdom">United Kingdom</option><option value="United States">United States</option><option value="Uzbekistan">Uzbekistan</option><option value="Vietnam">Vietnam</option><option value="Yemen">Yemen</option>
-          </select>
-        </div>
-        <button type="button" class="submit-btn" id="submitBtn" onclick="handleSubmit()"><div class="btn-spinner"></div><span class="btn-text">Submit Registration</span></button>
-        <div class="form-error" id="errorMsg"></div>
+  <div class="back-wrap"><span class="back-btn" onclick="showPage('page-home')"><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>Back to Home</span></div>
+  <div style="padding:0 13px">
+    <div class="form-section-card">
+      <div class="form-group"><label class="form-label" for="admin">Country Admin / Team Leader</label><select id="admin" class="form-select" required onchange="updateAdmins()"><option value="">Select Team Leader</option><option value="Ray-IN">Ray-IN</option><option value="Rajesh-IN">Rajesh-IN</option><option value="Ahin-IN">Ahin-IN</option><option value="Veeraj-IN">Veeraj-IN</option></select></div>
+      <div class="form-group"><label class="form-label" for="subAdmin">Admin <span class="optional-tag">(optional)</span></label><select id="subAdmin" class="form-select"><option value="">Select Admin (Optional)</option></select></div>
+      <div class="form-group"><label class="form-label" for="agencyLeader">Agency Leader Name</label><input type="text" id="agencyLeader" class="form-input" placeholder="Enter full name" required></div>
+      <div class="form-group"><label class="form-label" for="agencyName">Agency Name</label><input type="text" id="agencyName" class="form-input" placeholder="Enter agency name" required></div>
+      <div class="form-group"><label class="form-label" for="rizzId">Rizz Live ID</label><input type="text" id="rizzId" class="form-input" placeholder="e.g., RL-12345" required></div>
+      <div class="form-group"><label class="form-label" for="whatsapp">WhatsApp Number</label><input type="tel" id="whatsapp" class="form-input" placeholder="+91 XXXXX XXXXX" required></div>
+      <div class="form-group"><label class="form-label" for="country">Country</label>
+        <select id="country" class="form-select" required>
+          <option value="">Select Country</option>
+          <option value="India">India</option><option value="Afghanistan">Afghanistan</option><option value="Albania">Albania</option><option value="Algeria">Algeria</option><option value="Andorra">Andorra</option><option value="Angola">Angola</option><option value="Argentina">Argentina</option><option value="Armenia">Armenia</option><option value="Australia">Australia</option><option value="Austria">Austria</option><option value="Azerbaijan">Azerbaijan</option><option value="Bahrain">Bahrain</option><option value="Bangladesh">Bangladesh</option><option value="Belgium">Belgium</option><option value="Brazil">Brazil</option><option value="Canada">Canada</option><option value="China">China</option><option value="Egypt">Egypt</option><option value="France">France</option><option value="Germany">Germany</option><option value="Indonesia">Indonesia</option><option value="Iran">Iran</option><option value="Iraq">Iraq</option><option value="Italy">Italy</option><option value="Japan">Japan</option><option value="Jordan">Jordan</option><option value="Kazakhstan">Kazakhstan</option><option value="Kenya">Kenya</option><option value="Kuwait">Kuwait</option><option value="Malaysia">Malaysia</option><option value="Maldives">Maldives</option><option value="Morocco">Morocco</option><option value="Myanmar">Myanmar</option><option value="Nepal">Nepal</option><option value="Netherlands">Netherlands</option><option value="Nigeria">Nigeria</option><option value="Oman">Oman</option><option value="Pakistan">Pakistan</option><option value="Philippines">Philippines</option><option value="Qatar">Qatar</option><option value="Russia">Russia</option><option value="Saudi Arabia">Saudi Arabia</option><option value="Singapore">Singapore</option><option value="South Africa">South Africa</option><option value="South Korea">South Korea</option><option value="Spain">Spain</option><option value="Sri Lanka">Sri Lanka</option><option value="Sweden">Sweden</option><option value="Switzerland">Switzerland</option><option value="Thailand">Thailand</option><option value="Turkey">Turkey</option><option value="Ukraine">Ukraine</option><option value="United Arab Emirates">United Arab Emirates</option><option value="United Kingdom">United Kingdom</option><option value="United States">United States</option><option value="Uzbekistan">Uzbekistan</option><option value="Vietnam">Vietnam</option><option value="Yemen">Yemen</option>
+        </select>
       </div>
+      <button type="button" class="submit-btn" id="submitBtn" onclick="handleSubmit()"><div class="btn-spinner"></div><span class="btn-text">Submit Registration</span></button>
+      <div class="form-error" id="errorMsg"></div>
     </div>
   </div>
-  <div class="footer"><div class="footer-bar"><div class="fb-s"></div><div class="fb-w"></div><div class="fb-g"></div></div><p class="footer-text">© 2026 <b>Rizz Live</b> · All Rights Reserved</p></div>
+  <div class="pol-footer" style="margin-top:20px"><div class="pol-footer-bar"><div class="pfb1"></div><div class="pfb2"></div><div class="pfb3"></div></div><p class="pol-footer-text">© 2026 <b>Rizz Live</b> · All Rights Reserved</p></div>
 </div>
 
 <script>
 const adminData={'Ray-IN':['Dhakadking-IN'],'Rajesh-IN':['Irshad-IN'],'Ahin-IN':['Fiza-IN','KushAgarwal-IN'],'Veeraj-IN':[]};
 function updateAdmins(){const sel=document.getElementById('admin').value;const sub=document.getElementById('subAdmin');sub.innerHTML='<option value="">Select Admin (Optional)</option>';if(sel&&adminData[sel]){adminData[sel].forEach(a=>{const o=document.createElement('option');o.value=a;o.textContent=a;sub.appendChild(o)})}}
 function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
-function toggleSection(header){header.closest('.sec-block').classList.toggle('open')}
+function toggleSection(h){h.closest('.sec-block').classList.toggle('open')}
 function closeSuccessAndGoHome(){document.getElementById('successOverlay').classList.remove('visible');showPage('page-home')}
-async function handleSubmit(){const errorMsg=document.getElementById('errorMsg');errorMsg.style.display='none';const teamLeader=document.getElementById('admin').value;const agencyLeader=document.getElementById('agencyLeader').value.trim();const agencyName=document.getElementById('agencyName').value.trim();const rizzId=document.getElementById('rizzId').value.trim();const whatsapp=document.getElementById('whatsapp').value.trim();const country=document.getElementById('country').value;if(!teamLeader||!agencyLeader||!agencyName||!rizzId||!whatsapp||!country){errorMsg.textContent='⚠️ Please fill all required fields before submitting.';errorMsg.style.display='block';errorMsg.scrollIntoView({behavior:'smooth',block:'center'});return}const btn=document.getElementById('submitBtn');btn.classList.add('loading');btn.disabled=true;const formData={Timestamp:new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'}),Supervisor:teamLeader,Admin:document.getElementById('subAdmin').value||'—','Leader Name':agencyLeader,'Agency Name':agencyName,'Rizz Live ID':rizzId,WhatsApp:whatsapp,Country:country};fetch('https://script.google.com/macros/s/AKfycby__OoM7-RnZ2ABOW7feYQaf_s77iRFjfm9aScQ6EGGCYNs9wM0H_cIA1ntY_MN2ADWpQ/exec',{method:'POST',body:JSON.stringify(formData),mode:'no-cors'}).catch(()=>{});document.getElementById('admin').value='';document.getElementById('subAdmin').innerHTML='<option value="">Select Admin (Optional)</option>';document.getElementById('agencyLeader').value='';document.getElementById('agencyName').value='';document.getElementById('rizzId').value='';document.getElementById('whatsapp').value='';document.getElementById('country').value='';btn.classList.remove('loading');btn.disabled=false;window.scrollTo({top:0,behavior:'instant'});document.getElementById('successOverlay').classList.add('visible')}
-(function(){const container=document.getElementById('particles');function createParticle(){const p=document.createElement('div');p.classList.add('particle');const x=5+Math.random()*90;const size=2+Math.random()*2.5;const dur=8+Math.random()*10;const delay=Math.random()*8;p.style.cssText=`left:${x}%;bottom:${Math.random()*15}%;width:${size}px;height:${size}px;animation-duration:${dur}s;animation-delay:${delay}s;`;container.appendChild(p);setTimeout(()=>p.remove(),(dur+delay)*1000)}for(let i=0;i<8;i++)createParticle();setInterval(createParticle,1400)})();
+async function handleSubmit(){
+  const em=document.getElementById('errorMsg');em.style.display='none';
+  const tl=document.getElementById('admin').value,al=document.getElementById('agencyLeader').value.trim(),an=document.getElementById('agencyName').value.trim(),ri=document.getElementById('rizzId').value.trim(),wa=document.getElementById('whatsapp').value.trim(),co=document.getElementById('country').value;
+  if(!tl||!al||!an||!ri||!wa||!co){em.textContent='⚠️ Please fill all required fields before submitting.';em.style.display='block';em.scrollIntoView({behavior:'smooth',block:'center'});return}
+  const btn=document.getElementById('submitBtn');btn.classList.add('loading');btn.disabled=true;
+  const fd={Timestamp:new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'}),Supervisor:tl,Admin:document.getElementById('subAdmin').value||'—','Leader Name':al,'Agency Name':an,'Rizz Live ID':ri,WhatsApp:wa,Country:co};
+  fetch('https://script.google.com/macros/s/AKfycby__OoM7-RnZ2ABOW7feYQaf_s77iRFjfm9aScQ6EGGCYNs9wM0H_cIA1ntY_MN2ADWpQ/exec',{method:'POST',body:JSON.stringify(fd),mode:'no-cors'}).catch(()=>{});
+  document.getElementById('admin').value='';document.getElementById('subAdmin').innerHTML='<option value="">Select Admin (Optional)</option>';
+  document.getElementById('agencyLeader').value='';document.getElementById('agencyName').value='';
+  document.getElementById('rizzId').value='';document.getElementById('whatsapp').value='';document.getElementById('country').value='';
+  btn.classList.remove('loading');btn.disabled=false;
+  window.scrollTo({top:0,behavior:'instant'});document.getElementById('successOverlay').classList.add('visible');
+}
+(function(){
+  const c=document.getElementById('particles');
+  const cols=['rgba(91,47,190,','rgba(160,126,232,','rgba(184,134,11,','rgba(192,22,138,'];
+  function mk(){
+    const p=document.createElement('div');p.classList.add('particle');
+    const col=cols[Math.floor(Math.random()*cols.length)];
+    const sz=1.5+Math.random()*2.5;const dur=12+Math.random()*14;const delay=Math.random()*10;
+    p.style.cssText=`left:${5+Math.random()*90}%;bottom:${Math.random()*10}%;width:${sz}px;height:${sz}px;background:${col}0.7);animation-duration:${dur}s;animation-delay:${delay}s;`;
+    c.appendChild(p);setTimeout(()=>p.remove(),(dur+delay)*1000);
+  }
+  for(let i=0;i<10;i++)mk();setInterval(mk,1400);
+})();
 </script>
 </body>
 </html>
