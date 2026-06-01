@@ -767,7 +767,7 @@ td.gold{color:var(--gold);font-weight:600}td.green{color:#166534;font-weight:600
 </div>
 
 <script>
-const adminData={'Ray-IN':['Dhakadking-IN'],'Rajesh-IN':['Irshad-IN'],'Ahin-IN':['Fiza-IN','KushAgarwal-IN'],'Veeraj-IN':[]};
+const adminData={'Ray-IN':['Dhakadking-IN'],'Rajesh-IN':['Irshad-IN'],'Ahin-IN':['Fiza-IN','Zindagi-IN','KushAgarwal-IN'],'Bobb-IN':['Jeet-IN'],'MacStar-IN':['Shauryass-IN'],'Nexus-IN':[]};
 function updateAdmins(){const sel=document.getElementById('admin').value;const sub=document.getElementById('subAdmin');sub.innerHTML='<option value="">Select Admin (Optional)</option>';if(sel&&adminData[sel]){adminData[sel].forEach(a=>{const o=document.createElement('option');o.value=a;o.textContent=a;sub.appendChild(o)})}}
 function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
 function toggleSection(h){h.closest('.sec-block').classList.toggle('open')}
