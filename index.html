@@ -62,6 +62,9 @@ body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;back
 .hero-gem-row{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;gap:10px;margin:8px auto 0;width:200px;}
 .hero-gem-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(184,134,11,0.45),transparent)}
 .hero-gem{width:9px;height:9px;background:var(--gold3);transform:rotate(45deg);box-shadow:0 0 6px rgba(184,134,11,0.4)}
+
+
+
 .home-cards{padding:16px 14px 0;display:flex;flex-direction:column;gap:10px}
 .hcard{position:relative;display:flex;align-items:center;gap:14px;padding:15px 15px 15px 18px;border-radius:var(--r-md);cursor:pointer;overflow:hidden;text-decoration:none;background:var(--bg3);border:1px solid var(--card-border);box-shadow:var(--card-shadow);transition:transform 0.3s cubic-bezier(0.16,1,0.3,1),box-shadow 0.25s;}
 .hcard::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3.5px;border-radius:2px}
@@ -210,6 +213,7 @@ td.gold{color:var(--gold);font-weight:600}td.green{color:#166534;font-weight:600
     <div class="policy-big-title">POLICY</div>
     <div class="hero-gem-row"><div class="hero-gem-line"></div><div class="hero-gem"></div><div class="hero-gem-line"></div></div>
   </div>
+
   <div class="sec-lbl"><div class="sec-lbl-gems"><div class="slg1"></div><div class="slg2"></div></div><span class="sec-lbl-text">Policies</span><div class="sec-lbl-line"></div></div>
   <div class="home-cards">
     <div class="hcard hc-host" onclick="showPage('page-host')">
@@ -256,23 +260,27 @@ td.gold{color:var(--gold);font-weight:600}td.green{color:#166534;font-weight:600
         <div class="ibox ibox-green"><div class="ibox-lbl">Host Gift Share</div><div class="ibox-text" style="font-family:'Cinzel',serif;font-size:22px;color:#166534;font-weight:700;">100%</div></div>
         <div class="h-sub">Example<div class="hs-line"></div></div>
         <div class="ibox ibox-gold"><div class="ibox-text">If a user sends <b>10K Coins</b> during a live broadcast, the host receives <b>10K Rubies</b>.</div></div>
+
         <div class="h-main">2. Daily Live Bonus<div class="hm-line"></div></div>
-        <table class="pol-table"><tr><th class="h-th">Valid Hours Target</th><th class="h-th">Valid Days Target</th><th class="h-th">Daily Bonus</th></tr><tr><td class="gold">2</td><td class="gold">1</td><td class="gold">10%</td></tr></table>
+        <table class="pol-table"><tr><th class="h-th">Valid Hours Target</th><th class="h-th">Valid Days Target</th><th class="h-th">Daily Bonus</th></tr><tr><td class="gold">2</td><td class="gold">1</td><td class="gold">40%</td></tr></table>
         <div class="h-sub">Example<div class="hs-line"></div></div>
-        <div class="ibox ibox-gold"><div class="ibox-text">If a host earns <b>100k Rubies</b> in gifts that day and completes <b>2 Valid Hours</b>, they receive a <b>10k Ruby bonus (10%)</b>, credited next day.</div></div>
+        <div class="ibox ibox-gold"><div class="ibox-text">If a host earns <b>100k Rubies</b> in gifts that day and completes <b>2 Valid Hours</b>, they receive a <b>40k Ruby bonus (40%)</b>, credited next day.</div></div>
         <div class="h-sub">Bonus Requirements<div class="hs-line"></div></div>
         <ul class="bul hb"><li>Stream at least <b>2 valid hours</b> in a single day</li><li>Bonus applies on <b>gift Rubies only</b> — game commission excluded</li></ul>
-        <div class="h-main">3. Weekly Bonus<div class="hm-line"></div></div>
-        <table class="pol-table"><tr><th class="h-th">Valid Hours Target</th><th class="h-th">Valid Days Target</th><th class="h-th">Weekly Bonus</th></tr><tr><td class="gold">10</td><td class="gold">4</td><td class="gold">30%</td></tr></table>
-        <div class="h-sub">Example<div class="hs-line"></div></div>
-        <div class="ibox ibox-gold"><div class="ibox-text">If a host earns <b>100K Rubies</b> in one week (Sun 10:30 PM – Sun 10:30 PM), they receive a <b>30K Ruby bonus (30%)</b>, credited on <b>Monday</b>.</div></div>
-        <div class="h-sub">Bonus Requirements<div class="hs-line"></div></div>
-        <ul class="bul hb"><li>Complete at least <b>4 active days</b></li><li>Stream a total of <b>10 hours</b> in the week</li></ul>
+
         <div class="h-main">Rules<div class="hm-line"></div></div>
         <ul class="bul hb">
           <li><b>Withdrawal Rate:</b> <span class="gold">20,000 Ruby = 1 USD</span></li>
-          <li><b>Day Change:</b> Daily at 10:30 PM</li>
-          <li><b>Weekly Period:</b> Sunday 10:30 PM to Sunday 10:30 PM</li>
+          <li><b>Day Change:</b>
+            <br>🇮🇳 India — <span class="gold">10:30 PM IST</span>
+            <br>🇧🇩 Bangladesh — <span class="gold">11:00 PM BST</span>
+            <br>🇳🇵 Nepal — <span class="gold">10:45 PM NPT</span>
+          </li>
+          <li><b>Weekly Period:</b>
+            <br>🇮🇳 India — Sunday 10:30 PM to Sunday 10:30 PM <span class="gold">(IST)</span>
+            <br>🇧🇩 Bangladesh — Sunday 11:00 PM to Sunday 11:00 PM <span class="gold">(BST)</span>
+            <br>🇳🇵 Nepal — Sunday 10:45 PM to Sunday 10:45 PM <span class="gold">(NPT)</span>
+          </li>
           <li><b>Valid Day:</b> Minimum <b>120 minutes (2 hours)</b> Live</li>
           <li><b>Valid Hour:</b> 60+ minutes = <span class="gold">1 valid hour</span></li>
           <li><b>Minimum Live Time:</b> Sessions below <b>30 minutes</b> are not counted</li>
@@ -329,7 +337,11 @@ td.gold{color:var(--gold);font-weight:600}td.green{color:#166534;font-weight:600
         <div class="tier-grid"><div class="tier-card tc1"><div class="tier-lvl">Level 1</div><div class="tier-range">Weekly Revenue below <b>10M Ruby</b></div><div class="tier-pct">16%</div></div><div class="tier-card tc2"><div class="tier-lvl">Level 2</div><div class="tier-range">Weekly Revenue <b>10M – 30M Ruby</b></div><div class="tier-pct">18%</div></div><div class="tier-card tc3"><div class="tier-lvl">Level 3</div><div class="tier-range">Weekly Revenue above <b>30M Ruby</b></div><div class="tier-pct">20%</div></div></div>
         <div class="sub-label"><div class="sub-txt">Requirements</div><div class="sub-line"></div></div>
         <ul class="bul ab"><li>Agency must maintain at least <b>5 active hosts</b> every week</li><li>Actively encourage hosts to go live &amp; join platform events</li></ul>
-        <div class="ibox ibox-purple" style="margin-top:9px"><div class="ibox-lbl">Weekly Task Period</div><div class="ibox-text">All weekly tasks counted from <b>Sunday 10:30 PM to Sunday 10:30 PM (IST)</b>.</div></div>
+        <div class="ibox ibox-purple" style="margin-top:9px"><div class="ibox-lbl">Weekly Task Period</div><div class="ibox-text">
+          🇮🇳 India — <b>Sunday 10:30 PM to Sunday 10:30 PM (IST)</b><br>
+          🇧🇩 Bangladesh — <b>Sunday 11:00 PM to Sunday 11:00 PM (BST)</b><br>
+          🇳🇵 Nepal — <b>Sunday 10:45 PM to Sunday 10:45 PM (NPT)</b>
+        </div></div>
       </div>
     </div>
     <div class="sec-block sb-2a open">
@@ -368,6 +380,8 @@ td.gold{color:var(--gold);font-weight:600}td.green{color:#166534;font-weight:600
 <script>
 function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
 function toggleSection(h){h.closest('.sec-block').classList.toggle('open')}
+
+// PARTICLES
 (function(){
   const c=document.getElementById('particles');
   const cols=['rgba(91,47,190,','rgba(160,126,232,','rgba(184,134,11,','rgba(192,22,138,'];
